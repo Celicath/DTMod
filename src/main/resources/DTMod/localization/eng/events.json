@@ -1,0 +1,34 @@
+{
+  "DTMod:SpireHeart": {
+    "NAME": "Spire Heart",
+    "DESCRIPTIONS": [
+      "NL You throw cards at the heart..."
+    ],
+    "OPTIONS": [
+    ]
+  },
+  "DTMod:Vampires": {
+    "NAME": "Vampires(?)",
+    "DESCRIPTIONS": [
+      "Navigating an unlit street, you come across several hooded figures in the midst of some dark ritual. As you approach, they turn to you in eerie unison. The tallest among them bares fanged teeth and extends a long, pale hand towards you. NL ~\"Join~ ~us~ ~servant~ ~of~ ~the~ ~sacred,~ ~and~ ~feel~ ~the~ ~warmth~ ~of~ ~the~ ~Spire.\"~"
+    ],
+    "OPTIONS": [
+      "[Think Hard] #gRecieve Thinking Time.",
+      "[Lose ",
+      "] #gReceive Super Bite.",
+      "[Refuse]",
+      "[Leave]"
+    ]
+  },
+  "DTMod:BookOnTheFloor": {
+    "NAME": "Book on the Floor",
+    "DESCRIPTIONS": [
+      "You enter an eerie room with wall of books. NL Looking around, you find an impressive looking book on the ground. NL You NEED TO pick up this book.",
+      "Your mind is overflowing with mythical energy. You decide to make bond with others."
+    ],
+    "OPTIONS": [
+      "[Obtain Book] #gObtain #ga #gspecial #gRelic.",
+      "[Leave]"
+    ]
+  }
+}

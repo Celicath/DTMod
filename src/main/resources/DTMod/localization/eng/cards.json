@@ -1,0 +1,101 @@
+{
+  "DTMod:Strike": {
+    "NAME": "Strike",
+    "DESCRIPTION": "Deal !D! damage."
+  },
+  "DTMod:Defend": {
+    "NAME": "Defend",
+    "DESCRIPTION": "Gain !B! Block."
+  },
+  "DTMod:DisturbingTactics": {
+    "NAME": "Disturbing Tactics",
+    "DESCRIPTION": "All enemies lose Strength equal to <TBA>",
+    "UPGRADE_DESCRIPTION": "Retain. NL All enemies lose Strength equal to <TBA>"
+  },
+  "DTMod:BadJoker": {
+    "NAME": "Bad Joker",
+    "DESCRIPTION": "Choose 1 of !M! random Attacks to add to your hand."
+  },
+  "DTMod:Mulligan": {
+    "NAME": "Mulligan",
+    "DESCRIPTION": "Discard any number of cards. NL Draw cards until you have 5 cards in hand."
+  },
+  "DTMod:BronzeWave": {
+    "NAME": "Bronze Wave",
+    "DESCRIPTION": "Gain !B! Block. NL Deal !D! damage."
+  },
+  "DTMod:DartThrow": {
+    "NAME": "Dart Throw",
+    "DESCRIPTION": "Deal !D! damage."
+  },
+  "DTMod:FlyingCard": {
+    "NAME": "Flying Card",
+    "DESCRIPTION": "Gain !B! Block and deal !D! damage for each card generated in this combat.",
+    "EXTENDED_DESCRIPTION": [
+      " NL ( !M! cards generated.)"
+    ]
+  },
+  "DTMod:Trickery": {
+    "NAME": "Trickery",
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Weak."
+  },
+  "DTMod:Configure": {
+    "NAME": "Configure",
+    "DESCRIPTION": "Draw !M! cards. Put a card from your hand onto the top of your draw pile."
+  },
+  "DTMod:Fold": {
+    "NAME": "Fold",
+    "DESCRIPTION": "Gain !B! Block. NL Discard !M! cards."
+  },
+  "DTMod:MagicTrick": {
+    "NAME": "Magic Trick",
+    "DESCRIPTION": "Draw until you have 6 cards in hand. NL Discard !M! card.",
+    "UPGRADE_DESCRIPTION": "Draw until you have 7 cards in hand. NL Discard !M! cards."
+  },
+  "DTMod:SecondChance": {
+    "NAME": "Second Chance",
+    "DESCRIPTION": "Deal !D! damage. NL Draw 1 card. NL Repeat until you have 5 cards in hand."
+  },
+  "DTMod:CardBurn": {
+    "NAME": "Card Burn",
+    "DESCRIPTION": "Exhaust 1 card. NL Draw 2 Cards.",
+    "UPGRADE_DESCRIPTION": "Draw 2 Cards. NL Exhaust 1 card."
+  },
+  "DTMod:HiddenCard": {
+    "NAME": "Hidden Card",
+    "DESCRIPTION": "Fetch a Card from your discard pile.",
+    "UPGRADE_DESCRIPTION": "Fetch a Card from your discard pile. Gain Block equal to twich the cost of it.",
+    "EXTENDED_DESCRIPTION": [
+      "There are no Cards in my discard pile."
+    ]
+  },
+  "DTMod:JackOfSpades": {
+    "NAME": "Jack of Spades",
+    "DESCRIPTION": "Gain !B! Block. NL Apply !M! Weak. NL Apply !M! Vulnerable. NL Exhaust."
+  },
+  "DTMod:RunningTactics": {
+    "NAME": "Running Tactics",
+    "DESCRIPTION": "Draw !M! cards. NL <TBA: Other Effect>"
+  },
+  "DTMod:StackedDeck": {
+    "NAME": "Stacked Deck",
+    "DESCRIPTION": "At the start of your turn, Look at the top !M! cards of your draw pile and discard any of them.",
+    "UPGRADE_DESCRIPTION": "Draw 1 card. NL At the start of your turn, Look at the top !M! cards of your draw pile and discard any of them."
+  },
+  "DTMod:SuperBite": {
+    "NAME": "Super Bite",
+    "DESCRIPTION": "Deal !D! damage. NL Heal !M! HP."
+  },
+  "DTMod:ForbiddenStrike": {
+    "NAME": "Forbidden Strike",
+    "DESCRIPTION": "Deal !D! damage. NL Can be upgraded any number of times. NL You cannot Upgrade any other cards at rest sites."
+  },
+  "DTMod:OpeningTactics": {
+    "NAME": "Opening Tactics",
+    "DESCRIPTION": "If the enemy has full HP, Gain !M! Dexterity. NL Deal !D! damage."
+  },
+  "DTMod:RefreshTactics": {
+    "NAME": "Refresh Tactics",
+    "DESCRIPTION": "Fetch a card from your exhaust pile. NL Exhaust."
+  }
+}

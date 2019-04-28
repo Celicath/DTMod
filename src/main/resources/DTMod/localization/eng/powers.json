@@ -1,0 +1,24 @@
+{
+  "DTMod:StackedDeckPower": {
+    "NAME": "Stacked Deck",
+    "DESCRIPTIONS": [
+      "At the start of your turn, Look at the top #b",
+      " cards of your draw pile and discard any of them."
+    ]
+  },
+  "DTMod:EnergyManipulation": {
+    "NAME": "Energy Manipulated",
+    "DESCRIPTIONS": [
+      "Gain #b2 additional [E] for #b",
+      " turn.",
+      " turns."
+    ]
+  },
+  "DTMod:BondingPower": {
+    "NAME": "Bonding",
+    "DESCRIPTIONS": [
+      "After you gain #b",
+      " Bonding in a combat, the mythical creature will help you."
+    ]
+  }
+}

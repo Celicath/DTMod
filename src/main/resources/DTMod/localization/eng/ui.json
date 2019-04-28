@@ -1,0 +1,17 @@
+{
+  "DTMod:DiscardAnyNumberAction": {
+    "TEXT": [
+      "Discard"
+    ]
+  },
+  "DTMod:EnableEventConfig": {
+    "TEXT": [
+      "Enable \"Help Mythical Creature\" Event."
+    ]
+  },
+  "DTMod:JokeRelic": {
+    "TEXT": [
+      "Joke"
+    ]
+  }
+}

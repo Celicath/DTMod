@@ -1,0 +1,40 @@
+{
+  "DTMod:DeckCase": {
+    "NAME": "Deck Case",
+    "FLAVOR": "Having this calms you down and help you quickly recover from bad conditions.",
+    "DESCRIPTIONS": [
+      "Each combat, the first #b",
+      " #yStatus cards entering your deck are #yexhausted."
+    ]
+  },
+  "DTMod:PendantOfEscape": {
+    "NAME": "Pendant of Escape",
+    "FLAVOR": "Touch this if you feel hopeless.",
+    "DESCRIPTIONS": [
+      "[#2aecd7]Once [#2aecd7]per [#2aecd7]combat, [#2aecd7]right [#2aecd7]click [#2aecd7]to [#2aecd7]activate.[] NL Discard your hand and draw #b5 cards."
+    ]
+  },
+  "DTMod:EnergeticBat": {
+    "NAME": "Energetic Bat",
+    "FLAVOR": "This lively bat strikes enemies before you even realize it.",
+    "DESCRIPTIONS": [
+      "Whenever you play a #yStrike card, gain [E] ."
+    ]
+  },
+  "DTMod:BigBag": {
+    "NAME": "Big Bag",
+    "FLAVOR": "Be careful not to spill anything from your bag. Or give the scavengers bonuses.",
+    "DESCRIPTIONS": [
+      "At the start of your combat, draw #b1 additional card for every #b",
+      " cards in your deck."
+    ]
+  },
+  "DTMod:MythicalSkillbook": {
+    "NAME": "Mythical Skillbook",
+    "FLAVOR": "Looks like a joke to tease non-expert developer.",
+    "DESCRIPTIONS": [
+      "Whenever you play a card that affects both you and another character, gain #b1 #yythical:Bonding.",
+      " NL NL #yMulticlass <DTMod class>"
+    ]
+  }
+}
