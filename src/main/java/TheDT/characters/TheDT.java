@@ -1,7 +1,10 @@
 package TheDT.characters;
 
 import TheDT.DTMod;
-import TheDT.cards.*;
+import TheDT.cards.Defend;
+import TheDT.cards.DisturbingTactics;
+import TheDT.cards.Mulligan;
+import TheDT.cards.Strike;
 import TheDT.patches.CardColorEnum;
 import TheDT.relics.DeckCase;
 import basemod.abstracts.CustomPlayer;

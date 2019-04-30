@@ -3,12 +3,15 @@ package TheDT.patches;
 import TheDT.DTMod;
 import TheDT.optionals.FriendlyMinionHelper;
 import com.evacipated.cardcrawl.mod.stslib.patches.core.AbstractCreature.TempHPField;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class MythicalGameState {
 	public static class CharacterState {
@@ -47,46 +50,68 @@ public class MythicalGameState {
 		}
 	}
 
-	public static boolean affectYou;
-	public static boolean affectOther;
-	public static CharacterState playerState;
-	public static ArrayList<CharacterState> otherState;
+	public boolean affectYou;
+	public boolean affectOther;
+	public CharacterState playerState;
+	public ArrayList<CharacterState> otherState;
 
-	public static void reset() {
+	private MythicalGameState() {
 		affectYou = false;
 		affectOther = false;
 	}
 
-	public static void save() {
-		playerState = new CharacterState(AbstractDungeon.player);
-		otherState = new ArrayList<>();
+	public static HashMap<AbstractCard, MythicalGameState> map = new HashMap<>();
+
+	public static void reset() {
+		map.clear();
+	}
+
+	public static void save(AbstractCard card) {
+		MythicalGameState state;
+		if (map.containsKey(card)) {
+			state = map.get(card);
+		} else {
+			state = new MythicalGameState();
+			map.put(card, state);
+		}
+		state.playerState = new CharacterState(AbstractDungeon.player);
+		state.otherState = new ArrayList<>();
+
 		for (AbstractMonster creature : AbstractDungeon.getMonsters().monsters) {
-			otherState.add(new CharacterState(creature));
+			state.otherState.add(new CharacterState(creature));
 		}
 		if (DTMod.isFriendlyMinionsLoaded) {
-			FriendlyMinionHelper.addFriendlyMinionStates(otherState);
+			FriendlyMinionHelper.addFriendlyMinionStates(state.otherState);
 		}
 	}
 
-	public static boolean checkDiff() {
-		if (affectYou && affectOther) return false;
+	public static boolean checkDiff(AbstractCard card, AbstractGameAction action) {
+		MythicalGameState state = map.get(card);
+		if (state.affectYou && state.affectOther) return false;
 
-		String msg = "Affect is ";
-		if (!affectYou) {
-			affectYou = playerState.checkStateChanged();
-			if (affectYou) {
-				msg += "You";
+		String msg = "Affect is";
+		if (!state.affectYou) {
+			state.affectYou = state.playerState.checkStateChanged();
+			if (state.affectYou) {
+				msg += " You";
 			}
+		} else {
+			msg += " (You)";
 		}
-		if (!affectOther) {
-			for (CharacterState cs : otherState) {
+		if (!state.affectOther) {
+			for (CharacterState cs : state.otherState) {
 				if (cs.checkStateChanged()) {
-					affectOther = true;
+					state.affectOther = true;
 					msg += " " + cs.creature.name;
 					break;
 				}
 			}
+		} else {
+			msg += " (Other)";
 		}
-		return affectYou && affectOther;
+		String[] split = action.getClass().getName().split("\\.");
+		DTMod.logger.debug("[" + card.name + "] " + split[split.length - 1] + " -> " + msg);
+
+		return state.affectYou && state.affectOther;
 	}
 }

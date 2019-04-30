@@ -1,7 +1,6 @@
 package TheDT.patches;
 
 import TheDT.DTMod;
-import TheDT.relics.MythicalSkillbook;
 import com.evacipated.cardcrawl.modthespire.lib.ByRef;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
@@ -16,7 +15,7 @@ public class MythicalSkillbookSingleViewPatch {
 	public static class RarityLabelPatch {
 		@SpireInsertPatch(rloc = 0, localvars = {"relic", "rarityLabel"})
 		public static void Insert(SingleRelicViewPopup __instance, AbstractRelic relic, @ByRef String[] rarityLabel) {
-			if (relic.relicId.equals(MythicalSkillbook.ID)) {
+			if (relic.relicId.equals(DTMod.MythicalSkillbookID)) {
 				rarityLabel[0] = TEXT[0];
 			}
 		}

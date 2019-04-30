@@ -2,7 +2,6 @@ package TheDT.cards;
 
 import TheDT.DTMod;
 import TheDT.patches.CardColorEnum;
-import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;

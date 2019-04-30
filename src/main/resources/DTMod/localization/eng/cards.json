@@ -64,7 +64,7 @@
   "DTMod:HiddenCard": {
     "NAME": "Hidden Card",
     "DESCRIPTION": "Fetch a Card from your discard pile.",
-    "UPGRADE_DESCRIPTION": "Fetch a Card from your discard pile. Gain Block equal to twich the cost of it.",
+    "UPGRADE_DESCRIPTION": "Fetch a Card from your discard pile. Gain Block equal to twice the cost of it.",
     "EXTENDED_DESCRIPTION": [
       "There are no Cards in my discard pile."
     ]

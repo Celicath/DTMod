@@ -4,6 +4,7 @@ import TheDT.cards.*;
 import TheDT.characters.TheDT;
 import TheDT.optionals.OptionalRelicHelper;
 import TheDT.patches.CardColorEnum;
+import TheDT.patches.MythicalGameState;
 import TheDT.patches.TheDTEnum;
 import TheDT.potions.LesserPlaceholderPotion;
 import TheDT.relics.BigBag;
@@ -108,6 +109,9 @@ public class DTMod
 	public static Properties dtDefaults = new Properties();
 	public static boolean enableEvent = false;
 	ModLabeledToggleButton enableEventButton;
+
+	// etc.
+	public static String MythicalSkillbookID = makeID("MythicalSkillbook");
 
 	// =============== /INPUT TEXTURE LOCATION/ =================
 
@@ -341,11 +345,12 @@ public class DTMod
 	// ================ /LOAD THE TEXT/ ===================
 
 	public static String getLocCode() {
-		if (Settings.language == Settings.GameLanguage.KOR) {
+		return "eng";
+/*		if (Settings.language == Settings.GameLanguage.KOR) {
 			return "kor";
 		} else {
 			return "eng";
-		}
+		}*/
 	}
 
 	// ================ LOAD THE KEYWORDS ===================
@@ -371,6 +376,7 @@ public class DTMod
 	public void receiveOnBattleStart(AbstractRoom room) {
 		shapeshiftReturns.clear();
 		genCards = 0;
+		MythicalGameState.reset();
 	}
 
 	@Override

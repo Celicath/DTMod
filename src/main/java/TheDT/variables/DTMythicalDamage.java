@@ -4,7 +4,6 @@ import TheDT.cards.AbstractDTCard;
 import basemod.abstracts.DynamicVariable;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 
 public class DTMythicalDamage extends DynamicVariable {
 	@Override

@@ -24,7 +24,7 @@
     "NAME": "Book on the Floor",
     "DESCRIPTIONS": [
       "You enter an eerie room with wall of books. NL Looking around, you find an impressive looking book on the ground. NL You NEED TO pick up this book.",
-      "Your mind is overflowing with mythical energy. You decide to make bond with others."
+      "Your mind overflows with mythical energy. You decide to make bond with others."
     ],
     "OPTIONS": [
       "[Obtain Book] #gObtain #ga #gspecial #gRelic.",
