@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.localization.PotionStrings;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
+import com.megacrit.cardcrawl.powers.LoseDexterityPower;
 import com.megacrit.cardcrawl.powers.LoseStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
@@ -51,7 +52,7 @@ public class LesserPlaceholderPotion extends SackPotion {
 		// If you are in combat, gain strength and the "lose strength at the end of your turn" power, equal to the potency of this potion.
 		if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
 			AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(target, AbstractDungeon.player, new StrengthPower(target, this.potency), this.potency));
-			AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(target, AbstractDungeon.player, new LoseStrengthPower(target, this.potency), this.potency));
+			AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(target, AbstractDungeon.player, new LoseDexterityPower(target, this.potency), this.potency));
 		}
 	}
 
@@ -62,7 +63,7 @@ public class LesserPlaceholderPotion extends SackPotion {
 
 	@Override
 	public int getBasePotency() {
-		return 2;
+		return 4;
 	}
 
 	public void upgradePotion() {
