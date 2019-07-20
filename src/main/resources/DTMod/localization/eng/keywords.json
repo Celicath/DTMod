@@ -5,5 +5,13 @@
       "bonding"
     ],
     "DESCRIPTION": "After you gain #b4 Bonding in a combat, the mythical creature will help you."
+  },
+  {
+    "PROPER_NAME": "Aggro and Target",
+    "NAMES": [
+      "aggro",
+      "target"
+    ],
+    "DESCRIPTION": "All Attack cards have attackers, you or dragon. The attacker gains the Aggro equal to the cost of the card. The character with higher Aggro becomes the Target of all enemies."
   }
 ]

@@ -8,11 +8,11 @@ import TheDT.patches.MythicalGameState;
 import TheDT.patches.TheDTEnum;
 import TheDT.potions.LesserPlaceholderPotion;
 import TheDT.relics.BigBag;
-import TheDT.relics.DeckCase;
 import TheDT.relics.EnergeticBat;
+import TheDT.relics.PactStone;
 import TheDT.relics.PendantOfEscape;
-import TheDT.variables.DTMythicalBlock;
-import TheDT.variables.DTMythicalDamage;
+import TheDT.variables.DTDragonBlock;
+import TheDT.variables.DTDragonDamage;
 import basemod.BaseMod;
 import basemod.ModLabeledToggleButton;
 import basemod.ModPanel;
@@ -28,12 +28,12 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.FontHelper;
-import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
@@ -251,7 +251,7 @@ public class DTMod
 	public void receiveEditRelics() {
 		logger.info("Add relics");
 
-		BaseMod.addRelicToCustomPool(new DeckCase(), CardColorEnum.DT_ORANGE);
+		BaseMod.addRelicToCustomPool(new PactStone(), CardColorEnum.DT_ORANGE);
 
 		BaseMod.addRelicToCustomPool(new EnergeticBat(), CardColorEnum.DT_ORANGE);
 		BaseMod.addRelicToCustomPool(new PendantOfEscape(), CardColorEnum.DT_ORANGE);
@@ -272,37 +272,37 @@ public class DTMod
 	@Override
 	public void receiveEditCards() {
 		// Add the Custom Dynamic Variables
-		BaseMod.addDynamicVariable(new DTMythicalDamage());
-		BaseMod.addDynamicVariable(new DTMythicalBlock());
+		BaseMod.addDynamicVariable(new DTDragonDamage());
+		BaseMod.addDynamicVariable(new DTDragonBlock());
 
 		List<CustomCard> cards = new ArrayList<>();
 
 		cards.add(new Strike());
-		cards.add(new Defend());
-		cards.add(new DisturbingTactics());
-		cards.add(new BadJoker());
-		cards.add(new CardBurn());
+		cards.add(new TargetDefense());
+		cards.add(new BuildUp());
+		cards.add(new HardSkin());
+		cards.add(new SwitchingTactics());
+
 		cards.add(new OpeningTactics());
 		cards.add(new BronzeWave());
-		cards.add(new Configure());
-		cards.add(new DartThrow());
-		cards.add(new FlyingCard());
-		cards.add(new Fold());
 		cards.add(new ForbiddenStrike());
-		cards.add(new HiddenCard());
-		cards.add(new JackOfSpades());
-		cards.add(new MagicTrick());
-		cards.add(new Mulligan());
-		cards.add(new SecondChance());
+		cards.add(new MagicField());
 		cards.add(new RefreshTactics());
 		cards.add(new RunningTactics());
-		cards.add(new StackedDeck());
-
-		cards.add(new SuperBite());
+		cards.add(new HeadStart());
+		cards.add(new Draft());
+		cards.add(new Training());
+		cards.add(new CleansingStrike());
+		cards.add(new CalculatedDefense());
+		cards.add(new ComboAttack());
+		cards.add(new ExcessFootwork());
+		cards.add(new PreemptiveStrike());
 
 		for (CustomCard card : cards) {
 			BaseMod.addCard(card);
-			UnlockTracker.unlockCard(card.cardID);
+			if (!UnlockTracker.isCardSeen(card.cardID)) {
+				UnlockTracker.unlockCard(card.cardID);
+			}
 		}
 	}
 
@@ -366,7 +366,7 @@ public class DTMod
 
 		if (keywords != null) {
 			for (Keyword keyword : keywords) {
-				BaseMod.addKeyword("ythical", keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION);
+				BaseMod.addKeyword("ragontaer", keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION);
 			}
 		}
 		logger.debug("receiveEditKeywords finished.");
@@ -403,8 +403,14 @@ public class DTMod
 
 	// ================ /LOAD THE KEYWORDS/ ===================
 
-	// this adds "ModName: " before the ID of any card/relic/power etc.
-	// in order to avoid conflicts if any other mod uses the same ID.
+	public static AbstractCreature getAttacker(AbstractCard c) {
+		if (c instanceof AbstractDTCard) {
+			return ((AbstractDTCard) c).getAttacker();
+		} else {
+			return AbstractDungeon.player;
+		}
+	}
+
 	public static String makeID(String idText) {
 		return "DTMod:" + idText;
 	}
@@ -436,14 +442,5 @@ public class DTMod
 	private static String GetLocString(String locCode, String name) {
 		return Gdx.files.internal("DTMod/localization/" + locCode + "/" + name + ".json").readString(
 				String.valueOf(StandardCharsets.UTF_8));
-	}
-
-	private static HashMap<String, Texture> imgMap = new HashMap<>();
-
-	public static Texture loadTexture(String path) {
-		if (!imgMap.containsKey(path)) {
-			imgMap.put(path, ImageMaster.loadImage(path));
-		}
-		return imgMap.get(path);
 	}
 }

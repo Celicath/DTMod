@@ -1,6 +1,7 @@
 package TheDT.cards;
 
 import TheDT.DTMod;
+import TheDT.actions.AddAggroAction;
 import TheDT.patches.CardColorEnum;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -24,18 +25,20 @@ public class RunningTactics extends AbstractDTCard {
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.DT_ORANGE;
 	private static final AbstractCard.CardRarity RARITY = CardRarity.UNCOMMON;
 	private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;
+	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DEFAULT;
 
 	private static final int POWER = 3;
 	private static final int UPGRADE_BONUS = 1;
 
 	public RunningTactics() {
-		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
 		magicNumber = baseMagicNumber = POWER;
 		tags.add(DT_TACTICS);
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, this.magicNumber));
+		AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, magicNumber));
+		AbstractDungeon.actionManager.addToBottom(new AddAggroAction(p, 2));
 	}
 
 	public AbstractCard makeCopy() {

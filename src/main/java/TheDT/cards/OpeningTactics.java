@@ -24,17 +24,18 @@ public class OpeningTactics extends AbstractDTCard {
 	public static final String IMG = DTMod.GetCardPath(RAW_ID);
 	private static final int COST = 1;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
+	public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
 	private static final AbstractCard.CardType TYPE = CardType.ATTACK;
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.DT_ORANGE;
 	private static final AbstractCard.CardRarity RARITY = CardRarity.RARE;
 	private static final AbstractCard.CardTarget TARGET = CardTarget.ENEMY;
+	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DEFAULT;
 
-	private static final int POWER = 12;
+	private static final int POWER = 15;
 	private static final int MAGIC = 1;
-	private static final int UPGRADE_MAGIC = 1;
 
 	public OpeningTactics() {
-		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
 		this.baseDamage = POWER;
 		this.baseMagicNumber = MAGIC;
 		this.magicNumber = this.baseMagicNumber;
@@ -55,7 +56,9 @@ public class OpeningTactics extends AbstractDTCard {
 	public void upgrade() {
 		if (!upgraded) {
 			upgradeName();
-			this.upgradeMagicNumber(UPGRADE_MAGIC);
+			isInnate = true;
+			rawDescription = UPGRADE_DESCRIPTION;
+			initializeDescription();
 		}
 	}
 }

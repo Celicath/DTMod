@@ -10,7 +10,6 @@ public class DelayedAction extends AbstractGameAction {
 	public DelayedAction(AbstractGameAction action) {
 		this.setValues(AbstractDungeon.player, AbstractDungeon.player);
 		this.actionType = AbstractGameAction.ActionType.WAIT;
-		this.attackEffect = AbstractGameAction.AttackEffect.SLASH_DIAGONAL;
 		this.duration = Settings.ACTION_DUR_FAST;
 		this.action = action;
 	}

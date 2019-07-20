@@ -20,5 +20,12 @@
       "After you gain #b",
       " Bonding in a combat, the mythical creature will help you."
     ]
+  },
+  "DTMod:CalculatedDefensePower": {
+    "NAME": "Calculated Defense",
+    "DESCRIPTIONS": [
+      "Reduce the damage from Weakened enemies by #b",
+      "."
+    ]
   }
 }

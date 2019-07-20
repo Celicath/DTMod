@@ -27,6 +27,7 @@ public class BronzeWave extends AbstractDTCard {
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.DT_ORANGE;
 	private static final AbstractCard.CardRarity RARITY = CardRarity.COMMON;
 	private static final AbstractCard.CardTarget TARGET = CardTarget.ENEMY;
+	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DEFAULT;
 
 	private static final int DAMAGE = 8;
 	private static final int UPGRADE_DAMAGE = 2;
@@ -34,7 +35,7 @@ public class BronzeWave extends AbstractDTCard {
 	private static final int UPGRADE_BLOCK = 2;
 
 	public BronzeWave() {
-		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
 		baseDamage = DAMAGE;
 		baseBlock = BLOCK;
 	}

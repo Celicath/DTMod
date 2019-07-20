@@ -15,7 +15,7 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import java.util.ArrayList;
 
-import static TheDT.patches.CustomTags.DT_MYTHICAL;
+import static TheDT.patches.CustomTags.DT_DRAGON;
 
 public class MythicalSkillbook extends SkillbookRelic {
 
@@ -66,7 +66,7 @@ public class MythicalSkillbook extends SkillbookRelic {
 	@Override
 	protected void mixCardpools(ArrayList<AbstractCard> cardList) {
 		for (AbstractCard c : cardList) {
-			if (c.rarity != AbstractCard.CardRarity.BASIC && !c.hasTag(DT_MYTHICAL)) {
+			if (c.rarity != AbstractCard.CardRarity.BASIC && !c.hasTag(DT_DRAGON)) {
 				switch (c.rarity) {
 					case COMMON: {
 						AbstractDungeon.commonCardPool.removeCard(c);

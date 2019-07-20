@@ -1,28 +1,32 @@
 package TheDT.characters;
 
 import TheDT.DTMod;
-import TheDT.cards.Defend;
-import TheDT.cards.DisturbingTactics;
-import TheDT.cards.Mulligan;
-import TheDT.cards.Strike;
+import TheDT.actions.AddAggroAction;
+import TheDT.cards.*;
 import TheDT.patches.CardColorEnum;
-import TheDT.relics.DeckCase;
+import TheDT.relics.PactStone;
+import basemod.ReflectionHacks;
 import basemod.abstracts.CustomPlayer;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.math.MathUtils;
-import com.esotericsoftware.spine.AnimationState;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
+import com.megacrit.cardcrawl.vfx.combat.PowerBuffEffect;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -35,14 +39,28 @@ public class TheDT extends CustomPlayer {
 	// =============== BASE STATS =================
 
 	public static final int ENERGY_PER_TURN = 3;
-	public static final int STARTING_HP = 52;
-	public static final int MAX_HP = 52;
+	public static final int STARTING_HP = 40;
+	public static final int MAX_HP = 40;
 	public static final int STARTING_GOLD = 99;
 	public static final int CARD_DRAW = 5;
 	public static final int ORB_SLOTS = 0;
 
 	// =============== /BASE STATS/ =================
 
+	public Dragon dragon;
+	public AbstractCreature target = this;
+	public AbstractDTCard.DTCardTarget dtTargetMode;
+
+	public int aggro;
+	private float targetTimer;
+
+	// Attack icons
+	public boolean isReticleAttackIcon;
+	public Color attackIconColor = CardHelper.getColor(255.0f, 160.0f, 48.0f);
+	public static Texture attackerIcon = null;
+
+	// Attack Animation
+	public boolean animDragonAttack;
 
 	// =============== TEXTURES OF BIG ENERGY ORB ===============
 
@@ -68,44 +86,22 @@ public class TheDT extends CustomPlayer {
 		super(name, setClass, orbTextures,
 				"DTMod/images/char/TheDT/orb/vfx.png", null, null, null);
 
+		CharSelectInfo loadout = getLoadout();
+		initializeClass(DTMod.makePath("char/TheDT/idle.png"),
+				DTMod.makePath(DTMod.THE_DT_SHOULDER_1),
+				DTMod.makePath(DTMod.THE_DT_SHOULDER_2),
+				DTMod.makePath(DTMod.THE_DT_CORPSE),
+				loadout, 0.0F, 0.0F, 220.0F, 290.0F, new EnergyManager(ENERGY_PER_TURN));
 
-		// =============== TEXTURES, ENERGY, LOADOUT =================
+		this.dialogX = (this.drawX + 0.0F * Settings.scale);
+		this.dialogY = (this.drawY + 220.0F * Settings.scale);
 
-		initializeClass(null, // required call to load textures and setup energy/loadout
-				DTMod.makePath(DTMod.THE_DT_SHOULDER_1), // campfire pose
-				DTMod.makePath(DTMod.THE_DT_SHOULDER_2), // another campfire pose
-				DTMod.makePath(DTMod.THE_DT_CORPSE), // dead corpse
-				getLoadout(), 20.0F, -10.0F, 220.0F, 290.0F, new EnergyManager(ENERGY_PER_TURN)); // energy manager
-
-		// =============== /TEXTURES, ENERGY, LOADOUT/ =================
-
-
-		// =============== ANIMATIONS =================
-
-		this.loadAnimation(
-				DTMod.makePath(DTMod.THE_DT_SKELETON_ATLAS),
-				DTMod.makePath(DTMod.THE_DT_SKELETON_JSON),
-				1.0f);
-		AnimationState.TrackEntry e = this.state.setAnimation(0, "Idle", true);
-		e.setTime(e.getEndTime() * MathUtils.random());
-		e.setTimeScale(0.75F);
-
-		// =============== /ANIMATIONS/ =================
-
-
-		// =============== TEXT BUBBLE LOCATION =================
-
-		this.dialogX = (this.drawX + 0.0F * Settings.scale); // set location for text bubbles
-		this.dialogY = (this.drawY + 220.0F * Settings.scale); // you can just copy these values
-
-		// =============== /TEXT BUBBLE LOCATION/ =================
-
+		dragon = new Dragon(charStrings.TEXT[1], 0.0f, 0.0f, 220.0f, 290.0f, this);
+		dragon.initializeClass(loadout);
 	}
 
 	// =============== /CHARACTER CLASS END/ =================
 
-
-	// Starting description and loadout
 	@Override
 	public CharSelectInfo getLoadout() {
 		return new CharSelectInfo(
@@ -115,7 +111,6 @@ public class TheDT extends CustomPlayer {
 				getStartingDeck(), false);
 	}
 
-	// Starting Deck
 	@Override
 	public ArrayList<String> getStartingDeck() {
 		ArrayList<String> retVal = new ArrayList<>();
@@ -126,128 +121,254 @@ public class TheDT extends CustomPlayer {
 		retVal.add(Strike.ID);
 		retVal.add(Strike.ID);
 		retVal.add(Strike.ID);
-		retVal.add(Defend.ID);
-		retVal.add(DisturbingTactics.ID);
+		retVal.add(TargetDefense.ID);
+		retVal.add(TargetDefense.ID);
+		retVal.add(TargetDefense.ID);
+		retVal.add(BuildUp.ID);
+		retVal.add(HardSkin.ID);
+		retVal.add(SwitchingTactics.ID);
 
 		return retVal;
 	}
 
-	// Starting Relics
 	public ArrayList<String> getStartingRelics() {
 		ArrayList<String> retVal = new ArrayList<>();
 
-		retVal.add(DeckCase.ID);
+		retVal.add(PactStone.ID);
 
-		UnlockTracker.markRelicAsSeen(DeckCase.ID);
+		UnlockTracker.markRelicAsSeen(PactStone.ID);
 
 		return retVal;
 	}
 
-	// Character select screen effect
 	@Override
 	public void doCharSelectScreenSelectEffect() {
-		CardCrawlGame.sound.playA("ATTACK_DAGGER_1", 1.25f); // Sound Effect
-		CardCrawlGame.sound.playA("CARD_DRAW_8", 1.0f); // Sound Effect
+		CardCrawlGame.sound.playA("ATTACK_FIRE", 0.75f); // Sound Effect
 		CardCrawlGame.screenShake.shake(ScreenShake.ShakeIntensity.LOW, ScreenShake.ShakeDur.SHORT,
 				false); // Screen Effect
 	}
 
-	// Character select on-button-press sound effect
 	@Override
 	public String getCustomModeCharacterButtonSoundKey() {
-		return "CARD_DRAW_8";
+		return "ATTACK_FIRE";
 	}
 
-	// Should return how much HP your maximum HP reduces by when starting a run at
-	// ascension 14 or higher. (ironclad loses 5, defect and silent lose 4 hp respectively)
 	@Override
 	public int getAscensionMaxHPLoss() {
 		return 4;
 	}
 
-	// Should return the card color enum to be associated with your character.
 	@Override
 	public AbstractCard.CardColor getCardColor() {
 		return CardColorEnum.DT_ORANGE;
 	}
 
-	// Should return a color object to be used to color the trail of moving Cards
 	@Override
 	public Color getCardTrailColor() {
 		return DTMod.DT_ORANGE;
 	}
 
-	// Should return a BitmapFont object that you can use to customize how your
-	// energy is displayed from within the energy orb.
 	@Override
 	public BitmapFont getEnergyNumFont() {
 		return FontHelper.energyNumFontRed;
 	}
 
-	// Should return class name as it appears in run history screen.
 	@Override
 	public String getLocalizedCharacterName() {
 		return charStrings.NAMES[1];
 	}
 
-	//Which starting card should specific events give you?
 	@Override
 	public AbstractCard getStartCardForEvent() {
-		return new Mulligan();
+		return new BuildUp();
 	}
 
-	// The class name as it appears next to your player name in game
 	@Override
 	public String getTitle(AbstractPlayer.PlayerClass playerClass) {
 		return charStrings.NAMES[0];
 	}
 
-	// Should return a new instance of your character, sending this.name as its name parameter.
 	@Override
 	public AbstractPlayer newInstance() {
 		return new TheDT(this.name, this.chosenClass);
 	}
 
-	// Should return a Color object to be used to color the miniature card images in run history.
 	@Override
 	public Color getCardRenderColor() {
 		return DTMod.DT_ORANGE;
 	}
 
-	// Should return a Color object to be used as screen tint effect when your
-	// character attacks the heart.
 	@Override
 	public Color getSlashAttackColor() {
 		return DTMod.DT_ORANGE;
 	}
 
-	// Should return an AttackEffect array of any size greater than 0. These effects
-	// will be played in sequence as your character's finishing combo on the heart.
-	// Attack effects are the same as used in damage action and the like.
 	@Override
 	public AbstractGameAction.AttackEffect[] getSpireHeartSlashEffect() {
 		return new AbstractGameAction.AttackEffect[]{
+				AbstractGameAction.AttackEffect.FIRE,
+				AbstractGameAction.AttackEffect.FIRE,
+				AbstractGameAction.AttackEffect.FIRE,
 				AbstractGameAction.AttackEffect.SLASH_DIAGONAL,
-				AbstractGameAction.AttackEffect.SLASH_HORIZONTAL,
-				AbstractGameAction.AttackEffect.SLASH_DIAGONAL,
-				AbstractGameAction.AttackEffect.SLASH_VERTICAL,
+				AbstractGameAction.AttackEffect.SLASH_HEAVY,
 				AbstractGameAction.AttackEffect.BLUNT_LIGHT,
 				AbstractGameAction.AttackEffect.SLASH_HEAVY};
 	}
 
-	// Should return a string containing what text is shown when your character is
-	// about to attack the heart. For example, the defect is "NL You charge your
-	// core to its maximum..."
 	@Override
 	public String getSpireHeartText() {
 		return CardCrawlGame.languagePack.getEventString("DTMod:SpireHeart").DESCRIPTIONS[0];
 	}
 
-	// The vampire events refer to the base game characters as "brother", "sister",
-	// and "broken one" respectively.This method should return a String containing
-	// the full text that will be displayed as the first screen of the vampires event.
 	@Override
 	public String getVampireText() {
 		return CardCrawlGame.languagePack.getEventString("DTMod:Vampires").DESCRIPTIONS[0];
+	}
+
+	@Override
+	public void movePosition(float x, float y) {
+		super.movePosition(x, y);
+		dragon.movePosition(x + Dragon.OFFSET_X, y + Dragon.OFFSET_Y);
+	}
+
+	@Override
+	public void update() {
+		dragon.update();
+		super.update();
+	}
+
+	@Override
+	public void showHealthBar() {
+		dragon.showHealthBar();
+		super.showHealthBar();
+	}
+
+	@Override
+	public void render(SpriteBatch sb) {
+		dragon.render(sb);
+		super.render(sb);
+	}
+
+	@Override
+	public void renderReticle(SpriteBatch sb) {
+		if (isReticleAttackIcon) {
+			this.reticleRendered = true;
+			attackIconColor.a = this.reticleAlpha;
+			sb.setColor(attackIconColor);
+			sb.draw(getAttackIcon(), this.hb.cX - 64, this.hb.cY - 64, 64.0F, 64.0F, 128.0F, 128.0F, Settings.scale, Settings.scale, 0.0F, 0, 0, 128, 128, false, false);
+		} else if (dtTargetMode != AbstractDTCard.DTCardTarget.DRAGON_ONLY) {
+			super.renderReticle(sb);
+		}
+	}
+
+	@Override
+	public void renderHand(SpriteBatch sb) {
+		super.renderHand(sb);
+		if (this.hoveredCard != null && (this.isDraggingCard || this.inSingleTargetMode) && this.isHoveringDropZone) {
+			if (hoveredCard instanceof AbstractDTCard) {
+				dtTargetMode = ((AbstractDTCard) hoveredCard).dtCardTarget;
+				isReticleAttackIcon = hoveredCard.type == AbstractCard.CardType.ATTACK;
+				if (dtTargetMode == AbstractDTCard.DTCardTarget.DRAGON_ONLY || dtTargetMode == AbstractDTCard.DTCardTarget.BOTH) {
+					dragon.renderReticle(sb);
+				}
+				if (isReticleAttackIcon && (dtTargetMode == AbstractDTCard.DTCardTarget.DEFAULT || dtTargetMode == AbstractDTCard.DTCardTarget.BOTH)) {
+					renderReticle(sb);
+				}
+			} else {
+				dtTargetMode = AbstractDTCard.DTCardTarget.DEFAULT;
+			}
+		}
+	}
+
+	@Override
+	public void renderPlayerBattleUi(SpriteBatch sb) {
+		dragon.renderBattleUi(sb);
+		super.renderPlayerBattleUi(sb);
+	}
+
+	@Override
+	public void preBattlePrep() {
+		super.preBattlePrep();
+		dragon.preBattlePrep();
+
+		aggro = 0;
+		target = dragon;
+		addAggro(3);
+	}
+
+	public void setTarget(AbstractCreature newTarget) {
+		if (target != newTarget) {
+			target = newTarget;
+			PowerBuffEffect effect = new PowerBuffEffect(target.hb.cX - target.animX, target.hb.cY + target.hb.height / 2.0F,
+					AddAggroAction.TEXT[target == this ? 2 : 3]);
+			ReflectionHacks.setPrivate(effect, PowerBuffEffect.class, "targetColor", new Color(0.7f, 0.75f, 0.7f, 1.0f));
+			AbstractDungeon.effectsQueue.add(effect);
+			updateIntents();
+		}
+	}
+
+	public void setAggro(int aggro) {
+		if (AbstractDungeon.player != null) {
+			AbstractDungeon.player.hand.applyPowers();
+		}
+		this.aggro = aggro;
+		if (aggro > 0) {
+			setTarget(dragon);
+		} else if (aggro < 0) {
+			setTarget(this);
+		}
+	}
+
+	public void addAggro(int delta) {
+		if (delta != 0) {
+			setAggro(this.aggro + delta);
+		}
+	}
+
+	public void updateIntents() {
+		if (AbstractDungeon.getCurrRoom().monsters != null) {
+			for (AbstractMonster m : AbstractDungeon.getMonsters().monsters) {
+				m.applyPowers();
+			}
+		}
+	}
+
+	@Override
+	public void useCard(AbstractCard c, AbstractMonster monster, int energyOnUse) {
+		animDragonAttack = false;
+		if (c instanceof AbstractDTCard) {
+			if (((AbstractDTCard) c).dtCardTarget == AbstractDTCard.DTCardTarget.DRAGON_ONLY) {
+				animDragonAttack = true;
+			}
+		}
+		super.useCard(c, monster, energyOnUse);
+		if (c.type == AbstractCard.CardType.ATTACK && c.costForTurn != 0 && !c.freeToPlayOnce) {
+			AbstractCreature attacker = DTMod.getAttacker(c);
+			if (attacker != null) {
+				AbstractDungeon.actionManager.addToBottom(new AddAggroAction(attacker, c.costForTurn));
+			}
+		}
+	}
+
+	@Override
+	public void useFastAttackAnimation() {
+		if (animDragonAttack) {
+			dragon.useFastAttackAnimation();
+		} else {
+			super.useFastAttackAnimation();
+		}
+	}
+
+	@Override
+	public void updateAnimations() {
+		super.updateAnimations();
+		dragon.updateAnimations();
+	}
+
+	public Texture getAttackIcon() {
+		if (attackerIcon == null) {
+			attackerIcon = new Texture(DTMod.makePath("ui/Attacker.png"));
+		}
+		return attackerIcon;
 	}
 }

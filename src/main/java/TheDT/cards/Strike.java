@@ -26,12 +26,13 @@ public class Strike extends AbstractDTCard {
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.DT_ORANGE;
 	private static final AbstractCard.CardRarity RARITY = CardRarity.BASIC;
 	private static final AbstractCard.CardTarget TARGET = CardTarget.ENEMY;
+	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DEFAULT;
 
 	private static final int POWER = 6;
 	private static final int UPGRADE_BONUS = 3;
 
 	public Strike() {
-		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
 		this.baseDamage = POWER;
 		this.tags.add(BaseModCardTags.BASIC_STRIKE);
 		this.tags.add(CardTags.STRIKE);

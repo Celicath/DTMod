@@ -1,11 +1,11 @@
 package TheDT.optionals;
 
-import TheDT.patches.CardColorEnum;
 import TheDT.relics.MythicalSkillbook;
 import basemod.BaseMod;
+import basemod.helpers.RelicType;
 
 public class OptionalRelicHelper {
 	public static void registerAspirationRelic() {
-		BaseMod.addRelicToCustomPool(new MythicalSkillbook(), CardColorEnum.DT_ORANGE);
+		BaseMod.addRelic(new MythicalSkillbook(), RelicType.SHARED);
 	}
 }

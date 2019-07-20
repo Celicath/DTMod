@@ -13,5 +13,18 @@
     "TEXT": [
       "Joke"
     ]
+  },
+  "DTMod:DraftAction": {
+    "TEXT": [
+      "Choose a Card to Set the Cost to 0."
+    ]
+  },
+  "DTMod:Aggro": {
+    "TEXT": [
+      "Aggro+",
+      "",
+      "Target changed to You",
+      "Target changed to Dragon"
+    ]
   }
 }

@@ -1,71 +1,222 @@
 package TheDT.cards;
 
+import TheDT.DTMod;
+import TheDT.characters.Dragon;
+import TheDT.characters.TheDT;
 import basemod.abstracts.CustomCard;
+import com.badlogic.gdx.math.MathUtils;
+import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.CardStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.AbstractPower;
+
+import java.util.ArrayList;
 
 public abstract class AbstractDTCard extends CustomCard {
-	public int dtMythicalDamage;
-	public int dtBaseMythicalDamage;
-	public boolean upgradedDTMythicalDamage;
-	public boolean isDTMythicalDamageModified;
+	public enum DTCardTarget {
+		DEFAULT, DRAGON_ONLY, BOTH
+	}
 
-	public int dtMythicalBlock;
-	public int dtBaseMythicalBlock;
-	public boolean upgradedDTMythicalBlock;
-	public boolean isDTMythicalBlockModified;
+	private static final String RAW_ID = "AbstractDTCard";
+	public static final String ID = DTMod.makeID(RAW_ID);
+	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
+	public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
 
-	public AbstractDTCard(final String id,
-	                      final String name,
-	                      final String img,
-	                      final int cost,
-	                      final String rawDescription,
-	                      final CardType type,
-	                      final CardColor color,
-	                      final CardRarity rarity,
-	                      final CardTarget target) {
+	public int dtDragonDamage;
+	public int dtBaseDragonDamage;
+	public boolean upgradedDTDragonDamage;
+	public boolean isDTDragonDamageModified;
+
+	public int dtDragonBlock;
+	public int dtBaseDragonBlock;
+	public boolean upgradedDTDragonBlock;
+	public boolean isDTDragonBlockModified;
+
+	public DTCardTarget dtCardTarget;
+
+	public AbstractDTCard(String id,
+	                      String name,
+	                      String img,
+	                      int cost,
+	                      String rawDescription,
+	                      CardType type,
+	                      CardColor color,
+	                      CardRarity rarity,
+	                      CardTarget target,
+	                      DTCardTarget dtCardTarget) {
 
 		super(id, name, img, cost, rawDescription, type, color, rarity, target);
 
-		dtMythicalDamage = dtBaseMythicalDamage = -1;
-		dtMythicalBlock = dtBaseMythicalBlock = -1;
-		isDTMythicalDamageModified = false;
-		isDTMythicalBlockModified = false;
+		dtDragonDamage = dtBaseDragonDamage = -1;
+		dtDragonBlock = dtBaseDragonBlock = -1;
+		isDTDragonDamageModified = false;
+		isDTDragonBlockModified = false;
+		this.dtCardTarget = dtCardTarget;
 	}
 
 	@Override
 	public void displayUpgrades() {
 		super.displayUpgrades();
-		if (upgradedDTMythicalDamage) {
-			dtMythicalDamage = dtBaseMythicalDamage;
-			isDTMythicalDamageModified = true;
+		if (upgradedDTDragonDamage) {
+			dtDragonDamage = dtBaseDragonDamage;
+			isDTDragonDamageModified = true;
 		}
-		if (upgradedDTMythicalBlock) {
-			dtMythicalBlock = dtBaseMythicalBlock;
-			isDTMythicalBlockModified = true;
+		if (upgradedDTDragonBlock) {
+			dtDragonBlock = dtBaseDragonBlock;
+			isDTDragonBlockModified = true;
 		}
 	}
 
 	@Override
 	public void applyPowers() {
 		super.applyPowers();
-		if (dtBaseMythicalDamage != -1) {
-			// TODO: Do Mythical Damage powerups
-			dtMythicalDamage = dtBaseMythicalDamage;
+		Dragon dragon = null;
+		if (AbstractDungeon.player instanceof TheDT) {
+			dragon = ((TheDT) AbstractDungeon.player).dragon;
 		}
-		if (dtBaseMythicalBlock != -1) {
-			// TODO: Do Mythical Block powerups
-			dtMythicalBlock = dtBaseMythicalBlock;
+		if (dtBaseDragonDamage != -1) {
+			dtDragonDamage = dtBaseDragonDamage;
+			if (dragon != null) {
+				isDTDragonDamageModified = false;
+				if (!isMultiDamage) {
+					float tmp = (float) dtBaseDragonDamage;
+
+					if (AbstractDungeon.player.hasRelic("WristBlade") && (costForTurn == 0 || freeToPlayOnce)) {
+						tmp += 3.0F;
+						if (dtBaseDragonDamage != (int) tmp) {
+							isDTDragonDamageModified = true;
+						}
+					}
+
+					for (AbstractPower p : dragon.powers) {
+						tmp = p.atDamageGive(tmp, damageTypeForTurn);
+						if (dtBaseDragonDamage != (int) tmp) {
+							isDTDragonDamageModified = true;
+						}
+					}
+					for (AbstractPower p : dragon.powers) {
+						tmp = p.atDamageFinalGive(tmp, damageTypeForTurn);
+						if (dtBaseDragonDamage != (int) tmp) {
+							isDTDragonDamageModified = true;
+						}
+					}
+
+					if (tmp < 0.0F) {
+						tmp = 0.0F;
+					}
+
+					dtDragonDamage = MathUtils.floor(tmp);
+				} else {
+					ArrayList<AbstractMonster> m = AbstractDungeon.getCurrRoom().monsters.monsters;
+					float[] tmp = new float[m.size()];
+
+					int i;
+					for (i = 0; i < tmp.length; ++i) {
+						tmp[i] = (float) dtBaseDragonDamage;
+					}
+
+					for (i = 0; i < tmp.length; ++i) {
+						if (AbstractDungeon.player.hasRelic("WristBlade") && (costForTurn == 0 || freeToPlayOnce)) {
+							tmp[i] += 3.0F;
+							if (dtBaseDragonDamage != (int) tmp[i]) {
+								isDTDragonDamageModified = true;
+							}
+						}
+
+						for (AbstractPower p : dragon.powers) {
+							tmp[i] = p.atDamageGive(tmp[i], damageTypeForTurn);
+							if (dtBaseDragonDamage != (int) tmp[i]) {
+								isDTDragonDamageModified = true;
+							}
+						}
+					}
+
+					for (i = 0; i < tmp.length; ++i) {
+						for (AbstractPower p : dragon.powers) {
+							tmp[i] = p.atDamageFinalGive(tmp[i], damageTypeForTurn);
+							if (dtBaseDragonDamage != (int) tmp[i]) {
+								isDTDragonDamageModified = true;
+							}
+						}
+					}
+
+					for (i = 0; i < tmp.length; ++i) {
+						if (tmp[i] < 0.0F) {
+							tmp[i] = 0.0F;
+						}
+					}
+
+					multiDamage = new int[tmp.length];
+
+					for (i = 0; i < tmp.length; ++i) {
+						multiDamage[i] = MathUtils.floor(tmp[i]);
+					}
+
+					dtDragonDamage = multiDamage[0];
+				}
+			}
+		}
+		if (dtBaseDragonBlock != -1) {
+			dtDragonBlock = dtBaseDragonBlock;
+
+			isDTDragonBlockModified = false;
+			float tmp = (float) dtBaseDragonBlock;
+
+			for (AbstractPower p : dragon.powers) {
+				tmp = p.modifyBlock(tmp);
+				if (dtBaseDragonBlock != MathUtils.floor(tmp)) {
+					isDTDragonBlockModified = true;
+				}
+			}
+
+			if (tmp < 0.0F) {
+				tmp = 0.0F;
+			}
+
+			dtDragonBlock = MathUtils.floor(tmp);
 		}
 	}
 
-	public void upgradeDTMythicalDamage(int amount) {
-		dtBaseMythicalDamage += amount;
-		dtMythicalDamage = dtBaseMythicalDamage;
-		upgradedDTMythicalDamage = true;
+	public void upgradeDTDragonDamage(int amount) {
+		dtBaseDragonDamage += amount;
+		dtDragonDamage = dtBaseDragonDamage;
+		upgradedDTDragonDamage = true;
 	}
 
-	public void upgradeDTMythicalBlock(int amount) {
-		dtBaseMythicalBlock += amount;
-		dtMythicalBlock = dtBaseMythicalBlock;
-		upgradedDTMythicalBlock = true;
+	public void upgradeDTDragonBlock(int amount) {
+		dtBaseDragonBlock += amount;
+		dtDragonBlock = dtBaseDragonBlock;
+		upgradedDTDragonBlock = true;
+	}
+
+	public Dragon getDragon() {
+		if (AbstractDungeon.player instanceof TheDT) {
+			Dragon dragon = ((TheDT) AbstractDungeon.player).dragon;
+			if (dragon.isDeadOrEscaped()) return null;
+			return dragon;
+		}
+		return null;
+	}
+
+	public String dragonNotAvailableMessage() {
+		if (AbstractDungeon.player instanceof TheDT) {
+			return EXTENDED_DESCRIPTION[1];
+		}
+		return EXTENDED_DESCRIPTION[0];
+	}
+
+	// null = both attacks
+	public AbstractCreature getAttacker() {
+		if (AbstractDungeon.player instanceof TheDT) {
+			if (this.dtCardTarget == DTCardTarget.DEFAULT) {
+				return AbstractDungeon.player;
+			} else if (this.dtCardTarget == DTCardTarget.DRAGON_ONLY) {
+				return ((TheDT) AbstractDungeon.player).dragon;
+			} else {
+				return null;
+			}
+		} else return AbstractDungeon.player;
 	}
 }

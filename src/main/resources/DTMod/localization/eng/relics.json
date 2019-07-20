@@ -1,10 +1,10 @@
 {
-  "DTMod:DeckCase": {
-    "NAME": "Deck Case",
-    "FLAVOR": "Having this calms you down and help you quickly recover from bad conditions.",
+  "DTMod:PactStone": {
+    "NAME": "Pact Stone",
+    "FLAVOR": "The evidence of your friendship.",
     "DESCRIPTIONS": [
-      "Each combat, the first #b",
-      " #yStatus cards entering your deck are #yexhausted."
+      "At the start of each combat, you and Dragon gain #b",
+      " #yTemporary_HP each."
     ]
   },
   "DTMod:PendantOfEscape": {

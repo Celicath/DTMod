@@ -1,7 +1,6 @@
 package TheDT.patches;
 
 import TheDT.DTMod;
-import TheDT.events.BookOnTheFloor;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.events.AbstractEvent;
 import com.megacrit.cardcrawl.helpers.EventHelper;
@@ -12,7 +11,7 @@ public class EventPatch {
 	public static class GetEvent {
 		public static AbstractEvent Postfix(AbstractEvent __result, String key) {
 			if (DTMod.isAspirationLoaded && RelicLibrary.getRelic(DTMod.MythicalSkillbookID).canSpawn()) {
-				return new BookOnTheFloor();
+				return __result;//new BookOnTheFloor();
 			} else {
 				return __result;
 			}

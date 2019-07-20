@@ -26,16 +26,17 @@ public class ForbiddenStrike extends AbstractDTCard {
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.DT_ORANGE;
 	private static final AbstractCard.CardRarity RARITY = CardRarity.RARE;
 	private static final AbstractCard.CardTarget TARGET = CardTarget.ENEMY;
+	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DEFAULT;
 
-	private static final int DAMAGE = 24;
-	private static final int UPGRADE_DAMAGE = 1;
+	private static final int DAMAGE = 21;
+	private static final int UPGRADE_DAMAGE = 2;
 
 	public ForbiddenStrike() {
 		this(0);
 	}
 
 	public ForbiddenStrike(int upgrades) {
-		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
 		this.baseDamage = DAMAGE;
 		this.timesUpgraded = upgrades;
 
