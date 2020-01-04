@@ -8,11 +8,8 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-
-import static TheDT.patches.CustomTags.DT_FORBIDDEN;
 
 public class ForbiddenStrike extends AbstractDTCard {
 	private static final String RAW_ID = "ForbiddenStrike";
@@ -22,14 +19,14 @@ public class ForbiddenStrike extends AbstractDTCard {
 	public static final String IMG = DTMod.GetCardPath(RAW_ID);
 	private static final int COST = 1;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
+	public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
 	private static final AbstractCard.CardType TYPE = CardType.ATTACK;
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.DT_ORANGE;
 	private static final AbstractCard.CardRarity RARITY = CardRarity.RARE;
 	private static final AbstractCard.CardTarget TARGET = CardTarget.ENEMY;
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DEFAULT;
 
-	private static final int DAMAGE = 21;
-	private static final int UPGRADE_DAMAGE = 2;
+	private static final int DAMAGE = 23;
 
 	public ForbiddenStrike() {
 		this(0);
@@ -40,12 +37,11 @@ public class ForbiddenStrike extends AbstractDTCard {
 		this.baseDamage = DAMAGE;
 		this.timesUpgraded = upgrades;
 
-		this.tags.add(DT_FORBIDDEN);
 		this.tags.add(CardTags.STRIKE);
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
+		addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
 	}
 
 	public AbstractCard makeCopy() {
@@ -53,14 +49,8 @@ public class ForbiddenStrike extends AbstractDTCard {
 	}
 
 	public void upgrade() {
-		this.upgradeDamage(UPGRADE_DAMAGE);
-		++this.timesUpgraded;
-		this.upgraded = true;
-		this.name = NAME + "+" + this.timesUpgraded;
-		this.initializeTitle();
-	}
-
-	public boolean canUpgrade() {
-		return true;
+		upgradeName();
+		rawDescription = UPGRADE_DESCRIPTION;
+		initializeDescription();
 	}
 }

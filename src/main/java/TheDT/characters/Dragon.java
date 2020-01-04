@@ -1,19 +1,25 @@
 package TheDT.characters;
 
 import TheDT.DTMod;
+import TheDT.cards.HardSkin;
+import TheDT.patches.CardColorEnum;
+import basemod.abstracts.CustomPlayer;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.evacipated.cardcrawl.mod.stslib.patches.tempHp.PlayerDamage;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardHelper;
+import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.Hitbox;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
-import com.megacrit.cardcrawl.helpers.ShaderHelper;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
@@ -27,17 +33,22 @@ import com.megacrit.cardcrawl.vfx.combat.StrikeEffect;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class Dragon extends AbstractCreature {
+import java.util.ArrayList;
+
+import static TheDT.characters.TheDT.charStrings;
+
+public class Dragon extends CustomPlayer {
 	public static final float OFFSET_X = 160.0f;
 	public static final float OFFSET_Y = 60.0f;
 	private static final int HP_BONUS_RATIO = 13;
 	private static final Logger logger = LogManager.getLogger(AbstractPlayer.class.getName());
 	public TheDT master;
 	public Texture img;
-	public Color attackIconColor = CardHelper.getColor(255.0f, 80.0f, 80.0f);
+	public Color attackIconColor = CardHelper.getColor(255, 80, 80);
 
 	public Dragon(String name, float hb_x, float hb_y, float hb_w, float hb_h, TheDT master) {
-		super();
+		super(name, master.chosenClass, null,
+				null, null, null, null);
 		this.name = name;
 
 		this.hb_h = hb_h * Settings.scale;
@@ -56,6 +67,95 @@ public class Dragon extends AbstractCreature {
 		this.isPlayer = true;
 	}
 
+	@Override
+	public ArrayList<String> getStartingDeck() {
+		return new ArrayList<>();
+	}
+
+	@Override
+	public ArrayList<String> getStartingRelics() {
+		return new ArrayList<>();
+	}
+
+	@Override
+	public CharSelectInfo getLoadout() {
+		return null;
+	}
+
+	@Override
+	public String getTitle(AbstractPlayer.PlayerClass playerClass) {
+		return charStrings.TEXT[1];
+	}
+
+	@Override
+	public Color getCardRenderColor() {
+		return DTMod.DT_ORANGE;
+	}
+
+	@Override
+	public AbstractCard getStartCardForEvent() {
+		return new HardSkin();
+	}
+
+	@Override
+	public Color getCardTrailColor() {
+		return DTMod.DT_ORANGE;
+	}
+
+	@Override
+	public int getAscensionMaxHPLoss() {
+		return 4;
+	}
+
+	@Override
+	public BitmapFont getEnergyNumFont() {
+		return FontHelper.energyNumFontRed;
+	}
+
+	@Override
+	public void doCharSelectScreenSelectEffect() {
+	}
+
+	@Override
+	public String getCustomModeCharacterButtonSoundKey() {
+		return "ATTACK_FIRE";
+	}
+
+	@Override
+	public String getLocalizedCharacterName() {
+		return charStrings.TEXT[1];
+	}
+
+	@Override
+	public AbstractPlayer newInstance() {
+		return new TheDT(this.name, this.chosenClass);
+	}
+
+	@Override
+	public AbstractCard.CardColor getCardColor() {
+		return CardColorEnum.DT_ORANGE;
+	}
+
+	@Override
+	public Color getSlashAttackColor() {
+		return DTMod.DT_ORANGE;
+	}
+
+	@Override
+	public AbstractGameAction.AttackEffect[] getSpireHeartSlashEffect() {
+		return null;
+	}
+
+	@Override
+	public String getSpireHeartText() {
+		return "";
+	}
+
+	@Override
+	public String getVampireText() {
+		return "";
+	}
+
 	public void initializeClass(CharSelectInfo info) {
 		this.img = ImageMaster.loadImage(DTMod.makePath("char/TheDT/dragon.png"));
 		this.maxHealth = info.maxHp * (100 + HP_BONUS_RATIO) / 100;
@@ -72,6 +172,13 @@ public class Dragon extends AbstractCreature {
 		if (damageAmount > 1 && this.hasPower("IntangiblePlayer")) {
 			damageAmount = 1;
 		}
+
+		// Make Temp HP work on Dragon
+		int[] tempDA = new int[]{damageAmount};
+		boolean[] tempHB = new boolean[]{hadBlock};
+		PlayerDamage.Insert(this, info, tempDA, tempHB);
+		damageAmount = tempDA[0];
+		hadBlock = tempHB[0];
 
 		damageAmount = this.decrementBlock(info, damageAmount);
 
@@ -131,7 +238,7 @@ public class Dragon extends AbstractCreature {
 				}
 			}
 		} else if (this.currentBlock > 0) {
-			AbstractDungeon.effectList.add(new BlockedWordEffect(this, this.hb.cX, this.hb.cY, AbstractPlayer.BLOCKED_STRING));
+			AbstractDungeon.effectList.add(new BlockedWordEffect(this, this.hb.cX, this.hb.cY, AbstractPlayer.uiStrings.TEXT[0]));
 		} else if (!hadBlock) {
 			AbstractDungeon.effectList.add(new StrikeEffect(this, this.hb.cX, this.hb.cY, 0));
 		}
@@ -181,31 +288,20 @@ public class Dragon extends AbstractCreature {
 
 	@Override
 	public void render(SpriteBatch sb) {
-		if (!(AbstractDungeon.getCurrRoom() instanceof RestRoom)) {
-			if (this.damageFlash) {
-				ShaderHelper.setShader(sb, ShaderHelper.Shader.WHITE_SILHOUETTE);
-			}
-
-			sb.setColor(Color.WHITE);
-			sb.draw(this.img, this.drawX - (float) this.img.getWidth() * Settings.scale / 2.0F + this.animX, this.drawY, (float) this.img.getWidth() * Settings.scale, (float) this.img.getHeight() * Settings.scale, 0, 0, this.img.getWidth(), this.img.getHeight(), this.flipHorizontal, this.flipVertical);
-
-			if (this.damageFlash) {
-				ShaderHelper.setShader(sb, ShaderHelper.Shader.DEFAULT);
-				--this.damageFlashFrames;
-				if (this.damageFlashFrames == 0) {
-					this.damageFlash = false;
-				}
-			}
-
-			this.hb.render(sb);
-			this.healthHb.render(sb);
-
-			this.hb.render(sb);
-			this.healthHb.render(sb);
-		}
-
 		if ((AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT || AbstractDungeon.getCurrRoom() instanceof MonsterRoom) && !this.isDead) {
 			this.renderHealth(sb);
+		}
+
+		if (!(AbstractDungeon.getCurrRoom() instanceof RestRoom)) {
+			if (this.atlas != null) {
+				this.renderPlayerImage(sb);
+			} else {
+				sb.setColor(Color.WHITE);
+				sb.draw(img, drawX - img.getWidth() * Settings.scale / 2.0F + animX, drawY, img.getWidth() * Settings.scale, img.getHeight() * Settings.scale, 0, 0, img.getWidth(), img.getHeight(), flipHorizontal, flipVertical);
+			}
+
+			this.hb.render(sb);
+			this.healthHb.render(sb);
 		}
 	}
 

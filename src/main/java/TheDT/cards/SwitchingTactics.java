@@ -54,7 +54,7 @@ public class SwitchingTactics extends AbstractDTCard {
 		if (d != null) {
 			TheDT dtp = (TheDT) p;
 			if (dtp.aggro == 0) {
-				dtp.setTarget(dtp.target == d ? dtp : d);
+				dtp.setFront(dtp.front == d ? dtp : d);
 			} else {
 				magicNumber = Math.abs(dtp.aggro);
 				dtp.setAggro(-dtp.aggro);

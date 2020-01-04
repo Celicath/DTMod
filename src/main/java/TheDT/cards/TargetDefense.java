@@ -39,7 +39,7 @@ public class TargetDefense extends AbstractDTCard {
 	@Override
 	public void applyPowers() {
 		super.applyPowers();
-		if (AbstractDungeon.player instanceof TheDT && ((TheDT) AbstractDungeon.player).target == ((TheDT) AbstractDungeon.player).dragon) {
+		if (AbstractDungeon.player instanceof TheDT && ((TheDT) AbstractDungeon.player).front == ((TheDT) AbstractDungeon.player).dragon) {
 			rawDescription = EXTENDED_DESCRIPTION[0];
 			initializeDescription();
 		} else {
@@ -49,7 +49,7 @@ public class TargetDefense extends AbstractDTCard {
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		if (AbstractDungeon.player instanceof TheDT && ((TheDT) AbstractDungeon.player).target == ((TheDT) AbstractDungeon.player).dragon) {
+		if (AbstractDungeon.player instanceof TheDT && ((TheDT) AbstractDungeon.player).front == ((TheDT) AbstractDungeon.player).dragon) {
 			AbstractDungeon.actionManager.addToBottom(new GainBlockAction(((TheDT) AbstractDungeon.player).dragon, ((TheDT) AbstractDungeon.player).dragon, dtDragonBlock));
 		} else {
 			AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));

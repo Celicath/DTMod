@@ -31,7 +31,7 @@ public class OpeningTactics extends AbstractDTCard {
 	private static final AbstractCard.CardTarget TARGET = CardTarget.ENEMY;
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DEFAULT;
 
-	private static final int POWER = 15;
+	private static final int POWER = 12;
 	private static final int MAGIC = 1;
 
 	public OpeningTactics() {

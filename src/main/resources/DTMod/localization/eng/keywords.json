@@ -7,11 +7,32 @@
     "DESCRIPTION": "After you gain #b4 Bonding in a combat, the mythical creature will help you."
   },
   {
-    "PROPER_NAME": "Aggro and Target",
+    "PROPER_NAME": "Aggro and Position",
     "NAMES": [
       "aggro",
-      "target"
+      "position"
     ],
-    "DESCRIPTION": "All Attack cards have attackers, you or dragon. The attacker gains the Aggro equal to the cost of the card. The character with higher Aggro becomes the Target of all enemies."
+    "DESCRIPTION": "Whenever you or Dragon attacks, the attacker gains #b1 Aggro. The character with higher Aggro becomes the #yFront, lower one becomes the #yRear."
+  },
+  {
+    "PROPER_NAME": "Front",
+    "NAMES": [
+      "Front"
+    ],
+    "DESCRIPTION": "The character who draws all enemy attacks."
+  },
+  {
+    "PROPER_NAME": "Rear",
+    "NAMES": [
+      "Rear"
+    ],
+    "DESCRIPTION": "The #yRear is not attacked by enemies. When the Aggro of the #yRear becomes higher than the #yFront, they Switch their position."
+  },
+  {
+    "PROPER_NAME": "Switch",
+    "NAMES": [
+      "switch"
+    ],
+    "DESCRIPTION": "The #yFront and #yRear change their position."
   }
 ]

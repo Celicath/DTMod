@@ -36,8 +36,6 @@ public class TheDT extends CustomPlayer {
 	public static final CharacterStrings charStrings = CardCrawlGame.languagePack.getCharacterString("TheDT");
 	public static final Logger logger = LogManager.getLogger(DTMod.class.getName());
 
-	// =============== BASE STATS =================
-
 	public static final int ENERGY_PER_TURN = 3;
 	public static final int STARTING_HP = 40;
 	public static final int MAX_HP = 40;
@@ -45,24 +43,17 @@ public class TheDT extends CustomPlayer {
 	public static final int CARD_DRAW = 5;
 	public static final int ORB_SLOTS = 0;
 
-	// =============== /BASE STATS/ =================
-
 	public Dragon dragon;
-	public AbstractCreature target = this;
+	public AbstractCreature front = this;
 	public AbstractDTCard.DTCardTarget dtTargetMode;
 
 	public int aggro;
-	private float targetTimer;
 
-	// Attack icons
 	public boolean isReticleAttackIcon;
-	public Color attackIconColor = CardHelper.getColor(255.0f, 160.0f, 48.0f);
+	public Color attackIconColor = CardHelper.getColor(255, 160, 48);
 	public static Texture attackerIcon = null;
 
-	// Attack Animation
 	public boolean animDragonAttack;
-
-	// =============== TEXTURES OF BIG ENERGY ORB ===============
 
 	public static final String[] orbTextures = {
 			"DTMod/images/char/TheDT/orb/layer1.png",
@@ -76,11 +67,6 @@ public class TheDT extends CustomPlayer {
 			"DTMod/images/char/TheDT/orb/layer3d.png",
 			"DTMod/images/char/TheDT/orb/layer4d.png",
 			"DTMod/images/char/TheDT/orb/layer5d.png",};
-
-	// =============== /TEXTURES OF BIG ENERGY ORB/ ===============
-
-
-	// =============== CHARACTER CLASS START =================
 
 	public TheDT(String name, PlayerClass setClass) {
 		super(name, setClass, orbTextures,
@@ -99,8 +85,6 @@ public class TheDT extends CustomPlayer {
 		dragon = new Dragon(charStrings.TEXT[1], 0.0f, 0.0f, 220.0f, 290.0f, this);
 		dragon.initializeClass(loadout);
 	}
-
-	// =============== /CHARACTER CLASS END/ =================
 
 	@Override
 	public CharSelectInfo getLoadout() {
@@ -124,7 +108,7 @@ public class TheDT extends CustomPlayer {
 		retVal.add(TargetDefense.ID);
 		retVal.add(TargetDefense.ID);
 		retVal.add(TargetDefense.ID);
-		retVal.add(BuildUp.ID);
+		retVal.add(DoubleAttack.ID);
 		retVal.add(HardSkin.ID);
 		retVal.add(SwitchingTactics.ID);
 
@@ -180,7 +164,7 @@ public class TheDT extends CustomPlayer {
 
 	@Override
 	public AbstractCard getStartCardForEvent() {
-		return new BuildUp();
+		return new HardSkin();
 	}
 
 	@Override
@@ -292,15 +276,15 @@ public class TheDT extends CustomPlayer {
 		dragon.preBattlePrep();
 
 		aggro = 0;
-		target = dragon;
+		front = dragon;
 		addAggro(3);
 	}
 
-	public void setTarget(AbstractCreature newTarget) {
-		if (target != newTarget) {
-			target = newTarget;
-			PowerBuffEffect effect = new PowerBuffEffect(target.hb.cX - target.animX, target.hb.cY + target.hb.height / 2.0F,
-					AddAggroAction.TEXT[target == this ? 2 : 3]);
+	public void setFront(AbstractCreature newTarget) {
+		if (front != newTarget) {
+			front = newTarget;
+			PowerBuffEffect effect = new PowerBuffEffect(front.hb.cX - front.animX, front.hb.cY + front.hb.height / 2.0F,
+					AddAggroAction.TEXT[front == this ? 2 : 3]);
 			ReflectionHacks.setPrivate(effect, PowerBuffEffect.class, "targetColor", new Color(0.7f, 0.75f, 0.7f, 1.0f));
 			AbstractDungeon.effectsQueue.add(effect);
 			updateIntents();
@@ -313,9 +297,9 @@ public class TheDT extends CustomPlayer {
 		}
 		this.aggro = aggro;
 		if (aggro > 0) {
-			setTarget(dragon);
+			setFront(dragon);
 		} else if (aggro < 0) {
-			setTarget(this);
+			setFront(this);
 		}
 	}
 

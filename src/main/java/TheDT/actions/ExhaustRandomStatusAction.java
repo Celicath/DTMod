@@ -14,11 +14,11 @@ import java.util.ArrayList;
 public class ExhaustRandomStatusAction extends AbstractGameAction {
 	private AbstractPlayer p;
 
-	public ExhaustRandomStatusAction() {
+	public ExhaustRandomStatusAction(int amount) {
 		p = AbstractDungeon.player;
 		duration = Settings.ACTION_DUR_FAST;
 		actionType = ActionType.CARD_MANIPULATION;
-		amount = 1;
+		this.amount = amount;
 	}
 
 	public void update() {
@@ -32,9 +32,13 @@ public class ExhaustRandomStatusAction extends AbstractGameAction {
 					}
 				}
 			}
-			if (list.size() > 0) {
+			for (int i = 0; i < amount; i++) {
+				if (list.size() == 0) {
+					break;
+				}
 				Pair<AbstractCard, CardGroup> pair = list.get(AbstractDungeon.cardRandomRng.random(list.size() - 1));
 				AbstractDungeon.actionManager.addToTop(new ExhaustSpecificCardAction(pair.getKey(), pair.getValue()));
+				list.remove(pair);
 			}
 			isDone = true;
 		}

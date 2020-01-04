@@ -4,6 +4,7 @@ import TheDT.cards.*;
 import TheDT.characters.TheDT;
 import TheDT.optionals.OptionalRelicHelper;
 import TheDT.patches.CardColorEnum;
+import TheDT.patches.MonsterTargetPatch;
 import TheDT.patches.MythicalGameState;
 import TheDT.patches.TheDTEnum;
 import TheDT.potions.LesserPlaceholderPotion;
@@ -44,7 +45,6 @@ import the_gatherer.GathererMod;
 
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Properties;
 
@@ -54,18 +54,12 @@ public class DTMod
 		EditCharactersSubscriber, PostInitializeSubscriber, OnStartBattleSubscriber, PreMonsterTurnSubscriber {
 	public static final Logger logger = LogManager.getLogger(DTMod.class.getName());
 
-	//This is for the in-game mod settings pannel.
 	private static final String MODNAME = "The DT";
 	private static final String AUTHOR = "Celicath";
 	private static final String DESCRIPTION = "Adds a character called The DT, which is not yet revealed.";
 
-	// =============== IMPUT TEXTURE LOCATION =================
+	public static final Color DT_ORANGE = CardHelper.getColor(216, 116, 24);
 
-	// Colors (RGB)
-	// Character Color
-	public static final Color DT_ORANGE = CardHelper.getColor(216.0f, 116.0f, 24.0f);
-
-	// Image folder name
 	private static final String DT_MOD_ASSETS_FOLDER = "DTMod/images";
 
 	// Card backgrounds
@@ -95,7 +89,6 @@ public class DTMod
 	public static final String THE_DT_SKELETON_JSON = "char/TheDT/skeleton.json";
 
 	// Logics
-	public static HashMap<AbstractCard, AbstractCard> shapeshiftReturns = new HashMap<>();
 	public static int genCards;
 
 	// Modules
@@ -113,19 +106,10 @@ public class DTMod
 	// etc.
 	public static String MythicalSkillbookID = makeID("MythicalSkillbook");
 
-	// =============== /INPUT TEXTURE LOCATION/ =================
-
-	/**
-	 * Makes a full path for a resource path
-	 *
-	 * @param resource the resource, must *NOT* have a leading "/"
-	 * @return the full path
-	 */
 	public static final String makePath(String resource) {
 		return DT_MOD_ASSETS_FOLDER + "/" + resource;
 	}
 
-	// =============== SUBSCRIBE, CREATE THE COLOR, INITIALIZE =================
 
 	public DTMod() {
 		logger.info("Subscribe to basemod hooks");
@@ -158,11 +142,6 @@ public class DTMod
 		isFriendlyMinionsLoaded = Loader.isModLoaded("Friendly_Minions_0987678");
 	}
 
-	// ============== /SUBSCRIBE, CREATE THE COLOR, INITIALIZE/ =================
-
-
-	// =============== LOAD THE CHARACTER =================
-
 	@Override
 	public void receiveEditCharacters() {
 		logger.info("begin editing characters. " + "Add " + TheDTEnum.THE_DT.toString());
@@ -174,10 +153,6 @@ public class DTMod
 		logger.info("done editing characters");
 	}
 
-	// =============== /LOAD THE CHARACTER/ =================
-
-
-	// =============== POST-INITIALIZE =================
 
 	public static void loadConfig() {
 		logger.debug("loadConfig started.");
@@ -230,11 +205,6 @@ public class DTMod
 		}
 	}
 
-	// =============== / POST-INITIALIZE/ =================
-
-
-	// ================ ADD POTIONS ===================
-
 
 	public void receiveEditPotions() {
 		logger.info("begin editing potions");
@@ -242,10 +212,6 @@ public class DTMod
 		logger.info("end editing potions");
 	}
 
-	// ================ /ADD POTIONS/ ===================
-
-
-	// ================ ADD RELICS ===================
 
 	@Override
 	public void receiveEditRelics() {
@@ -264,10 +230,6 @@ public class DTMod
 		logger.info("Done adding relics!");
 	}
 
-	// ================ /ADD RELICS/ ===================
-
-
-	// ================ ADD CARDS ===================
 
 	@Override
 	public void receiveEditCards() {
@@ -279,7 +241,7 @@ public class DTMod
 
 		cards.add(new Strike());
 		cards.add(new TargetDefense());
-		cards.add(new BuildUp());
+		cards.add(new DoubleAttack());
 		cards.add(new HardSkin());
 		cards.add(new SwitchingTactics());
 
@@ -290,13 +252,14 @@ public class DTMod
 		cards.add(new RefreshTactics());
 		cards.add(new RunningTactics());
 		cards.add(new HeadStart());
-		cards.add(new Draft());
+		cards.add(new Prediction());
 		cards.add(new Training());
 		cards.add(new CleansingStrike());
 		cards.add(new CalculatedDefense());
 		cards.add(new ComboAttack());
 		cards.add(new ExcessFootwork());
 		cards.add(new PreemptiveStrike());
+		cards.add(new BuildUp());
 
 		for (CustomCard card : cards) {
 			BaseMod.addCard(card);
@@ -305,11 +268,6 @@ public class DTMod
 			}
 		}
 	}
-
-	// ================ /ADD CARDS/ ===================
-
-
-	// ================ LOAD THE TEXT ===================
 
 	@Override
 	public void receiveEditStrings() {
@@ -342,7 +300,6 @@ public class DTMod
 		logger.info("Done editing strings");
 	}
 
-	// ================ /LOAD THE TEXT/ ===================
 
 	public static String getLocCode() {
 		return "eng";
@@ -353,7 +310,6 @@ public class DTMod
 		}*/
 	}
 
-	// ================ LOAD THE KEYWORDS ===================
 
 	@Override
 	public void receiveEditKeywords() {
@@ -374,9 +330,9 @@ public class DTMod
 
 	@Override
 	public void receiveOnBattleStart(AbstractRoom room) {
-		shapeshiftReturns.clear();
 		genCards = 0;
 		MythicalGameState.reset();
+		MonsterTargetPatch.prevPlayer = null;
 	}
 
 	@Override
@@ -387,21 +343,9 @@ public class DTMod
 				AbstractDungeon.player.discardPile,
 				AbstractDungeon.player.exhaustPile
 		};
-		for (CardGroup cg : groups) {
-			for (int i = 0; i < cg.size(); i++) {
-				AbstractCard c = cg.group.get(i);
-				if (shapeshiftReturns.containsKey(c)) {
-					cg.group.set(i, shapeshiftReturns.get(c));
-					cg.group.get(i).stopGlowing();
-					cg.group.get(i).unfadeOut();
-				}
-			}
-		}
-		shapeshiftReturns.clear();
 		return true;
 	}
 
-	// ================ /LOAD THE KEYWORDS/ ===================
 
 	public static AbstractCreature getAttacker(AbstractCard c) {
 		if (c instanceof AbstractDTCard) {

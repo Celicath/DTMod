@@ -1,7 +1,6 @@
 package TheDT.cards;
 
 import TheDT.DTMod;
-import TheDT.characters.Dragon;
 import TheDT.patches.CardColorEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -10,10 +9,9 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.StrengthPower;
+import com.megacrit.cardcrawl.powers.watcher.VigorPower;
 
 public class BuildUp extends AbstractDTCard {
 	private static final String RAW_ID = "BuildUp";
@@ -21,23 +19,23 @@ public class BuildUp extends AbstractDTCard {
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 	public static final String NAME = cardStrings.NAME;
 	public static final String IMG = DTMod.GetCardPath(RAW_ID);
-	private static final int COST = 2;
+	private static final int COST = 1;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 	private static final AbstractCard.CardType TYPE = CardType.ATTACK;
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.DT_ORANGE;
-	private static final AbstractCard.CardRarity RARITY = CardRarity.BASIC;
+	private static final AbstractCard.CardRarity RARITY = CardRarity.UNCOMMON;
 	private static final AbstractCard.CardTarget TARGET = CardTarget.ENEMY;
-	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DRAGON_ONLY;
+	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DEFAULT;
 
-	private static final int DAMAGE = 12;
+	private static final int DAMAGE = 7;
 	private static final int UPGRADE_DAMAGE = 2;
-	private static final int STRENGTH = 2;
-	private static final int UPGRADE_STRENGTH = 1;
+	private static final int MAGIC = 4;
+	private static final int UPGRADE_MAGIC = 2;
 
 	public BuildUp() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
-		dtBaseDragonDamage = DAMAGE;
-		baseMagicNumber = magicNumber = STRENGTH;
+		baseDamage = DAMAGE;
+		baseMagicNumber = magicNumber = MAGIC;
 	}
 
 	@Override
@@ -52,13 +50,10 @@ public class BuildUp extends AbstractDTCard {
 
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		Dragon dragon = getDragon();
-
-		if (dragon != null) {
-			AbstractDungeon.actionManager.addToBottom(
-					new DamageAction(m, new DamageInfo(dragon, dtDragonDamage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
-			AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(dragon, dragon, new StrengthPower(dragon, magicNumber), magicNumber));
-		}
+		addToBot(new DamageAction(m,
+				new DamageInfo(p, damage, damageTypeForTurn),
+				AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+		addToBot(new ApplyPowerAction(p, p, new VigorPower(p, magicNumber), magicNumber));
 	}
 
 	public AbstractCard makeCopy() {
@@ -68,8 +63,8 @@ public class BuildUp extends AbstractDTCard {
 	public void upgrade() {
 		if (!upgraded) {
 			upgradeName();
-			upgradeDTDragonDamage(UPGRADE_DAMAGE);
-			upgradeMagicNumber(UPGRADE_STRENGTH);
+			upgradeDamage(UPGRADE_DAMAGE);
+			upgradeMagicNumber(UPGRADE_MAGIC);
 		}
 	}
 }

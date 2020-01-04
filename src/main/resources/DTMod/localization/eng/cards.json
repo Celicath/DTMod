@@ -13,14 +13,14 @@
   },
   "DTMod:TargetDefense": {
     "NAME": "Target Defense",
-    "DESCRIPTION": "ragontaer:Target gains !B! Block.",
+    "DESCRIPTION": "The ragontaer:Front gains !B! Block.",
     "EXTENDED_DESCRIPTION": [
-      "ragontaer:Target gains !DT:THB! Block."
+      "The ragontaer:Front gains !DT:THB! Block."
     ]
   },
-  "DTMod:BuildUp": {
-    "NAME": "Build Up",
-    "DESCRIPTION": "Dragon deals !DT:THD! damage and gain !M! Strength."
+  "DTMod:DoubleAttack": {
+    "NAME": "Double Attack",
+    "DESCRIPTION": "Dragon deals !DT:THD! damage twice."
   },
   "DTMod:HardSkin": {
     "NAME": "Hard Skin",
@@ -28,8 +28,8 @@
   },
   "DTMod:SwitchingTactics": {
     "NAME": "Switching Tactics",
-    "DESCRIPTION": "Switch your team's ragontaer:Aggro. NL All enemies lose Strength equal to ragontaer:Aggro difference for this turn.",
-    "UPGRADE_DESCRIPTION": "Retain. NL Switch your team's ragontaer:Aggro. NL All enemies lose Strength equal to ragontaer:Aggro difference for this turn."
+    "DESCRIPTION": "Your team's ragontaer:Aggro is reversed. NL All enemies lose Strength equal to ragontaer:Aggro difference for this turn.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Your team's ragontaer:Aggro is reversed. NL All enemies lose Strength equal to ragontaer:Aggro difference for this turn."
   },
   "DTMod:BronzeWave": {
     "NAME": "Bronze Wave",
@@ -39,13 +39,14 @@
     "NAME": "Running Tactics",
     "DESCRIPTION": "Draw !M! cards. NL You gain 2 ragontaer:Aggro."
   },
-  "DTMod:Draft": {
-    "NAME": "Draft",
+  "DTMod:Prediction": {
+    "NAME": "Prediction",
     "DESCRIPTION": "Choose a card from your draw pile. NL It costs 0 until played."
   },
   "DTMod:ForbiddenStrike": {
     "NAME": "Forbidden Strike",
-    "DESCRIPTION": "Deal !D! damage. NL Can be upgraded any number of times. NL You cannot Upgrade any other cards at rest sites."
+    "DESCRIPTION": "Deal !D! damage. NL While in your deck, you can only smith this card at Rest Sites.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL While in your deck, you can only smith cards containing \"Strike\" at Rest Sites."
   },
   "DTMod:OpeningTactics": {
     "NAME": "Opening Tactics",
@@ -64,7 +65,8 @@
   },
   "DTMod:CleansingStrike": {
     "NAME": "Cleansing Strike",
-    "DESCRIPTION": "Deal !D! damage. NL Exhaust a random Status or Curse card from anywhere."
+    "DESCRIPTION": "Deal !D! damage. NL Exhaust !M! random Status or Curse card from anywhere.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Exhaust !M! random Status or Curse cards from anywhere."
   },
   "DTMod:Training": {
     "NAME": "Training",
@@ -97,5 +99,9 @@
   "DTMod:BreakAttack": {
     "NAME": "Break Attack",
     "DESCRIPTION": "Dragon deals !DT:THD! damage. NL Apply !M! Vulnerable. NL Exhaust."
+  },
+  "DTMod:BuildUp": {
+    "NAME": "Build Up",
+    "DESCRIPTION": "Deal !D! damage. Your next Attack deals !M! additional damage."
   }
 }
