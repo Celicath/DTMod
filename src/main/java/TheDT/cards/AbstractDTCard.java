@@ -12,10 +12,11 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.watcher.VigorPower;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.relics.WristBlade;
-import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 
 public abstract class AbstractDTCard extends CustomCard {
 	public enum DTCardTarget {
@@ -27,11 +28,14 @@ public abstract class AbstractDTCard extends CustomCard {
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 	public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
 
-	public static ArrayList<String> playerPowerApplyToDragon;
+	public static HashSet<String> playerPowerApplyToDragon;
+	public static HashSet<String> relicApplyToDragon;
 
 	static {
-		playerPowerApplyToDragon = new ArrayList<>();
+		playerPowerApplyToDragon = new HashSet<>();
 		playerPowerApplyToDragon.add(VigorPower.POWER_ID);
+		relicApplyToDragon = new HashSet<>();
+		relicApplyToDragon.add(WristBlade.ID);
 	}
 
 	public int dtDragonDamage;
@@ -90,39 +94,26 @@ public abstract class AbstractDTCard extends CustomCard {
 				if (!isMultiDamage) {
 					float tmp = (float) dtBaseDragonDamage;
 
-					if (AbstractDungeon.player.hasRelic(WristBlade.ID) && (costForTurn == 0 || freeToPlayOnce)) {
-						tmp += 3.0F;
-						if (dtBaseDragonDamage != (int) tmp) {
-							isDTDragonDamageModified = true;
+					for (AbstractRelic r : AbstractDungeon.player.relics) {
+						if (relicApplyToDragon.contains(r.relicId)) {
+							tmp = r.atDamageModify(tmp, this);
 						}
 					}
 
 					for (AbstractPower p : dragon.powers) {
 						tmp = p.atDamageGive(tmp, damageTypeForTurn);
-						if (dtBaseDragonDamage != (int) tmp) {
-							isDTDragonDamageModified = true;
-						}
 					}
 					for (AbstractPower p : AbstractDungeon.player.powers) {
 						if (playerPowerApplyToDragon.contains(p.ID)) {
 							tmp = p.atDamageGive(tmp, damageTypeForTurn);
-							if (dtBaseDragonDamage != (int) tmp) {
-								isDTDragonDamageModified = true;
-							}
 						}
 					}
 					for (AbstractPower p : dragon.powers) {
 						tmp = p.atDamageFinalGive(tmp, damageTypeForTurn);
-						if (dtBaseDragonDamage != (int) tmp) {
-							isDTDragonDamageModified = true;
-						}
 					}
 					for (AbstractPower p : AbstractDungeon.player.powers) {
 						if (playerPowerApplyToDragon.contains(p.ID)) {
 							tmp = p.atDamageFinalGive(tmp, damageTypeForTurn);
-							if (dtBaseDragonDamage != (int) tmp) {
-								isDTDragonDamageModified = true;
-							}
 						}
 					}
 
@@ -131,6 +122,10 @@ public abstract class AbstractDTCard extends CustomCard {
 					}
 
 					dtDragonDamage = MathUtils.floor(tmp);
+
+					if (dtBaseDragonDamage != dtDragonDamage) {
+						isDTDragonDamageModified = true;
+					}
 				} else {
 					ArrayList<AbstractMonster> m = AbstractDungeon.getCurrRoom().monsters.monsters;
 					float[] tmp = new float[m.size()];
@@ -141,26 +136,25 @@ public abstract class AbstractDTCard extends CustomCard {
 					}
 
 					for (i = 0; i < tmp.length; ++i) {
-						if (AbstractDungeon.player.hasRelic(WristBlade.ID) && (costForTurn == 0 || freeToPlayOnce)) {
-							tmp[i] += 3.0F;
-							if (dtBaseDragonDamage != (int) tmp[i]) {
-								isDTDragonDamageModified = true;
+						for (AbstractRelic r : AbstractDungeon.player.relics) {
+							if (relicApplyToDragon.contains(r.relicId)) {
+								tmp[i] = r.atDamageModify(tmp[i], this);
 							}
 						}
-
 						for (AbstractPower p : dragon.powers) {
 							tmp[i] = p.atDamageGive(tmp[i], damageTypeForTurn);
-							if (dtBaseDragonDamage != (int) tmp[i]) {
-								isDTDragonDamageModified = true;
+						}
+						for (AbstractPower p : AbstractDungeon.player.powers) {
+							if (playerPowerApplyToDragon.contains(p.ID)) {
+								tmp[i] = p.atDamageGive(tmp[i], damageTypeForTurn);
 							}
 						}
-					}
-
-					for (i = 0; i < tmp.length; ++i) {
 						for (AbstractPower p : dragon.powers) {
 							tmp[i] = p.atDamageFinalGive(tmp[i], damageTypeForTurn);
-							if (dtBaseDragonDamage != (int) tmp[i]) {
-								isDTDragonDamageModified = true;
+						}
+						for (AbstractPower p : AbstractDungeon.player.powers) {
+							if (playerPowerApplyToDragon.contains(p.ID)) {
+								tmp[i] = p.atDamageFinalGive(tmp[i], damageTypeForTurn);
 							}
 						}
 					}
@@ -178,6 +172,9 @@ public abstract class AbstractDTCard extends CustomCard {
 					}
 
 					dtDragonDamage = multiDamage[0];
+					if (dtBaseDragonDamage != dtDragonDamage) {
+						isDTDragonDamageModified = true;
+					}
 				}
 			}
 		}
@@ -215,10 +212,9 @@ public abstract class AbstractDTCard extends CustomCard {
 				if (!isMultiDamage) {
 					float tmp = (float) dtBaseDragonDamage;
 
-					if (AbstractDungeon.player.hasRelic(WristBlade.ID) && (costForTurn == 0 || freeToPlayOnce)) {
-						tmp += 3.0F;
-						if (dtBaseDragonDamage != (int) tmp) {
-							isDTDragonDamageModified = true;
+					for (AbstractRelic r : AbstractDungeon.player.relics) {
+						if (relicApplyToDragon.contains(r.relicId)) {
+							tmp = r.atDamageModify(tmp, this);
 						}
 					}
 
@@ -237,7 +233,7 @@ public abstract class AbstractDTCard extends CustomCard {
 						}
 					}
 					for (AbstractPower p : mo.powers) {
-						tmp = p.atDamageReceive(tmp, this.damageTypeForTurn, this);
+						tmp = p.atDamageReceive(tmp, damageTypeForTurn, this);
 					}
 
 					for (AbstractPower p : dragon.powers) {
@@ -249,7 +245,7 @@ public abstract class AbstractDTCard extends CustomCard {
 						}
 					}
 					for (AbstractPower p : mo.powers) {
-						tmp = p.atDamageFinalReceive(tmp, this.damageTypeForTurn, this);
+						tmp = p.atDamageFinalReceive(tmp, damageTypeForTurn, this);
 					}
 					if (tmp < 0.0F) {
 						tmp = 0.0F;
@@ -269,10 +265,9 @@ public abstract class AbstractDTCard extends CustomCard {
 					}
 
 					for (i = 0; i < tmp.length; ++i) {
-						if (AbstractDungeon.player.hasRelic(WristBlade.ID) && (costForTurn == 0 || freeToPlayOnce)) {
-							tmp[i] += 3.0F;
-							if (dtBaseDragonDamage != (int) tmp[i]) {
-								isDTDragonDamageModified = true;
+						for (AbstractRelic r : AbstractDungeon.player.relics) {
+							if (relicApplyToDragon.contains(r.relicId)) {
+								tmp[i] = r.atDamageModify(tmp[i], this);
 							}
 						}
 
@@ -285,11 +280,9 @@ public abstract class AbstractDTCard extends CustomCard {
 							}
 						}
 						for (AbstractPower p : mo.powers) {
-							tmp[i] = p.atDamageReceive(tmp[i], this.damageTypeForTurn, this);
+							tmp[i] = p.atDamageReceive(tmp[i], damageTypeForTurn, this);
 						}
-					}
 
-					for (i = 0; i < tmp.length; ++i) {
 						for (AbstractPower p : dragon.powers) {
 							tmp[i] = p.atDamageFinalGive(tmp[i], damageTypeForTurn);
 						}
@@ -299,7 +292,7 @@ public abstract class AbstractDTCard extends CustomCard {
 							}
 						}
 						for (AbstractPower p : mo.powers) {
-							tmp[i] = p.atDamageFinalReceive(tmp[i], this.damageTypeForTurn, this);
+							tmp[i] = p.atDamageFinalReceive(tmp[i], damageTypeForTurn, this);
 						}
 					}
 
@@ -345,6 +338,17 @@ public abstract class AbstractDTCard extends CustomCard {
 		return null;
 	}
 
+	public boolean isFrontDragon() {
+		if (AbstractDungeon.player instanceof TheDT) {
+			Dragon dragon = ((TheDT) AbstractDungeon.player).dragon;
+			if (dragon.isDeadOrEscaped()) return false;
+			if (((TheDT) AbstractDungeon.player).front == dragon) {
+				return true;
+			}
+		}
+		return false;
+	}
+
 	public String dragonNotAvailableMessage() {
 		if (AbstractDungeon.player instanceof TheDT) {
 			return EXTENDED_DESCRIPTION[1];
@@ -355,9 +359,9 @@ public abstract class AbstractDTCard extends CustomCard {
 	// null = both attacks
 	public AbstractCreature getAttacker() {
 		if (AbstractDungeon.player instanceof TheDT) {
-			if (this.dtCardTarget == DTCardTarget.DEFAULT) {
+			if (dtCardTarget == DTCardTarget.DEFAULT) {
 				return AbstractDungeon.player;
-			} else if (this.dtCardTarget == DTCardTarget.DRAGON_ONLY) {
+			} else if (dtCardTarget == DTCardTarget.DRAGON_ONLY) {
 				return ((TheDT) AbstractDungeon.player).dragon;
 			} else {
 				return null;

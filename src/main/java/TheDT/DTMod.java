@@ -8,10 +8,7 @@ import TheDT.patches.MonsterTargetPatch;
 import TheDT.patches.MythicalGameState;
 import TheDT.patches.TheDTEnum;
 import TheDT.potions.LesserPlaceholderPotion;
-import TheDT.relics.BigBag;
-import TheDT.relics.EnergeticBat;
 import TheDT.relics.PactStone;
-import TheDT.relics.PendantOfEscape;
 import TheDT.variables.DTDragonBlock;
 import TheDT.variables.DTDragonDamage;
 import basemod.BaseMod;
@@ -218,10 +215,6 @@ public class DTMod
 		logger.info("Add relics");
 
 		BaseMod.addRelicToCustomPool(new PactStone(), CardColorEnum.DT_ORANGE);
-
-		BaseMod.addRelicToCustomPool(new EnergeticBat(), CardColorEnum.DT_ORANGE);
-		BaseMod.addRelicToCustomPool(new PendantOfEscape(), CardColorEnum.DT_ORANGE);
-		BaseMod.addRelicToCustomPool(new BigBag(), CardColorEnum.DT_ORANGE);
 
 		if (isAspirationLoaded) {
 			OptionalRelicHelper.registerAspirationRelic();

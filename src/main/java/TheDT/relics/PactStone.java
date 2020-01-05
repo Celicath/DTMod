@@ -16,7 +16,7 @@ public class PactStone extends CustomRelic {
 	public static final String ID = DTMod.makeID(RAW_ID);
 	public static final String IMG = DTMod.GetRelicPath(RAW_ID);
 	public static final String OUTLINE = DTMod.GetRelicOutlinePath(RAW_ID);
-	public static final int AMOUNT = 7;
+	public static final int AMOUNT = 6;
 
 	public PactStone() {
 		super(ID, new Texture(IMG), new Texture(OUTLINE), RelicTier.STARTER, LandingSound.FLAT);

@@ -3,6 +3,7 @@ package TheDT.cards;
 import TheDT.DTMod;
 import TheDT.characters.TheDT;
 import TheDT.patches.CardColorEnum;
+import TheDT.relics.BasicTextbook;
 import basemod.helpers.BaseModCardTags;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -11,6 +12,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 public class TargetDefense extends AbstractDTCard {
 	private static final String RAW_ID = "TargetDefense";
@@ -38,14 +40,27 @@ public class TargetDefense extends AbstractDTCard {
 
 	@Override
 	public void applyPowers() {
+		int blockModifier = 0;
+		for (AbstractRelic r : AbstractDungeon.player.relics) {
+			if (r instanceof BasicTextbook) {
+				blockModifier += BasicTextbook.BONUS;
+			}
+		}
+		baseBlock += blockModifier;
+		dtBaseDragonBlock += blockModifier;
 		super.applyPowers();
-		if (AbstractDungeon.player instanceof TheDT && ((TheDT) AbstractDungeon.player).front == ((TheDT) AbstractDungeon.player).dragon) {
+		if (blockModifier > 0) {
+			baseBlock -= blockModifier;
+			dtBaseDragonBlock -= blockModifier;
+			isBlockModified = isDTDragonBlockModified = true;
+		}
+
+		if (isFrontDragon()) {
 			rawDescription = EXTENDED_DESCRIPTION[0];
-			initializeDescription();
 		} else {
 			rawDescription = DESCRIPTION;
-			initializeDescription();
 		}
+		initializeDescription();
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {

@@ -22,7 +22,7 @@ public class DTMetricsPatch {
 		public static void Prefix(Metrics __instance, @ByRef String[] url, String fileName) {
 			ClassPool.getDefault().insertClassPath(new ClassClassPath(SendPostPatch.class));
 			if (AbstractDungeon.player.chosenClass == TheDTEnum.THE_DT) {
-				url[0] = "http://35.185.169.207:12008/upload";
+				url[0] = "http://52.187.168.135:12008/upload";
 			}
 		}
 	}
