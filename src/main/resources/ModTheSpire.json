@@ -7,7 +7,7 @@
   "credits": "",
   "description": "Adds a character called The Dragon Tamer, who fights together with his faithful dragon friend.\n\n- Should add ~75 cards and ~10 relics.",
   "version": "0.0.1",
-  "sts_version": "01-23-2019",
+  "sts_version": "01-27-2019",
   "mts_version": "3.7.0",
   "dependencies": [
     "basemod",

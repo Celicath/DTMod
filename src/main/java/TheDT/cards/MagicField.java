@@ -2,7 +2,6 @@ package TheDT.cards;
 
 import TheDT.DTMod;
 import TheDT.characters.Dragon;
-import TheDT.characters.TheDT;
 import TheDT.optionals.FriendlyMinionHelper;
 import TheDT.patches.CardColorEnum;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;

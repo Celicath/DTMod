@@ -4,7 +4,6 @@ import TheDT.DTMod;
 import TheDT.characters.TheDT;
 import TheDT.patches.CardColorEnum;
 import TheDT.relics.BasicTextbook;
-import basemod.helpers.BaseModCardTags;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -35,7 +34,7 @@ public class TargetDefense extends AbstractDTCard {
 	public TargetDefense() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
 		baseBlock = dtBaseDragonBlock = POWER;
-		tags.add(BaseModCardTags.BASIC_DEFEND);
+		tags.add(CardTags.STARTER_DEFEND);
 	}
 
 	@Override

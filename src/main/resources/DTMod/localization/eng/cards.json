@@ -18,18 +18,18 @@
       "The ragontaer:Front gains !DT:THB! Block."
     ]
   },
-  "DTMod:DoubleAttack": {
-    "NAME": "Double Attack",
+  "DTMod:TwinBite": {
+    "NAME": "Twin Bite",
     "DESCRIPTION": "Dragon deals !DT:THD! damage twice."
   },
   "DTMod:HardSkin": {
     "NAME": "Hard Skin",
-    "DESCRIPTION": "Dragon gains !DT:THB! Block. NL Exhaust."
+    "DESCRIPTION": "Retain. NL Dragon gains !DT:THB! Block. NL Exhaust."
   },
   "DTMod:SwitchingTactics": {
     "NAME": "Switching Tactics",
-    "DESCRIPTION": "Your team's ragontaer:Aggro is reversed. NL All enemies lose Strength equal to ragontaer:Aggro difference for this turn.",
-    "UPGRADE_DESCRIPTION": "Retain. NL Your team's ragontaer:Aggro is reversed. NL All enemies lose Strength equal to ragontaer:Aggro difference for this turn."
+    "DESCRIPTION": "Reverse ragontaer:Aggro. For this turn, reduce Strength of ALL enemies by ragontaer:Aggro difference. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Reverse ragontaer:Aggro. For this turn, reduce Strength of ALL enemies by ragontaer:Aggro difference. NL Exhaust."
   },
   "DTMod:BronzeWave": {
     "NAME": "Bronze Wave",
@@ -50,18 +50,16 @@
   },
   "DTMod:OpeningTactics": {
     "NAME": "Opening Tactics",
-    "DESCRIPTION": "If the enemy has full HP, Gain !M! Dexterity. NL Deal !D! damage.",
-    "UPGRADE_DESCRIPTION": "Innate. NL If the enemy has full HP, Gain !M! Dexterity. NL Deal !D! damage."
+    "DESCRIPTION": "Innate. NL If the enemy has full HP, Gain !M! Dexterity. NL Deal !D! damage."
   },
   "DTMod:RefreshTactics": {
     "NAME": "Refresh Tactics",
-    "DESCRIPTION": "Fetch !M! card from your exhaust pile except this. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Fetch !M! cards from your exhaust pile except this. NL Exhaust."
+    "DESCRIPTION": "Fetch !M! card from your exhaust pile. (Except Refresh Tactics) NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Fetch !M! cards from your exhaust pile. (Except Refresh Tactics) NL Exhaust."
   },
   "DTMod:HeadStart": {
     "NAME": "Head Start",
-    "DESCRIPTION": "Innate. NL Draw !M! cards. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Innate. NL Draw !M! cards. NL Gain [E]. NL Exhaust."
+    "DESCRIPTION": "Innate. NL Scry !M!. NL Draw 2 cards. NL Exhaust."
   },
   "DTMod:CleansingStrike": {
     "NAME": "Cleansing Strike",
@@ -70,7 +68,7 @@
   },
   "DTMod:Training": {
     "NAME": "Training",
-    "DESCRIPTION": "Gain !M! Strength. NL Dragon gains !M! Strength."
+    "DESCRIPTION": "Gain !M! Strength. NL Dragon gains !M! Strength. NL Gain 1 ragontaer:Bonding."
   },
   "DTMod:MagicField": {
     "NAME": "Magic Field",
@@ -82,7 +80,7 @@
   },
   "DTMod:CalculatedDefense": {
     "NAME": "Calculated Defense",
-    "DESCRIPTION": "Your team takes !M! less damage from Weakened enemies."
+    "DESCRIPTION": "Your team takes !M! less Attack damage from Weakened enemies."
   },
   "DTMod:ExcessFootwork": {
     "NAME": "Excess Footwork",
@@ -94,7 +92,7 @@
   },
   "DTMod:ComboAttack": {
     "NAME": "Combo Attack",
-    "DESCRIPTION": "Deal !D! damage. NL Dragon deals !DT:THD! damage."
+    "DESCRIPTION": "Deal !D! damage. NL Dragon deals !DT:THD! damage. NL Gain 1 ragontaer:Bonding."
   },
   "DTMod:BreakAttack": {
     "NAME": "Break Attack",
@@ -103,5 +101,26 @@
   "DTMod:BuildUp": {
     "NAME": "Build Up",
     "DESCRIPTION": "Deal !D! damage. Your next Attack deals !M! additional damage."
+  },
+  "DTMod:Outburst": {
+    "NAME": "Outburst",
+    "DESCRIPTION": "Dragon enters Wrath for 2 turns. Exhaust."
+  },
+  "DTMod:RepeatStrike": {
+    "NAME": "Repeat Strike",
+    "DESCRIPTION": "Dragon deals !DT:THD! damage. At the start of each turn, return this from the discard pile to your hand.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Dragon deals !DT:THD! damage. At the start of each turn, return this from the discard pile to your hand."
+  },
+  "DTMod:FireUp": {
+    "NAME": "Fire Up",
+    "DESCRIPTION": "Dragon gains !M! Strength and 1 Dexterity."
+  },
+  "DTMod:FireBreath": {
+    "NAME": "Fire Breath",
+    "DESCRIPTION": "Dragon deals !DT:THD! damage to ALL enemies."
+  },
+  "DTMod:ShieldDrain": {
+    "NAME": "Shield Drain",
+    "DESCRIPTION": "Steal all Block from the enemy. NL Deal !D! damage."
   }
 }

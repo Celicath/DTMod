@@ -4,7 +4,7 @@
     "NAMES": [
       "bonding"
     ],
-    "DESCRIPTION": "After you gain #b4 Bonding in a combat, the mythical creature will help you."
+    "DESCRIPTION": "When you obtain #b4 #yBonding, choose a powerful #yBonding effect to receive."
   },
   {
     "PROPER_NAME": "Aggro and Position",
@@ -17,14 +17,14 @@
   {
     "PROPER_NAME": "Front",
     "NAMES": [
-      "Front"
+      "front"
     ],
     "DESCRIPTION": "The character who draws all enemy attacks."
   },
   {
     "PROPER_NAME": "Rear",
     "NAMES": [
-      "Rear"
+      "rear"
     ],
     "DESCRIPTION": "The #yRear is not attacked by enemies. When the Aggro of the #yRear becomes higher than the #yFront, they Switch their position."
   },

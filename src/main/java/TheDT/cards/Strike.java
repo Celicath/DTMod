@@ -2,7 +2,6 @@ package TheDT.cards;
 
 import TheDT.DTMod;
 import TheDT.patches.CardColorEnum;
-import basemod.helpers.BaseModCardTags;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -34,7 +33,7 @@ public class Strike extends AbstractDTCard {
 	public Strike() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
 		this.baseDamage = POWER;
-		this.tags.add(BaseModCardTags.BASIC_STRIKE);
+		this.tags.add(CardTags.STARTER_STRIKE);
 		this.tags.add(CardTags.STRIKE);
 	}
 

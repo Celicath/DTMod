@@ -3,7 +3,7 @@ package TheDT.cards;
 import TheDT.DTMod;
 import TheDT.patches.CardColorEnum;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
+import com.megacrit.cardcrawl.actions.utility.ScryAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -26,21 +26,20 @@ public class HeadStart extends AbstractDTCard {
 	private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DEFAULT;
 
+	private static final int SCRY = 3;
+	private static final int SCRY_BONUS = 2;
 	private static final int DRAW = 2;
-	private static final int ENERGY = 1;
 
 	public HeadStart() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
-		magicNumber = baseMagicNumber = DRAW;
+		magicNumber = baseMagicNumber = SCRY;
 		isInnate = true;
 		exhaust = true;
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, magicNumber));
-		if (upgraded) {
-			AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(ENERGY));
-		}
+		AbstractDungeon.actionManager.addToBottom(new ScryAction(magicNumber));
+		AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, DRAW));
 	}
 
 	public AbstractCard makeCopy() {
@@ -50,8 +49,7 @@ public class HeadStart extends AbstractDTCard {
 	public void upgrade() {
 		if (!upgraded) {
 			upgradeName();
-			rawDescription = UPGRADE_DESCRIPTION;
-			initializeDescription();
+			upgradeMagicNumber(SCRY_BONUS);
 		}
 	}
 }

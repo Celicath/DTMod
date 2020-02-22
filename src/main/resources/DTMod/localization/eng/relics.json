@@ -22,5 +22,14 @@
       "Increase the damage and Block from basic Strikes and Target Defenses by #b",
       " [REMOVE_SPACE]."
     ]
+  },
+  "DTMod:OddArmor": {
+    "NAME": "Odd Armor",
+    "FLAVOR": "It's too odd. Even though it's effective.",
+    "DESCRIPTIONS": [
+      "On odd-numbered turns, reduce the attack damage you take by #b",
+      ". On even-numbered turns, reduce the attack damage Dragon takes by #b",
+      "."
+    ]
   }
 }

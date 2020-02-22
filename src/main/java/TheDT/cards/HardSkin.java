@@ -21,16 +21,17 @@ public class HardSkin extends AbstractDTCard {
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 	private static final AbstractCard.CardType TYPE = CardType.SKILL;
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.DT_ORANGE;
-	private static final AbstractCard.CardRarity RARITY = CardRarity.BASIC;
+	private static final AbstractCard.CardRarity RARITY = CardRarity.SPECIAL;
 	private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DRAGON_ONLY;
 
-	private static final int BLOCK = 9;
-	private static final int UPGRADE_BLOCK = 3;
+	private static final int BLOCK = 10;
+	private static final int UPGRADE_BLOCK = 4;
 
 	public HardSkin() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
 		dtBaseDragonBlock = BLOCK;
+		selfRetain = true;
 		exhaust = true;
 	}
 

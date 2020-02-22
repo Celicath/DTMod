@@ -36,7 +36,8 @@ public class SwitchingTactics extends AbstractDTCard {
 
 	public SwitchingTactics() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
-		this.tags.add(DT_TACTICS);
+		exhaust = true;
+		tags.add(DT_TACTICS);
 	}
 
 	@Override

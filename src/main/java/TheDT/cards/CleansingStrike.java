@@ -21,6 +21,7 @@ public class CleansingStrike extends AbstractDTCard {
 	public static final String IMG = DTMod.GetCardPath(RAW_ID);
 	private static final int COST = 1;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
+	public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
 	private static final AbstractCard.CardType TYPE = CardType.ATTACK;
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.DT_ORANGE;
 	private static final AbstractCard.CardRarity RARITY = CardRarity.COMMON;
@@ -56,6 +57,8 @@ public class CleansingStrike extends AbstractDTCard {
 			upgradeName();
 			upgradeDamage(UPGRADE_BONUS);
 			upgradeMagicNumber(UPGRADE_EXHAUST);
+			rawDescription = UPGRADE_DESCRIPTION;
+			initializeDescription();
 		}
 	}
 }

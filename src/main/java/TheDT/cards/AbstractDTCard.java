@@ -28,6 +28,8 @@ public abstract class AbstractDTCard extends CustomCard {
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 	public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
 
+	public int[] dragonMultiDamage;
+
 	public static HashSet<String> playerPowerApplyToDragon;
 	public static HashSet<String> relicApplyToDragon;
 
@@ -108,6 +110,7 @@ public abstract class AbstractDTCard extends CustomCard {
 							tmp = p.atDamageGive(tmp, damageTypeForTurn);
 						}
 					}
+					tmp = dragon.stance.atDamageGive(tmp, damageTypeForTurn, this);
 					for (AbstractPower p : dragon.powers) {
 						tmp = p.atDamageFinalGive(tmp, damageTypeForTurn);
 					}
@@ -149,6 +152,7 @@ public abstract class AbstractDTCard extends CustomCard {
 								tmp[i] = p.atDamageGive(tmp[i], damageTypeForTurn);
 							}
 						}
+						tmp[i] = dragon.stance.atDamageGive(tmp[i], damageTypeForTurn, this);
 						for (AbstractPower p : dragon.powers) {
 							tmp[i] = p.atDamageFinalGive(tmp[i], damageTypeForTurn);
 						}
@@ -165,13 +169,13 @@ public abstract class AbstractDTCard extends CustomCard {
 						}
 					}
 
-					multiDamage = new int[tmp.length];
+					dragonMultiDamage = new int[tmp.length];
 
 					for (i = 0; i < tmp.length; ++i) {
-						multiDamage[i] = MathUtils.floor(tmp[i]);
+						dragonMultiDamage[i] = MathUtils.floor(tmp[i]);
 					}
 
-					dtDragonDamage = multiDamage[0];
+					dtDragonDamage = dragonMultiDamage[0];
 					if (dtBaseDragonDamage != dtDragonDamage) {
 						isDTDragonDamageModified = true;
 					}
@@ -232,6 +236,7 @@ public abstract class AbstractDTCard extends CustomCard {
 							}
 						}
 					}
+					tmp = dragon.stance.atDamageGive(tmp, damageTypeForTurn, this);
 					for (AbstractPower p : mo.powers) {
 						tmp = p.atDamageReceive(tmp, damageTypeForTurn, this);
 					}
@@ -279,7 +284,8 @@ public abstract class AbstractDTCard extends CustomCard {
 								tmp[i] = p.atDamageGive(tmp[i], damageTypeForTurn);
 							}
 						}
-						for (AbstractPower p : mo.powers) {
+						tmp[i] = dragon.stance.atDamageGive(tmp[i], damageTypeForTurn, this);
+						for (AbstractPower p : m.get(i).powers) {
 							tmp[i] = p.atDamageReceive(tmp[i], damageTypeForTurn, this);
 						}
 
@@ -291,7 +297,7 @@ public abstract class AbstractDTCard extends CustomCard {
 								tmp[i] = p.atDamageFinalGive(tmp[i], damageTypeForTurn);
 							}
 						}
-						for (AbstractPower p : mo.powers) {
+						for (AbstractPower p : m.get(i).powers) {
 							tmp[i] = p.atDamageFinalReceive(tmp[i], damageTypeForTurn, this);
 						}
 					}
@@ -302,13 +308,13 @@ public abstract class AbstractDTCard extends CustomCard {
 						}
 					}
 
-					multiDamage = new int[tmp.length];
+					dragonMultiDamage = new int[tmp.length];
 
 					for (i = 0; i < tmp.length; ++i) {
-						multiDamage[i] = MathUtils.floor(tmp[i]);
+						dragonMultiDamage[i] = MathUtils.floor(tmp[i]);
 					}
 
-					dtDragonDamage = multiDamage[0];
+					dtDragonDamage = dragonMultiDamage[0];
 					if (dtBaseDragonDamage != dtDragonDamage) {
 						isDTDragonDamageModified = true;
 					}

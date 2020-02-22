@@ -3,7 +3,6 @@ package TheDT.cards;
 import TheDT.DTMod;
 import TheDT.characters.Dragon;
 import TheDT.patches.CardColorEnum;
-import TheDT.patches.CustomTags;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -30,7 +29,7 @@ public class BreakAttack extends AbstractDTCard {
 	private static final AbstractCard.CardTarget TARGET = CardTarget.ENEMY;
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DRAGON_ONLY;
 
-	private static final int DAMAGE = 10;
+	private static final int DAMAGE = 9;
 	private static final int UPGRADE_DAMAGE = 3;
 	private static final int MAGIC = 3;
 	private static final int UPGRADE_MAGIC = 1;
@@ -40,7 +39,6 @@ public class BreakAttack extends AbstractDTCard {
 		dtBaseDragonDamage = DAMAGE;
 		baseMagicNumber = magicNumber = MAGIC;
 		exhaust = true;
-		tags.add(CustomTags.DT_DRAGON);
 	}
 
 	@Override

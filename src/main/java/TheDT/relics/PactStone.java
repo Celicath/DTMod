@@ -5,7 +5,6 @@ import TheDT.characters.TheDT;
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
@@ -27,8 +26,8 @@ public class PactStone extends CustomRelic {
 		this.flash();
 		AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
 		AbstractDungeon.actionManager.addToBottom(new AddTemporaryHPAction(AbstractDungeon.player, AbstractDungeon.player, AMOUNT));
-		if(AbstractDungeon.player instanceof TheDT) {
-			TheDT dt = (TheDT)AbstractDungeon.player;
+		if (AbstractDungeon.player instanceof TheDT) {
+			TheDT dt = (TheDT) AbstractDungeon.player;
 			AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(dt.dragon, this));
 			AbstractDungeon.actionManager.addToBottom(new AddTemporaryHPAction(dt.dragon, dt.dragon, AMOUNT));
 		}

@@ -104,12 +104,12 @@ public class TheDT extends CustomPlayer {
 		retVal.add(Strike.ID);
 		retVal.add(Strike.ID);
 		retVal.add(Strike.ID);
-		retVal.add(Strike.ID);
+		retVal.add(TwinBite.ID);
+		retVal.add(TwinBite.ID);
 		retVal.add(TargetDefense.ID);
 		retVal.add(TargetDefense.ID);
 		retVal.add(TargetDefense.ID);
-		retVal.add(DoubleAttack.ID);
-		retVal.add(HardSkin.ID);
+		retVal.add(SwitchingTactics.ID);
 		retVal.add(SwitchingTactics.ID);
 
 		return retVal;
@@ -219,6 +219,12 @@ public class TheDT extends CustomPlayer {
 	public void update() {
 		dragon.update();
 		super.update();
+	}
+
+	@Override
+	public void combatUpdate() {
+		dragon.combatUpdate();
+		super.combatUpdate();
 	}
 
 	@Override
@@ -347,6 +353,12 @@ public class TheDT extends CustomPlayer {
 	public void updateAnimations() {
 		super.updateAnimations();
 		dragon.updateAnimations();
+	}
+
+	@Override
+	public void applyStartOfTurnPowers() {
+		super.applyStartOfTurnPowers();
+		dragon.applyStartOfTurnPowers();
 	}
 
 	public Texture getAttackIcon() {

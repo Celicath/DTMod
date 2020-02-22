@@ -7,10 +7,12 @@ import TheDT.patches.CardColorEnum;
 import TheDT.patches.MonsterTargetPatch;
 import TheDT.patches.MythicalGameState;
 import TheDT.patches.TheDTEnum;
-import TheDT.potions.LesserPlaceholderPotion;
+import TheDT.relics.BasicTextbook;
+import TheDT.relics.OddArmor;
 import TheDT.relics.PactStone;
 import TheDT.variables.DTDragonBlock;
 import TheDT.variables.DTDragonDamage;
+import basemod.AutoAdd;
 import basemod.BaseMod;
 import basemod.ModLabeledToggleButton;
 import basemod.ModPanel;
@@ -24,6 +26,7 @@ import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
+import com.megacrit.cardcrawl.actions.utility.DiscardToHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -38,7 +41,6 @@ import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import the_gatherer.GathererMod;
 
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
@@ -48,12 +50,13 @@ import java.util.Properties;
 @SpireInitializer
 public class DTMod
 		implements EditCardsSubscriber, EditRelicsSubscriber, EditStringsSubscriber, EditKeywordsSubscriber,
-		EditCharactersSubscriber, PostInitializeSubscriber, OnStartBattleSubscriber, PreMonsterTurnSubscriber {
+		EditCharactersSubscriber, PostInitializeSubscriber, OnStartBattleSubscriber, PreMonsterTurnSubscriber,
+		PostEnergyRechargeSubscriber {
 	public static final Logger logger = LogManager.getLogger(DTMod.class.getName());
 
 	private static final String MODNAME = "The DT";
 	private static final String AUTHOR = "Celicath";
-	private static final String DESCRIPTION = "Adds a character called The DT, which is not yet revealed.";
+	private static final String DESCRIPTION = "Adds a character called The DT.";
 
 	public static final Color DT_ORANGE = CardHelper.getColor(216, 116, 24);
 
@@ -85,14 +88,8 @@ public class DTMod
 	public static final String THE_DT_SKELETON_ATLAS = "char/TheDT/skeleton.atlas";
 	public static final String THE_DT_SKELETON_JSON = "char/TheDT/skeleton.json";
 
-	// Logics
-	public static int genCards;
-
-	// Modules
-
 	// Crossovers
 	public static boolean isAspirationLoaded;
-	public static boolean isGathererLoaded;
 	public static boolean isFriendlyMinionsLoaded;
 
 	// Configs
@@ -103,7 +100,7 @@ public class DTMod
 	// etc.
 	public static String MythicalSkillbookID = makeID("MythicalSkillbook");
 
-	public static final String makePath(String resource) {
+	public static String makePath(String resource) {
 		return DT_MOD_ASSETS_FOLDER + "/" + resource;
 	}
 
@@ -135,7 +132,6 @@ public class DTMod
 	public static void initialize() {
 		DTMod mod = new DTMod();
 		isAspirationLoaded = Loader.isModLoaded("aspiration");
-		isGathererLoaded = Loader.isModLoaded("gatherermod");
 		isFriendlyMinionsLoaded = Loader.isModLoaded("Friendly_Minions_0987678");
 	}
 
@@ -196,10 +192,6 @@ public class DTMod
 		settingsPanel.addUIElement(enableEventButton);
 
 		BaseMod.registerModBadge(badgeTexture, MODNAME, AUTHOR, DESCRIPTION, settingsPanel);
-
-		if (isGathererLoaded) {
-			GathererMod.lesserPotionPool.add(new LesserPlaceholderPotion());
-		}
 	}
 
 
@@ -215,6 +207,8 @@ public class DTMod
 		logger.info("Add relics");
 
 		BaseMod.addRelicToCustomPool(new PactStone(), CardColorEnum.DT_ORANGE);
+		BaseMod.addRelicToCustomPool(new BasicTextbook(), CardColorEnum.DT_ORANGE);
+		BaseMod.addRelicToCustomPool(new OddArmor(), CardColorEnum.DT_ORANGE);
 
 		if (isAspirationLoaded) {
 			OptionalRelicHelper.registerAspirationRelic();
@@ -230,36 +224,10 @@ public class DTMod
 		BaseMod.addDynamicVariable(new DTDragonDamage());
 		BaseMod.addDynamicVariable(new DTDragonBlock());
 
-		List<CustomCard> cards = new ArrayList<>();
-
-		cards.add(new Strike());
-		cards.add(new TargetDefense());
-		cards.add(new DoubleAttack());
-		cards.add(new HardSkin());
-		cards.add(new SwitchingTactics());
-
-		cards.add(new OpeningTactics());
-		cards.add(new BronzeWave());
-		cards.add(new ForbiddenStrike());
-		cards.add(new MagicField());
-		cards.add(new RefreshTactics());
-		cards.add(new RunningTactics());
-		cards.add(new HeadStart());
-		cards.add(new Prediction());
-		cards.add(new Training());
-		cards.add(new CleansingStrike());
-		cards.add(new CalculatedDefense());
-		cards.add(new ComboAttack());
-		cards.add(new ExcessFootwork());
-		cards.add(new PreemptiveStrike());
-		cards.add(new BuildUp());
-
-		for (CustomCard card : cards) {
-			BaseMod.addCard(card);
-			if (!UnlockTracker.isCardSeen(card.cardID)) {
-				UnlockTracker.unlockCard(card.cardID);
-			}
-		}
+		new AutoAdd("DTMod")
+				.packageFilter(AbstractDTCard.class)
+				.setDefaultSeen(true)
+				.cards();
 	}
 
 	@Override
@@ -323,7 +291,6 @@ public class DTMod
 
 	@Override
 	public void receiveOnBattleStart(AbstractRoom room) {
-		genCards = 0;
 		MythicalGameState.reset();
 		MonsterTargetPatch.prevPlayer = null;
 	}
@@ -339,6 +306,14 @@ public class DTMod
 		return true;
 	}
 
+	@Override
+	public void receivePostEnergyRecharge() {
+		for (AbstractCard c : AbstractDungeon.player.discardPile.group) {
+			if (c instanceof RepeatStrike) {
+				AbstractDungeon.actionManager.addToTop(new DiscardToHandAction(c));
+			}
+		}
+	}
 
 	public static AbstractCreature getAttacker(AbstractCard c) {
 		if (c instanceof AbstractDTCard) {

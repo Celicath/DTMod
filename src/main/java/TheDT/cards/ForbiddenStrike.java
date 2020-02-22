@@ -26,16 +26,11 @@ public class ForbiddenStrike extends AbstractDTCard {
 	private static final AbstractCard.CardTarget TARGET = CardTarget.ENEMY;
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DEFAULT;
 
-	private static final int DAMAGE = 23;
+	private static final int DAMAGE = 19;
 
 	public ForbiddenStrike() {
-		this(0);
-	}
-
-	public ForbiddenStrike(int upgrades) {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
 		this.baseDamage = DAMAGE;
-		this.timesUpgraded = upgrades;
 
 		this.tags.add(CardTags.STRIKE);
 	}
@@ -45,7 +40,7 @@ public class ForbiddenStrike extends AbstractDTCard {
 	}
 
 	public AbstractCard makeCopy() {
-		return new ForbiddenStrike(this.timesUpgraded);
+		return new ForbiddenStrike();
 	}
 
 	public void upgrade() {

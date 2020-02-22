@@ -26,7 +26,7 @@ public class PreemptiveStrike extends AbstractDTCard {
 	private static final AbstractCard.CardTarget TARGET = CardTarget.ALL_ENEMY;
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DEFAULT;
 
-	private static final int POWER = 5;
+	private static final int POWER = 4;
 	private static final int UPGRADE_BONUS = 1;
 
 	public PreemptiveStrike() {

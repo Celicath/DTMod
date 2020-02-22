@@ -32,14 +32,16 @@ public class OpeningTactics extends AbstractDTCard {
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DEFAULT;
 
 	private static final int POWER = 12;
+	private static final int UPGRADE_BONUS = 4;
 	private static final int MAGIC = 1;
 
 	public OpeningTactics() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
-		this.baseDamage = POWER;
-		this.baseMagicNumber = MAGIC;
-		this.magicNumber = this.baseMagicNumber;
-		this.tags.add(DT_TACTICS);
+		baseDamage = POWER;
+		baseMagicNumber = MAGIC;
+		magicNumber = this.baseMagicNumber;
+		isInnate = true;
+		tags.add(DT_TACTICS);
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
@@ -56,9 +58,7 @@ public class OpeningTactics extends AbstractDTCard {
 	public void upgrade() {
 		if (!upgraded) {
 			upgradeName();
-			isInnate = true;
-			rawDescription = UPGRADE_DESCRIPTION;
-			initializeDescription();
+			upgradeDamage(UPGRADE_BONUS);
 		}
 	}
 }

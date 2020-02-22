@@ -12,12 +12,20 @@ public class MonsterTargetPatch {
 	public static AbstractPlayer prevPlayer = null;
 
 	@SpirePatch(clz = GameActionManager.class, method = "getNextAction")
-	public static class BeforeTakeTurn {
+	public static class ChangeTargetPatch {
 		@SpireInsertPatch(locator = BeforeTakeTurnLocator.class)
-		public static void Insert(GameActionManager __instance) {
+		public static void InsertBefore(GameActionManager __instance) {
 			if (AbstractDungeon.player instanceof TheDT && ((TheDT) AbstractDungeon.player).front == ((TheDT) AbstractDungeon.player).dragon) {
 				prevPlayer = AbstractDungeon.player;
 				AbstractDungeon.player = ((TheDT) AbstractDungeon.player).dragon;
+			}
+		}
+
+		@SpireInsertPatch(locator = AfterTakeTurnLocator.class)
+		public static void InsertAfter(GameActionManager __instance) {
+			if (prevPlayer != null) {
+				AbstractDungeon.player = prevPlayer;
+				prevPlayer = null;
 			}
 		}
 	}
@@ -27,18 +35,6 @@ public class MonsterTargetPatch {
 		public int[] Locate(CtBehavior ctMethodToPatch) throws Exception {
 			Matcher finalMatcher = new Matcher.MethodCallMatcher(AbstractMonster.class, "takeTurn");
 			return LineFinder.findInOrder(ctMethodToPatch, finalMatcher);
-		}
-	}
-
-
-	@SpirePatch(clz = GameActionManager.class, method = "getNextAction")
-	public static class AfterTakeTurn {
-		@SpireInsertPatch(locator = AfterTakeTurnLocator.class)
-		public static void Insert(GameActionManager __instance) {
-			if (prevPlayer != null) {
-				AbstractDungeon.player = prevPlayer;
-				prevPlayer = null;
-			}
 		}
 	}
 

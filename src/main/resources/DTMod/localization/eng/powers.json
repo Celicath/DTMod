@@ -17,14 +17,28 @@
   "DTMod:BondingPower": {
     "NAME": "Bonding",
     "DESCRIPTIONS": [
-      "After you gain #b",
-      " Bonding in a combat, the mythical creature will help you."
+      "When you obtain #b",
+      " #yBonding, choose a powerful #yBonding effect to receive."
     ]
   },
   "DTMod:CalculatedDefensePower": {
     "NAME": "Calculated Defense",
     "DESCRIPTIONS": [
       "Reduce the damage from Weakened enemies by #b",
+      "."
+    ]
+  },
+  "DTMod:DragonLoseStancePower": {
+    "NAME": "Outburst",
+    "DESCRIPTIONS": [
+      "After #b",
+      " turns, exit from Wrath."
+    ]
+  },
+  "DTMod:OddArmorPower": {
+    "NAME": "Odd Armor",
+    "DESCRIPTIONS": [
+      "Reduces attack damage taken by #b",
       "."
     ]
   }

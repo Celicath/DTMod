@@ -20,6 +20,7 @@ import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.Hitbox;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
+import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
@@ -65,6 +66,8 @@ public class Dragon extends CustomPlayer {
 
 		this.master = master;
 		this.isPlayer = true;
+
+		this.blights = master.blights;
 	}
 
 	@Override
@@ -162,6 +165,7 @@ public class Dragon extends CustomPlayer {
 		this.currentHealth = info.currentHp * (100 + HP_BONUS_RATIO) / 100;
 	}
 
+	@Override
 	public void damage(DamageInfo info) {
 		int damageAmount = info.output;
 		boolean hadBlock = true;
@@ -254,6 +258,7 @@ public class Dragon extends CustomPlayer {
 		this.refreshHitboxLocation();
 	}
 
+	@Override
 	public void update() {
 		this.hb.update();
 		this.updateHealthBar();
@@ -268,7 +273,16 @@ public class Dragon extends CustomPlayer {
 		this.updateEscapeAnimation();
 	}
 
-	private void updateEscapeAnimation() {
+	@Override
+	public void combatUpdate() {
+		AbstractPlayer prevPlayer = AbstractDungeon.player;
+		AbstractDungeon.player = this;
+		stance.update();
+		AbstractDungeon.player = prevPlayer;
+	}
+
+	@Override
+	protected void updateEscapeAnimation() {
 		if (this.escapeTimer != 0.0F) {
 			this.escapeTimer -= Gdx.graphics.getDeltaTime();
 			if (this.flipHorizontal) {
@@ -288,6 +302,7 @@ public class Dragon extends CustomPlayer {
 
 	@Override
 	public void render(SpriteBatch sb) {
+		stance.render(sb);
 		if ((AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT || AbstractDungeon.getCurrRoom() instanceof MonsterRoom) && !this.isDead) {
 			this.renderHealth(sb);
 		}

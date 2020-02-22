@@ -3,7 +3,7 @@ package TheDT.cards;
 import TheDT.DTMod;
 import TheDT.characters.Dragon;
 import TheDT.patches.CardColorEnum;
-import TheDT.patches.CustomTags;
+import TheDT.powers.BondingPower;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -36,7 +36,6 @@ public class Training extends AbstractDTCard {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
 
 		magicNumber = baseMagicNumber = POWER;
-		tags.add(CustomTags.DT_DRAGON);
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
@@ -50,6 +49,7 @@ public class Training extends AbstractDTCard {
 		if (dragon != null) {
 			AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(dragon, dragon, new StrengthPower(dragon, this.magicNumber), this.magicNumber));
 		}
+		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new BondingPower(p, p, 1), 1));
 	}
 
 	public AbstractCard makeCopy() {

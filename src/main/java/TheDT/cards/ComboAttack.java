@@ -5,8 +5,9 @@ import TheDT.actions.AddAggroAction;
 import TheDT.actions.FastAnimateFastAttackAction;
 import TheDT.characters.Dragon;
 import TheDT.patches.CardColorEnum;
-import TheDT.patches.CustomTags;
+import TheDT.powers.BondingPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -32,16 +33,15 @@ public class ComboAttack extends AbstractDTCard {
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.BOTH;
 
 	private static final int POWER = 5;
-	private static final int UPGRADE_POWER = 3;
-	private static final int DRAGON_POWER = 6;
-	private static final int UPGRADE_DRAGON = 3;
+	private static final int UPGRADE_POWER = 2;
+	private static final int DRAGON_POWER = 5;
+	private static final int UPGRADE_DRAGON = 2;
 
 	public ComboAttack() {
 		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
 
 		baseDamage = POWER;
 		dtBaseDragonDamage = DRAGON_POWER;
-		tags.add(CustomTags.DT_DRAGON);
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
@@ -49,8 +49,7 @@ public class ComboAttack extends AbstractDTCard {
 
 		AbstractDungeon.actionManager.addToBottom(
 				new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
-		if (!freeToPlayOnce && costForTurn != 0)
-			AbstractDungeon.actionManager.addToBottom(new AddAggroAction(p, this.costForTurn));
+		AbstractDungeon.actionManager.addToBottom(new AddAggroAction(p, 1));
 		if (d != null) {
 			AbstractDungeon.actionManager.addToBottom(
 					new WaitAction(0.1f));
@@ -58,9 +57,9 @@ public class ComboAttack extends AbstractDTCard {
 					new FastAnimateFastAttackAction(d));
 			AbstractDungeon.actionManager.addToBottom(
 					new DamageAction(m, new DamageInfo(d, dtDragonDamage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
-			if (!freeToPlayOnce && costForTurn != 0)
-				AbstractDungeon.actionManager.addToBottom(new AddAggroAction(d, this.costForTurn));
+			AbstractDungeon.actionManager.addToBottom(new AddAggroAction(d, 1));
 		}
+		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new BondingPower(p, p, 1), 1));
 	}
 
 	public AbstractCard makeCopy() {

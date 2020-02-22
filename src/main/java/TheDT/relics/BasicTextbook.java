@@ -3,7 +3,6 @@ package TheDT.relics;
 import TheDT.DTMod;
 import TheDT.cards.TargetDefense;
 import basemod.abstracts.CustomRelic;
-import basemod.helpers.BaseModCardTags;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -24,7 +23,7 @@ public class BasicTextbook extends CustomRelic {
 
 	@Override
 	public float atDamageModify(float damage, AbstractCard c) {
-		if (c.hasTag(BaseModCardTags.BASIC_STRIKE)) {
+		if (c.hasTag(AbstractCard.CardTags.STARTER_STRIKE)) {
 			damage += BONUS;
 		}
 		return damage;
@@ -51,6 +50,6 @@ public class BasicTextbook extends CustomRelic {
 
 	@Override
 	public AbstractRelic makeCopy() {
-		return new PactStone();
+		return new BasicTextbook();
 	}
 }
