@@ -2,6 +2,7 @@ package TheDT;
 
 import TheDT.cards.*;
 import TheDT.characters.TheDT;
+import TheDT.modules.TargetMarker;
 import TheDT.optionals.OptionalRelicHelper;
 import TheDT.patches.CardColorEnum;
 import TheDT.patches.MonsterTargetPatch;
@@ -88,6 +89,9 @@ public class DTMod
 	public static final String THE_DT_SKELETON_ATLAS = "char/TheDT/skeleton.atlas";
 	public static final String THE_DT_SKELETON_JSON = "char/TheDT/skeleton.json";
 
+	// Modules
+	public static TargetMarker targetMarker;
+
 	// Crossovers
 	public static boolean isAspirationLoaded;
 	public static boolean isFriendlyMinionsLoaded;
@@ -104,6 +108,9 @@ public class DTMod
 		return DT_MOD_ASSETS_FOLDER + "/" + resource;
 	}
 
+	// System
+	public static int yourAggro = 0;
+	public static int dragonAggro = 0;
 
 	public DTMod() {
 		logger.info("Subscribe to basemod hooks");
@@ -192,6 +199,8 @@ public class DTMod
 		settingsPanel.addUIElement(enableEventButton);
 
 		BaseMod.registerModBadge(badgeTexture, MODNAME, AUTHOR, DESCRIPTION, settingsPanel);
+
+		targetMarker = new TargetMarker();
 	}
 
 
@@ -293,6 +302,9 @@ public class DTMod
 	public void receiveOnBattleStart(AbstractRoom room) {
 		MythicalGameState.reset();
 		MonsterTargetPatch.prevPlayer = null;
+
+		DTMod.dragonAggro = 0;
+		DTMod.yourAggro = 0;
 	}
 
 	@Override

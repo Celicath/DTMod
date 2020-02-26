@@ -28,7 +28,7 @@ public class FireUp extends AbstractDTCard {
 	private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DRAGON_ONLY;
 
-	private static final int STRENGTH = 2;
+	private static final int STRENGTH = 3;
 	private static final int DEXTERITY = 1;
 	private static final int UPGRADE_BONUS = 1;
 

@@ -1,7 +1,7 @@
 package TheDT.cards;
 
 import TheDT.DTMod;
-import TheDT.actions.AddAggroAction;
+import TheDT.actions.ApplyAggroAction;
 import TheDT.actions.FastAnimateFastAttackAction;
 import TheDT.characters.Dragon;
 import TheDT.patches.CardColorEnum;
@@ -49,7 +49,7 @@ public class ComboAttack extends AbstractDTCard {
 
 		AbstractDungeon.actionManager.addToBottom(
 				new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
-		AbstractDungeon.actionManager.addToBottom(new AddAggroAction(p, 1));
+		AbstractDungeon.actionManager.addToBottom(new ApplyAggroAction());
 		if (d != null) {
 			AbstractDungeon.actionManager.addToBottom(
 					new WaitAction(0.1f));
@@ -57,8 +57,8 @@ public class ComboAttack extends AbstractDTCard {
 					new FastAnimateFastAttackAction(d));
 			AbstractDungeon.actionManager.addToBottom(
 					new DamageAction(m, new DamageInfo(d, dtDragonDamage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
-			AbstractDungeon.actionManager.addToBottom(new AddAggroAction(d, 1));
 		}
+		AbstractDungeon.actionManager.addToBottom(new ApplyAggroAction());
 		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new BondingPower(p, p, 1), 1));
 	}
 

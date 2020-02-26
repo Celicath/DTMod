@@ -1,8 +1,9 @@
 package TheDT.characters;
 
 import TheDT.DTMod;
-import TheDT.actions.AddAggroAction;
+import TheDT.actions.ApplyAggroAction;
 import TheDT.cards.*;
+import TheDT.modules.TargetMarker;
 import TheDT.patches.CardColorEnum;
 import TheDT.relics.PactStone;
 import basemod.ReflectionHacks;
@@ -219,6 +220,7 @@ public class TheDT extends CustomPlayer {
 	public void update() {
 		dragon.update();
 		super.update();
+		DTMod.targetMarker.update();
 	}
 
 	@Override
@@ -237,6 +239,7 @@ public class TheDT extends CustomPlayer {
 	public void render(SpriteBatch sb) {
 		dragon.render(sb);
 		super.render(sb);
+		DTMod.targetMarker.render(sb);
 	}
 
 	@Override
@@ -282,15 +285,15 @@ public class TheDT extends CustomPlayer {
 		dragon.preBattlePrep();
 
 		aggro = 0;
-		front = dragon;
+		front = this;
 		addAggro(3);
 	}
 
 	public void setFront(AbstractCreature newTarget) {
 		if (front != newTarget) {
 			front = newTarget;
-			PowerBuffEffect effect = new PowerBuffEffect(front.hb.cX - front.animX, front.hb.cY + front.hb.height / 2.0F,
-					AddAggroAction.TEXT[front == this ? 2 : 3]);
+			PowerBuffEffect effect = new PowerBuffEffect(front.hb.cX - front.animX, front.hb.cY + front.hb.height / 2.0F + 60.0f * Settings.scale,
+					ApplyAggroAction.TEXT[front == this ? 2 : 3]);
 			ReflectionHacks.setPrivate(effect, PowerBuffEffect.class, "targetColor", new Color(0.7f, 0.75f, 0.7f, 1.0f));
 			AbstractDungeon.effectsQueue.add(effect);
 			updateIntents();
@@ -304,8 +307,10 @@ public class TheDT extends CustomPlayer {
 		this.aggro = aggro;
 		if (aggro > 0) {
 			setFront(dragon);
+			DTMod.targetMarker.move(dragon);
 		} else if (aggro < 0) {
 			setFront(this);
+			DTMod.targetMarker.move(this);
 		}
 	}
 
@@ -332,12 +337,7 @@ public class TheDT extends CustomPlayer {
 			}
 		}
 		super.useCard(c, monster, energyOnUse);
-		if (c.type == AbstractCard.CardType.ATTACK && c.costForTurn != 0 && !c.freeToPlayOnce) {
-			AbstractCreature attacker = DTMod.getAttacker(c);
-			if (attacker != null) {
-				AbstractDungeon.actionManager.addToBottom(new AddAggroAction(attacker, c.costForTurn));
-			}
-		}
+		AbstractDungeon.actionManager.addToBottom(new ApplyAggroAction());
 	}
 
 	@Override
@@ -366,5 +366,21 @@ public class TheDT extends CustomPlayer {
 			attackerIcon = new Texture(DTMod.makePath("ui/Attacker.png"));
 		}
 		return attackerIcon;
+	}
+
+	public static boolean isSolo() {
+		if (AbstractDungeon.player instanceof TheDT) {
+			return ((TheDT) AbstractDungeon.player).dragon.isDeadOrEscaped();
+		} else {
+			return true;
+		}
+	}
+
+	public static int getAggro() {
+		if (AbstractDungeon.player instanceof TheDT) {
+			return ((TheDT) AbstractDungeon.player).aggro;
+		} else {
+			return 0;
+		}
 	}
 }

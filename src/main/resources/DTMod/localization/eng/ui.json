@@ -26,5 +26,15 @@
       "Target changed to You",
       "Target changed to Dragon"
     ]
+  },
+  "DTMod:TargetMarker": {
+    "TEXT": [
+      "Front Marker",
+      "#yYou are the #yFront. NL You have #b",
+      " more #yAggro than Dragon.",
+      "#yDragon is the #yFront. NL Dragon has #b",
+      " more #yAggro than You.",
+      "#yYou are fighting solo. NL You are considered both the #yFront and the #yRear."
+    ]
   }
 }

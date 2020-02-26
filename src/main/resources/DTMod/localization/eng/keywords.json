@@ -19,7 +19,7 @@
     "NAMES": [
       "front"
     ],
-    "DESCRIPTION": "The character who draws all enemy attacks."
+    "DESCRIPTION": "All enemies attack the Front."
   },
   {
     "PROPER_NAME": "Rear",

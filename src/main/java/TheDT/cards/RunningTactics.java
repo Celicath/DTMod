@@ -2,6 +2,7 @@ package TheDT.cards;
 
 import TheDT.DTMod;
 import TheDT.actions.AddAggroAction;
+import TheDT.actions.ApplyAggroAction;
 import TheDT.patches.CardColorEnum;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -38,7 +39,7 @@ public class RunningTactics extends AbstractDTCard {
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, magicNumber));
-		AbstractDungeon.actionManager.addToBottom(new AddAggroAction(p, 2));
+		AbstractDungeon.actionManager.addToBottom(new AddAggroAction(false, 2));
 	}
 
 	public AbstractCard makeCopy() {
