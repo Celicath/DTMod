@@ -122,5 +122,13 @@
   "DTMod:ShieldDrain": {
     "NAME": "Shield Drain",
     "DESCRIPTION": "Steal all Block from the enemy. NL Deal !D! damage."
+  },
+  "DTMod:LowKick": {
+    "NAME": "Low Kick",
+    "DESCRIPTION": "Deal !D! damage. NL Draw cards equal to the amount of Weak on the enemy."
+  },
+  "DTMod:Punisher": {
+    "NAME": "Punisher",
+    "DESCRIPTION": "Deal !D! damage. If the enemy has Weak, deal !D! damage again."
   }
 }
