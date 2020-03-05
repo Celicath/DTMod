@@ -10,7 +10,7 @@ import com.megacrit.cardcrawl.events.AbstractImageEvent;
 import com.megacrit.cardcrawl.localization.EventStrings;
 
 public class BookOnTheFloor extends AbstractImageEvent {
-	private static final String RAW_ID = "BookOnTheFloor";
+	public static final String RAW_ID = "BookOnTheFloor";
 	public static final String ID = DTMod.makeID(RAW_ID);
 	private static final EventStrings eventStrings = CardCrawlGame.languagePack.getEventString(ID);
 	public static final String NAME = eventStrings.NAME;

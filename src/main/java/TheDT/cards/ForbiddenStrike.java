@@ -1,25 +1,16 @@
 package TheDT.cards;
 
-import TheDT.DTMod;
 import TheDT.patches.CardColorEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public class ForbiddenStrike extends AbstractDTCard {
-	private static final String RAW_ID = "ForbiddenStrike";
-	public static final String ID = DTMod.makeID(RAW_ID);
-	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
-	public static final String NAME = cardStrings.NAME;
-	public static final String IMG = DTMod.GetCardPath(RAW_ID);
+	public static final String RAW_ID = "ForbiddenStrike";
 	private static final int COST = 1;
-	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
-	public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
 	private static final AbstractCard.CardType TYPE = CardType.ATTACK;
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.DT_ORANGE;
 	private static final AbstractCard.CardRarity RARITY = CardRarity.RARE;
@@ -29,7 +20,7 @@ public class ForbiddenStrike extends AbstractDTCard {
 	private static final int DAMAGE = 19;
 
 	public ForbiddenStrike() {
-		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
+		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
 		this.baseDamage = DAMAGE;
 
 		this.tags.add(CardTags.STRIKE);

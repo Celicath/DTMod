@@ -20,7 +20,6 @@ import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.Hitbox;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
-import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
@@ -169,7 +168,7 @@ public class Dragon extends CustomPlayer {
 	public void damage(DamageInfo info) {
 		int damageAmount = info.output;
 		boolean hadBlock = true;
-		if (this.currentBlock == 0) {
+		if (currentBlock == 0) {
 			hadBlock = false;
 		}
 
@@ -177,14 +176,14 @@ public class Dragon extends CustomPlayer {
 			damageAmount = 1;
 		}
 
+		damageAmount = this.decrementBlock(info, damageAmount);
+
 		// Make Temp HP work on Dragon
 		int[] tempDA = new int[]{damageAmount};
 		boolean[] tempHB = new boolean[]{hadBlock};
 		PlayerDamage.Insert(this, info, tempDA, tempHB);
 		damageAmount = tempDA[0];
 		hadBlock = tempHB[0];
-
-		damageAmount = this.decrementBlock(info, damageAmount);
 
 		if (info.owner != null) {
 			for (AbstractPower power : info.owner.powers) {

@@ -1,6 +1,8 @@
 package TheDT;
 
-import TheDT.cards.*;
+import TheDT.Interfaces.ShufflePower;
+import TheDT.cards.AbstractDTCard;
+import TheDT.cards.RepeatStrike;
 import TheDT.characters.TheDT;
 import TheDT.modules.TargetMarker;
 import TheDT.optionals.OptionalRelicHelper;
@@ -17,7 +19,6 @@ import basemod.AutoAdd;
 import basemod.BaseMod;
 import basemod.ModLabeledToggleButton;
 import basemod.ModPanel;
-import basemod.abstracts.CustomCard;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -38,14 +39,12 @@ import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
-import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Properties;
 
 @SpireInitializer
@@ -270,6 +269,16 @@ public class DTMod
 		logger.info("Done editing strings");
 	}
 
+	public static void onShuffle() {
+		if (AbstractDungeon.player == null) {
+			return;
+		}
+		for (AbstractPower p : AbstractDungeon.player.powers) {
+			if (p instanceof ShufflePower) {
+				((ShufflePower) p).onShuffle();
+			}
+		}
+	}
 
 	public static String getLocCode() {
 		return "eng";

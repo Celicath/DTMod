@@ -17,7 +17,7 @@ import com.megacrit.cardcrawl.vfx.SpeechBubble;
 public class BondingPower extends AbstractPower {
 	public AbstractCreature source;
 
-	private static final String RAW_ID = "BondingPower";
+	public static final String RAW_ID = "BondingPower";
 	public static final String POWER_ID = DTMod.makeID(RAW_ID);
 	private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
 	public static final String NAME = powerStrings.NAME;
@@ -58,8 +58,8 @@ public class BondingPower extends AbstractPower {
 						2.0f,
 						"A Mythical help appears! (LEVEL " + amount + ")",
 						true));
-				AbstractDungeon.actionManager.addToBottom(new GainBlockAction(owner, owner, amount));
-				AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(null, DamageInfo.createDamageMatrix(amount, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.FIRE));
+				addToBot(new GainBlockAction(owner, owner, amount));
+				addToBot(new DamageAllEnemiesAction(null, DamageInfo.createDamageMatrix(amount, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.FIRE));
 			}
 		}
 	}

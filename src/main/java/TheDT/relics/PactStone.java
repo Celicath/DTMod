@@ -11,7 +11,7 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 public class PactStone extends CustomRelic {
 
-	private static final String RAW_ID = "PactStone";
+	public static final String RAW_ID = "PactStone";
 	public static final String ID = DTMod.makeID(RAW_ID);
 	public static final String IMG = DTMod.GetRelicPath(RAW_ID);
 	public static final String OUTLINE = DTMod.GetRelicOutlinePath(RAW_ID);
@@ -24,12 +24,12 @@ public class PactStone extends CustomRelic {
 	@Override
 	public void atBattleStart() {
 		this.flash();
-		AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
-		AbstractDungeon.actionManager.addToBottom(new AddTemporaryHPAction(AbstractDungeon.player, AbstractDungeon.player, AMOUNT));
+		addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
+		addToBot(new AddTemporaryHPAction(AbstractDungeon.player, AbstractDungeon.player, AMOUNT));
 		if (AbstractDungeon.player instanceof TheDT) {
 			TheDT dt = (TheDT) AbstractDungeon.player;
-			AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(dt.dragon, this));
-			AbstractDungeon.actionManager.addToBottom(new AddTemporaryHPAction(dt.dragon, dt.dragon, AMOUNT));
+			addToBot(new RelicAboveCreatureAction(dt.dragon, this));
+			addToBot(new AddTemporaryHPAction(dt.dragon, dt.dragon, AMOUNT));
 		}
 	}
 

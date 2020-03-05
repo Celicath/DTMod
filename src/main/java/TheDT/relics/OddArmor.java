@@ -11,7 +11,7 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 public class OddArmor extends CustomRelic {
 
-	private static final String RAW_ID = "OddArmor";
+	public static final String RAW_ID = "OddArmor";
 	public static final String ID = DTMod.makeID(RAW_ID);
 	public static final String IMG = DTMod.GetRelicPath(RAW_ID);
 	public static final String OUTLINE = DTMod.GetRelicOutlinePath(RAW_ID);

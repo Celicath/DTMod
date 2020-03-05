@@ -1,6 +1,5 @@
 package TheDT.cards;
 
-import TheDT.DTMod;
 import TheDT.actions.ApplyAggroAction;
 import TheDT.actions.FastAnimateFastAttackAction;
 import TheDT.characters.Dragon;
@@ -13,19 +12,11 @@ import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public class ComboAttack extends AbstractDTCard {
-	private static final String RAW_ID = "ComboAttack";
-	public static final String ID = DTMod.makeID(RAW_ID);
-	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
-	public static final String NAME = cardStrings.NAME;
-	public static final String IMG = DTMod.GetCardPath(RAW_ID);
+	public static final String RAW_ID = "ComboAttack";
 	private static final int COST = 1;
-	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 	private static final AbstractCard.CardType TYPE = CardType.ATTACK;
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.DT_ORANGE;
 	private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.COMMON;
@@ -38,7 +29,7 @@ public class ComboAttack extends AbstractDTCard {
 	private static final int UPGRADE_DRAGON = 2;
 
 	public ComboAttack() {
-		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
+		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
 
 		baseDamage = POWER;
 		dtBaseDragonDamage = DRAGON_POWER;
@@ -47,19 +38,16 @@ public class ComboAttack extends AbstractDTCard {
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		Dragon d = getDragon();
 
-		AbstractDungeon.actionManager.addToBottom(
-				new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
-		AbstractDungeon.actionManager.addToBottom(new ApplyAggroAction());
+		addToBot(new FastAnimateFastAttackAction(p));
+		addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+		addToBot(new ApplyAggroAction());
 		if (d != null) {
-			AbstractDungeon.actionManager.addToBottom(
-					new WaitAction(0.1f));
-			AbstractDungeon.actionManager.addToBottom(
-					new FastAnimateFastAttackAction(d));
-			AbstractDungeon.actionManager.addToBottom(
-					new DamageAction(m, new DamageInfo(d, dtDragonDamage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
+			addToBot(new WaitAction(0.1f));
+			addToBot(new FastAnimateFastAttackAction(d));
+			addToBot(new DamageAction(m, new DamageInfo(d, dtDragonDamage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
 		}
-		AbstractDungeon.actionManager.addToBottom(new ApplyAggroAction());
-		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new BondingPower(p, p, 1), 1));
+		addToBot(new ApplyAggroAction());
+		addToBot(new ApplyPowerAction(p, p, new BondingPower(p, p, 1), 1));
 	}
 
 	public AbstractCard makeCopy() {

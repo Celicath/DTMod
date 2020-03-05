@@ -3,7 +3,6 @@ package TheDT.characters;
 import TheDT.DTMod;
 import TheDT.actions.ApplyAggroAction;
 import TheDT.cards.*;
-import TheDT.modules.TargetMarker;
 import TheDT.patches.CardColorEnum;
 import TheDT.relics.PactStone;
 import basemod.ReflectionHacks;
@@ -54,7 +53,8 @@ public class TheDT extends CustomPlayer {
 	public Color attackIconColor = CardHelper.getColor(255, 160, 48);
 	public static Texture attackerIcon = null;
 
-	public boolean animDragonAttack;
+	public boolean dragonAttackAnimation;
+	public boolean attackAnimation;
 
 	public static final String[] orbTextures = {
 			"DTMod/images/char/TheDT/orb/layer1.png",
@@ -100,18 +100,16 @@ public class TheDT extends CustomPlayer {
 	public ArrayList<String> getStartingDeck() {
 		ArrayList<String> retVal = new ArrayList<>();
 
-		logger.info("Begin loading started Deck strings");
-
-		retVal.add(Strike.ID);
-		retVal.add(Strike.ID);
-		retVal.add(Strike.ID);
-		retVal.add(TwinBite.ID);
-		retVal.add(TwinBite.ID);
-		retVal.add(TargetDefense.ID);
-		retVal.add(TargetDefense.ID);
-		retVal.add(TargetDefense.ID);
-		retVal.add(SwitchingTactics.ID);
-		retVal.add(SwitchingTactics.ID);
+		retVal.add(DTMod.makeID(Strike.RAW_ID));
+		retVal.add(DTMod.makeID(Strike.RAW_ID));
+		retVal.add(DTMod.makeID(Strike.RAW_ID));
+		retVal.add(DTMod.makeID(TwinBite.RAW_ID));
+		retVal.add(DTMod.makeID(TwinBite.RAW_ID));
+		retVal.add(DTMod.makeID(TargetDefense.RAW_ID));
+		retVal.add(DTMod.makeID(TargetDefense.RAW_ID));
+		retVal.add(DTMod.makeID(TargetDefense.RAW_ID));
+		retVal.add(DTMod.makeID(SwitchingTactics.RAW_ID));
+		retVal.add(DTMod.makeID(SwitchingTactics.RAW_ID));
 
 		return retVal;
 	}
@@ -330,23 +328,31 @@ public class TheDT extends CustomPlayer {
 
 	@Override
 	public void useCard(AbstractCard c, AbstractMonster monster, int energyOnUse) {
-		animDragonAttack = false;
+		attackAnimation = true;
+		dragonAttackAnimation = false;
 		if (c instanceof AbstractDTCard) {
 			if (((AbstractDTCard) c).dtCardTarget == AbstractDTCard.DTCardTarget.DRAGON_ONLY) {
-				animDragonAttack = true;
+				attackAnimation = false;
+				dragonAttackAnimation = true;
+			} else if (((AbstractDTCard) c).dtCardTarget == AbstractDTCard.DTCardTarget.BOTH) {
+				attackAnimation = false;
 			}
 		}
 		super.useCard(c, monster, energyOnUse);
+		attackAnimation = true;
+		dragonAttackAnimation = false;
 		AbstractDungeon.actionManager.addToBottom(new ApplyAggroAction());
 	}
 
 	@Override
 	public void useFastAttackAnimation() {
-		if (animDragonAttack) {
+		if (dragonAttackAnimation) {
 			dragon.useFastAttackAnimation();
-		} else {
+		}
+		if (attackAnimation) {
 			super.useFastAttackAnimation();
 		}
+		attackAnimation = true;
 	}
 
 	@Override

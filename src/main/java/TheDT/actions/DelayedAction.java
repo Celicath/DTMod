@@ -19,6 +19,6 @@ public class DelayedAction extends AbstractGameAction {
 		if (AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
 			return;
 		}
-		AbstractDungeon.actionManager.addToBottom(action);
+		addToBot(action);
 	}
 }

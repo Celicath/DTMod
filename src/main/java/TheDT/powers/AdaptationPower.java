@@ -1,18 +1,19 @@
 package TheDT.powers;
 
 import TheDT.DTMod;
+import TheDT.Interfaces.ShufflePower;
+import TheDT.actions.InnateToHandAction;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class EnergyManipulation extends AbstractPower {
+public class AdaptationPower extends AbstractPower implements ShufflePower {
+	public AbstractCreature source;
 
-	private static final String RAW_ID = "EnergyManipulation";
+	public static final String RAW_ID = "AdaptationPower";
 	public static final String POWER_ID = DTMod.makeID(RAW_ID);
 	private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
 	public static final String NAME = powerStrings.NAME;
@@ -22,34 +23,26 @@ public class EnergyManipulation extends AbstractPower {
 	public static final TextureAtlas.AtlasRegion IMG48 = new TextureAtlas.AtlasRegion(
 			ImageMaster.loadImage(DTMod.GetPowerPath(RAW_ID, 48)), 0, 0, 32, 32);
 
-
-	public EnergyManipulation(AbstractCreature owner, int amount) {
+	public AdaptationPower(AbstractCreature owner, AbstractCreature source) {
 		this.name = NAME;
 		this.ID = POWER_ID;
 		this.owner = owner;
-		this.amount = amount;
 		this.updateDescription();
 		this.type = PowerType.BUFF;
-		this.isTurnBased = true;
+		this.isTurnBased = false;
 		this.region128 = IMG128;
 		this.region48 = IMG48;
+		this.source = source;
 	}
 
-	public void stackPower(int stackAmount) {
-		super.stackPower(stackAmount);
-	}
-
+	@Override
 	public void updateDescription() {
-		if (this.amount == 1) {
-			this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
-		} else {
-			this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[2];
-		}
+		this.description = DESCRIPTIONS[0];
 	}
 
-	public void onEnergyRecharge() {
-		this.flash();
-		AbstractDungeon.player.gainEnergy(2);
-		AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(this.owner, this.owner, POWER_ID, 1));
+	@Override
+	public void onShuffle() {
+		flash();
+		addToTop(new InnateToHandAction());
 	}
 }

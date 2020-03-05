@@ -12,7 +12,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 public class CalculatedDefensePower extends AbstractPower {
 	public AbstractCreature source;
 
-	private static final String RAW_ID = "CalculatedDefensePower";
+	public static final String RAW_ID = "CalculatedDefensePower";
 	public static final String POWER_ID = DTMod.makeID(RAW_ID);
 	private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
 	public static final String NAME = powerStrings.NAME;

@@ -41,5 +41,11 @@
       "Reduces attack damage taken by #b",
       "."
     ]
+  },
+  "DTMod:AdaptationPower": {
+    "NAME": "Adaptation",
+    "DESCRIPTIONS": [
+      "Whenever you shuffle your deck, put ALL Innate cards into your hand."
+    ]
   }
 }

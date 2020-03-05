@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.watcher.VigorPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.relics.StrikeDummy;
 import com.megacrit.cardcrawl.relics.WristBlade;
 
 import java.util.ArrayList;
@@ -23,10 +24,16 @@ public abstract class AbstractDTCard extends CustomCard {
 		DEFAULT, DRAGON_ONLY, BOTH
 	}
 
-	private static final String RAW_ID = "AbstractDTCard";
-	public static final String ID = DTMod.makeID(RAW_ID);
-	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
-	public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
+	private static final String DT_RAW_ID = "AbstractDTCard";
+	public static final String DT_ID = DTMod.makeID(DT_RAW_ID);
+	private static final CardStrings dtCardStrings = CardCrawlGame.languagePack.getCardStrings(DT_ID);
+	public static final String[] DT_CARD_EXTRA_TEXT = dtCardStrings.EXTENDED_DESCRIPTION;
+
+	protected final CardStrings cardStrings;
+	protected final String NAME;
+	protected final String DESCRIPTION;
+	protected final String UPGRADE_DESCRIPTION;
+	protected final String[] EXTENDED_DESCRIPTION;
 
 	public int[] dragonMultiDamage;
 
@@ -38,38 +45,41 @@ public abstract class AbstractDTCard extends CustomCard {
 		playerPowerApplyToDragon.add(VigorPower.POWER_ID);
 		relicApplyToDragon = new HashSet<>();
 		relicApplyToDragon.add(WristBlade.ID);
+		relicApplyToDragon.add(StrikeDummy.ID);
 	}
 
-	public int dtDragonDamage;
-	public int dtBaseDragonDamage;
-	public boolean upgradedDTDragonDamage;
-	public boolean isDTDragonDamageModified;
+	public int dtDragonDamage = -1;
+	public int dtBaseDragonDamage = -1;
+	public boolean upgradedDTDragonDamage = false;
+	public boolean isDTDragonDamageModified = false;
 
-	public int dtDragonBlock;
-	public int dtBaseDragonBlock;
-	public boolean upgradedDTDragonBlock;
-	public boolean isDTDragonBlockModified;
+	public int dtDragonBlock = -1;
+	public int dtBaseDragonBlock = -1;
+	public boolean upgradedDTDragonBlock = false;
+	public boolean isDTDragonBlockModified = false;
 
 	public DTCardTarget dtCardTarget;
 
-	public AbstractDTCard(String id,
-	                      String name,
-	                      String img,
+	public AbstractDTCard(String rawId,
 	                      int cost,
-	                      String rawDescription,
 	                      CardType type,
 	                      CardColor color,
 	                      CardRarity rarity,
 	                      CardTarget target,
 	                      DTCardTarget dtCardTarget) {
 
-		super(id, name, img, cost, rawDescription, type, color, rarity, target);
+		super(DTMod.makeID(rawId), "NAME", DTMod.GetCardPath(rawId), cost, "DESCRIPTION", type, color, rarity, target);
 
-		dtDragonDamage = dtBaseDragonDamage = -1;
-		dtDragonBlock = dtBaseDragonBlock = -1;
-		isDTDragonDamageModified = false;
-		isDTDragonBlockModified = false;
 		this.dtCardTarget = dtCardTarget;
+
+		cardStrings = CardCrawlGame.languagePack.getCardStrings(DTMod.makeID(rawId));
+		name = NAME = cardStrings.NAME;
+		originalName = NAME;
+		rawDescription = DESCRIPTION = cardStrings.DESCRIPTION;
+		UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
+		EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
+		initializeTitle();
+		initializeDescription();
 	}
 
 	@Override
@@ -335,7 +345,7 @@ public abstract class AbstractDTCard extends CustomCard {
 		upgradedDTDragonBlock = true;
 	}
 
-	public Dragon getDragon() {
+	public static Dragon getDragon() {
 		if (AbstractDungeon.player instanceof TheDT) {
 			Dragon dragon = ((TheDT) AbstractDungeon.player).dragon;
 			if (dragon.isDeadOrEscaped()) return null;
@@ -355,11 +365,22 @@ public abstract class AbstractDTCard extends CustomCard {
 		return false;
 	}
 
+	public boolean isRearYou() {
+		if (AbstractDungeon.player instanceof TheDT) {
+			Dragon dragon = ((TheDT) AbstractDungeon.player).dragon;
+			if (dragon.isDeadOrEscaped()) return true;
+			if (((TheDT) AbstractDungeon.player).front == dragon) {
+				return true;
+			}
+		}
+		return false;
+	}
+
 	public String dragonNotAvailableMessage() {
 		if (AbstractDungeon.player instanceof TheDT) {
-			return EXTENDED_DESCRIPTION[1];
+			return DT_CARD_EXTRA_TEXT[1];
 		}
-		return EXTENDED_DESCRIPTION[0];
+		return DT_CARD_EXTRA_TEXT[0];
 	}
 
 	// null = both attacks

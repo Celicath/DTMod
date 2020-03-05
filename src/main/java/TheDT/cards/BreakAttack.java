@@ -1,6 +1,5 @@
 package TheDT.cards;
 
-import TheDT.DTMod;
 import TheDT.characters.Dragon;
 import TheDT.patches.CardColorEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -9,20 +8,12 @@ import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 
 public class BreakAttack extends AbstractDTCard {
-	private static final String RAW_ID = "BreakAttack";
-	public static final String ID = DTMod.makeID(RAW_ID);
-	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
-	public static final String NAME = cardStrings.NAME;
-	public static final String IMG = DTMod.GetCardPath(RAW_ID);
+	public static final String RAW_ID = "BreakAttack";
 	private static final int COST = 1;
-	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 	private static final AbstractCard.CardType TYPE = CardType.ATTACK;
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.DT_ORANGE;
 	private static final AbstractCard.CardRarity RARITY = CardRarity.COMMON;
@@ -35,7 +26,7 @@ public class BreakAttack extends AbstractDTCard {
 	private static final int UPGRADE_MAGIC = 1;
 
 	public BreakAttack() {
-		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
+		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
 		dtBaseDragonDamage = DAMAGE;
 		baseMagicNumber = magicNumber = MAGIC;
 		exhaust = true;
@@ -55,9 +46,9 @@ public class BreakAttack extends AbstractDTCard {
 		Dragon dragon = getDragon();
 
 		if (dragon != null) {
-			AbstractDungeon.actionManager.addToBottom(
+			addToBot(
 					new DamageAction(m, new DamageInfo(dragon, dtDragonDamage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
-			AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new VulnerablePower(m, this.magicNumber, false), this.magicNumber));
+			addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, this.magicNumber, false), this.magicNumber));
 		}
 	}
 

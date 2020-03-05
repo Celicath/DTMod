@@ -130,5 +130,40 @@
   "DTMod:Punisher": {
     "NAME": "Punisher",
     "DESCRIPTION": "Deal !D! damage. If the enemy has Weak, deal !D! damage again."
+  },
+  "DTMod:Adaptation": {
+    "NAME": "Adaptation",
+    "DESCRIPTION": "Whenever you shuffle your deck, put ALL Innate cards into your hand."
+  },
+  "DTMod:MasterPlan": {
+    "NAME": "Master Plan",
+    "DESCRIPTION": "Dragon gains !DT:THB! Block. NL Next turn, you gain !B! Block."
+  },
+  "DTMod:QuickFly": {
+    "NAME": "Quick Fly",
+    "DESCRIPTION": "Innate. NL Dragon deals !DT:THD! damage. NL Draw a card."
+  },
+  "DTMod:Feint": {
+    "NAME": "Feint",
+    "DESCRIPTION": "Randomly chosen: You deal !D! damage or Dragon deals !DT:THD! damage."
+  },
+  "DTMod:BlazingStrike": {
+    "NAME": "Blazing Strike",
+    "DESCRIPTION": "Dragon deals !DT:THD! damage. NL Add a Burn into your hand."
+  },
+  "DTMod:HeatWave": {
+    "NAME": "Heat Wave",
+    "DESCRIPTION": "Dragon deals !DT:THD! damage and apply !M! Weak to ALL enemies."
+  },
+  "DTMod:Weaken": {
+    "NAME": "Weaken",
+    "DESCRIPTION": "Apply !M! Weak. NL Exhaust."
+  },
+  "DTMod:Cover": {
+    "NAME": "Cover",
+    "DESCRIPTION": "The ragontaer:Rear gains !B! Block. NL Draw !M! cards.",
+    "EXTENDED_DESCRIPTION": [
+      "The ragontaer:Rear gains !DT:THB! Block. NL Draw !M! cards."
+    ]
   }
 }

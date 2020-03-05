@@ -1,27 +1,18 @@
 package TheDT.cards;
 
-import TheDT.DTMod;
 import TheDT.characters.TheDT;
 import TheDT.patches.CardColorEnum;
 import TheDT.relics.BasicTextbook;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 public class TargetDefense extends AbstractDTCard {
-	private static final String RAW_ID = "TargetDefense";
-	public static final String ID = DTMod.makeID(RAW_ID);
-	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
-	public static final String NAME = cardStrings.NAME;
-	public static final String IMG = DTMod.GetCardPath(RAW_ID);
+	public static final String RAW_ID = "TargetDefense";
 	private static final int COST = 1;
-	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
-	public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
 	private static final AbstractCard.CardType TYPE = CardType.SKILL;
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.DT_ORANGE;
 	private static final AbstractCard.CardRarity RARITY = CardRarity.BASIC;
@@ -32,7 +23,7 @@ public class TargetDefense extends AbstractDTCard {
 	private static final int UPGRADE_BONUS = 3;
 
 	public TargetDefense() {
-		super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
+		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
 		baseBlock = dtBaseDragonBlock = POWER;
 		tags.add(CardTags.STARTER_DEFEND);
 	}
@@ -63,10 +54,10 @@ public class TargetDefense extends AbstractDTCard {
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		if (AbstractDungeon.player instanceof TheDT && ((TheDT) AbstractDungeon.player).front == ((TheDT) AbstractDungeon.player).dragon) {
-			AbstractDungeon.actionManager.addToBottom(new GainBlockAction(((TheDT) AbstractDungeon.player).dragon, ((TheDT) AbstractDungeon.player).dragon, dtDragonBlock));
+		if (isFrontDragon()) {
+			addToBot(new GainBlockAction(((TheDT) AbstractDungeon.player).dragon, ((TheDT) AbstractDungeon.player).dragon, dtDragonBlock));
 		} else {
-			AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
+			addToBot(new GainBlockAction(p, p, block));
 		}
 	}
 

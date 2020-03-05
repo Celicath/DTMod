@@ -18,7 +18,7 @@ import java.util.ArrayList;
 
 public class MythicalSkillbook extends SkillbookRelic {
 
-	private static final String RAW_ID = "MythicalSkillbook";
+	public static final String RAW_ID = "MythicalSkillbook";
 	private static final String ID = DTMod.makeID(RAW_ID); // use DTMod.MythicalSkillbookID if you want this.
 	public static final String IMG = DTMod.GetRelicPath(RAW_ID);
 	public static final String OUTLINE = DTMod.GetRelicOutlinePath(RAW_ID);

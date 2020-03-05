@@ -44,7 +44,7 @@ public class PunisherAction extends AbstractGameAction {
 						AbstractDungeon.actionManager.clearPostCombatActions();
 					}
 
-					this.addToTop(new WaitAction(POST_ATTACK_WAIT_DUR));
+					addToTop(new WaitAction(POST_ATTACK_WAIT_DUR));
 				}
 			} else {
 				this.isDone = true;

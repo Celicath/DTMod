@@ -15,8 +15,6 @@ import com.megacrit.cardcrawl.helpers.TipHelper;
 import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import com.megacrit.cardcrawl.localization.UIStrings;
 
-import static the_gatherer.GathererMod.potionSackPopupFlipped;
-
 public class TargetMarker {
 	private Hitbox hb;
 	private static UIStrings uiStrings = null;

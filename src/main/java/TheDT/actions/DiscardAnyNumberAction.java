@@ -29,7 +29,7 @@ public class DiscardAnyNumberAction extends AbstractGameAction {
 			}
 			AbstractDungeon.handCardSelectScreen.open(TEXT[0], 99, true, true);
 
-			AbstractDungeon.actionManager.addToBottom(new WaitAction(0.25F));
+			addToBot(new WaitAction(0.25F));
 			this.tickDuration();
 		} else {
 			if (!AbstractDungeon.handCardSelectScreen.wereCardsRetrieved) {
