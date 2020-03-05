@@ -42,7 +42,6 @@ public class AdaptationPower extends AbstractPower implements ShufflePower {
 
 	@Override
 	public void onShuffle() {
-		flash();
-		addToTop(new InnateToHandAction());
+		addToTop(new InnateToHandAction(this));
 	}
 }

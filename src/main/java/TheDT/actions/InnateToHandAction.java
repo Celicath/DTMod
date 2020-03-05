@@ -7,18 +7,21 @@ import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import javafx.util.Pair;
 
 import java.util.ArrayList;
 
 public class InnateToHandAction extends AbstractGameAction {
 	private AbstractPlayer p;
+	private AbstractPower powerToFlash;
 
-	public InnateToHandAction() {
+	public InnateToHandAction(AbstractPower power) {
 		p = AbstractDungeon.player;
 		actionType = ActionType.CARD_MANIPULATION;
 		startDuration = Settings.ACTION_DUR_MED;
 		duration = startDuration;
+		powerToFlash = power;
 	}
 
 	public void update() {
@@ -36,8 +39,13 @@ public class InnateToHandAction extends AbstractGameAction {
 				}
 			}
 
-			for (Pair<CardGroup, AbstractCard> pair : list) {
-				doAction(pair.getKey(), pair.getValue());
+			if (!list.isEmpty()) {
+				powerToFlash.flash();
+				for (Pair<CardGroup, AbstractCard> pair : list) {
+					doAction(pair.getKey(), pair.getValue());
+				}
+			} else {
+				isDone = true;
 			}
 		}
 		tickDuration();
