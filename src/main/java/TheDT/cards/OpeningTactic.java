@@ -12,8 +12,8 @@ import com.megacrit.cardcrawl.powers.DexterityPower;
 
 import static TheDT.patches.CustomTags.DT_TACTICS;
 
-public class OpeningTactics extends AbstractDTCard {
-	public static final String RAW_ID = "OpeningTactics";
+public class OpeningTactic extends AbstractDTCard {
+	public static final String RAW_ID = "OpeningTactic";
 	private static final int COST = 1;
 	private static final AbstractCard.CardType TYPE = CardType.ATTACK;
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.DT_ORANGE;
@@ -25,7 +25,7 @@ public class OpeningTactics extends AbstractDTCard {
 	private static final int UPGRADE_BONUS = 4;
 	private static final int MAGIC = 1;
 
-	public OpeningTactics() {
+	public OpeningTactic() {
 		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
 		baseDamage = POWER;
 		baseMagicNumber = MAGIC;
@@ -42,7 +42,7 @@ public class OpeningTactics extends AbstractDTCard {
 	}
 
 	public AbstractCard makeCopy() {
-		return new OpeningTactics();
+		return new OpeningTactic();
 	}
 
 	public void upgrade() {

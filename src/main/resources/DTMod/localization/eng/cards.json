@@ -26,8 +26,8 @@
     "NAME": "Hard Skin",
     "DESCRIPTION": "Retain. NL Dragon gains !DT:THB! Block. NL Exhaust."
   },
-  "DTMod:SwitchingTactics": {
-    "NAME": "Switching Tactics",
+  "DTMod:SwitchingTactic": {
+    "NAME": "Switching Tactic",
     "DESCRIPTION": "Reverse ragontaer:Aggro. For this turn, reduce Strength of ALL enemies by ragontaer:Aggro difference. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Retain. NL Reverse ragontaer:Aggro. For this turn, reduce Strength of ALL enemies by ragontaer:Aggro difference. NL Exhaust."
   },
@@ -35,8 +35,8 @@
     "NAME": "Bronze Wave",
     "DESCRIPTION": "Gain !B! Block. NL Deal !D! damage."
   },
-  "DTMod:RunningTactics": {
-    "NAME": "Running Tactics",
+  "DTMod:RunningTactic": {
+    "NAME": "Running Tactic",
     "DESCRIPTION": "Draw !M! cards. NL You gain 2 ragontaer:Aggro."
   },
   "DTMod:Prediction": {
@@ -48,14 +48,14 @@
     "DESCRIPTION": "Deal !D! damage. NL While in your deck, you can only smith this card at Rest Sites.",
     "UPGRADE_DESCRIPTION": "Deal !D! damage. NL While in your deck, you can only smith cards containing \"Strike\" at Rest Sites."
   },
-  "DTMod:OpeningTactics": {
-    "NAME": "Opening Tactics",
+  "DTMod:OpeningTactic": {
+    "NAME": "Opening Tactic",
     "DESCRIPTION": "Innate. NL If the enemy has full HP, Gain !M! Dexterity. NL Deal !D! damage."
   },
-  "DTMod:RefreshTactics": {
-    "NAME": "Refresh Tactics",
-    "DESCRIPTION": "Fetch !M! card from your exhaust pile. (Except Refresh Tactics) NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Fetch !M! cards from your exhaust pile. (Except Refresh Tactics) NL Exhaust."
+  "DTMod:TacticRecycle": {
+    "NAME": "Tactic Recycle",
+    "DESCRIPTION": "Fetch !M! card from your exhaust pile. (Except Tactic Recycle) NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Fetch !M! cards from your exhaust pile. (Except Tactic Recycle) NL Exhaust."
   },
   "DTMod:HeadStart": {
     "NAME": "Head Start",
@@ -104,7 +104,7 @@
   },
   "DTMod:Outburst": {
     "NAME": "Outburst",
-    "DESCRIPTION": "Dragon enters Wrath for 2 turns. Exhaust."
+    "DESCRIPTION": "Dragon enters Wrath for 2 turns. NL Exhaust."
   },
   "DTMod:RepeatStrike": {
     "NAME": "Repeat Strike",
@@ -165,5 +165,26 @@
     "EXTENDED_DESCRIPTION": [
       "The ragontaer:Rear gains !DT:THB! Block. NL Draw !M! cards."
     ]
+  },
+  "DTMod:Hide": {
+    "NAME": "Hide",
+    "DESCRIPTION": "Gain !B! Block. NL Gain !M! Weak."
+  },
+  "DTMod:Intimidate": {
+    "NAME": "Intimidate",
+    "DESCRIPTION": "Innate. NL Dragon gains !B! Block and apply !M! Weak."
+  },
+  "DTMod:BurningEnergy": {
+    "NAME": "Burning Energy",
+    "DESCRIPTION": "Gain [E] [E]. NL Add a Burn into your discard pile.",
+    "UPGRADE_DESCRIPTION": "Gain [E] [E] [E]. NL Add a Burn into your discard pile."
+  },
+  "DTMod:BizarreTactic": {
+    "NAME": "Bizarre Tactic",
+    "DESCRIPTION": "You gain !B! Block. NL Whenever Dragon is attacked this turn, deal !M! damage back."
+  },
+  "DTMod:DarkBreath": {
+    "NAME": "Dark Breath",
+    "DESCRIPTION": "Dragon deals !DT:THD! damage, apply !M! Weak, and gain 2 additional Aggro."
   }
 }

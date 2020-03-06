@@ -108,8 +108,8 @@ public class TheDT extends CustomPlayer {
 		retVal.add(DTMod.makeID(TargetDefense.RAW_ID));
 		retVal.add(DTMod.makeID(TargetDefense.RAW_ID));
 		retVal.add(DTMod.makeID(TargetDefense.RAW_ID));
-		retVal.add(DTMod.makeID(SwitchingTactics.RAW_ID));
-		retVal.add(DTMod.makeID(SwitchingTactics.RAW_ID));
+		retVal.add(DTMod.makeID(SwitchingTactic.RAW_ID));
+		retVal.add(DTMod.makeID(SwitchingTactic.RAW_ID));
 
 		return retVal;
 	}
@@ -295,6 +295,7 @@ public class TheDT extends CustomPlayer {
 			ReflectionHacks.setPrivate(effect, PowerBuffEffect.class, "targetColor", new Color(0.7f, 0.75f, 0.7f, 1.0f));
 			AbstractDungeon.effectsQueue.add(effect);
 			updateIntents();
+			DTMod.targetMarker.move(newTarget);
 		}
 	}
 
@@ -305,10 +306,8 @@ public class TheDT extends CustomPlayer {
 		this.aggro = aggro;
 		if (aggro > 0) {
 			setFront(dragon);
-			DTMod.targetMarker.move(dragon);
 		} else if (aggro < 0) {
 			setFront(this);
-			DTMod.targetMarker.move(this);
 		}
 	}
 
@@ -364,7 +363,9 @@ public class TheDT extends CustomPlayer {
 	@Override
 	public void applyStartOfTurnPowers() {
 		super.applyStartOfTurnPowers();
+		AbstractDungeon.player = dragon; // Are you serious devs?
 		dragon.applyStartOfTurnPowers();
+		AbstractDungeon.player = this;
 	}
 
 	public Texture getAttackIcon() {

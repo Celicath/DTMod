@@ -1,50 +1,46 @@
 package TheDT.cards;
 
-import TheDT.characters.Dragon;
 import TheDT.patches.CardColorEnum;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.NextTurnBlockPower;
+import com.megacrit.cardcrawl.powers.WeakPower;
 
-public class MasterPlan extends AbstractDTCard {
-	public static final String RAW_ID = "MasterPlan";
-	private static final int COST = 2;
+public class Hide extends AbstractDTCard {
+	public static final String RAW_ID = "Hide";
+	private static final int COST = 1;
 	private static final AbstractCard.CardType TYPE = AbstractCard.CardType.SKILL;
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.DT_ORANGE;
 	private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.COMMON;
 	private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;
-	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.BOTH;
+	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DEFAULT;
 
-	private static final int POWER = 13;
-	private static final int UPGRADE_BONUS = 3;
+	private static final int POWER = 17;
+	private static final int UPGRADE_BONUS = 4;
+	private static final int WEAK = 2;
 
-	public MasterPlan() {
+	public Hide() {
 		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
 
 		baseBlock = POWER;
-		dtBaseDragonBlock = POWER;
+		magicNumber = baseMagicNumber = WEAK;
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		Dragon dragon = getDragon();
-		if (dragon != null) {
-			addToBot(new GainBlockAction(dragon, dragon, dtDragonBlock));
-		}
-		addToBot(new ApplyPowerAction(p, p, new NextTurnBlockPower(p, this.block), this.block));
+		addToBot(new GainBlockAction(p, p, block));
+		addToBot(new ApplyPowerAction(p, p, new WeakPower(p, magicNumber, false), magicNumber));
 	}
 
 	public AbstractCard makeCopy() {
-		return new MasterPlan();
+		return new Hide();
 	}
 
 	public void upgrade() {
 		if (!upgraded) {
 			upgradeName();
 			upgradeBlock(UPGRADE_BONUS);
-			upgradeDTDragonBlock(UPGRADE_BONUS);
 		}
 	}
 }

@@ -203,7 +203,7 @@ public class Dragon extends CustomPlayer {
 			}
 			if (info.owner != null) {
 				for (AbstractPower power : this.powers) {
-					power.onAttacked(info, damageAmount);
+					power.onInflictDamage(info, damageAmount, this);
 				}
 			}
 			if (info.owner != this) {

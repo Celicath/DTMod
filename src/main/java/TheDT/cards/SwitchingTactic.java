@@ -16,8 +16,8 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 
 import static TheDT.patches.CustomTags.DT_TACTICS;
 
-public class SwitchingTactics extends AbstractDTCard {
-	public static final String RAW_ID = "SwitchingTactics";
+public class SwitchingTactic extends AbstractDTCard {
+	public static final String RAW_ID = "SwitchingTactic";
 	private static final int COST = 1;
 	private static final AbstractCard.CardType TYPE = CardType.SKILL;
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.DT_ORANGE;
@@ -25,7 +25,7 @@ public class SwitchingTactics extends AbstractDTCard {
 	private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.BOTH;
 
-	public SwitchingTactics() {
+	public SwitchingTactic() {
 		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
 		exhaust = true;
 		tags.add(DT_TACTICS);
@@ -61,7 +61,7 @@ public class SwitchingTactics extends AbstractDTCard {
 	}
 
 	public AbstractCard makeCopy() {
-		return new SwitchingTactics();
+		return new SwitchingTactic();
 	}
 
 	public void upgrade() {

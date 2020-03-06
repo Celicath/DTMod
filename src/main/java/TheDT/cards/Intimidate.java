@@ -7,44 +7,58 @@ import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.NextTurnBlockPower;
+import com.megacrit.cardcrawl.powers.WeakPower;
 
-public class MasterPlan extends AbstractDTCard {
-	public static final String RAW_ID = "MasterPlan";
-	private static final int COST = 2;
+public class Intimidate extends AbstractDTCard {
+	public static final String RAW_ID = "Intimidate";
+	private static final int COST = 1;
 	private static final AbstractCard.CardType TYPE = AbstractCard.CardType.SKILL;
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.DT_ORANGE;
 	private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.COMMON;
-	private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;
-	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.BOTH;
+	private static final AbstractCard.CardTarget TARGET = CardTarget.SELF_AND_ENEMY;
+	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DRAGON_ONLY;
 
-	private static final int POWER = 13;
-	private static final int UPGRADE_BONUS = 3;
+	private static final int POWER = 6;
+	private static final int UPGRADE_BONUS = 2;
+	private static final int WEAK = 1;
+	private static final int WEAK_BONUS = 1;
 
-	public MasterPlan() {
+	public Intimidate() {
 		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
 
-		baseBlock = POWER;
 		dtBaseDragonBlock = POWER;
+		magicNumber = baseMagicNumber = WEAK;
+		isInnate = true;
+	}
+
+	@Override
+	public boolean canUse(AbstractPlayer p, AbstractMonster m) {
+		boolean result = super.canUse(p, m);
+		if (result && getDragon() == null) {
+			cantUseMessage = dragonNotAvailableMessage();
+			return false;
+		}
+		return result;
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		Dragon dragon = getDragon();
+
 		if (dragon != null) {
 			addToBot(new GainBlockAction(dragon, dragon, dtDragonBlock));
+			addToBot(new ApplyPowerAction(m, dragon, new WeakPower(dragon, magicNumber, false), magicNumber));
 		}
-		addToBot(new ApplyPowerAction(p, p, new NextTurnBlockPower(p, this.block), this.block));
 	}
 
 	public AbstractCard makeCopy() {
-		return new MasterPlan();
+		return new Intimidate();
 	}
 
 	public void upgrade() {
 		if (!upgraded) {
 			upgradeName();
-			upgradeBlock(UPGRADE_BONUS);
 			upgradeDTDragonBlock(UPGRADE_BONUS);
+			upgradeMagicNumber(WEAK_BONUS);
 		}
 	}
 }
