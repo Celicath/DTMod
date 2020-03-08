@@ -356,8 +356,8 @@ public class DTMod
 		return "DTMod/images/powers/" + id + "_" + size + ".png";
 	}
 
-	public static String GetOtherPath(String id) {
-		return "DTMod/images/other/" + id + ".png";
+	public static String GetVfxPath(String id) {
+		return "DTMod/images/vfx/" + id + ".png";
 	}
 
 	public static String GetRelicPath(String id) {

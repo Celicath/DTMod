@@ -172,7 +172,7 @@
   },
   "DTMod:Intimidate": {
     "NAME": "Intimidate",
-    "DESCRIPTION": "Innate. NL Dragon gains !B! Block and apply !M! Weak."
+    "DESCRIPTION": "Innate. NL Dragon gains !DT:THB! Block and apply !M! Weak."
   },
   "DTMod:BurningEnergy": {
     "NAME": "Burning Energy",
@@ -186,5 +186,13 @@
   "DTMod:DarkBreath": {
     "NAME": "Dark Breath",
     "DESCRIPTION": "Dragon deals !DT:THD! damage, apply !M! Weak, and gain 2 additional Aggro."
+  },
+  "DTMod:PurifyingFlame": {
+    "NAME": "Purifying Flame",
+    "DESCRIPTION": "Dragon deals !DT:THD! damage. NL Remove all debuffs from Dragon. NL Exhaust."
+  },
+  "DTMod:ForkedFlame": {
+    "NAME": "Forked Flame",
+    "DESCRIPTION": "Repeat X times: Dragon deals !DT:THD! damage to two random enemies."
   }
 }

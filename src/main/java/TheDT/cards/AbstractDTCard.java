@@ -223,7 +223,7 @@ public abstract class AbstractDTCard extends CustomCard {
 			dtDragonDamage = dtBaseDragonDamage;
 			if (dragon != null) {
 				isDTDragonDamageModified = false;
-				if (!isMultiDamage) {
+				if (!isMultiDamage && mo != null) {
 					float tmp = (float) dtBaseDragonDamage;
 
 					for (AbstractRelic r : AbstractDungeon.player.relics) {
@@ -267,9 +267,6 @@ public abstract class AbstractDTCard extends CustomCard {
 					}
 
 					dtDragonDamage = MathUtils.floor(tmp);
-					if (dtBaseDragonDamage != dtDragonDamage) {
-						isDTDragonDamageModified = true;
-					}
 				} else {
 					ArrayList<AbstractMonster> m = AbstractDungeon.getCurrRoom().monsters.monsters;
 					float[] tmp = new float[m.size()];
@@ -325,9 +322,9 @@ public abstract class AbstractDTCard extends CustomCard {
 					}
 
 					dtDragonDamage = dragonMultiDamage[0];
-					if (dtBaseDragonDamage != dtDragonDamage) {
-						isDTDragonDamageModified = true;
-					}
+				}
+				if (dtBaseDragonDamage != dtDragonDamage) {
+					isDTDragonDamageModified = true;
 				}
 			}
 		}

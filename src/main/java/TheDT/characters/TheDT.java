@@ -11,6 +11,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -24,6 +25,7 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import com.megacrit.cardcrawl.vfx.combat.PowerBuffEffect;
@@ -31,6 +33,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
+
+import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.getCurrRoom;
 
 public class TheDT extends CustomPlayer {
 	public static final CharacterStrings charStrings = CardCrawlGame.languagePack.getCharacterString("TheDT");
@@ -218,7 +222,9 @@ public class TheDT extends CustomPlayer {
 	public void update() {
 		dragon.update();
 		super.update();
-		DTMod.targetMarker.update();
+		if (getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
+			DTMod.targetMarker.update();
+		}
 	}
 
 	@Override
@@ -237,7 +243,9 @@ public class TheDT extends CustomPlayer {
 	public void render(SpriteBatch sb) {
 		dragon.render(sb);
 		super.render(sb);
-		DTMod.targetMarker.render(sb);
+		if (getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
+			DTMod.targetMarker.render(sb);
+		}
 	}
 
 	@Override
@@ -296,6 +304,7 @@ public class TheDT extends CustomPlayer {
 			AbstractDungeon.effectsQueue.add(effect);
 			updateIntents();
 			DTMod.targetMarker.move(newTarget);
+			DTMod.targetMarker.flash();
 		}
 	}
 
@@ -318,7 +327,7 @@ public class TheDT extends CustomPlayer {
 	}
 
 	public void updateIntents() {
-		if (AbstractDungeon.getCurrRoom().monsters != null) {
+		if (getCurrRoom().monsters != null) {
 			for (AbstractMonster m : AbstractDungeon.getMonsters().monsters) {
 				m.applyPowers();
 			}

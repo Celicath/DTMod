@@ -17,8 +17,8 @@ public class Hide extends AbstractDTCard {
 	private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DEFAULT;
 
-	private static final int POWER = 17;
-	private static final int UPGRADE_BONUS = 4;
+	private static final int POWER = 15;
+	private static final int UPGRADE_BONUS = 5;
 	private static final int WEAK = 2;
 
 	public Hide() {

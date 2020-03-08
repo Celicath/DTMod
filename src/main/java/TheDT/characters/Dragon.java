@@ -9,6 +9,8 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.math.Interpolation;
 import com.evacipated.cardcrawl.mod.stslib.patches.tempHp.PlayerDamage;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -16,10 +18,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.CardHelper;
-import com.megacrit.cardcrawl.helpers.FontHelper;
-import com.megacrit.cardcrawl.helpers.Hitbox;
-import com.megacrit.cardcrawl.helpers.ImageMaster;
+import com.megacrit.cardcrawl.helpers.*;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
@@ -46,6 +45,10 @@ public class Dragon extends CustomPlayer {
 	public Texture img;
 	public Color attackIconColor = CardHelper.getColor(255, 80, 80);
 
+	private float hoverTimer;
+	private Color nameColor;
+	private Color nameBgColor;
+
 	public Dragon(String name, float hb_x, float hb_y, float hb_w, float hb_h, TheDT master) {
 		super(name, master.chosenClass, null,
 				null, null, null, null);
@@ -67,6 +70,10 @@ public class Dragon extends CustomPlayer {
 		this.isPlayer = true;
 
 		this.blights = master.blights;
+
+		this.hoverTimer = 0.0F;
+		this.nameColor = new Color();
+		this.nameBgColor = new Color(0.0F, 0.0F, 0.0F, 0.0F);
 	}
 
 	@Override
@@ -307,15 +314,50 @@ public class Dragon extends CustomPlayer {
 		}
 
 		if (!(AbstractDungeon.getCurrRoom() instanceof RestRoom)) {
-			if (this.atlas != null) {
-				this.renderPlayerImage(sb);
+			if (atlas != null) {
+				renderPlayerImage(sb);
 			} else {
 				sb.setColor(Color.WHITE);
 				sb.draw(img, drawX - img.getWidth() * Settings.scale / 2.0F + animX, drawY, img.getWidth() * Settings.scale, img.getHeight() * Settings.scale, 0, 0, img.getWidth(), img.getHeight(), flipHorizontal, flipVertical);
 			}
 
-			this.hb.render(sb);
-			this.healthHb.render(sb);
+			hb.render(sb);
+			healthHb.render(sb);
+			renderName(sb);
+		}
+	}
+
+	private void renderName(SpriteBatch sb) {
+		if (!this.hb.hovered) {
+			this.hoverTimer = MathHelper.fadeLerpSnap(this.hoverTimer, 0.0F);
+		} else {
+			this.hoverTimer += Gdx.graphics.getDeltaTime();
+		}
+
+		if ((!AbstractDungeon.player.isDraggingCard || AbstractDungeon.player.hoveredCard == null || AbstractDungeon.player.hoveredCard.target == AbstractCard.CardTarget.ENEMY) && !this.isDying) {
+			if (this.hoverTimer != 0.0F) {
+				if (this.hoverTimer * 2.0F > 1.0F) {
+					this.nameColor.a = 1.0F;
+				} else {
+					this.nameColor.a = this.hoverTimer * 2.0F;
+				}
+			} else {
+				this.nameColor.a = MathHelper.slowColorLerpSnap(this.nameColor.a, 0.0F);
+			}
+
+			float tmp = Interpolation.exp5Out.apply(1.5F, 2.0F, this.hoverTimer);
+			this.nameColor.r = Interpolation.fade.apply(Color.DARK_GRAY.r, Settings.CREAM_COLOR.r, this.hoverTimer * 10.0F);
+			this.nameColor.g = Interpolation.fade.apply(Color.DARK_GRAY.g, Settings.CREAM_COLOR.g, this.hoverTimer * 3.0F);
+			this.nameColor.b = Interpolation.fade.apply(Color.DARK_GRAY.b, Settings.CREAM_COLOR.b, this.hoverTimer * 3.0F);
+			float y = Interpolation.exp10Out.apply(this.healthHb.cY, this.healthHb.cY - 8.0F * Settings.scale, this.nameColor.a);
+			float x = this.hb.cX - this.animX;
+			this.nameBgColor.a = this.nameColor.a / 2.0F * this.hbAlpha;
+			sb.setColor(this.nameBgColor);
+			TextureAtlas.AtlasRegion img = ImageMaster.MOVE_NAME_BG;
+			sb.draw(img, x - (float)img.packedWidth / 2.0F, y - (float)img.packedHeight / 2.0F, (float)img.packedWidth / 2.0F, (float)img.packedHeight / 2.0F, (float)img.packedWidth, (float)img.packedHeight, Settings.scale * tmp, Settings.scale * 2.0F, 0.0F);
+			Color var10000 = this.nameColor;
+			var10000.a *= this.hbAlpha;
+			FontHelper.renderFontCentered(sb, FontHelper.tipHeaderFont, this.name, x, y, this.nameColor);
 		}
 	}
 
