@@ -1,6 +1,6 @@
 package TheDT.patches;
 
-import TheDT.DTMod;
+import TheDT.DTModMain;
 import TheDT.powers.BondingPower;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -25,15 +25,15 @@ public class MythicalSkillbookPatch {
 		@SpirePrefixPatch
 		public static void Prefix(AbstractPlayer __instance, AbstractCard c, AbstractMonster monster, int energyOnUse) {
 			badActionList.clear();
-			if (AbstractDungeon.player.hasRelic(DTMod.MythicalSkillbookID)) {
+			if (AbstractDungeon.player.hasRelic(DTModMain.MythicalSkillbookID)) {
 				badActionList.addAll(AbstractDungeon.actionManager.actions);
 			}
 		}
 
 		@SpireInsertPatch(locator = UseCardLocator.class)
 		public static void Insert(AbstractPlayer __instance, AbstractCard c, AbstractMonster monster, int energyOnUse) {
-			if (AbstractDungeon.player.hasRelic(DTMod.MythicalSkillbookID)) {
-				DTMod.logger.debug("Current card : " + c.name);
+			if (AbstractDungeon.player.hasRelic(DTModMain.MythicalSkillbookID)) {
+				DTModMain.logger.debug("Current card : " + c.name);
 
 				int prev = AbstractDungeon.actionManager.actions.size();
 				int count = 0;
@@ -43,7 +43,7 @@ public class MythicalSkillbookPatch {
 						actionCardMap.put(action, c);
 					}
 				}
-				DTMod.logger.debug("action count = " + prev + " - " + badActionList.size() + " = " + count);
+				DTModMain.logger.debug("action count = " + prev + " - " + badActionList.size() + " = " + count);
 			}
 		}
 	}
@@ -83,9 +83,9 @@ public class MythicalSkillbookPatch {
 				actionCardMap.remove(__instance.currentAction);
 
 				if (MythicalGameState.checkDiff(c, __instance.currentAction)) {
-					DTMod.logger.debug("Current card [" + c.name + "] IS a Bonding card.");
-					if (AbstractDungeon.player.hasRelic(DTMod.MythicalSkillbookID)) {
-						AbstractDungeon.player.getRelic(DTMod.MythicalSkillbookID).flash();
+					if (AbstractDungeon.player.hasRelic(DTModMain.MythicalSkillbookID)) {
+						DTModMain.logger.info("Current card [" + c.name + "] IS a Bonding card.");
+						AbstractDungeon.player.getRelic(DTModMain.MythicalSkillbookID).flash();
 						AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(
 								AbstractDungeon.player,
 								AbstractDungeon.player,

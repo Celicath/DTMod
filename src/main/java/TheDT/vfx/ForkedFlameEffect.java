@@ -1,6 +1,6 @@
 package TheDT.vfx;
 
-import TheDT.DTMod;
+import TheDT.DTModMain;
 import TheDT.actions.ForkedFlameDamageAction;
 import TheDT.characters.Dragon;
 import com.badlogic.gdx.Gdx;
@@ -21,7 +21,7 @@ import java.util.ArrayList;
 public class ForkedFlameEffect extends AbstractGameEffect {
 	public static final float EFFECT_DUR = 0.6f;
 	private boolean init = false;
-	public static Texture fireballTexture = ImageMaster.loadImage(DTMod.GetVfxPath("fireball"));
+	public static Texture fireballTexture = ImageMaster.loadImage(DTModMain.GetVfxPath("fireball"));
 
 	private Dragon d;
 	private float originX, originY;

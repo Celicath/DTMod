@@ -1,6 +1,6 @@
 package TheDT.cards;
 
-import TheDT.DTMod;
+import TheDT.DTModMain;
 import TheDT.characters.Dragon;
 import TheDT.characters.TheDT;
 import basemod.abstracts.CustomCard;
@@ -25,7 +25,7 @@ public abstract class AbstractDTCard extends CustomCard {
 	}
 
 	private static final String DT_RAW_ID = "AbstractDTCard";
-	public static final String DT_ID = DTMod.makeID(DT_RAW_ID);
+	public static final String DT_ID = DTModMain.makeID(DT_RAW_ID);
 	private static final CardStrings dtCardStrings = CardCrawlGame.languagePack.getCardStrings(DT_ID);
 	public static final String[] DT_CARD_EXTRA_TEXT = dtCardStrings.EXTENDED_DESCRIPTION;
 
@@ -68,11 +68,11 @@ public abstract class AbstractDTCard extends CustomCard {
 	                      CardTarget target,
 	                      DTCardTarget dtCardTarget) {
 
-		super(DTMod.makeID(rawId), "NAME", DTMod.GetCardPath(rawId), cost, "DESCRIPTION", type, color, rarity, target);
+		super(DTModMain.makeID(rawId), "NAME", DTModMain.GetCardPath(rawId), cost, "DESCRIPTION", type, color, rarity, target);
 
 		this.dtCardTarget = dtCardTarget;
 
-		cardStrings = CardCrawlGame.languagePack.getCardStrings(DTMod.makeID(rawId));
+		cardStrings = CardCrawlGame.languagePack.getCardStrings(DTModMain.makeID(rawId));
 		name = NAME = cardStrings.NAME;
 		originalName = NAME;
 		rawDescription = DESCRIPTION = cardStrings.DESCRIPTION;

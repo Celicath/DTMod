@@ -1,6 +1,6 @@
 package TheDT.actions;
 
-import TheDT.DTMod;
+import TheDT.DTModMain;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
@@ -13,7 +13,7 @@ import com.megacrit.cardcrawl.localization.UIStrings;
 import java.util.Iterator;
 
 public class DiscardAnyNumberAction extends AbstractGameAction {
-	private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(DTMod.makeID("DiscardAnyNumberAction"));
+	private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(DTModMain.makeID("DiscardAnyNumberAction"));
 	public static final String[] TEXT = uiStrings.TEXT;
 
 	public DiscardAnyNumberAction(AbstractCreature source) {

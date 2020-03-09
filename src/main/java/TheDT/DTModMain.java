@@ -48,11 +48,11 @@ import java.nio.charset.StandardCharsets;
 import java.util.Properties;
 
 @SpireInitializer
-public class DTMod
+public class DTModMain
 		implements EditCardsSubscriber, EditRelicsSubscriber, EditStringsSubscriber, EditKeywordsSubscriber,
 		EditCharactersSubscriber, PostInitializeSubscriber, OnStartBattleSubscriber, PreMonsterTurnSubscriber,
 		PostEnergyRechargeSubscriber {
-	public static final Logger logger = LogManager.getLogger(DTMod.class.getName());
+	public static final Logger logger = LogManager.getLogger(DTModMain.class.getName());
 
 	private static final String MODNAME = "The DT";
 	private static final String AUTHOR = "Celicath";
@@ -111,7 +111,7 @@ public class DTMod
 	public static int yourAggro = 0;
 	public static int dragonAggro = 0;
 
-	public DTMod() {
+	public DTModMain() {
 		logger.info("Subscribe to basemod hooks");
 
 		BaseMod.subscribe(this);
@@ -136,7 +136,7 @@ public class DTMod
 
 	@SuppressWarnings("unused")
 	public static void initialize() {
-		DTMod mod = new DTMod();
+		DTModMain mod = new DTModMain();
 		isAspirationLoaded = Loader.isModLoaded("aspiration");
 		isFriendlyMinionsLoaded = Loader.isModLoaded("Friendly_Minions_0987678");
 	}
@@ -187,7 +187,7 @@ public class DTMod
 		ModPanel settingsPanel = new ModPanel();
 
 		enableEventButton = new ModLabeledToggleButton(
-				CardCrawlGame.languagePack.getUIString(DTMod.makeID("EnableEventConfig")).TEXT[0],
+				CardCrawlGame.languagePack.getUIString(DTModMain.makeID("EnableEventConfig")).TEXT[0],
 				400.0f, 480.0f, Settings.CREAM_COLOR, FontHelper.charDescFont,
 				enableEvent, settingsPanel, (label) -> {
 		}, (button) -> {
@@ -312,8 +312,8 @@ public class DTMod
 		MythicalGameState.reset();
 		MonsterTargetPatch.prevPlayer = null;
 
-		DTMod.dragonAggro = 0;
-		DTMod.yourAggro = 0;
+		DTModMain.dragonAggro = 0;
+		DTModMain.yourAggro = 0;
 	}
 
 	@Override

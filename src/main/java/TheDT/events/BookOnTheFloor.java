@@ -1,6 +1,6 @@
 package TheDT.events;
 
-import TheDT.DTMod;
+import TheDT.DTModMain;
 import TheDT.relics.MythicalSkillbook;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -11,7 +11,7 @@ import com.megacrit.cardcrawl.localization.EventStrings;
 
 public class BookOnTheFloor extends AbstractImageEvent {
 	public static final String RAW_ID = "BookOnTheFloor";
-	public static final String ID = DTMod.makeID(RAW_ID);
+	public static final String ID = DTModMain.makeID(RAW_ID);
 	private static final EventStrings eventStrings = CardCrawlGame.languagePack.getEventString(ID);
 	public static final String NAME = eventStrings.NAME;
 	public static final String[] DESCRIPTIONS = eventStrings.DESCRIPTIONS;
@@ -24,7 +24,7 @@ public class BookOnTheFloor extends AbstractImageEvent {
 	}
 
 	public BookOnTheFloor() {
-		super(NAME, DESCRIPTIONS[0], DTMod.GetEventPath(RAW_ID));
+		super(NAME, DESCRIPTIONS[0], DTModMain.GetEventPath(RAW_ID));
 
 		this.screen = BookOnTheFloor.CUR_SCREEN.INTRO;
 		this.imageEventText.setDialogOption(OPTIONS[0]);

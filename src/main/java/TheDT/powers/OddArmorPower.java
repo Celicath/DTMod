@@ -1,6 +1,6 @@
 package TheDT.powers;
 
-import TheDT.DTMod;
+import TheDT.DTModMain;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -14,14 +14,14 @@ public class OddArmorPower extends AbstractPower {
 	public AbstractCreature source;
 
 	public static final String RAW_ID = "OddArmorPower";
-	public static final String POWER_ID = DTMod.makeID(RAW_ID);
+	public static final String POWER_ID = DTModMain.makeID(RAW_ID);
 	private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
 	public static final String NAME = powerStrings.NAME;
 	public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 	public static final TextureAtlas.AtlasRegion IMG128 = new TextureAtlas.AtlasRegion(
-			ImageMaster.loadImage(DTMod.GetPowerPath(RAW_ID, 128)), 0, 0, 84, 84);
+			ImageMaster.loadImage(DTModMain.GetPowerPath(RAW_ID, 128)), 0, 0, 84, 84);
 	public static final TextureAtlas.AtlasRegion IMG48 = new TextureAtlas.AtlasRegion(
-			ImageMaster.loadImage(DTMod.GetPowerPath(RAW_ID, 48)), 0, 0, 32, 32);
+			ImageMaster.loadImage(DTModMain.GetPowerPath(RAW_ID, 48)), 0, 0, 32, 32);
 
 	public OddArmorPower(AbstractCreature owner, AbstractCreature source, int amount) {
 		this.name = NAME;

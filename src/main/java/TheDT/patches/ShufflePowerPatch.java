@@ -1,5 +1,6 @@
 package TheDT.patches;
 
+import TheDT.DTModMain;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePrefixPatch;
@@ -13,7 +14,7 @@ public class ShufflePowerPatch {
 		@SpirePrefixPatch
 		public static void Prefix(ShuffleAction __instance, boolean ___triggerRelics) {
 			if (___triggerRelics) {
-				TheDT.DTMod.onShuffle();
+				DTModMain.onShuffle();
 			}
 		}
 	}
@@ -22,7 +23,7 @@ public class ShufflePowerPatch {
 	public static class ShuffleAllActionPatch {
 		@SpirePostfixPatch
 		public static void Postfix(ShuffleAllAction __instance) {
-			TheDT.DTMod.onShuffle();
+			DTModMain.onShuffle();
 		}
 	}
 
@@ -30,7 +31,7 @@ public class ShufflePowerPatch {
 	public static class EmptyDeckShuffleActionPatch {
 		@SpirePostfixPatch
 		public static void Postfix(EmptyDeckShuffleAction __instance) {
-			TheDT.DTMod.onShuffle();
+			DTModMain.onShuffle();
 		}
 	}
 }

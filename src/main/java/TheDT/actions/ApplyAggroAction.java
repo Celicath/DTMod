@@ -1,6 +1,6 @@
 package TheDT.actions;
 
-import TheDT.DTMod;
+import TheDT.DTModMain;
 import TheDT.characters.TheDT;
 import basemod.ReflectionHacks;
 import com.badlogic.gdx.graphics.Color;
@@ -13,7 +13,7 @@ import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.vfx.combat.PowerBuffEffect;
 
 public class ApplyAggroAction extends AbstractGameAction {
-	private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(DTMod.makeID("Aggro"));
+	private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(DTModMain.makeID("Aggro"));
 	public static final String[] TEXT = uiStrings.TEXT;
 
 	public ApplyAggroAction() {
@@ -22,21 +22,21 @@ public class ApplyAggroAction extends AbstractGameAction {
 	}
 
 	public void update() {
-		if (AbstractDungeon.getMonsters().areMonstersBasicallyDead() || !(AbstractDungeon.player instanceof TheDT) || (DTMod.yourAggro == 0 && DTMod.dragonAggro == 0)) {
+		if (AbstractDungeon.getMonsters().areMonstersBasicallyDead() || !(AbstractDungeon.player instanceof TheDT) || (DTModMain.yourAggro == 0 && DTModMain.dragonAggro == 0)) {
 			this.isDone = true;
 			return;
 		}
-		if (DTMod.yourAggro != 0) {
-			addAggroChangeEffect(AbstractDungeon.player, DTMod.yourAggro);
+		if (DTModMain.yourAggro != 0) {
+			addAggroChangeEffect(AbstractDungeon.player, DTModMain.yourAggro);
 		}
-		if (DTMod.dragonAggro != 0) {
-			addAggroChangeEffect(((TheDT) AbstractDungeon.player).dragon, DTMod.dragonAggro);
+		if (DTModMain.dragonAggro != 0) {
+			addAggroChangeEffect(((TheDT) AbstractDungeon.player).dragon, DTModMain.dragonAggro);
 		}
-		if (DTMod.dragonAggro - DTMod.yourAggro != 0) {
-			((TheDT) AbstractDungeon.player).addAggro(DTMod.dragonAggro - DTMod.yourAggro);
+		if (DTModMain.dragonAggro - DTModMain.yourAggro != 0) {
+			((TheDT) AbstractDungeon.player).addAggro(DTModMain.dragonAggro - DTModMain.yourAggro);
 		}
-		DTMod.dragonAggro = 0;
-		DTMod.yourAggro = 0;
+		DTModMain.dragonAggro = 0;
+		DTModMain.yourAggro = 0;
 		tickDuration();
 	}
 

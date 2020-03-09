@@ -1,6 +1,6 @@
 package TheDT.characters;
 
-import TheDT.DTMod;
+import TheDT.DTModMain;
 import TheDT.actions.ApplyAggroAction;
 import TheDT.cards.*;
 import TheDT.patches.CardColorEnum;
@@ -11,7 +11,6 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -38,7 +37,7 @@ import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.getCurrRoom;
 
 public class TheDT extends CustomPlayer {
 	public static final CharacterStrings charStrings = CardCrawlGame.languagePack.getCharacterString("TheDT");
-	public static final Logger logger = LogManager.getLogger(DTMod.class.getName());
+	public static final Logger logger = LogManager.getLogger(DTModMain.class.getName());
 
 	public static final int ENERGY_PER_TURN = 3;
 	public static final int STARTING_HP = 40;
@@ -78,10 +77,10 @@ public class TheDT extends CustomPlayer {
 				"DTMod/images/char/TheDT/orb/vfx.png", null, null, null);
 
 		CharSelectInfo loadout = getLoadout();
-		initializeClass(DTMod.makePath("char/TheDT/idle.png"),
-				DTMod.makePath(DTMod.THE_DT_SHOULDER_1),
-				DTMod.makePath(DTMod.THE_DT_SHOULDER_2),
-				DTMod.makePath(DTMod.THE_DT_CORPSE),
+		initializeClass(DTModMain.makePath("char/TheDT/idle.png"),
+				DTModMain.makePath(DTModMain.THE_DT_SHOULDER_1),
+				DTModMain.makePath(DTModMain.THE_DT_SHOULDER_2),
+				DTModMain.makePath(DTModMain.THE_DT_CORPSE),
 				loadout, 0.0F, 0.0F, 220.0F, 290.0F, new EnergyManager(ENERGY_PER_TURN));
 
 		this.dialogX = (this.drawX + 0.0F * Settings.scale);
@@ -104,16 +103,16 @@ public class TheDT extends CustomPlayer {
 	public ArrayList<String> getStartingDeck() {
 		ArrayList<String> retVal = new ArrayList<>();
 
-		retVal.add(DTMod.makeID(Strike.RAW_ID));
-		retVal.add(DTMod.makeID(Strike.RAW_ID));
-		retVal.add(DTMod.makeID(Strike.RAW_ID));
-		retVal.add(DTMod.makeID(TwinBite.RAW_ID));
-		retVal.add(DTMod.makeID(TwinBite.RAW_ID));
-		retVal.add(DTMod.makeID(TargetDefense.RAW_ID));
-		retVal.add(DTMod.makeID(TargetDefense.RAW_ID));
-		retVal.add(DTMod.makeID(TargetDefense.RAW_ID));
-		retVal.add(DTMod.makeID(SwitchingTactic.RAW_ID));
-		retVal.add(DTMod.makeID(SwitchingTactic.RAW_ID));
+		retVal.add(DTModMain.makeID(Strike.RAW_ID));
+		retVal.add(DTModMain.makeID(Strike.RAW_ID));
+		retVal.add(DTModMain.makeID(Strike.RAW_ID));
+		retVal.add(DTModMain.makeID(Strike.RAW_ID));
+		retVal.add(DTModMain.makeID(TwinBite.RAW_ID));
+		retVal.add(DTModMain.makeID(TargetDefense.RAW_ID));
+		retVal.add(DTModMain.makeID(TargetDefense.RAW_ID));
+		retVal.add(DTModMain.makeID(TargetDefense.RAW_ID));
+		retVal.add(DTModMain.makeID(SwitchingTactic.RAW_ID));
+		retVal.add(DTModMain.makeID(SwitchingTactic.RAW_ID));
 
 		return retVal;
 	}
@@ -152,7 +151,7 @@ public class TheDT extends CustomPlayer {
 
 	@Override
 	public Color getCardTrailColor() {
-		return DTMod.DT_ORANGE;
+		return DTModMain.DT_ORANGE;
 	}
 
 	@Override
@@ -182,12 +181,12 @@ public class TheDT extends CustomPlayer {
 
 	@Override
 	public Color getCardRenderColor() {
-		return DTMod.DT_ORANGE;
+		return DTModMain.DT_ORANGE;
 	}
 
 	@Override
 	public Color getSlashAttackColor() {
-		return DTMod.DT_ORANGE;
+		return DTModMain.DT_ORANGE;
 	}
 
 	@Override
@@ -223,7 +222,7 @@ public class TheDT extends CustomPlayer {
 		dragon.update();
 		super.update();
 		if (getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
-			DTMod.targetMarker.update();
+			DTModMain.targetMarker.update();
 		}
 	}
 
@@ -244,7 +243,7 @@ public class TheDT extends CustomPlayer {
 		dragon.render(sb);
 		super.render(sb);
 		if (getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
-			DTMod.targetMarker.render(sb);
+			DTModMain.targetMarker.render(sb);
 		}
 	}
 
@@ -303,8 +302,8 @@ public class TheDT extends CustomPlayer {
 			ReflectionHacks.setPrivate(effect, PowerBuffEffect.class, "targetColor", new Color(0.7f, 0.75f, 0.7f, 1.0f));
 			AbstractDungeon.effectsQueue.add(effect);
 			updateIntents();
-			DTMod.targetMarker.move(newTarget);
-			DTMod.targetMarker.flash();
+			DTModMain.targetMarker.move(newTarget);
+			DTModMain.targetMarker.flash();
 		}
 	}
 
@@ -379,7 +378,7 @@ public class TheDT extends CustomPlayer {
 
 	public Texture getAttackIcon() {
 		if (attackerIcon == null) {
-			attackerIcon = new Texture(DTMod.makePath("ui/Attacker.png"));
+			attackerIcon = new Texture(DTModMain.makePath("ui/Attacker.png"));
 		}
 		return attackerIcon;
 	}

@@ -1,6 +1,6 @@
 package TheDT.patches;
 
-import TheDT.DTMod;
+import TheDT.DTModMain;
 import TheDT.optionals.FriendlyMinionHelper;
 import com.evacipated.cardcrawl.mod.stslib.patches.core.AbstractCreature.TempHPField;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -80,7 +80,7 @@ public class MythicalGameState {
 		for (AbstractMonster creature : AbstractDungeon.getMonsters().monsters) {
 			state.otherState.add(new CharacterState(creature));
 		}
-		if (DTMod.isFriendlyMinionsLoaded) {
+		if (DTModMain.isFriendlyMinionsLoaded) {
 			FriendlyMinionHelper.addFriendlyMinionStates(state.otherState);
 		}
 	}
@@ -110,7 +110,7 @@ public class MythicalGameState {
 			msg += " (Other)";
 		}
 		String[] split = action.getClass().getName().split("\\.");
-		DTMod.logger.debug("[" + card.name + "] " + split[split.length - 1] + " -> " + msg);
+		DTModMain.logger.debug("[" + card.name + "] " + split[split.length - 1] + " -> " + msg);
 
 		return state.affectYou && state.affectOther;
 	}

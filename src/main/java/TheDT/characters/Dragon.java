@@ -1,6 +1,6 @@
 package TheDT.characters;
 
-import TheDT.DTMod;
+import TheDT.DTModMain;
 import TheDT.cards.HardSkin;
 import TheDT.patches.CardColorEnum;
 import basemod.abstracts.CustomPlayer;
@@ -98,7 +98,7 @@ public class Dragon extends CustomPlayer {
 
 	@Override
 	public Color getCardRenderColor() {
-		return DTMod.DT_ORANGE;
+		return DTModMain.DT_ORANGE;
 	}
 
 	@Override
@@ -108,7 +108,7 @@ public class Dragon extends CustomPlayer {
 
 	@Override
 	public Color getCardTrailColor() {
-		return DTMod.DT_ORANGE;
+		return DTModMain.DT_ORANGE;
 	}
 
 	@Override
@@ -147,7 +147,7 @@ public class Dragon extends CustomPlayer {
 
 	@Override
 	public Color getSlashAttackColor() {
-		return DTMod.DT_ORANGE;
+		return DTModMain.DT_ORANGE;
 	}
 
 	@Override
@@ -166,7 +166,7 @@ public class Dragon extends CustomPlayer {
 	}
 
 	public void initializeClass(CharSelectInfo info) {
-		this.img = ImageMaster.loadImage(DTMod.makePath("char/TheDT/dragon.png"));
+		this.img = ImageMaster.loadImage(DTModMain.makePath("char/TheDT/dragon.png"));
 		this.maxHealth = info.maxHp * (100 + HP_BONUS_RATIO) / 100;
 		this.currentHealth = info.currentHp * (100 + HP_BONUS_RATIO) / 100;
 	}
@@ -354,7 +354,7 @@ public class Dragon extends CustomPlayer {
 			this.nameBgColor.a = this.nameColor.a / 2.0F * this.hbAlpha;
 			sb.setColor(this.nameBgColor);
 			TextureAtlas.AtlasRegion img = ImageMaster.MOVE_NAME_BG;
-			sb.draw(img, x - (float)img.packedWidth / 2.0F, y - (float)img.packedHeight / 2.0F, (float)img.packedWidth / 2.0F, (float)img.packedHeight / 2.0F, (float)img.packedWidth, (float)img.packedHeight, Settings.scale * tmp, Settings.scale * 2.0F, 0.0F);
+			sb.draw(img, x - (float) img.packedWidth / 2.0F, y - (float) img.packedHeight / 2.0F, (float) img.packedWidth / 2.0F, (float) img.packedHeight / 2.0F, (float) img.packedWidth, (float) img.packedHeight, Settings.scale * tmp, Settings.scale * 2.0F, 0.0F);
 			Color var10000 = this.nameColor;
 			var10000.a *= this.hbAlpha;
 			FontHelper.renderFontCentered(sb, FontHelper.tipHeaderFont, this.name, x, y, this.nameColor);

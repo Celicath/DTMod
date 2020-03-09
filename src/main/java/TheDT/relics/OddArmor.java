@@ -1,6 +1,6 @@
 package TheDT.relics;
 
-import TheDT.DTMod;
+import TheDT.DTModMain;
 import TheDT.characters.TheDT;
 import TheDT.powers.OddArmorPower;
 import basemod.abstracts.CustomRelic;
@@ -12,9 +12,9 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 public class OddArmor extends CustomRelic {
 
 	public static final String RAW_ID = "OddArmor";
-	public static final String ID = DTMod.makeID(RAW_ID);
-	public static final String IMG = DTMod.GetRelicPath(RAW_ID);
-	public static final String OUTLINE = DTMod.GetRelicOutlinePath(RAW_ID);
+	public static final String ID = DTModMain.makeID(RAW_ID);
+	public static final String IMG = DTModMain.GetRelicPath(RAW_ID);
+	public static final String OUTLINE = DTModMain.GetRelicOutlinePath(RAW_ID);
 	public static final int AMOUNT = 2;
 
 	public OddArmor() {

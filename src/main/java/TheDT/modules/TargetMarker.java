@@ -1,6 +1,6 @@
 package TheDT.modules;
 
-import TheDT.DTMod;
+import TheDT.DTModMain;
 import TheDT.characters.TheDT;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -34,8 +34,8 @@ public class TargetMarker {
 
 	public TargetMarker() {
 		hb = new Hitbox(WIDTH * Settings.scale * 1.2f, HEIGHT * Settings.scale * 1.2f);
-		uiStrings = CardCrawlGame.languagePack.getUIString(DTMod.makeID("TargetMarker"));
-		targetTexture = ImageMaster.loadImage(DTMod.makePath("ui/Target.png"));
+		uiStrings = CardCrawlGame.languagePack.getUIString(DTModMain.makeID("TargetMarker"));
+		targetTexture = ImageMaster.loadImage(DTModMain.makePath("ui/Target.png"));
 		TEXT = uiStrings.TEXT;
 		color = new Color(0x8fcfffee);
 		flashTimer = 0;

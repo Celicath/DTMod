@@ -1,6 +1,6 @@
 package TheDT.relics;
 
-import TheDT.DTMod;
+import TheDT.DTModMain;
 import TheDT.cards.AbstractDTCard;
 import TheDT.characters.TheDT;
 import TheDT.patches.LibraryTypeEnum;
@@ -19,9 +19,9 @@ import java.util.ArrayList;
 public class MythicalSkillbook extends SkillbookRelic {
 
 	public static final String RAW_ID = "MythicalSkillbook";
-	private static final String ID = DTMod.makeID(RAW_ID); // use DTMod.MythicalSkillbookID if you want this.
-	public static final String IMG = DTMod.GetRelicPath(RAW_ID);
-	public static final String OUTLINE = DTMod.GetRelicOutlinePath(RAW_ID);
+	private static final String ID = DTModMain.makeID(RAW_ID); // use DTMod.MythicalSkillbookID if you want this.
+	public static final String IMG = DTModMain.GetRelicPath(RAW_ID);
+	public static final String OUTLINE = DTModMain.GetRelicOutlinePath(RAW_ID);
 
 	public MythicalSkillbook() {
 		super(ID, new Texture(IMG), new Texture(OUTLINE), RelicTier.SPECIAL, LandingSound.MAGICAL, new ArrayList<>());
@@ -48,15 +48,15 @@ public class MythicalSkillbook extends SkillbookRelic {
 
 	@Override
 	public void atTurnStart() {
-		DTMod.logger.debug("MythicalGameState.map.size() = " + MythicalGameState.map.size());
+		DTModMain.logger.debug("MythicalGameState.map.size() = " + MythicalGameState.map.size());
 		MythicalGameState.map.clear();
-		DTMod.logger.debug("MythicalSkillbookPatch.actionCardMap.size() = " + MythicalSkillbookPatch.actionCardMap.size());
+		DTModMain.logger.debug("MythicalSkillbookPatch.actionCardMap.size() = " + MythicalSkillbookPatch.actionCardMap.size());
 	}
 
 	@Override
 	public void modifyCardPool() {
 		if (Aspiration.skillbookCardpool()) {
-			DTMod.logger.info("Mythical Skillbook acquired, modifying card pool.");
+			DTModMain.logger.info("Mythical Skillbook acquired, modifying card pool.");
 			ArrayList<AbstractCard> classCards = CardLibrary.getCardList(LibraryTypeEnum.DT_ORANGE);
 			mixCardpools(classCards);
 		}

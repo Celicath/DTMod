@@ -1,6 +1,6 @@
 package TheDT.cards;
 
-import TheDT.DTMod;
+import TheDT.DTModMain;
 import TheDT.characters.Dragon;
 import TheDT.optionals.FriendlyMinionHelper;
 import TheDT.patches.CardColorEnum;
@@ -51,7 +51,7 @@ public class MagicField extends AbstractDTCard {
 			addToBot(new GainBlockAction(dragon, dragon, dtDragonBlock, true));
 		}
 
-		if (DTMod.isFriendlyMinionsLoaded) {
+		if (DTModMain.isFriendlyMinionsLoaded) {
 			FriendlyMinionHelper.giveFriendlyMinionsBlock(magicNumber);
 		}
 

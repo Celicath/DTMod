@@ -1,6 +1,6 @@
 package TheDT.actions;
 
-import TheDT.DTMod;
+import TheDT.DTModMain;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
@@ -12,7 +12,7 @@ import com.megacrit.cardcrawl.localization.UIStrings;
 
 public class DraftAction extends AbstractGameAction {
 	private AbstractPlayer p;
-	private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(DTMod.makeID("DraftAction"));
+	private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(DTModMain.makeID("DraftAction"));
 	public static final String[] TEXT = uiStrings.TEXT;
 
 	public DraftAction() {

@@ -1,6 +1,6 @@
 package TheDT.powers;
 
-import TheDT.DTMod;
+import TheDT.DTModMain;
 import TheDT.actions.DragonChangeStanceAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
@@ -17,7 +17,7 @@ public class DragonLoseStancePower extends AbstractPower {
 	public AbstractCreature source;
 
 	public static final String RAW_ID = "DragonLoseStancePower";
-	public static final String POWER_ID = DTMod.makeID(RAW_ID);
+	public static final String POWER_ID = DTModMain.makeID(RAW_ID);
 	private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
 	public static final String NAME = powerStrings.NAME;
 	public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
