@@ -67,8 +67,18 @@ public abstract class AbstractDTCard extends CustomCard {
 	                      CardRarity rarity,
 	                      CardTarget target,
 	                      DTCardTarget dtCardTarget) {
+		this(rawId, cost, type, color, rarity, target, rawId, dtCardTarget);
+	}
 
-		super(DTModMain.makeID(rawId), "NAME", DTModMain.GetCardPath(rawId), cost, "DESCRIPTION", type, color, rarity, target);
+	public AbstractDTCard(String rawId,
+	                      int cost,
+	                      CardType type,
+	                      CardColor color,
+	                      CardRarity rarity,
+	                      CardTarget target,
+	                      String imgID,
+	                      DTCardTarget dtCardTarget) {
+		super(DTModMain.makeID(rawId), "NAME", DTModMain.GetCardPath(imgID), cost, "DESCRIPTION", type, color, rarity, target);
 
 		this.dtCardTarget = dtCardTarget;
 
@@ -366,11 +376,11 @@ public abstract class AbstractDTCard extends CustomCard {
 		if (AbstractDungeon.player instanceof TheDT) {
 			Dragon dragon = ((TheDT) AbstractDungeon.player).dragon;
 			if (dragon.isDeadOrEscaped()) return true;
-			if (((TheDT) AbstractDungeon.player).front == dragon) {
-				return true;
+			if (((TheDT) AbstractDungeon.player).front == AbstractDungeon.player) {
+				return false;
 			}
 		}
-		return false;
+		return true;
 	}
 
 	public String dragonNotAvailableMessage() {

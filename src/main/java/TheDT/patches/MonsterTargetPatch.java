@@ -14,8 +14,8 @@ public class MonsterTargetPatch {
 	@SpirePatch(clz = GameActionManager.class, method = "getNextAction")
 	public static class ChangeTargetPatch {
 		@SpireInsertPatch(locator = BeforeTakeTurnLocator.class)
-		public static void InsertBefore(GameActionManager __instance) {
-			if (AbstractDungeon.player instanceof TheDT && ((TheDT) AbstractDungeon.player).front == ((TheDT) AbstractDungeon.player).dragon) {
+		public static void InsertBefore(GameActionManager __instance, AbstractMonster ___m) {
+			if (AbstractDungeon.player instanceof TheDT && ((TheDT) AbstractDungeon.player).isCurrentTargetDragon(___m)) {
 				prevPlayer = AbstractDungeon.player;
 				AbstractDungeon.player = ((TheDT) AbstractDungeon.player).dragon;
 			}

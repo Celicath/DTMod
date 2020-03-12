@@ -47,5 +47,17 @@
     "DESCRIPTIONS": [
       "Whenever you shuffle your deck, put ALL Innate cards into your hand."
     ]
+  },
+  "DTMod:TauntPower": {
+    "NAME": "Taunted",
+    "DESCRIPTIONS": [
+      "For this turn, ",
+      "For #b",
+      " turns, ",
+      "this enemy will target ",
+      "You",
+      "Dragon",
+      ", ignoring #yAggro [REMOVE_SPACE]."
+    ]
   }
 }

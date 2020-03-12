@@ -1,6 +1,6 @@
 package TheDT.patches;
 
-import TheDT.DTModMain;
+import TheDT.actions.AddAggroAction;
 import TheDT.characters.TheDT;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch;
@@ -19,9 +19,9 @@ public class AggroPatch {
 			if (AbstractDungeon.player instanceof TheDT && info.type != DamageInfo.DamageType.THORNS && info.type != DamageInfo.DamageType.HP_LOSS) {
 				if (prevAction != AbstractDungeon.actionManager.currentAction) {
 					if (info.owner == AbstractDungeon.player) {
-						DTModMain.yourAggro++;
+						AbstractDungeon.actionManager.addToTop(new AddAggroAction(false, 1));
 					} else if (info.owner == ((TheDT) AbstractDungeon.player).dragon) {
-						DTModMain.dragonAggro++;
+						AbstractDungeon.actionManager.addToTop(new AddAggroAction(true, 1));
 					}
 				}
 				prevAction = AbstractDungeon.actionManager.currentAction;

@@ -34,5 +34,13 @@
       "switch"
     ],
     "DESCRIPTION": "The #yFront and #yRear change their position."
+  },
+  {
+    "PROPER_NAME": "Taunt",
+    "NAMES": [
+      "taunt",
+      "taunts"
+    ],
+    "DESCRIPTION": "Taunted enemy will always target the user of this attack, ignoring #yAggro."
   }
 ]

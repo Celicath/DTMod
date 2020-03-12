@@ -1,6 +1,7 @@
 package TheDT;
 
 import TheDT.Interfaces.ShufflePower;
+import TheDT.actions.FreezeAggroAction;
 import TheDT.cards.AbstractDTCard;
 import TheDT.cards.RepeatStrike;
 import TheDT.characters.TheDT;
@@ -110,6 +111,7 @@ public class DTModMain
 	// System
 	public static int yourAggro = 0;
 	public static int dragonAggro = 0;
+	public static int burnGen = 0;
 
 	public DTModMain() {
 		logger.info("Subscribe to basemod hooks");
@@ -314,6 +316,9 @@ public class DTModMain
 
 		DTModMain.dragonAggro = 0;
 		DTModMain.yourAggro = 0;
+
+		FreezeAggroAction.frozen = false;
+		burnGen = 0;
 	}
 
 	@Override

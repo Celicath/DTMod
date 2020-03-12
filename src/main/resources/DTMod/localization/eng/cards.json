@@ -194,5 +194,47 @@
   "DTMod:ForkedFlame": {
     "NAME": "Forked Flame",
     "DESCRIPTION": "Repeat X times: Dragon deals !DT:THD! damage to two random enemies."
+  },
+  "DTMod:Astonish": {
+    "NAME": "Astonish",
+    "DESCRIPTION": "The Rear deals damage equal to !M! times the ragontaer:Aggro difference.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Deals !D! damage.)",
+      " NL (Dragon deals !DT:THD! damage.)"
+    ]
+  },
+  "DTMod:DaggerTrick": {
+    "NAME": "Dagger Trick",
+    "DESCRIPTION": "Deal !D! damage X+1 times. This attack does not increase Aggro."
+  },
+  "DTMod:TauntingStrike": {
+    "NAME": "Taunting Strike",
+    "DESCRIPTION": "Choose one: Deal !D! damage; or Dragon deals !DT:THD! damage. NL The attacker ragontaer:Taunts the enemy for 1 turn."
+  },
+  "DTMod:TauntingStrikeYou": {
+    "NAME": "Attacker: You",
+    "DESCRIPTION": "Deal !D! damage."
+  },
+  "DTMod:TauntingStrikeDragon": {
+    "NAME": "Attacker: Dragon",
+    "DESCRIPTION": "Dragon deals !DT:THD! damage."
+  },
+  "DTMod:BurningForce": {
+    "NAME": "Burning Force",
+    "DESCRIPTION": "Add 2 Burns into your hand. For every Burn created this combat, Dragon deals !DT:THD! damage.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Attack !M! times.)"
+    ]
+  },
+  "DTMod:FullCharge": {
+    "NAME": "Full Charge",
+    "DESCRIPTION": "Dragon deals !DT:THD! damage. NL Dragon gains !M! Vulnerable."
+  },
+  "DTMod:SneakAttack": {
+    "NAME": "Sneak Attack",
+    "DESCRIPTION": "Only usable if you are the ragontaer:Rear. NL Deal !D! damage and gain 3 additional Aggro.",
+    "EXTENDED_DESCRIPTION": [
+      "I'm not the Rear!"
+    ]
   }
 }

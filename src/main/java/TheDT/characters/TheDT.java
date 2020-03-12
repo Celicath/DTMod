@@ -4,6 +4,7 @@ import TheDT.DTModMain;
 import TheDT.actions.ApplyAggroAction;
 import TheDT.cards.*;
 import TheDT.patches.CardColorEnum;
+import TheDT.powers.TauntPower;
 import TheDT.relics.PactStone;
 import basemod.ReflectionHacks;
 import basemod.abstracts.CustomPlayer;
@@ -50,6 +51,7 @@ public class TheDT extends CustomPlayer {
 	public AbstractCreature front = this;
 	public AbstractDTCard.DTCardTarget dtTargetMode;
 
+	// The aggro of Dragon
 	public int aggro;
 
 	public boolean isReticleAttackIcon;
@@ -381,6 +383,14 @@ public class TheDT extends CustomPlayer {
 			attackerIcon = new Texture(DTModMain.makePath("ui/Attacker.png"));
 		}
 		return attackerIcon;
+	}
+
+	public boolean isCurrentTargetDragon(AbstractCreature monster) {
+		if (monster.hasPower(TauntPower.POWER_ID)) {
+			return ((TauntPower) monster.getPower(TauntPower.POWER_ID)).targetIsDragon;
+		} else {
+			return front == dragon;
+		}
 	}
 
 	public static boolean isSolo() {
