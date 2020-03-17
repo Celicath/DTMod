@@ -2,7 +2,7 @@ package TheDT.cards;
 
 import TheDT.actions.FastAnimateFastAttackAction;
 import TheDT.characters.Dragon;
-import TheDT.characters.TheDT;
+import TheDT.characters.DragonTamer;
 import TheDT.patches.CardColorEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -46,8 +46,8 @@ public class Astonish extends AbstractDTCard {
 	public void applyPowers() {
 		boolean attackerIsYou = true;
 		if (getDragon() != null) {
-			baseDamage = Math.abs(((TheDT) AbstractDungeon.player).aggro) * magicNumber;
-			dtBaseDragonDamage = Math.abs(((TheDT) AbstractDungeon.player).aggro) * magicNumber;
+			baseDamage = Math.abs(((DragonTamer) AbstractDungeon.player).aggro) * magicNumber;
+			dtBaseDragonDamage = Math.abs(((DragonTamer) AbstractDungeon.player).aggro) * magicNumber;
 			if (!isRearYou()) {
 				attackerIsYou = false;
 			}

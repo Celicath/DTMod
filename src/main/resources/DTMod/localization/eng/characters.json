@@ -1,12 +1,13 @@
 {
   "TheDT": {
     "NAMES": [
-      "the DT",
-      "The DT"
+      "the Dragon Tamer",
+      "The Dragon Tamer"
     ],
     "TEXT": [
       "The brave man with full pact with his faithful dragon.",
-      "Dragon"
+      "Dragon",
+      "You"
     ]
   }
 }

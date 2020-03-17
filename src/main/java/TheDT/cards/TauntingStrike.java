@@ -1,8 +1,8 @@
 package TheDT.cards;
 
+import TheDT.characters.Dragon;
 import TheDT.optionCards.TauntingStrikeDragon;
 import TheDT.optionCards.TauntingStrikeYou;
-import TheDT.characters.Dragon;
 import TheDT.patches.CardColorEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;

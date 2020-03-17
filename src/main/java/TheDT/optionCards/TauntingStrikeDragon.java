@@ -21,7 +21,7 @@ public class TauntingStrikeDragon extends AbstractDTCard {
 	private static final int COST = -2;
 	private static final CardType TYPE = CardType.ATTACK;
 	private static final CardColor COLOR = CardColorEnum.DT_ORANGE;
-	private static final CardRarity RARITY = CardRarity.UNCOMMON;
+	private static final CardRarity RARITY = CardRarity.SPECIAL;
 	private static final CardTarget TARGET = CardTarget.ENEMY;
 	private static final DTCardTarget DT_CARD_TARGET = DTCardTarget.DRAGON_ONLY;
 

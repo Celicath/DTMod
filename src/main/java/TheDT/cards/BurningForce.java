@@ -47,7 +47,7 @@ public class BurningForce extends AbstractDTCard {
 		if (dragon != null) {
 			addToBot(new MakeTempCardInHandAction(new Burn(), BURN));
 			for (int i = 0; i < magicNumber; i++) {
-				addToTop(new DamageAction(m, new DamageInfo(dragon, dtDragonDamage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+				addToBot(new DamageAction(m, new DamageInfo(dragon, dtDragonDamage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
 			}
 		}
 		rawDescription = DESCRIPTION;

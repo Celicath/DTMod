@@ -2,7 +2,7 @@ package TheDT.relics;
 
 import TheDT.DTModMain;
 import TheDT.cards.AbstractDTCard;
-import TheDT.characters.TheDT;
+import TheDT.characters.DragonTamer;
 import TheDT.patches.LibraryTypeEnum;
 import TheDT.patches.MythicalGameState;
 import TheDT.patches.MythicalSkillbookPatch;
@@ -43,7 +43,7 @@ public class MythicalSkillbook extends SkillbookRelic {
 
 	@Override
 	public boolean canSpawn() {
-		return !(AbstractDungeon.player instanceof TheDT) && !hasSkillbookRelic(AbstractDungeon.player);
+		return !(AbstractDungeon.player instanceof DragonTamer) && !hasSkillbookRelic(AbstractDungeon.player);
 	}
 
 	@Override

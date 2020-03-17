@@ -26,14 +26,14 @@
     "NAMES": [
       "rear"
     ],
-    "DESCRIPTION": "The #yRear is not attacked by enemies. When the Aggro of the #yRear becomes higher than the #yFront, they Switch their position."
+    "DESCRIPTION": "The #yRear is not attacked by enemies. When the Aggro of the #yRear becomes higher than the #yFront, they #ySwitch their position."
   },
   {
     "PROPER_NAME": "Switch",
     "NAMES": [
       "switch"
     ],
-    "DESCRIPTION": "The #yFront and #yRear change their position."
+    "DESCRIPTION": "The #yFront becomes the #yRear, and vice versa."
   },
   {
     "PROPER_NAME": "Taunt",
@@ -42,5 +42,12 @@
       "taunts"
     ],
     "DESCRIPTION": "Taunted enemy will always target the user of this attack, ignoring #yAggro."
+  },
+  {
+    "PROPER_NAME": "Channeling",
+    "NAMES": [
+      "channeling"
+    ],
+    "DESCRIPTION": "If you attack or an enemy attacks you before the effect kicks in, it is cancelled."
   }
 ]

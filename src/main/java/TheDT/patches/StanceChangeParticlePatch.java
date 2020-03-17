@@ -1,7 +1,7 @@
 package TheDT.patches;
 
 import TheDT.characters.Dragon;
-import TheDT.characters.TheDT;
+import TheDT.characters.DragonTamer;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireField;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
@@ -39,7 +39,7 @@ public class StanceChangeParticlePatch {
 		public static void Prefix(StanceChangeParticleGenerator __instance) {
 			if (DragonField.isDragon.get(__instance)) {
 				prevPlayer = AbstractDungeon.player;
-				AbstractDungeon.player = ((TheDT) AbstractDungeon.player).dragon;
+				AbstractDungeon.player = ((DragonTamer) AbstractDungeon.player).dragon;
 			}
 		}
 
@@ -79,7 +79,7 @@ public class StanceChangeParticlePatch {
 		public static void Prefix(WrathStanceChangeParticle __instance, SpriteBatch sb) {
 			if (WrathDragonField.isDragon.get(__instance)) {
 				prevPlayer = AbstractDungeon.player;
-				AbstractDungeon.player = ((TheDT) AbstractDungeon.player).dragon;
+				AbstractDungeon.player = ((DragonTamer) AbstractDungeon.player).dragon;
 			}
 		}
 

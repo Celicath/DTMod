@@ -1,6 +1,6 @@
 package TheDT.patches;
 
-import TheDT.characters.TheDT;
+import TheDT.characters.DragonTamer;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -15,9 +15,9 @@ public class MonsterTargetPatch {
 	public static class ChangeTargetPatch {
 		@SpireInsertPatch(locator = BeforeTakeTurnLocator.class)
 		public static void InsertBefore(GameActionManager __instance, AbstractMonster ___m) {
-			if (AbstractDungeon.player instanceof TheDT && ((TheDT) AbstractDungeon.player).isCurrentTargetDragon(___m)) {
+			if (AbstractDungeon.player instanceof DragonTamer && ((DragonTamer) AbstractDungeon.player).isCurrentTargetDragon(___m)) {
 				prevPlayer = AbstractDungeon.player;
-				AbstractDungeon.player = ((TheDT) AbstractDungeon.player).dragon;
+				AbstractDungeon.player = ((DragonTamer) AbstractDungeon.player).dragon;
 			}
 		}
 

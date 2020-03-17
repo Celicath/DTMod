@@ -59,5 +59,24 @@
       "Dragon",
       ", ignoring #yAggro [REMOVE_SPACE]."
     ]
+  },
+  "DTMod:LastStandPower": {
+    "NAME": "Last Stand",
+    "DESCRIPTIONS": [
+      "For this turn, ",
+      "For #b",
+      " turns,",
+      " you take half damage."
+    ]
+  },
+  "DTMod:DeepFocusPower": {
+    "NAME": "Deep Focus",
+    "DESCRIPTIONS": [
+      "Next turn, ",
+      "After #b",
+      " turns, ",
+      "gain #b",
+      " Strength. #yChanneling."
+    ]
   }
 }

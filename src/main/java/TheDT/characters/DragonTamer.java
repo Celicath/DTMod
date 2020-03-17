@@ -36,7 +36,7 @@ import java.util.ArrayList;
 
 import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.getCurrRoom;
 
-public class TheDT extends CustomPlayer {
+public class DragonTamer extends CustomPlayer {
 	public static final CharacterStrings charStrings = CardCrawlGame.languagePack.getCharacterString("TheDT");
 	public static final Logger logger = LogManager.getLogger(DTModMain.class.getName());
 
@@ -74,7 +74,7 @@ public class TheDT extends CustomPlayer {
 			"DTMod/images/char/TheDT/orb/layer4d.png",
 			"DTMod/images/char/TheDT/orb/layer5d.png",};
 
-	public TheDT(String name, PlayerClass setClass) {
+	public DragonTamer(String name, PlayerClass setClass) {
 		super(name, setClass, orbTextures,
 				"DTMod/images/char/TheDT/orb/vfx.png", null, null, null);
 
@@ -178,7 +178,7 @@ public class TheDT extends CustomPlayer {
 
 	@Override
 	public AbstractPlayer newInstance() {
-		return new TheDT(this.name, this.chosenClass);
+		return new DragonTamer(this.name, this.chosenClass);
 	}
 
 	@Override
@@ -373,9 +373,15 @@ public class TheDT extends CustomPlayer {
 	@Override
 	public void applyStartOfTurnPowers() {
 		super.applyStartOfTurnPowers();
-		AbstractDungeon.player = dragon; // Are you serious devs?
+		AbstractDungeon.player = dragon; // To make FlameBarrierPower wear off on Dragon. Are you serious devs?
 		dragon.applyStartOfTurnPowers();
 		AbstractDungeon.player = this;
+	}
+
+	@Override
+	public void applyEndOfTurnTriggers() {
+		super.applyEndOfTurnTriggers();
+		dragon.applyEndOfTurnTriggers();
 	}
 
 	public Texture getAttackIcon() {
@@ -394,16 +400,16 @@ public class TheDT extends CustomPlayer {
 	}
 
 	public static boolean isSolo() {
-		if (AbstractDungeon.player instanceof TheDT) {
-			return ((TheDT) AbstractDungeon.player).dragon.isDeadOrEscaped();
+		if (AbstractDungeon.player instanceof DragonTamer) {
+			return ((DragonTamer) AbstractDungeon.player).dragon.isDeadOrEscaped();
 		} else {
 			return true;
 		}
 	}
 
 	public static int getAggro() {
-		if (AbstractDungeon.player instanceof TheDT) {
-			return ((TheDT) AbstractDungeon.player).aggro;
+		if (AbstractDungeon.player instanceof DragonTamer) {
+			return ((DragonTamer) AbstractDungeon.player).aggro;
 		} else {
 			return 0;
 		}

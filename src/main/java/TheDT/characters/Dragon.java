@@ -34,14 +34,14 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
 
-import static TheDT.characters.TheDT.charStrings;
+import static TheDT.characters.DragonTamer.charStrings;
 
 public class Dragon extends CustomPlayer {
 	public static final float OFFSET_X = 160.0f;
 	public static final float OFFSET_Y = 60.0f;
 	private static final int HP_BONUS_RATIO = 13;
 	private static final Logger logger = LogManager.getLogger(AbstractPlayer.class.getName());
-	public TheDT master;
+	public DragonTamer master;
 	public Texture img;
 	public Color attackIconColor = CardHelper.getColor(255, 80, 80);
 
@@ -49,7 +49,7 @@ public class Dragon extends CustomPlayer {
 	private Color nameColor;
 	private Color nameBgColor;
 
-	public Dragon(String name, float hb_x, float hb_y, float hb_w, float hb_h, TheDT master) {
+	public Dragon(String name, float hb_x, float hb_y, float hb_w, float hb_h, DragonTamer master) {
 		super(name, master.chosenClass, null,
 				null, null, null, null);
 		this.name = name;
@@ -137,7 +137,7 @@ public class Dragon extends CustomPlayer {
 
 	@Override
 	public AbstractPlayer newInstance() {
-		return new TheDT(this.name, this.chosenClass);
+		return new DragonTamer(this.name, this.chosenClass);
 	}
 
 	@Override

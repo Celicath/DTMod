@@ -1,7 +1,7 @@
 package TheDT.patches;
 
 import TheDT.characters.Dragon;
-import TheDT.characters.TheDT;
+import TheDT.characters.DragonTamer;
 import com.evacipated.cardcrawl.mod.stslib.patches.core.AbstractCreature.TempHPField;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.actions.GameActionManager;
@@ -17,8 +17,8 @@ public class DragonPatch {
 	public static class DragonStartTurn {
 		@SpireInsertPatch(locator = StartTurnLocator.class)
 		public static void Insert(GameActionManager __instance) {
-			if (AbstractDungeon.player instanceof TheDT) {
-				Dragon dragon = ((TheDT) AbstractDungeon.player).dragon;
+			if (AbstractDungeon.player instanceof DragonTamer) {
+				Dragon dragon = ((DragonTamer) AbstractDungeon.player).dragon;
 				if ((!dragon.hasPower(BarricadePower.POWER_ID)) && (!dragon.hasPower(BlurPower.POWER_ID))) {
 					dragon.loseBlock();
 				}
@@ -37,8 +37,8 @@ public class DragonPatch {
 	@SpirePatch(clz = AbstractRoom.class, method = "endBattle")
 	public static class DragonBattleEnd {
 		public static void Prefix(AbstractRoom __instance) {
-			if (AbstractDungeon.player instanceof TheDT) {
-				Dragon dragon = ((TheDT) AbstractDungeon.player).dragon;
+			if (AbstractDungeon.player instanceof DragonTamer) {
+				Dragon dragon = ((DragonTamer) AbstractDungeon.player).dragon;
 				TempHPField.tempHp.set(dragon, 0);
 				if (dragon.isDying) {
 					dragon.heal(1);

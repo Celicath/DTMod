@@ -1,7 +1,7 @@
 package TheDT.actions;
 
 import TheDT.DTModMain;
-import TheDT.characters.TheDT;
+import TheDT.characters.DragonTamer;
 import basemod.ReflectionHacks;
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -22,7 +22,7 @@ public class ApplyAggroAction extends AbstractGameAction {
 	}
 
 	public void update() {
-		if (AbstractDungeon.getMonsters().areMonstersBasicallyDead() || !(AbstractDungeon.player instanceof TheDT) || (DTModMain.yourAggro == 0 && DTModMain.dragonAggro == 0)) {
+		if (AbstractDungeon.getMonsters().areMonstersBasicallyDead() || !(AbstractDungeon.player instanceof DragonTamer) || (DTModMain.yourAggro == 0 && DTModMain.dragonAggro == 0)) {
 			this.isDone = true;
 			return;
 		}
@@ -30,10 +30,10 @@ public class ApplyAggroAction extends AbstractGameAction {
 			addAggroChangeEffect(AbstractDungeon.player, DTModMain.yourAggro);
 		}
 		if (DTModMain.dragonAggro != 0) {
-			addAggroChangeEffect(((TheDT) AbstractDungeon.player).dragon, DTModMain.dragonAggro);
+			addAggroChangeEffect(((DragonTamer) AbstractDungeon.player).dragon, DTModMain.dragonAggro);
 		}
 		if (DTModMain.dragonAggro - DTModMain.yourAggro != 0) {
-			((TheDT) AbstractDungeon.player).addAggro(DTModMain.dragonAggro - DTModMain.yourAggro);
+			((DragonTamer) AbstractDungeon.player).addAggro(DTModMain.dragonAggro - DTModMain.yourAggro);
 		}
 		DTModMain.dragonAggro = 0;
 		DTModMain.yourAggro = 0;

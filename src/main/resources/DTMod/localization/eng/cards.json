@@ -236,5 +236,34 @@
     "EXTENDED_DESCRIPTION": [
       "I'm not the Rear!"
     ]
+  },
+  "DTMod:LastStand": {
+    "NAME": "Last Stand",
+    "DESCRIPTION": "For this turn, you recieve half damage from attacks. Exhaust."
+  },
+  "DTMod:DeepFocus": {
+    "NAME": "Deep Focus",
+    "DESCRIPTION": "After 2 turns, gain !M! Strength. NL ragontaer:Channeling."
+  },
+  "DTMod:GhostSkin": {
+    "NAME": "Ghost Skin",
+    "DESCRIPTION": "Dragon gains !M! Intangible. NL Dragon loses 99 Dexterity. NL Exhaust."
+  },
+  "DTMod:Observe": {
+    "NAME": "Observe",
+    "DESCRIPTION": "Innate. NL Gain [E] for every !M! cards in your draw pile."
+  },
+  "DTMod:Shift": {
+    "NAME": "Shift",
+    "DESCRIPTION": "The ragontaer:Rear gains !M! ragontaer:Aggro. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Choose one: NL You or Dragon gains !M! ragontaer:Aggro. NL Exhaust."
+  },
+  "DTMod:ShiftYou": {
+    "NAME": "Shift: You",
+    "DESCRIPTION": "You gain !M! ragontaer:Aggro."
+  },
+  "DTMod:ShiftDragon": {
+    "NAME": "Shift: Dragon",
+    "DESCRIPTION": "Dragon gains !M! ragontaer:Aggro."
   }
 }

@@ -2,27 +2,29 @@ package TheDT.cards;
 
 import TheDT.characters.Dragon;
 import TheDT.patches.CardColorEnum;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.DexterityPower;
+import com.megacrit.cardcrawl.powers.IntangiblePlayerPower;
 
-public class HardSkin extends AbstractDTCard {
-	public static final String RAW_ID = "HardSkin";
+public class GhostSkin extends AbstractDTCard {
+	public static final String RAW_ID = "GhostSkin";
 	private static final int COST = 1;
 	private static final AbstractCard.CardType TYPE = CardType.SKILL;
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.DT_ORANGE;
-	private static final AbstractCard.CardRarity RARITY = CardRarity.SPECIAL;
+	private static final AbstractCard.CardRarity RARITY = CardRarity.UNCOMMON;
 	private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DRAGON_ONLY;
 
-	private static final int BLOCK = 12;
-	private static final int UPGRADE_BLOCK = 4;
+	private static final int INTANGIBLE = 1;
+	private static final int DEXTERITY_LOSS = 99;
+	private static final int NEW_COST = 0;
 
-	public HardSkin() {
+	public GhostSkin() {
 		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
-		dtBaseDragonBlock = BLOCK;
-		selfRetain = true;
+		baseMagicNumber = magicNumber = INTANGIBLE;
 		exhaust = true;
 	}
 
@@ -41,18 +43,19 @@ public class HardSkin extends AbstractDTCard {
 		Dragon dragon = getDragon();
 
 		if (dragon != null) {
-			addToBot(new GainBlockAction(dragon, dragon, dtDragonBlock));
+			addToBot(new ApplyPowerAction(dragon, dragon, new IntangiblePlayerPower(dragon, magicNumber), magicNumber));
+			addToBot(new ApplyPowerAction(dragon, dragon, new DexterityPower(dragon, -DEXTERITY_LOSS), -DEXTERITY_LOSS));
 		}
 	}
 
 	public AbstractCard makeCopy() {
-		return new HardSkin();
+		return new GhostSkin();
 	}
 
 	public void upgrade() {
 		if (!upgraded) {
 			upgradeName();
-			upgradeDTDragonBlock(UPGRADE_BLOCK);
+			upgradeBaseCost(NEW_COST);
 		}
 	}
 }

@@ -2,7 +2,7 @@ package TheDT.cards;
 
 import TheDT.DTModMain;
 import TheDT.characters.Dragon;
-import TheDT.characters.TheDT;
+import TheDT.characters.DragonTamer;
 import basemod.abstracts.CustomCard;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -353,8 +353,8 @@ public abstract class AbstractDTCard extends CustomCard {
 	}
 
 	public static Dragon getDragon() {
-		if (AbstractDungeon.player instanceof TheDT) {
-			Dragon dragon = ((TheDT) AbstractDungeon.player).dragon;
+		if (AbstractDungeon.player instanceof DragonTamer) {
+			Dragon dragon = ((DragonTamer) AbstractDungeon.player).dragon;
 			if (dragon.isDeadOrEscaped()) return null;
 			return dragon;
 		}
@@ -362,10 +362,10 @@ public abstract class AbstractDTCard extends CustomCard {
 	}
 
 	public boolean isFrontDragon() {
-		if (AbstractDungeon.player instanceof TheDT) {
-			Dragon dragon = ((TheDT) AbstractDungeon.player).dragon;
+		if (AbstractDungeon.player instanceof DragonTamer) {
+			Dragon dragon = ((DragonTamer) AbstractDungeon.player).dragon;
 			if (dragon.isDeadOrEscaped()) return false;
-			if (((TheDT) AbstractDungeon.player).front == dragon) {
+			if (((DragonTamer) AbstractDungeon.player).front == dragon) {
 				return true;
 			}
 		}
@@ -373,10 +373,10 @@ public abstract class AbstractDTCard extends CustomCard {
 	}
 
 	public boolean isRearYou() {
-		if (AbstractDungeon.player instanceof TheDT) {
-			Dragon dragon = ((TheDT) AbstractDungeon.player).dragon;
+		if (AbstractDungeon.player instanceof DragonTamer) {
+			Dragon dragon = ((DragonTamer) AbstractDungeon.player).dragon;
 			if (dragon.isDeadOrEscaped()) return true;
-			if (((TheDT) AbstractDungeon.player).front == AbstractDungeon.player) {
+			if (((DragonTamer) AbstractDungeon.player).front == AbstractDungeon.player) {
 				return false;
 			}
 		}
@@ -384,7 +384,7 @@ public abstract class AbstractDTCard extends CustomCard {
 	}
 
 	public String dragonNotAvailableMessage() {
-		if (AbstractDungeon.player instanceof TheDT) {
+		if (AbstractDungeon.player instanceof DragonTamer) {
 			return DT_CARD_EXTRA_TEXT[1];
 		}
 		return DT_CARD_EXTRA_TEXT[0];
@@ -392,11 +392,11 @@ public abstract class AbstractDTCard extends CustomCard {
 
 	// null = both attacks
 	public AbstractCreature getAttacker() {
-		if (AbstractDungeon.player instanceof TheDT) {
+		if (AbstractDungeon.player instanceof DragonTamer) {
 			if (dtCardTarget == DTCardTarget.DEFAULT) {
 				return AbstractDungeon.player;
 			} else if (dtCardTarget == DTCardTarget.DRAGON_ONLY) {
-				return ((TheDT) AbstractDungeon.player).dragon;
+				return ((DragonTamer) AbstractDungeon.player).dragon;
 			} else {
 				return null;
 			}

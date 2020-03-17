@@ -1,6 +1,6 @@
 package TheDT.cards;
 
-import TheDT.characters.TheDT;
+import TheDT.characters.DragonTamer;
 import TheDT.patches.CardColorEnum;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -46,7 +46,7 @@ public class Cover extends AbstractDTCard {
 		if (isRearYou()) {
 			addToBot(new GainBlockAction(p, p, block));
 		} else {
-			addToBot(new GainBlockAction(((TheDT) AbstractDungeon.player).dragon, ((TheDT) AbstractDungeon.player).dragon, dtDragonBlock));
+			addToBot(new GainBlockAction(((DragonTamer) AbstractDungeon.player).dragon, ((DragonTamer) AbstractDungeon.player).dragon, dtDragonBlock));
 		}
 		addToBot(new DrawCardAction(magicNumber));
 	}

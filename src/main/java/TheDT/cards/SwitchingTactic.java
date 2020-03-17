@@ -1,7 +1,7 @@
 package TheDT.cards;
 
 import TheDT.characters.Dragon;
-import TheDT.characters.TheDT;
+import TheDT.characters.DragonTamer;
 import TheDT.patches.CardColorEnum;
 import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.AlwaysRetainField;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -44,7 +44,7 @@ public class SwitchingTactic extends AbstractDTCard {
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		Dragon d = getDragon();
 		if (d != null) {
-			TheDT dtp = (TheDT) p;
+			DragonTamer dtp = (DragonTamer) p;
 			if (dtp.aggro == 0) {
 				dtp.setFront(dtp.front == d ? dtp : d);
 			} else {

@@ -1,6 +1,6 @@
 package TheDT.cards;
 
-import TheDT.characters.TheDT;
+import TheDT.characters.DragonTamer;
 import TheDT.patches.CardColorEnum;
 import TheDT.relics.BasicTextbook;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -55,7 +55,7 @@ public class TargetDefense extends AbstractDTCard {
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		if (isFrontDragon()) {
-			addToBot(new GainBlockAction(((TheDT) AbstractDungeon.player).dragon, ((TheDT) AbstractDungeon.player).dragon, dtDragonBlock));
+			addToBot(new GainBlockAction(((DragonTamer) AbstractDungeon.player).dragon, ((DragonTamer) AbstractDungeon.player).dragon, dtDragonBlock));
 		} else {
 			addToBot(new GainBlockAction(p, p, block));
 		}

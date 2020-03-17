@@ -1,7 +1,7 @@
 package TheDT.modules;
 
 import TheDT.DTModMain;
-import TheDT.characters.TheDT;
+import TheDT.characters.DragonTamer;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
@@ -81,13 +81,13 @@ public class TargetMarker {
 		FontHelper.renderFontCentered(
 				sb,
 				FontHelper.panelNameFont,
-				"+" + Math.abs(TheDT.getAggro()),
+				"+" + Math.abs(DragonTamer.getAggro()),
 				hb.cX,
 				hb.cY + 70.0f * Settings.scale,
 				color);
 
 		if (hb.hovered) {
-			renderTip(TheDT.isSolo(), TheDT.getAggro());
+			renderTip(DragonTamer.isSolo(), DragonTamer.getAggro());
 		}
 
 		hb.render(sb);

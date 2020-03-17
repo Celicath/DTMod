@@ -1,13 +1,12 @@
 package TheDT.patches;
 
-import TheDT.characters.TheDT;
-import com.evacipated.cardcrawl.modthespire.lib.*;
-import com.megacrit.cardcrawl.cards.DamageInfo;
+import TheDT.characters.DragonTamer;
+import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
+import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch;
+import com.evacipated.cardcrawl.modthespire.lib.SpirePrefixPatch;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.stances.AbstractStance;
-import javassist.CtBehavior;
 
 public class MonsterDamagePatch {
 	public static AbstractPlayer prevPlayer = null;
@@ -16,9 +15,9 @@ public class MonsterDamagePatch {
 	public static class ChangeTargetPatch {
 		@SpirePrefixPatch
 		public static void Prefix(AbstractMonster __instance) {
-			if (AbstractDungeon.player instanceof TheDT && ((TheDT) AbstractDungeon.player).isCurrentTargetDragon(__instance)) {
+			if (AbstractDungeon.player instanceof DragonTamer && ((DragonTamer) AbstractDungeon.player).isCurrentTargetDragon(__instance)) {
 				prevPlayer = AbstractDungeon.player;
-				AbstractDungeon.player = ((TheDT) AbstractDungeon.player).dragon;
+				AbstractDungeon.player = ((DragonTamer) AbstractDungeon.player).dragon;
 			}
 		}
 

@@ -4,7 +4,7 @@ import TheDT.Interfaces.ShufflePower;
 import TheDT.actions.FreezeAggroAction;
 import TheDT.cards.AbstractDTCard;
 import TheDT.cards.RepeatStrike;
-import TheDT.characters.TheDT;
+import TheDT.characters.DragonTamer;
 import TheDT.modules.TargetMarker;
 import TheDT.optionals.OptionalRelicHelper;
 import TheDT.patches.CardColorEnum;
@@ -147,7 +147,7 @@ public class DTModMain
 	public void receiveEditCharacters() {
 		logger.info("begin editing characters. " + "Add " + TheDTEnum.THE_DT.toString());
 
-		BaseMod.addCharacter(new TheDT(TheDT.charStrings.NAMES[1], TheDTEnum.THE_DT),
+		BaseMod.addCharacter(new DragonTamer(DragonTamer.charStrings.NAMES[1], TheDTEnum.THE_DT),
 				makePath(THE_DT_BUTTON), makePath(THE_DT_PORTRAIT), TheDTEnum.THE_DT);
 
 		receiveEditPotions();
