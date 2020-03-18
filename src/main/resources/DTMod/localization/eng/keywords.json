@@ -31,7 +31,8 @@
   {
     "PROPER_NAME": "Switch",
     "NAMES": [
-      "switch"
+      "switch",
+      "switched"
     ],
     "DESCRIPTION": "The #yFront becomes the #yRear, and vice versa."
   },

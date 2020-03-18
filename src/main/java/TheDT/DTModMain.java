@@ -339,6 +339,7 @@ public class DTModMain
 				AbstractDungeon.actionManager.addToTop(new DiscardToHandAction(c));
 			}
 		}
+		DragonTamer.frontChangedThisTurn = false;
 	}
 
 	public static AbstractCreature getAttacker(AbstractCard c) {

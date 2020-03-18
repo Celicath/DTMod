@@ -3,7 +3,6 @@ package TheDT.patches;
 import TheDT.cards.AbstractDTCard;
 import TheDT.characters.Dragon;
 import com.evacipated.cardcrawl.modthespire.lib.*;
-import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import javassist.CtBehavior;

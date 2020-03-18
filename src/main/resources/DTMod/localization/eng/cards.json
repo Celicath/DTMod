@@ -265,5 +265,30 @@
   "DTMod:ShiftDragon": {
     "NAME": "Shift: Dragon",
     "DESCRIPTION": "Dragon gains !M! ragontaer:Aggro."
+  },
+  "DTMod:Coolant": {
+    "NAME": "Coolant",
+    "DESCRIPTION": "Scry !M!. NL Exhaust any Status or Curse cards revealed."
+  },
+  "DTMod:Haste": {
+    "NAME": "Haste",
+    "DESCRIPTION": "Play a Power card from your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Play a Power card from your hand. NL Gain [E]. NL Exhaust."
+  },
+  "DTMod:RedScale": {
+    "NAME": "Red Scale",
+    "DESCRIPTION": "Dragon gains !DT:THB! Block. NL Add a *Hard *Skin into your hand.",
+    "UPGRADE_DESCRIPTION": "Dragon gains !DT:THB! Block. NL Add a *Hard *Skin+ into your hand."
+  },
+  "DTMod:TagTeam": {
+    "NAME": "Tag Team",
+    "DESCRIPTION": "Gain !M! Bonding. NL If your team ragontaer:Switched this turn, the ragontaer:Front gains !B! Block.",
+    "EXTENDED_DESCRIPTION": [
+      "Gain !M! Bonding. NL If your team ragontaer:Switched this turn, the ragontaer:Front gains !DT:THB! Block."
+    ]
+  },
+  "DTMod:Overwhelm": {
+    "NAME": "Overwhelm",
+    "DESCRIPTION": "Apply !M! Weak. NL All enemies lose HP equal to 2 times their Weak."
   }
 }

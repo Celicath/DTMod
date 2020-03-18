@@ -36,5 +36,10 @@
       " more #yAggro than You.",
       "#yYou are fighting solo. NL You are considered both the #yFront and the #yRear."
     ]
+  },
+  "DTMod:HasteAction": {
+    "TEXT": [
+      "Play"
+    ]
   }
 }

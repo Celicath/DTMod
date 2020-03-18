@@ -51,6 +51,8 @@ public class DragonTamer extends CustomPlayer {
 	public AbstractCreature front = this;
 	public AbstractDTCard.DTCardTarget dtTargetMode;
 
+	public static boolean frontChangedThisTurn = false;
+
 	// The aggro of Dragon
 	public int aggro;
 
@@ -294,6 +296,8 @@ public class DragonTamer extends CustomPlayer {
 		aggro = 0;
 		front = this;
 		addAggro(3);
+
+		frontChangedThisTurn = false;
 	}
 
 	public void setFront(AbstractCreature newTarget) {
@@ -306,6 +310,8 @@ public class DragonTamer extends CustomPlayer {
 			updateIntents();
 			DTModMain.targetMarker.move(newTarget);
 			DTModMain.targetMarker.flash();
+
+			frontChangedThisTurn = true;
 		}
 	}
 
