@@ -54,6 +54,8 @@ public class DragonTamer extends CustomPlayer {
 	public AbstractDTCard.DTCardTarget dtTargetMode;
 
 	public static boolean frontChangedThisTurn = false;
+	public static boolean battleHarmonyYou = false;
+	public static boolean battleHarmonyDragon = false;
 
 	// The aggro of Dragon
 	public int aggro;
@@ -300,6 +302,8 @@ public class DragonTamer extends CustomPlayer {
 		addAggro(3);
 
 		frontChangedThisTurn = false;
+		battleHarmonyYou = false;
+		battleHarmonyDragon = false;
 	}
 
 	public void setFront(AbstractCreature newTarget) {

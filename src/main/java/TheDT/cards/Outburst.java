@@ -24,7 +24,6 @@ public class Outburst extends AbstractDTCard {
 
 	public Outburst() {
 		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
-		exhaust = true;
 	}
 
 	@Override

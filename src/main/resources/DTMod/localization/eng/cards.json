@@ -104,7 +104,7 @@
   },
   "DTMod:Outburst": {
     "NAME": "Outburst",
-    "DESCRIPTION": "Dragon enters Wrath for 2 turns. NL Exhaust."
+    "DESCRIPTION": "Dragon enters Wrath for 2 turns."
   },
   "DTMod:RepeatStrike": {
     "NAME": "Repeat Strike",
@@ -170,8 +170,8 @@
     "NAME": "Hide",
     "DESCRIPTION": "Gain !B! Block. NL Gain !M! Weak."
   },
-  "DTMod:Intimidate": {
-    "NAME": "Intimidate",
+  "DTMod:Threaten": {
+    "NAME": "Threaten",
     "DESCRIPTION": "Innate. NL Dragon gains !DT:THB! Block and apply !M! Weak."
   },
   "DTMod:BurningEnergy": {
@@ -185,7 +185,7 @@
   },
   "DTMod:DarkBreath": {
     "NAME": "Dark Breath",
-    "DESCRIPTION": "Dragon deals !DT:THD! damage, apply !M! Weak, and gain 2 additional Aggro."
+    "DESCRIPTION": "Dragon deals !DT:THD! damage, apply !M! Weak, and gain 2 additional ragontaer:Aggro."
   },
   "DTMod:PurifyingFlame": {
     "NAME": "Purifying Flame",
@@ -221,7 +221,7 @@
   },
   "DTMod:BurningForce": {
     "NAME": "Burning Force",
-    "DESCRIPTION": "Dragon deals !DT:THD! damage. NL Deals !M! additional damage equal for every Burn created this combat."
+    "DESCRIPTION": "Dragon deals !DT:THD! damage. NL Deals !M! additional damage for every Burn created this combat."
   },
   "DTMod:FullCharge": {
     "NAME": "Full Charge",
@@ -279,7 +279,7 @@
   },
   "DTMod:TagTeam": {
     "NAME": "Tag Team",
-    "DESCRIPTION": "Gain !M! Bonding. NL If your team ragontaer:Switched this turn, the ragontaer:Front gains !B! Block.",
+    "DESCRIPTION": "Gain !M! ragontaer:Bonding. NL If your team ragontaer:Switched this turn, the ragontaer:Front gains !B! Block.",
     "EXTENDED_DESCRIPTION": [
       "Gain !M! Bonding. NL If your team ragontaer:Switched this turn, the ragontaer:Front gains !DT:THB! Block."
     ]
@@ -309,5 +309,52 @@
   "DTMod:InvisibleFlame": {
     "NAME": "Invisible Flame",
     "DESCRIPTION": "Whenever the Front attacks, deal !M! damage to a random enemy."
+  },
+  "DTMod:Arbitration": {
+    "NAME": "Arbitration",
+    "DESCRIPTION": "Whenever your team ragontaer:Switch, apply !M! Weak to ALL enemies."
+  },
+  "DTMod:Inferno": {
+    "NAME": "Inferno",
+    "DESCRIPTION": "Dragon deals !DT:THD! damage to ALL enemies. Shuffle a Burn into your draw pile for each enemy."
+  },
+  "DTMod:RecklessFlurry": {
+    "NAME": "Reckless Flurry",
+    "DESCRIPTION": "Choose the attacker. NL The attacker loses all Block and deal damage equal to twice the Block lost to ALL enemies."
+  },
+  "DTMod:RecklessFlurryYou": {
+    "NAME": "Attacker: You",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies."
+  },
+  "DTMod:RecklessFlurryDragon": {
+    "NAME": "Attacker: Dragon",
+    "DESCRIPTION": "Dragon deals !DT:THD! damage to ALL enemies."
+  },
+  "DTMod:HuntersMark": {
+    "NAME": "Hunter's Mark",
+    "DESCRIPTION": "Deal !D! damage. NL Whenever Dragon attacks this enemy, gain 1 ragontaer:Bonding. Exhaust."
+  },
+  "DTMod:LightShield": {
+    "NAME": "Light Shield",
+    "DESCRIPTION": "Gain !B! Block. NL Dragon gains !DT:THB! Block. NL Gain !M! additional Block for every ragontaer:Bonding you gained this combat."
+  },
+  "DTMod:StunTrap": {
+    "NAME": "Stun Trap",
+    "DESCRIPTION": "After 2 turns, Stun the enemy. NL ragontaer:Channeling. NL Exhaust."
+  },
+  "DTMod:GearUp": {
+    "NAME": "Gear Up",
+    "DESCRIPTION": "Add !M! *Safety and *Hard *Skin into your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Add !M! *Safety+ and *Hard *Skin+ into your hand. NL Exhaust."
+  },
+  "DTMod:Safeguard": {
+    "NAME": "Safeguard",
+    "DESCRIPTION": "The ragontaer:Rear no longer loses Block at the start of your turn.",
+    "UPGRADE_DESCRIPTION": "Innate. NL The ragontaer:Rear no longer loses Block at the start of your turn."
+  },
+  "DTMod:BattleHarmony": {
+    "NAME": "Battle Harmony",
+    "DESCRIPTION": "Whenever both You and Dragon attacks in a single turn, gain !M! ragontaer:Bonding.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Whenever both You and Dragon attacks in a single turn, gain !M! ragontaer:Bonding."
   }
 }

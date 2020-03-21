@@ -43,6 +43,7 @@ public class InvisibleFlamePower extends AbstractPower {
 		description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
 	}
 
+	@Override
 	public void onAttack(DamageInfo info, int damageAmount, AbstractCreature target) {
 		if (prevAction != AbstractDungeon.actionManager.currentAction) {
 			if (info.type != DamageInfo.DamageType.THORNS && info.type != DamageInfo.DamageType.HP_LOSS && info.owner == owner) {

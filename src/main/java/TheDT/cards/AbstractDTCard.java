@@ -361,7 +361,7 @@ public abstract class AbstractDTCard extends CustomCard {
 		return null;
 	}
 
-	public boolean isFrontDragon() {
+	public static boolean isFrontDragon() {
 		if (AbstractDungeon.player instanceof DragonTamer) {
 			Dragon dragon = ((DragonTamer) AbstractDungeon.player).dragon;
 			if (dragon.isDeadOrEscaped()) return false;
@@ -372,7 +372,7 @@ public abstract class AbstractDTCard extends CustomCard {
 		return false;
 	}
 
-	public boolean isRearYou() {
+	public static boolean isRearYou() {
 		if (AbstractDungeon.player instanceof DragonTamer) {
 			Dragon dragon = ((DragonTamer) AbstractDungeon.player).dragon;
 			if (dragon.isDeadOrEscaped()) return true;

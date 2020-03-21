@@ -112,6 +112,7 @@ public class DTModMain
 	public static int yourAggro = 0;
 	public static int dragonAggro = 0;
 	public static int burnGen = 0;
+	public static int bondingGained = 0;
 
 	public DTModMain() {
 		logger.info("Subscribe to basemod hooks");
@@ -319,6 +320,7 @@ public class DTModMain
 
 		FreezeAggroAction.frozen = false;
 		burnGen = 0;
+		bondingGained = 0;
 	}
 
 	@Override
@@ -340,6 +342,8 @@ public class DTModMain
 			}
 		}
 		DragonTamer.frontChangedThisTurn = false;
+		DragonTamer.battleHarmonyYou = false;
+		DragonTamer.battleHarmonyDragon = false;
 	}
 
 	public static AbstractCreature getAttacker(AbstractCard c) {

@@ -9,8 +9,8 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.WeakPower;
 
-public class Intimidate extends AbstractDTCard {
-	public static final String RAW_ID = "Intimidate";
+public class Threaten extends AbstractDTCard {
+	public static final String RAW_ID = "Threaten";
 	private static final int COST = 1;
 	private static final AbstractCard.CardType TYPE = AbstractCard.CardType.SKILL;
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.DT_ORANGE;
@@ -23,7 +23,7 @@ public class Intimidate extends AbstractDTCard {
 	private static final int WEAK = 1;
 	private static final int WEAK_BONUS = 1;
 
-	public Intimidate() {
+	public Threaten() {
 		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
 
 		dtBaseDragonBlock = POWER;
@@ -51,7 +51,7 @@ public class Intimidate extends AbstractDTCard {
 	}
 
 	public AbstractCard makeCopy() {
-		return new Intimidate();
+		return new Threaten();
 	}
 
 	public void upgrade() {

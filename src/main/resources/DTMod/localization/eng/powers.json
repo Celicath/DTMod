@@ -99,5 +99,41 @@
       "Whenever the #yFront attacks, deal #b",
       " damage to a random enemy."
     ]
+  },
+  "DTMod:HuntersMarkPower": {
+    "NAME": "Hunter's Mark",
+    "DESCRIPTIONS": [
+      "When dragon attacks this enemy, gain #b",
+      " #yBonding."
+    ]
+  },
+  "DTMod:StunTrapPower": {
+    "NAME": "Stun Trap",
+    "DESCRIPTIONS": [
+      "Next turn, ",
+      "After #b",
+      " turns, ",
+      " is Stunned."
+    ]
+  },
+  "DTMod:SafeguardPower": {
+    "NAME": "Safeguard",
+    "DESCRIPTIONS": [
+      "The #yRear no longer loses #yBlock at the start of your turn."
+    ]
+  },
+  "DTMod:BattleHarmonyPower": {
+    "NAME": "Battle Harmony",
+    "DESCRIPTIONS": [
+      "Whenever both You and Dragon attacks in a single turn, gain #b",
+      " #yBonding [REMOVE_SPACE]."
+    ]
+  },
+  "DTMod:ArbitrationPower": {
+    "NAME": "Arbitration",
+    "DESCRIPTIONS": [
+      "Whenever your team #ySwitch, apply #b",
+      " #yWeak to ALL enemies."
+    ]
   }
 }

@@ -48,7 +48,7 @@ public class Shift extends AbstractDTCard {
 		if (dragon != null) {
 			if (upgraded) {
 				ArrayList<AbstractCard> choices = new ArrayList<>();
-				choices.add(new AbstractDTCard(RAW_ID_YOU, -2, TYPE, COLOR, CardRarity.SPECIAL, TARGET, TauntingStrike.RAW_ID, DTCardTarget.DEFAULT) {
+				choices.add(new AbstractDTCard(RAW_ID_YOU, -2, TYPE, COLOR, CardRarity.SPECIAL, TARGET, RAW_ID, DTCardTarget.DEFAULT) {
 					{
 						magicNumber = baseMagicNumber = outerMagicNumber;
 					}
@@ -67,7 +67,7 @@ public class Shift extends AbstractDTCard {
 						addToBot(new ApplyAggroAction());
 					}
 				});
-				choices.add(new AbstractDTCard(RAW_ID_DRAGON, -2, TYPE, COLOR, CardRarity.SPECIAL, TARGET, TauntingStrike.RAW_ID, DTCardTarget.DRAGON_ONLY) {
+				choices.add(new AbstractDTCard(RAW_ID_DRAGON, -2, TYPE, COLOR, CardRarity.SPECIAL, TARGET, RAW_ID, DTCardTarget.DRAGON_ONLY) {
 					{
 						magicNumber = baseMagicNumber = outerMagicNumber;
 					}

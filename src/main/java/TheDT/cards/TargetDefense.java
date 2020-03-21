@@ -53,6 +53,24 @@ public class TargetDefense extends AbstractDTCard {
 		initializeDescription();
 	}
 
+	@Override
+	public void calculateCardDamage(AbstractMonster mo) {
+		int blockModifier = 0;
+		for (AbstractRelic r : AbstractDungeon.player.relics) {
+			if (r instanceof BasicTextbook) {
+				blockModifier += BasicTextbook.BONUS;
+			}
+		}
+		baseBlock += blockModifier;
+		dtBaseDragonBlock += blockModifier;
+		super.calculateCardDamage(mo);
+		if (blockModifier > 0) {
+			baseBlock -= blockModifier;
+			dtBaseDragonBlock -= blockModifier;
+			isBlockModified = isDTDragonBlockModified = true;
+		}
+	}
+
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		if (isFrontDragon()) {
 			addToBot(new GainBlockAction(((DragonTamer) AbstractDungeon.player).dragon, ((DragonTamer) AbstractDungeon.player).dragon, dtDragonBlock));
