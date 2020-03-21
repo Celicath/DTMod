@@ -7,12 +7,12 @@
     "DESCRIPTION": "When you obtain #b4 #yBonding, choose a powerful #yBonding effect to receive."
   },
   {
-    "PROPER_NAME": "Aggro and Position",
+    "PROPER_NAME": "Aggro",
     "NAMES": [
       "aggro",
       "position"
     ],
-    "DESCRIPTION": "Whenever you or Dragon attacks, the attacker gains #b1 Aggro. The character with higher Aggro becomes the #yFront, lower one becomes the #yRear."
+    "DESCRIPTION": "Whenever you or Dragon attacks, the attacker gains #b1 Aggro. The character with higher Aggro becomes the #yFront, taking all attacks."
   },
   {
     "PROPER_NAME": "Front",
@@ -26,7 +26,7 @@
     "NAMES": [
       "rear"
     ],
-    "DESCRIPTION": "The #yRear is not attacked by enemies. When the Aggro of the #yRear becomes higher than the #yFront, they #ySwitch their position."
+    "DESCRIPTION": "The Rear is not attacked by enemies."
   },
   {
     "PROPER_NAME": "Switch",
@@ -34,7 +34,7 @@
       "switch",
       "switched"
     ],
-    "DESCRIPTION": "The #yFront becomes the #yRear, and vice versa."
+    "DESCRIPTION": "The #yFront becomes the #yRear, and vice versa. Switch happens when the #yAggro of the #yRear becomes higher than the #yFront."
   },
   {
     "PROPER_NAME": "Taunt",
@@ -42,13 +42,13 @@
       "taunt",
       "taunts"
     ],
-    "DESCRIPTION": "Taunted enemy will always target the user of this attack, ignoring #yAggro."
+    "DESCRIPTION": "Taunted enemy will always target who taunted it, ignoring #yFront."
   },
   {
     "PROPER_NAME": "Channeling",
     "NAMES": [
       "channeling"
     ],
-    "DESCRIPTION": "If you attack or an enemy attacks you before the effect kicks in, it is cancelled."
+    "DESCRIPTION": "If You attack or an enemy attacks You before the effect kicks in, it is cancelled."
   }
 ]

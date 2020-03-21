@@ -78,5 +78,26 @@
       "gain #b",
       " Strength. #yChanneling."
     ]
+  },
+  "DTMod:DoubleTeamPower": {
+    "NAME": "Double Team",
+    "DESCRIPTIONS": [
+      "Whenever your team #ySwitch, gain",
+      " [REMOVE_SPACE]."
+    ]
+  },
+  "DTMod:ShadowImagePower": {
+    "NAME": "Shadow Image",
+    "DESCRIPTIONS": [
+      "Whenever You or Dragon attacks, the attacker gains #b",
+      " #yBlock."
+    ]
+  },
+  "DTMod:InvisibleFlamePower": {
+    "NAME": "Invisible Flame",
+    "DESCRIPTIONS": [
+      "Whenever the #yFront attacks, deal #b",
+      " damage to a random enemy."
+    ]
   }
 }

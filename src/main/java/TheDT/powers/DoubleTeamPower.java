@@ -1,19 +1,17 @@
 package TheDT.powers;
 
 import TheDT.DTModMain;
-import TheDT.Interfaces.ShufflePower;
-import TheDT.actions.InnateToHandAction;
+import TheDT.Interfaces.SwitchPower;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class AdaptationPower extends AbstractPower implements ShufflePower {
-	public AbstractCreature source;
-
-	public static final String RAW_ID = "AdaptationPower";
+public class DoubleTeamPower extends AbstractPower implements SwitchPower {
+	public static final String RAW_ID = "DoubleTeamPower";
 	public static final String POWER_ID = DTModMain.makeID(RAW_ID);
 	private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
 	public static final String NAME = powerStrings.NAME;
@@ -23,25 +21,34 @@ public class AdaptationPower extends AbstractPower implements ShufflePower {
 	public static final TextureAtlas.AtlasRegion IMG48 = new TextureAtlas.AtlasRegion(
 			ImageMaster.loadImage(DTModMain.GetPowerPath(RAW_ID, 48)), 0, 0, 32, 32);
 
-	public AdaptationPower(AbstractCreature owner, AbstractCreature source) {
+	public DoubleTeamPower(AbstractCreature owner, int amount) {
 		this.name = NAME;
 		this.ID = POWER_ID;
 		this.owner = owner;
+		this.amount = amount;
 		this.updateDescription();
 		this.type = PowerType.BUFF;
 		this.isTurnBased = false;
 		this.region128 = IMG128;
 		this.region48 = IMG48;
-		this.source = source;
 	}
 
 	@Override
 	public void updateDescription() {
-		description = DESCRIPTIONS[0];
+		StringBuilder sb = new StringBuilder();
+		sb.append(DESCRIPTIONS[0]);
+
+		for (int i = 0; i < this.amount; ++i) {
+			sb.append(" [E]");
+		}
+
+		sb.append(DESCRIPTIONS[1]);
+		description = sb.toString();
 	}
 
 	@Override
-	public void onShuffle() {
-		addToTop(new InnateToHandAction(this));
+	public void onSwitch() {
+		flash();
+		addToTop(new GainEnergyAction(amount));
 	}
 }

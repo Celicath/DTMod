@@ -2,31 +2,30 @@ package TheDT.cards;
 
 import TheDT.characters.Dragon;
 import TheDT.patches.CardColorEnum;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.status.Burn;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.MetallicizePower;
 
-public class BlazingStrike extends AbstractDTCard {
-	public static final String RAW_ID = "BlazingStrike";
+public class Melt extends AbstractDTCard {
+	public static final String RAW_ID = "Melt";
 	private static final int COST = 1;
-	private static final AbstractCard.CardType TYPE = CardType.ATTACK;
+	private static final AbstractCard.CardType TYPE = CardType.POWER;
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.DT_ORANGE;
-	private static final AbstractCard.CardRarity RARITY = CardRarity.COMMON;
-	private static final AbstractCard.CardTarget TARGET = CardTarget.ENEMY;
+	private static final AbstractCard.CardRarity RARITY = CardRarity.UNCOMMON;
+	private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DRAGON_ONLY;
 
-	private static final int DAMAGE = 13;
-	private static final int UPGRADE_DAMAGE = 4;
+	private static final int POWER = 5;
+	private static final int UPGRADE_BONUS = 2;
+	private static final int BURN = 2;
 
-	public BlazingStrike() {
+	public Melt() {
 		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
-		dtBaseDragonDamage = DAMAGE;
-		cardsToPreview = new Burn();
+		baseMagicNumber = magicNumber = POWER;
 	}
 
 	@Override
@@ -39,23 +38,23 @@ public class BlazingStrike extends AbstractDTCard {
 		return result;
 	}
 
+	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		Dragon dragon = getDragon();
-
 		if (dragon != null) {
-			addToBot(new DamageAction(m, new DamageInfo(dragon, dtDragonDamage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
-			addToBot(new MakeTempCardInHandAction(new Burn(), 1));
+			addToBot(new MakeTempCardInHandAction(new Burn(), BURN));
+			addToBot(new ApplyPowerAction(dragon, dragon, new MetallicizePower(dragon, magicNumber), magicNumber));
 		}
 	}
 
 	public AbstractCard makeCopy() {
-		return new BlazingStrike();
+		return new Melt();
 	}
 
 	public void upgrade() {
 		if (!upgraded) {
 			upgradeName();
-			upgradeDTDragonDamage(UPGRADE_DAMAGE);
+			upgradeMagicNumber(UPGRADE_BONUS);
 		}
 	}
 }

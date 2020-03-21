@@ -1,6 +1,7 @@
 package TheDT.characters;
 
 import TheDT.DTModMain;
+import TheDT.Interfaces.SwitchPower;
 import TheDT.actions.ApplyAggroAction;
 import TheDT.cards.*;
 import TheDT.patches.CardColorEnum;
@@ -25,6 +26,7 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
@@ -312,6 +314,11 @@ public class DragonTamer extends CustomPlayer {
 			DTModMain.targetMarker.flash();
 
 			frontChangedThisTurn = true;
+			for (AbstractPower p : AbstractDungeon.player.powers) {
+				if (p instanceof SwitchPower) {
+					((SwitchPower) p).onSwitch();
+				}
+			}
 		}
 	}
 

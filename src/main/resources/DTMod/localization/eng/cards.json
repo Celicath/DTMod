@@ -221,10 +221,7 @@
   },
   "DTMod:BurningForce": {
     "NAME": "Burning Force",
-    "DESCRIPTION": "Add 2 Burns into your hand. For every Burn created this combat, Dragon deals !DT:THD! damage.",
-    "EXTENDED_DESCRIPTION": [
-      " NL (Attack !M! times.)"
-    ]
+    "DESCRIPTION": "Dragon deals !DT:THD! damage. NL Deals !M! additional damage equal for every Burn created this combat."
   },
   "DTMod:FullCharge": {
     "NAME": "Full Charge",
@@ -290,5 +287,27 @@
   "DTMod:Overwhelm": {
     "NAME": "Overwhelm",
     "DESCRIPTION": "Apply !M! Weak. NL All enemies lose HP equal to 2 times their Weak."
+  },
+  "DTMod:WarmUp": {
+    "NAME": "Warm-Up",
+    "DESCRIPTION": "At the start of your turn, draw !M! additional card.",
+    "UPGRADE_DESCRIPTION": "Innate. NL At the start of your turn, draw !M! additional card."
+  },
+  "DTMod:ShadowImage": {
+    "NAME": "Shadow Image",
+    "DESCRIPTION": "Whenever You or Dragon attacks, the attacker gains !M! Block."
+  },
+  "DTMod:DoubleTeam": {
+    "NAME": "Double Team",
+    "DESCRIPTION": "Whenever your team ragontaer:Switch, gain [E].",
+    "UPGRADE_DESCRIPTION": "Innate. NL Whenever your team ragontaer:Switch, gain [E]."
+  },
+  "DTMod:Melt": {
+    "NAME": "Melt",
+    "DESCRIPTION": "Add 2 Burns into your hand. NL At the end of your turn, Dragon gains !M! Block."
+  },
+  "DTMod:InvisibleFlame": {
+    "NAME": "Invisible Flame",
+    "DESCRIPTION": "Whenever the Front attacks, deal !M! damage to a random enemy."
   }
 }
