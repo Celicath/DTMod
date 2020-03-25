@@ -11,9 +11,9 @@ import TheDT.patches.CardColorEnum;
 import TheDT.patches.MonsterTargetPatch;
 import TheDT.patches.MythicalGameState;
 import TheDT.patches.TheDTEnum;
-import TheDT.relics.BasicTextbook;
-import TheDT.relics.OddArmor;
-import TheDT.relics.PactStone;
+import TheDT.potions.BlazePotion;
+import TheDT.powers.ResonanceFormPower;
+import TheDT.relics.*;
 import TheDT.variables.DTDragonBlock;
 import TheDT.variables.DTDragonDamage;
 import basemod.AutoAdd;
@@ -209,6 +209,13 @@ public class DTModMain
 	public void receiveEditPotions() {
 		logger.info("begin editing potions");
 
+		BaseMod.addPotion(
+				BlazePotion.class,
+				Color.ORANGE.cpy(),
+				Color.ORANGE.cpy(),
+				null,
+				BlazePotion.POTION_ID, TheDTEnum.THE_DT);
+
 		logger.info("end editing potions");
 	}
 
@@ -218,8 +225,16 @@ public class DTModMain
 		logger.info("Add relics");
 
 		BaseMod.addRelicToCustomPool(new PactStone(), CardColorEnum.DT_ORANGE);
+		BaseMod.addRelicToCustomPool(new MagicStone(), CardColorEnum.DT_ORANGE);
 		BaseMod.addRelicToCustomPool(new BasicTextbook(), CardColorEnum.DT_ORANGE);
+		BaseMod.addRelicToCustomPool(new AncientBone(), CardColorEnum.DT_ORANGE);
+		BaseMod.addRelicToCustomPool(new DragonFood(), CardColorEnum.DT_ORANGE);
+		BaseMod.addRelicToCustomPool(new TacticalNote(), CardColorEnum.DT_ORANGE);
 		BaseMod.addRelicToCustomPool(new OddArmor(), CardColorEnum.DT_ORANGE);
+		BaseMod.addRelicToCustomPool(new SwitchButton(), CardColorEnum.DT_ORANGE);
+		BaseMod.addRelicToCustomPool(new BindingString(), CardColorEnum.DT_ORANGE);
+		BaseMod.addRelicToCustomPool(new SolidMemories(), CardColorEnum.DT_ORANGE);
+		BaseMod.addRelicToCustomPool(new TheChair(), CardColorEnum.DT_ORANGE);
 
 		if (isAspirationLoaded) {
 			OptionalRelicHelper.registerAspirationRelic();
@@ -321,6 +336,7 @@ public class DTModMain
 		FreezeAggroAction.frozen = false;
 		burnGen = 0;
 		bondingGained = 0;
+		ResonanceFormPower.disabled = false;
 	}
 
 	@Override

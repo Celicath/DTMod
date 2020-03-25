@@ -29,7 +29,6 @@ public class SneakAttack extends AbstractDTCard {
 		baseDamage = POWER;
 		baseMagicNumber = MAGIC;
 		magicNumber = this.baseMagicNumber;
-		isInnate = true;
 		tags.add(DT_TACTICS);
 	}
 

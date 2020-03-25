@@ -1,6 +1,7 @@
 package TheDT.cards;
 
 import TheDT.patches.CardColorEnum;
+import TheDT.relics.TacticalNote;
 import com.evacipated.cardcrawl.mod.stslib.actions.common.FetchAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.red.Exhume;
@@ -29,11 +30,27 @@ public class TacticRecycle extends AbstractDTCard {
 		tags.add(DT_TACTICS);
 	}
 
+	@Override
+	public void applyPowers() {
+		super.applyPowers();
+		if (AbstractDungeon.player.hasRelic(TacticalNote.ID)) {
+			rawDescription = upgraded ? EXTENDED_DESCRIPTION[1] : EXTENDED_DESCRIPTION[0];
+			initializeDescription();
+		}
+	}
+
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		addToBot(new FetchAction(
 				AbstractDungeon.player.exhaustPile,
 				(c -> !c.cardID.equals(Exhume.ID) && !c.cardID.equals(cardID)),
-				magicNumber));
+				magicNumber,
+				(cards) -> {
+					if (AbstractDungeon.player.hasRelic(TacticalNote.ID)) {
+						for (AbstractCard c : cards) {
+							c.retain = true;
+						}
+					}
+				}));
 	}
 
 	public AbstractCard makeCopy() {

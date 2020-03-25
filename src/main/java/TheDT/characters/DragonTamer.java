@@ -6,6 +6,7 @@ import TheDT.actions.ApplyAggroAction;
 import TheDT.cards.*;
 import TheDT.patches.CardColorEnum;
 import TheDT.powers.TauntPower;
+import TheDT.relics.BindingString;
 import TheDT.relics.PactStone;
 import basemod.ReflectionHacks;
 import basemod.abstracts.CustomPlayer;
@@ -27,6 +28,7 @@ import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
@@ -327,14 +329,19 @@ public class DragonTamer extends CustomPlayer {
 	}
 
 	public void setAggro(int aggro) {
-		if (AbstractDungeon.player != null) {
-			AbstractDungeon.player.hand.applyPowers();
-		}
 		this.aggro = aggro;
 		if (aggro > 0) {
 			setFront(dragon);
 		} else if (aggro < 0) {
 			setFront(this);
+		}
+		if (AbstractDungeon.player != null) {
+			AbstractDungeon.player.hand.applyPowers();
+			for (AbstractRelic r : AbstractDungeon.player.relics) {
+				if (r instanceof BindingString) {
+					((BindingString) r).updatePulse();
+				}
+			}
 		}
 	}
 

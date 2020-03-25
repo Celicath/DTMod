@@ -19,7 +19,7 @@
     "NAME": "Basic Textbook",
     "FLAVOR": "Basic skills are the most important things to learn.",
     "DESCRIPTIONS": [
-      "Increase the damage and #yBlock from basic Strikes and Target Defenses by #b",
+      "Increase the damage and #yBlock from starting Strike and Target Defense by #b",
       " [REMOVE_SPACE]."
     ]
   },
@@ -30,6 +30,67 @@
       "On odd-numbered turns, reduce the attack damage you take by #b",
       ". On even-numbered turns, reduce the attack damage Dragon takes by #b",
       "."
+    ]
+  },
+  "DTMod:MagicStone": {
+    "NAME": "Magic Stone",
+    "FLAVOR": "The Pact Stone absorbed weird magic.",
+    "DESCRIPTIONS": [
+      "Replaces #yPact #yStone. At the start of each combat, you and Dragon heals #b",
+      " HP. NL During combat, excess amount of healing is converted to #yTemporary_HP."
+    ]
+  },
+  "DTMod:DragonFood": {
+    "NAME": "Dragon Food",
+    "FLAVOR": "It's delicious to humans too.",
+    "DESCRIPTIONS": [
+      "At the end of combat, Dragon heals #b",
+      " HP."
+    ]
+  },
+  "DTMod:AncientBone": {
+    "NAME": "Ancient Bone",
+    "FLAVOR": "Essence of primal technology.",
+    "DESCRIPTIONS": [
+      "At the start of each combat, add a #yHard #ySkin into your hand."
+    ]
+  },
+  "DTMod:TacticalNote": {
+    "NAME": "Tactical Note",
+    "FLAVOR": "Filled with practical advices.",
+    "DESCRIPTIONS": [
+      "All cards containing 'Tactic' have their effects boosted.",
+      "Bonus Effects",
+      "#bSwitching #bTactic - Now costs 0. NL #bBizarre #bTactic - Gain 2 more Block, deals 2 more damage. NL #bRunning #bTactic - Draws 1 extra card. NL #bTactic #bRecycle - The Fetched cards are Retained for 1 turn. NL #bOpening #bTactic - Gain 1 additional Dexterity if the enemy has full HP.\n"
+    ]
+  },
+  "DTMod:SwitchButton": {
+    "NAME": "Switch Button",
+    "FLAVOR": "Do NOT press this button!",
+    "DESCRIPTIONS": [
+      "[#2aecd7]Once [#2aecd7]per [#2aecd7]combat, [#2aecd7]right [#2aecd7]click [#2aecd7]to [#2aecd7]activate.[] You and Dragon swaps #yragontaer:Aggro."
+    ]
+  },
+  "DTMod:SolidMemories": {
+    "NAME": "Solid Memories",
+    "FLAVOR": "The origin form of Liquid Memories.",
+    "DESCRIPTIONS": [
+      "At the start of turn #b",
+      " [REMOVE_SPACE], #yFetch a card from your discard pile. It costs #b0 until played."
+    ]
+  },
+  "DTMod:BindingString": {
+    "NAME": "Binding String",
+    "FLAVOR": "The combination of two fighters is better when they are close.",
+    "DESCRIPTIONS": [
+      "At the start of your turn, if You and Dragon have the same #yragontaer:Aggro, gain #b1 #yragontaer:Bonding."
+    ]
+  },
+  "DTMod:TheChair": {
+    "NAME": "The Chair",
+    "FLAVOR": "This comfortable chair makes you energized, but switching from rest mode becomes harder. Unless you're talented.",
+    "DESCRIPTIONS": [
+      "Gain [E] at the start of your turn. On turn #b1, you only draw #yInnate cards and cards in Bottle relics."
     ]
   }
 }

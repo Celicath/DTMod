@@ -12,15 +12,15 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public class HuntersMark extends AbstractDTCard {
 	public static final String RAW_ID = "HuntersMark";
-	private static final int COST = 1;
+	private static final int COST = 2;
 	private static final AbstractCard.CardType TYPE = CardType.ATTACK;
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.DT_ORANGE;
 	private static final AbstractCard.CardRarity RARITY = CardRarity.RARE;
 	private static final AbstractCard.CardTarget TARGET = CardTarget.ENEMY;
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DEFAULT;
 
-	private static final int POWER = 6;
-	private static final int UPGRADE_BONUS = 6;
+	private static final int POWER = 15;
+	private static final int UPGRADE_BONUS = 9;
 	private static final int MAGIC = 1;
 
 	public HuntersMark() {

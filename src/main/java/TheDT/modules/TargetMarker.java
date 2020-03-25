@@ -37,7 +37,7 @@ public class TargetMarker {
 		uiStrings = CardCrawlGame.languagePack.getUIString(DTModMain.makeID("TargetMarker"));
 		targetTexture = ImageMaster.loadImage(DTModMain.makePath("ui/Target.png"));
 		TEXT = uiStrings.TEXT;
-		color = new Color(0x8fcfffee);
+		color = new Color(0xffdf8fff);
 		flashTimer = 0;
 	}
 

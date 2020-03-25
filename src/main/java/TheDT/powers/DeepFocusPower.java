@@ -15,8 +15,6 @@ public class DeepFocusPower extends AbstractChannelingPower {
 	public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
 	public DeepFocusPower(AbstractCreature owner, int turn, int strength) {
-		super(new ApplyPowerAction(owner, owner, new StrengthPower(owner, strength), strength));
-
 		this.name = NAME;
 		this.ID = POWER_ID;
 		this.owner = owner;
@@ -35,5 +33,10 @@ public class DeepFocusPower extends AbstractChannelingPower {
 		} else {
 			description = DESCRIPTIONS[1] + amount + DESCRIPTIONS[2] + DESCRIPTIONS[3] + amount2 + DESCRIPTIONS[4];
 		}
+	}
+
+	@Override
+	public void onActivate() {
+		addToBot(new ApplyPowerAction(owner, owner, new StrengthPower(owner, amount2), amount2));
 	}
 }

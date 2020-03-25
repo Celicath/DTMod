@@ -2,24 +2,21 @@ package TheDT.powers;
 
 import com.evacipated.cardcrawl.mod.stslib.powers.abstracts.TwoAmountPower;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.NonStackablePower;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 
 public abstract class AbstractChannelingPower extends TwoAmountPower implements NonStackablePower {
-	public AbstractGameAction action;
+	public AbstractChannelingPower() {
 
-	public AbstractChannelingPower(AbstractGameAction action) {
-		this.action = action;
 	}
 
 	@Override
 	public void atStartOfTurn() {
 		this.addToBot(new ReducePowerAction(owner, owner, this, 1));
 		if (amount == 1) {
-			addToBot(action);
+			onActivate();
 		}
 	}
 
@@ -38,4 +35,6 @@ public abstract class AbstractChannelingPower extends TwoAmountPower implements 
 			addToTop(new RemoveSpecificPowerAction(owner, owner, this));
 		}
 	}
+
+	public abstract void onActivate();
 }

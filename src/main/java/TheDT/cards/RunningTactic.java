@@ -2,9 +2,11 @@ package TheDT.cards;
 
 import TheDT.actions.AddAggroAction;
 import TheDT.patches.CardColorEnum;
+import TheDT.relics.TacticalNote;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static TheDT.patches.CustomTags.DT_TACTICS;
@@ -25,6 +27,15 @@ public class RunningTactic extends AbstractDTCard {
 		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
 		magicNumber = baseMagicNumber = POWER;
 		tags.add(DT_TACTICS);
+	}
+
+	@Override
+	public void applyPowers() {
+		super.applyPowers();
+		if (AbstractDungeon.player.hasRelic(TacticalNote.ID)) {
+			magicNumber = baseMagicNumber + 1;
+			isMagicNumberModified = true;
+		}
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {

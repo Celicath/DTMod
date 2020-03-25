@@ -135,5 +135,11 @@
       "Whenever your team #ySwitch, apply #b",
       " #yWeak to ALL enemies."
     ]
+  },
+  "DTMod:ResonanceFormPower": {
+    "NAME": "Resonance Form",
+    "DESCRIPTIONS": [
+      "Whenever You or Dragon gains Strength, Dexterity, Block or HP, the other gains a copy of it."
+    ]
   }
 }

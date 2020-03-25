@@ -3,7 +3,7 @@ package TheDT.cards;
 import TheDT.characters.Dragon;
 import TheDT.characters.DragonTamer;
 import TheDT.patches.CardColorEnum;
-import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.AlwaysRetainField;
+import TheDT.relics.TacticalNote;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -18,7 +18,7 @@ import static TheDT.patches.CustomTags.DT_TACTICS;
 
 public class SwitchingTactic extends AbstractDTCard {
 	public static final String RAW_ID = "SwitchingTactic";
-	private static final int COST = 1;
+	public static final int COST = 1;
 	private static final AbstractCard.CardType TYPE = CardType.SKILL;
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.DT_ORANGE;
 	private static final AbstractCard.CardRarity RARITY = CardRarity.BASIC;
@@ -29,6 +29,10 @@ public class SwitchingTactic extends AbstractDTCard {
 		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
 		exhaust = true;
 		tags.add(DT_TACTICS);
+
+		if (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(TacticalNote.ID)) {
+			modifyCostForCombat(-9);
+		}
 	}
 
 	@Override
@@ -67,7 +71,7 @@ public class SwitchingTactic extends AbstractDTCard {
 	public void upgrade() {
 		if (!upgraded) {
 			upgradeName();
-			AlwaysRetainField.alwaysRetain.set(this, true);
+			selfRetain = true;
 			rawDescription = UPGRADE_DESCRIPTION;
 			initializeDescription();
 		}

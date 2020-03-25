@@ -1,10 +1,9 @@
 {
-  "DTMod:LesserPlaceholderPotion": {
-    "NAME": "Lesser Placeholder Potion",
+  "DTMod:BlazePotion": {
+    "NAME": "Blaze Potion",
     "DESCRIPTIONS": [
-      "Gain #b",
-      " #yStrength. At the end of your turn, lose #b",
-      " #yDexterity."
+      "Deal #b",
+      " damage."
     ]
   }
 }

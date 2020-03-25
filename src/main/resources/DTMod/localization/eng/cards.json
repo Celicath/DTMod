@@ -55,7 +55,11 @@
   "DTMod:TacticRecycle": {
     "NAME": "Tactic Recycle",
     "DESCRIPTION": "Fetch !M! card from your exhaust pile. (Except Tactic Recycle) NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Fetch !M! cards from your exhaust pile. (Except Tactic Recycle) NL Exhaust."
+    "UPGRADE_DESCRIPTION": "Fetch !M! cards from your exhaust pile. (Except Tactic Recycle) NL Exhaust.",
+    "EXTENDED_DESCRIPTION": [
+      "Fetch !M! card from your exhaust pile and retain them. (Except Tactic Recycle) NL Exhaust.",
+      "Fetch !M! cards from your exhaust pile and retain them. (Except Tactic Recycle) NL Exhaust."
+    ]
   },
   "DTMod:HeadStart": {
     "NAME": "Head Start",
@@ -356,5 +360,18 @@
     "NAME": "Battle Harmony",
     "DESCRIPTION": "Whenever both You and Dragon attacks in a single turn, gain !M! ragontaer:Bonding.",
     "UPGRADE_DESCRIPTION": "Innate. NL Whenever both You and Dragon attacks in a single turn, gain !M! ragontaer:Bonding."
+  },
+  "DTMod:ResonanceForm": {
+    "NAME": "Resonance Form",
+    "DESCRIPTION": "Ethereal. NL Whenever You or Dragon gains Strength, Dexterity, Block or HP, the other gains a copy of it.",
+    "UPGRADE_DESCRIPTION": "Whenever You or Dragon gains Strength, Dexterity, Block or HP, the other gains a copy of it."
+  },
+  "DTMod:Accelerate": {
+    "NAME": "Accelerate",
+    "DESCRIPTION": "Choose one of any future effect. Copy and receive it immediately."
+  },
+  "DTMod:FierySynthesis": {
+    "NAME": "Fiery Synthesis",
+    "DESCRIPTION": "Dragon deals !DT:THD! damage. NL While in your deck, ALL potions become ragontaer:Blaze_Potion."
   }
 }

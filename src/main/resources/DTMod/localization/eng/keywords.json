@@ -50,5 +50,13 @@
       "channeling"
     ],
     "DESCRIPTION": "If You attack or an enemy attacks You before the effect kicks in, it is cancelled."
+  },
+  {
+    "PROPER_NAME": "Blaze Potion",
+    "NAMES": [
+      "blaze potion",
+      "blaze_potion"
+    ],
+    "DESCRIPTION": "A potion which deals #b25 damage to an enemy."
   }
 ]

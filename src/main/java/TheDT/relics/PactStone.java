@@ -18,7 +18,7 @@ public class PactStone extends CustomRelic {
 	public static final int AMOUNT = 6;
 
 	public PactStone() {
-		super(ID, new Texture(IMG), new Texture(OUTLINE), RelicTier.STARTER, LandingSound.FLAT);
+		super(ID, new Texture(IMG), new Texture(OUTLINE), RelicTier.STARTER, LandingSound.SOLID);
 	}
 
 	@Override

@@ -6,7 +6,12 @@ import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.GameDictionary;
+import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+
+import java.util.ArrayList;
+import java.util.Iterator;
 
 public class BasicTextbook extends CustomRelic {
 
@@ -18,7 +23,8 @@ public class BasicTextbook extends CustomRelic {
 	public static final int BONUS = 2;
 
 	public BasicTextbook() {
-		super(ID, new Texture(IMG), new Texture(OUTLINE), RelicTier.STARTER, LandingSound.FLAT);
+		super(ID, new Texture(IMG), new Texture(OUTLINE), RelicTier.COMMON, LandingSound.FLAT);
+		removeStrikeTip();
 	}
 
 	@Override
@@ -27,6 +33,22 @@ public class BasicTextbook extends CustomRelic {
 			damage += BONUS;
 		}
 		return damage;
+	}
+
+	private void removeStrikeTip() {
+		ArrayList<String> strikes = new ArrayList<>();
+
+		for (String s : GameDictionary.STRIKE.NAMES) {
+			strikes.add(s.toLowerCase());
+		}
+
+		for (Iterator<PowerTip> it = tips.iterator(); it.hasNext(); ) {
+			String s = it.next().header.toLowerCase();
+			if (strikes.contains(s)) {
+				it.remove();
+				break;
+			}
+		}
 	}
 
 	@Override

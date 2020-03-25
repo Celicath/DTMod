@@ -18,7 +18,7 @@ public class OddArmor extends CustomRelic {
 	public static final int AMOUNT = 2;
 
 	public OddArmor() {
-		super(ID, new Texture(IMG), new Texture(OUTLINE), RelicTier.STARTER, LandingSound.FLAT);
+		super(ID, new Texture(IMG), new Texture(OUTLINE), RelicTier.SHOP, LandingSound.FLAT);
 	}
 
 	@Override
