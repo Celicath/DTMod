@@ -45,6 +45,23 @@ public class OpeningTactic extends AbstractDTCard {
 		}
 	}
 
+	public void triggerOnGlowCheck() {
+		boolean glow = false;
+
+		for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
+			if (!m.isDeadOrEscaped() && m.currentHealth == m.maxHealth) {
+				glow = true;
+				break;
+			}
+		}
+
+		if (glow) {
+			glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+		} else {
+			glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+		}
+	}
+
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
 		if (m.currentHealth == m.maxHealth) {

@@ -104,7 +104,7 @@
   },
   "DTMod:BuildUp": {
     "NAME": "Build Up",
-    "DESCRIPTION": "Deal !D! damage. Your next Attack deals !M! additional damage."
+    "DESCRIPTION": "Deal !D! damage. Next Attack card deals !M! additional damage."
   },
   "DTMod:Outburst": {
     "NAME": "Outburst",
@@ -141,7 +141,7 @@
   },
   "DTMod:MasterPlan": {
     "NAME": "Master Plan",
-    "DESCRIPTION": "Dragon gains !DT:THB! Block. NL Next turn, you gain !B! Block."
+    "DESCRIPTION": "Dragon gains !DT:THB! Block. NL Next turn, You gain !B! Block."
   },
   "DTMod:QuickFly": {
     "NAME": "Quick Fly",
@@ -201,7 +201,7 @@
   },
   "DTMod:Astonish": {
     "NAME": "Astonish",
-    "DESCRIPTION": "The Rear deals damage equal to !M! times the ragontaer:Aggro difference.",
+    "DESCRIPTION": "The ragontaer:Rear deals damage equal to !M! times the ragontaer:Aggro difference.",
     "EXTENDED_DESCRIPTION": [
       " NL (Deals !D! damage.)",
       " NL (Dragon deals !DT:THD! damage.)"
@@ -209,7 +209,7 @@
   },
   "DTMod:DaggerTrick": {
     "NAME": "Dagger Trick",
-    "DESCRIPTION": "Deal !D! damage X+1 times. This attack does not increase Aggro."
+    "DESCRIPTION": "Deal !D! damage X+1 times. This attack does not increase ragontaer:Aggro."
   },
   "DTMod:TauntingStrike": {
     "NAME": "Taunting Strike",
@@ -233,7 +233,7 @@
   },
   "DTMod:SneakAttack": {
     "NAME": "Sneak Attack",
-    "DESCRIPTION": "Only usable if you are the ragontaer:Rear. NL Deal !D! damage and gain 3 additional Aggro.",
+    "DESCRIPTION": "Only usable if you are the ragontaer:Rear. NL Deal !D! damage and gain 3 additional ragontaer:Aggro.",
     "EXTENDED_DESCRIPTION": [
       "I'm not the Rear!"
     ]
@@ -248,7 +248,7 @@
   },
   "DTMod:GhostSkin": {
     "NAME": "Ghost Skin",
-    "DESCRIPTION": "Dragon gains !M! Intangible. NL Dragon loses 99 Dexterity. NL Exhaust."
+    "DESCRIPTION": "Dragon gains !M! Intangible. NL Dragon loses 5 Dexterity. NL Exhaust."
   },
   "DTMod:Observe": {
     "NAME": "Observe",
@@ -283,9 +283,9 @@
   },
   "DTMod:TagTeam": {
     "NAME": "Tag Team",
-    "DESCRIPTION": "Gain !M! ragontaer:Bonding. NL If your team ragontaer:Switched this turn, the ragontaer:Front gains !B! Block.",
+    "DESCRIPTION": "The ragontaer:Front gains NL !B! Block. NL Gain !M! ragontaer:Bonding. NL If your team ragontaer:Switched this turn, effects are doubled.",
     "EXTENDED_DESCRIPTION": [
-      "Gain !M! Bonding. NL If your team ragontaer:Switched this turn, the ragontaer:Front gains !DT:THB! Block."
+      "The ragontaer:Front gains NL !DT:THB! Block. NL Gain !M! ragontaer:Bonding. NL If your team ragontaer:Switched this turn, effects are doubled."
     ]
   },
   "DTMod:Overwhelm": {
@@ -312,7 +312,7 @@
   },
   "DTMod:InvisibleFlame": {
     "NAME": "Invisible Flame",
-    "DESCRIPTION": "Whenever the Front attacks, deal !M! damage to a random enemy."
+    "DESCRIPTION": "Whenever the ragontaer:Front attacks, deal !M! damage to a random enemy."
   },
   "DTMod:Arbitration": {
     "NAME": "Arbitration",

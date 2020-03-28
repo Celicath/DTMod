@@ -32,6 +32,7 @@ import com.google.gson.Gson;
 import com.megacrit.cardcrawl.actions.utility.DiscardToHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
+import com.megacrit.cardcrawl.cards.status.Burn;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -102,6 +103,7 @@ public class DTModMain
 	ModLabeledToggleButton enableEventButton;
 
 	// etc.
+	public static Burn previewBurn = null;
 	public static String MythicalSkillbookID = makeID("MythicalSkillbook");
 
 	public static String makePath(String resource) {
@@ -203,6 +205,7 @@ public class DTModMain
 		BaseMod.registerModBadge(badgeTexture, MODNAME, AUTHOR, DESCRIPTION, settingsPanel);
 
 		targetMarker = new TargetMarker();
+		previewBurn = new Burn();
 	}
 
 

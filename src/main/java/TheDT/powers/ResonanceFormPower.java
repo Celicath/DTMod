@@ -51,7 +51,7 @@ public class ResonanceFormPower extends AbstractPower {
 	public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
 		AbstractPlayer p = AbstractDungeon.player;
 		Dragon dragon = AbstractDTCard.getDragon();
-		if (dragon == null || target != p && target != dragon) {
+		if (dragon == null || target != p && target != dragon || power.type == PowerType.DEBUFF) {
 			return;
 		}
 		AbstractCreature otherTarget = target == p ? dragon : p;
@@ -69,7 +69,7 @@ public class ResonanceFormPower extends AbstractPower {
 			}
 			if (newPower != null) {
 				blackList.add(newPower);
-				flashWithoutSound();
+				flash();
 				addToTop(new ApplyPowerAction(otherTarget, otherTarget, newPower, newPower.amount));
 			}
 		}
@@ -82,7 +82,7 @@ public class ResonanceFormPower extends AbstractPower {
 		if (disabled || dragon == null || owner != p && owner != dragon) {
 			return healAmount;
 		}
-		flashWithoutSound();
+		flash();
 		AbstractCreature otherTarget = owner == p ? dragon : p;
 		disabled = true;
 		otherTarget.heal(healAmount);
@@ -97,7 +97,7 @@ public class ResonanceFormPower extends AbstractPower {
 		if (disabled || dragon == null || owner != p && owner != dragon) {
 			return;
 		}
-		flashWithoutSound();
+		flash();
 		AbstractCreature otherTarget = owner == p ? dragon : p;
 		disabled = true;
 		otherTarget.addBlock((int) blockAmount);

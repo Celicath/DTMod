@@ -1,5 +1,6 @@
 package TheDT.cards;
 
+import TheDT.DTModMain;
 import TheDT.actions.GainBurnPerEnemyAction;
 import TheDT.characters.Dragon;
 import TheDT.patches.CardColorEnum;
@@ -25,6 +26,7 @@ public class Inferno extends AbstractDTCard {
 		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
 		dtBaseDragonDamage = DAMAGE;
 		isMultiDamage = true;
+		cardsToPreview = DTModMain.previewBurn;
 	}
 
 	@Override

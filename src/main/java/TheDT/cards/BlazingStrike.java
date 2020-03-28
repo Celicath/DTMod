@@ -1,5 +1,6 @@
 package TheDT.cards;
 
+import TheDT.DTModMain;
 import TheDT.characters.Dragon;
 import TheDT.patches.CardColorEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -26,7 +27,7 @@ public class BlazingStrike extends AbstractDTCard {
 	public BlazingStrike() {
 		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
 		dtBaseDragonDamage = DAMAGE;
-		cardsToPreview = new Burn();
+		cardsToPreview = DTModMain.previewBurn;
 	}
 
 	@Override

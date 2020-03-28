@@ -19,7 +19,7 @@ public class GhostSkin extends AbstractDTCard {
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DRAGON_ONLY;
 
 	private static final int INTANGIBLE = 1;
-	private static final int DEXTERITY_LOSS = 99;
+	private static final int DEXTERITY_LOSS = 5;
 	private static final int NEW_COST = 0;
 
 	public GhostSkin() {

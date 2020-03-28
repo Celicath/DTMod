@@ -42,6 +42,14 @@ public class SneakAttack extends AbstractDTCard {
 		return result;
 	}
 
+	public void triggerOnGlowCheck() {
+		if (isRearYou()) {
+			glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+		} else {
+			glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+		}
+	}
+
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		if (isRearYou()) {
 			addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));

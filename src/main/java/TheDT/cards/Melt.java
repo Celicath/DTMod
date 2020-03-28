@@ -1,5 +1,6 @@
 package TheDT.cards;
 
+import TheDT.DTModMain;
 import TheDT.characters.Dragon;
 import TheDT.patches.CardColorEnum;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -26,6 +27,7 @@ public class Melt extends AbstractDTCard {
 	public Melt() {
 		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
 		baseMagicNumber = magicNumber = POWER;
+		cardsToPreview = DTModMain.previewBurn;
 	}
 
 	@Override

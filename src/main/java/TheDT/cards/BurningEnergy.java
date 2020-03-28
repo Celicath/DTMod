@@ -1,5 +1,6 @@
 package TheDT.cards;
 
+import TheDT.DTModMain;
 import TheDT.patches.CardColorEnum;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
@@ -24,7 +25,7 @@ public class BurningEnergy extends AbstractDTCard {
 		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
 
 		magicNumber = baseMagicNumber = POWER;
-		cardsToPreview = new Burn();
+		cardsToPreview = DTModMain.previewBurn;
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {

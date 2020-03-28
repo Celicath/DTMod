@@ -13,7 +13,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public class BurningForce extends AbstractDTCard {
 	public static final String RAW_ID = "BurningForce";
-	private static final int COST = 1;
+	private static final int COST = 2;
 	private static final AbstractCard.CardType TYPE = CardType.ATTACK;
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.DT_ORANGE;
 	private static final AbstractCard.CardRarity RARITY = CardRarity.UNCOMMON;
@@ -28,7 +28,7 @@ public class BurningForce extends AbstractDTCard {
 		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
 		dtBaseDragonDamage = DAMAGE;
 		magicNumber = baseMagicNumber = BURN_BONUS;
-		cardsToPreview = new Burn();
+		cardsToPreview = DTModMain.previewBurn;
 	}
 
 	@Override

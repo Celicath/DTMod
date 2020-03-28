@@ -20,8 +20,8 @@ public class TagTeam extends AbstractDTCard {
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.BOTH;
 
 	private static final int BONDING = 1;
-	private static final int BLOCK = 12;
-	private static final int UPGRADE_BONUS = 4;
+	private static final int BLOCK = 6;
+	private static final int UPGRADE_BONUS = 3;
 
 	public TagTeam() {
 		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
@@ -43,14 +43,21 @@ public class TagTeam extends AbstractDTCard {
 
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		addToBot(new ApplyPowerAction(p, p, new BondingPower(p, p, magicNumber), magicNumber));
+		int multiplier = DragonTamer.frontChangedThisTurn ? 2 : 1;
+		addToBot(new ApplyPowerAction(p, p, new BondingPower(p, p, magicNumber * multiplier), magicNumber * multiplier));
 
+		if (isFrontDragon()) {
+			addToBot(new GainBlockAction(((DragonTamer) AbstractDungeon.player).dragon, ((DragonTamer) AbstractDungeon.player).dragon, dtDragonBlock * multiplier));
+		} else {
+			addToBot(new GainBlockAction(p, p, block * multiplier));
+		}
+	}
+
+	public void triggerOnGlowCheck() {
 		if (DragonTamer.frontChangedThisTurn) {
-			if (isFrontDragon()) {
-				addToBot(new GainBlockAction(((DragonTamer) AbstractDungeon.player).dragon, ((DragonTamer) AbstractDungeon.player).dragon, dtDragonBlock));
-			} else {
-				addToBot(new GainBlockAction(p, p, block));
-			}
+			glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+		} else {
+			glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
 		}
 	}
 
