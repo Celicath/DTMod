@@ -28,7 +28,7 @@ public class ResonanceForm extends AbstractDTCard {
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		addToBot(new ApplyPowerAction(p, p, new ResonanceFormPower(p)));
-		Dragon d = getDragon();
+		Dragon d = getLivingDragon();
 		if (d != null) {
 			addToBot(new ApplyPowerAction(d, d, new ResonanceFormPower(d)));
 		}

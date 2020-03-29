@@ -29,7 +29,7 @@ public class Outburst extends AbstractDTCard {
 	@Override
 	public boolean canUse(AbstractPlayer p, AbstractMonster m) {
 		boolean result = super.canUse(p, m);
-		if (result && getDragon() == null) {
+		if (result && getLivingDragon() == null) {
 			cantUseMessage = dragonNotAvailableMessage();
 			return false;
 		}
@@ -37,7 +37,7 @@ public class Outburst extends AbstractDTCard {
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		Dragon d = getDragon();
+		Dragon d = getLivingDragon();
 		if (d != null) {
 			addToBot(new DragonChangeStanceAction(d, WrathStance.STANCE_ID));
 			addToBot(new ApplyPowerAction(d, d, new DragonLoseStancePower(d, EXIT_TURN), EXIT_TURN));

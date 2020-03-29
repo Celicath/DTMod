@@ -365,14 +365,6 @@ public class DTModMain
 		DragonTamer.battleHarmonyDragon = false;
 	}
 
-	public static AbstractCreature getAttacker(AbstractCard c) {
-		if (c instanceof AbstractDTCard) {
-			return ((AbstractDTCard) c).getAttacker();
-		} else {
-			return AbstractDungeon.player;
-		}
-	}
-
 	public static String makeID(String idText) {
 		return "DTMod:" + idText;
 	}

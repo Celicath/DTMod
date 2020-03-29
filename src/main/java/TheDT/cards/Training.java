@@ -30,7 +30,7 @@ public class Training extends AbstractDTCard {
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		Dragon dragon = getDragon();
+		Dragon dragon = getLivingDragon();
 
 		addToBot(new VFXAction(p, new InflameEffect(p), dragon == null ? 0.8F : 0.4F));
 		if (dragon != null) {

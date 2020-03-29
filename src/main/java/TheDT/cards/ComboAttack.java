@@ -36,7 +36,7 @@ public class ComboAttack extends AbstractDTCard {
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		Dragon d = getDragon();
+		Dragon d = getLivingDragon();
 
 		addToBot(new FastAnimateFastAttackAction(p));
 		addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_VERTICAL));

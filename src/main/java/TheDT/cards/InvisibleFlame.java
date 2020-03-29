@@ -28,7 +28,7 @@ public class InvisibleFlame extends AbstractDTCard {
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		addToBot(new ApplyPowerAction(p, p, new InvisibleFlamePower(p, magicNumber), magicNumber));
-		Dragon d = getDragon();
+		Dragon d = getLivingDragon();
 		if (d != null) {
 			addToBot(new ApplyPowerAction(d, d, new InvisibleFlamePower(d, magicNumber), magicNumber));
 		}

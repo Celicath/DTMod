@@ -29,7 +29,7 @@ public class MasterPlan extends AbstractDTCard {
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		Dragon dragon = getDragon();
+		Dragon dragon = getLivingDragon();
 		if (dragon != null) {
 			addToBot(new GainBlockAction(dragon, dragon, dtDragonBlock));
 		}

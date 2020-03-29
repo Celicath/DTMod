@@ -39,7 +39,7 @@ public class RecklessFlurry extends AbstractDTCard {
 
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		Dragon dragon = getDragon();
+		Dragon dragon = getLivingDragon();
 
 		AbstractDTCard choice1 = new AbstractDTCard(RAW_ID_YOU, -2, TYPE, COLOR, CardRarity.SPECIAL, TARGET, RAW_ID, DTCardTarget.DEFAULT) {
 			{

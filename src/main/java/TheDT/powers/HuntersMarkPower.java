@@ -37,7 +37,7 @@ public class HuntersMarkPower extends AbstractPower {
 	}
 
 	public int onAttacked(DamageInfo info, int damageAmount) {
-		if (info.type != DamageInfo.DamageType.THORNS && info.type != DamageInfo.DamageType.HP_LOSS && info.owner != null && info.owner == AbstractDTCard.getDragon()) {
+		if (info.type != DamageInfo.DamageType.THORNS && info.type != DamageInfo.DamageType.HP_LOSS && info.owner != null && info.owner == AbstractDTCard.getLivingDragon()) {
 			flash();
 			AbstractPlayer p = AbstractDungeon.player;
 			addToTop(new ApplyPowerAction(p, p, new BondingPower(p, p, 1), 1));

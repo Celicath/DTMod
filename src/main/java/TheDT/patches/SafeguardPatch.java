@@ -36,7 +36,7 @@ public class SafeguardPatch {
 			if (targetID.equals(BarricadePower.POWER_ID) && __instance.hasPower(SafeguardPower.POWER_ID)) {
 				if (__instance == AbstractDungeon.player) {
 					return AbstractDTCard.isRearYou();
-				} else if (__instance == AbstractDTCard.getDragon()) {
+				} else if (__instance == AbstractDTCard.getLivingDragon()) {
 					return !AbstractDTCard.isFrontDragon();
 				} else {
 					return __result;

@@ -38,7 +38,7 @@ public class SwitchingTactic extends AbstractDTCard {
 	@Override
 	public boolean canUse(AbstractPlayer p, AbstractMonster m) {
 		boolean result = super.canUse(p, m);
-		if (result && getDragon() == null) {
+		if (result && getLivingDragon() == null) {
 			cantUseMessage = dragonNotAvailableMessage();
 			return false;
 		}
@@ -46,7 +46,7 @@ public class SwitchingTactic extends AbstractDTCard {
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		Dragon d = getDragon();
+		Dragon d = getLivingDragon();
 		if (d != null) {
 			DragonTamer dtp = (DragonTamer) p;
 			if (dtp.aggro == 0) {

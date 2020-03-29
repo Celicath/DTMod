@@ -50,7 +50,7 @@ public class ResonanceFormPower extends AbstractPower {
 	@Override
 	public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
 		AbstractPlayer p = AbstractDungeon.player;
-		Dragon dragon = AbstractDTCard.getDragon();
+		Dragon dragon = AbstractDTCard.getLivingDragon();
 		if (dragon == null || target != p && target != dragon || power.type == PowerType.DEBUFF) {
 			return;
 		}
@@ -78,7 +78,7 @@ public class ResonanceFormPower extends AbstractPower {
 	@Override
 	public int onHeal(int healAmount) {
 		AbstractPlayer p = AbstractDungeon.player;
-		Dragon dragon = AbstractDTCard.getDragon();
+		Dragon dragon = AbstractDTCard.getLivingDragon();
 		if (disabled || dragon == null || owner != p && owner != dragon) {
 			return healAmount;
 		}
@@ -93,7 +93,7 @@ public class ResonanceFormPower extends AbstractPower {
 	@Override
 	public void onGainedBlock(float blockAmount) {
 		AbstractPlayer p = AbstractDungeon.player;
-		Dragon dragon = AbstractDTCard.getDragon();
+		Dragon dragon = AbstractDTCard.getLivingDragon();
 		if (disabled || dragon == null || owner != p && owner != dragon) {
 			return;
 		}

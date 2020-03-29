@@ -108,7 +108,7 @@ public abstract class AbstractDTCard extends CustomCard {
 	@Override
 	public void applyPowers() {
 		super.applyPowers();
-		Dragon dragon = getDragon();
+		Dragon dragon = getLivingDragon();
 		if (dtBaseDragonDamage != -1) {
 			dtDragonDamage = dtBaseDragonDamage;
 			if (dragon != null) {
@@ -228,7 +228,7 @@ public abstract class AbstractDTCard extends CustomCard {
 	public void calculateCardDamage(AbstractMonster mo) {
 		super.calculateCardDamage(mo);
 
-		Dragon dragon = getDragon();
+		Dragon dragon = getLivingDragon();
 		if (dtBaseDragonDamage != -1) {
 			dtDragonDamage = dtBaseDragonDamage;
 			if (dragon != null) {
@@ -352,7 +352,7 @@ public abstract class AbstractDTCard extends CustomCard {
 		upgradedDTDragonBlock = true;
 	}
 
-	public static Dragon getDragon() {
+	public static Dragon getLivingDragon() {
 		if (AbstractDungeon.player instanceof DragonTamer) {
 			Dragon dragon = ((DragonTamer) AbstractDungeon.player).dragon;
 			if (dragon.isDeadOrEscaped()) return null;
@@ -365,9 +365,7 @@ public abstract class AbstractDTCard extends CustomCard {
 		if (AbstractDungeon.player instanceof DragonTamer) {
 			Dragon dragon = ((DragonTamer) AbstractDungeon.player).dragon;
 			if (dragon.isDeadOrEscaped()) return false;
-			if (((DragonTamer) AbstractDungeon.player).front == dragon) {
-				return true;
-			}
+			return ((DragonTamer) AbstractDungeon.player).front == dragon;
 		}
 		return false;
 	}
@@ -376,9 +374,7 @@ public abstract class AbstractDTCard extends CustomCard {
 		if (AbstractDungeon.player instanceof DragonTamer) {
 			Dragon dragon = ((DragonTamer) AbstractDungeon.player).dragon;
 			if (dragon.isDeadOrEscaped()) return true;
-			if (((DragonTamer) AbstractDungeon.player).front == AbstractDungeon.player) {
-				return false;
-			}
+			return ((DragonTamer) AbstractDungeon.player).front != AbstractDungeon.player;
 		}
 		return true;
 	}
@@ -388,20 +384,5 @@ public abstract class AbstractDTCard extends CustomCard {
 			return DT_CARD_EXTRA_TEXT[1];
 		}
 		return DT_CARD_EXTRA_TEXT[0];
-	}
-
-	// null = both attacks
-	public AbstractCreature getAttacker() {
-		if (AbstractDungeon.player instanceof DragonTamer) {
-			if (dtCardTarget == DTCardTarget.DEFAULT) {
-				return AbstractDungeon.player;
-			} else if (dtCardTarget == DTCardTarget.DRAGON_ONLY) {
-				return ((DragonTamer) AbstractDungeon.player).dragon;
-			} else {
-				return null;
-			}
-		} else {
-			return AbstractDungeon.player;
-		}
 	}
 }

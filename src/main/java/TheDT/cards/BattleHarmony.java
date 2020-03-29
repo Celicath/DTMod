@@ -27,7 +27,7 @@ public class BattleHarmony extends AbstractDTCard {
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		addToBot(new ApplyPowerAction(p, p, new BattleHarmonyPower(p, magicNumber)));
-		Dragon d = getDragon();
+		Dragon d = getLivingDragon();
 		if (d != null) {
 			addToBot(new ApplyPowerAction(d, d, new BattleHarmonyPower(d, magicNumber)));
 		}

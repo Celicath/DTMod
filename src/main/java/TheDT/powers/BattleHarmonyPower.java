@@ -43,7 +43,7 @@ public class BattleHarmonyPower extends AbstractPower {
 				if (DragonTamer.battleHarmonyDragon) {
 					activate();
 				}
-			} else if (owner == AbstractDTCard.getDragon() && !DragonTamer.battleHarmonyDragon) {
+			} else if (owner == AbstractDTCard.getLivingDragon() && !DragonTamer.battleHarmonyDragon) {
 				DragonTamer.battleHarmonyDragon = true;
 				if (DragonTamer.battleHarmonyYou) {
 					activate();

@@ -28,7 +28,7 @@ public class ShadowImage extends AbstractDTCard {
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		addToBot(new ApplyPowerAction(p, p, new ShadowImagePower(p, magicNumber), magicNumber));
-		Dragon d = getDragon();
+		Dragon d = getLivingDragon();
 		if (d != null) {
 			addToBot(new ApplyPowerAction(d, d, new ShadowImagePower(d, magicNumber), magicNumber));
 		}

@@ -30,7 +30,7 @@ public class Astonish extends AbstractDTCard {
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		Dragon dragon = getDragon();
+		Dragon dragon = getLivingDragon();
 
 		if (dragon != null && !isRearYou()) {
 			addToBot(new FastAnimateFastAttackAction(dragon));
@@ -45,7 +45,7 @@ public class Astonish extends AbstractDTCard {
 
 	public void applyPowers() {
 		boolean attackerIsYou = true;
-		if (getDragon() != null) {
+		if (getLivingDragon() != null) {
 			baseDamage = Math.abs(((DragonTamer) AbstractDungeon.player).aggro) * magicNumber;
 			dtBaseDragonDamage = Math.abs(((DragonTamer) AbstractDungeon.player).aggro) * magicNumber;
 			if (!isRearYou()) {

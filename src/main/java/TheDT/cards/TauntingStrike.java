@@ -36,7 +36,7 @@ public class TauntingStrike extends AbstractDTCard {
 
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		Dragon dragon = getDragon();
+		Dragon dragon = getLivingDragon();
 
 		if (dragon != null) {
 			ArrayList<AbstractCard> choices = new ArrayList<>();

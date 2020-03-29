@@ -44,7 +44,7 @@ public class BizarreTactic extends AbstractDTCard {
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		Dragon dragon = getDragon();
+		Dragon dragon = getLivingDragon();
 
 		addToBot(new GainBlockAction(p, p, block));
 		if (dragon != null) {

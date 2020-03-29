@@ -22,7 +22,7 @@ public class DragonFood extends CustomRelic {
 
 	public void onVictory() {
 		flash();
-		Dragon d = AbstractDTCard.getDragon();
+		Dragon d = AbstractDTCard.getLivingDragon();
 		if (d != null) {
 			addToTop(new RelicAboveCreatureAction(d, this));
 			d.heal(AMOUNT);

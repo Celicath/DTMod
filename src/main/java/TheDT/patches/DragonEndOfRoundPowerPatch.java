@@ -12,7 +12,7 @@ public class DragonEndOfRoundPowerPatch {
 	public static class EndOfRoundPower {
 		@SpireInsertPatch(locator = EndOfTurnPowerLocator.class)
 		public static void Insert(MonsterGroup __instance) {
-			Dragon dragon = AbstractDTCard.getDragon();
+			Dragon dragon = AbstractDTCard.getLivingDragon();
 			if (dragon != null) {
 				for (AbstractPower p : dragon.powers) {
 					p.atEndOfRound();

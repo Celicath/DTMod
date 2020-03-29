@@ -25,7 +25,7 @@ public class RandomAttackerDamageAction extends AbstractGameAction {
 			return;
 
 		AbstractPlayer p = AbstractDungeon.player;
-		Dragon d = AbstractDTCard.getDragon();
+		Dragon d = AbstractDTCard.getLivingDragon();
 		if (AbstractDungeon.cardRandomRng.randomBoolean() || d == null) {
 			addToTop(new DamageAction(target, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AttackEffect.SLASH_DIAGONAL));
 			addToTop(new FastAnimateFastAttackAction(p));

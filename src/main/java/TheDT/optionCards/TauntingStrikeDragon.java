@@ -50,7 +50,7 @@ public class TauntingStrikeDragon extends AbstractDTCard {
 
 	@Override
 	public void onChoseThisOption() {
-		Dragon dragon = getDragon();
+		Dragon dragon = getLivingDragon();
 		if (dragon != null) {
 			if (target == null) {
 				target = AbstractDungeon.getCurrRoom().monsters.getRandomMonster(null, true, AbstractDungeon.cardRandomRng);
