@@ -108,7 +108,7 @@ public abstract class AbstractDTCard extends CustomCard {
 	@Override
 	public void applyPowers() {
 		super.applyPowers();
-		Dragon dragon = getLivingDragon();
+		Dragon dragon = DragonTamer.getLivingDragon();
 		if (dtBaseDragonDamage != -1) {
 			dtDragonDamage = dtBaseDragonDamage;
 			if (dragon != null) {
@@ -228,7 +228,7 @@ public abstract class AbstractDTCard extends CustomCard {
 	public void calculateCardDamage(AbstractMonster mo) {
 		super.calculateCardDamage(mo);
 
-		Dragon dragon = getLivingDragon();
+		Dragon dragon = DragonTamer.getLivingDragon();
 		if (dtBaseDragonDamage != -1) {
 			dtDragonDamage = dtBaseDragonDamage;
 			if (dragon != null) {
@@ -350,33 +350,6 @@ public abstract class AbstractDTCard extends CustomCard {
 		dtBaseDragonBlock += amount;
 		dtDragonBlock = dtBaseDragonBlock;
 		upgradedDTDragonBlock = true;
-	}
-
-	public static Dragon getLivingDragon() {
-		if (AbstractDungeon.player instanceof DragonTamer) {
-			Dragon dragon = ((DragonTamer) AbstractDungeon.player).dragon;
-			if (dragon.isDeadOrEscaped()) return null;
-			return dragon;
-		}
-		return null;
-	}
-
-	public static boolean isFrontDragon() {
-		if (AbstractDungeon.player instanceof DragonTamer) {
-			Dragon dragon = ((DragonTamer) AbstractDungeon.player).dragon;
-			if (dragon.isDeadOrEscaped()) return false;
-			return ((DragonTamer) AbstractDungeon.player).front == dragon;
-		}
-		return false;
-	}
-
-	public static boolean isRearYou() {
-		if (AbstractDungeon.player instanceof DragonTamer) {
-			Dragon dragon = ((DragonTamer) AbstractDungeon.player).dragon;
-			if (dragon.isDeadOrEscaped()) return true;
-			return ((DragonTamer) AbstractDungeon.player).front != AbstractDungeon.player;
-		}
-		return true;
 	}
 
 	public String dragonNotAvailableMessage() {

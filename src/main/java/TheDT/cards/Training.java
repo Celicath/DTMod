@@ -1,6 +1,7 @@
 package TheDT.cards;
 
 import TheDT.characters.Dragon;
+import TheDT.characters.DragonTamer;
 import TheDT.patches.CardColorEnum;
 import TheDT.powers.BondingPower;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
@@ -30,7 +31,7 @@ public class Training extends AbstractDTCard {
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		Dragon dragon = getLivingDragon();
+		Dragon dragon = DragonTamer.getLivingDragon();
 
 		addToBot(new VFXAction(p, new InflameEffect(p), dragon == null ? 0.8F : 0.4F));
 		if (dragon != null) {

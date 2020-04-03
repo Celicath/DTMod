@@ -2,6 +2,7 @@ package TheDT.patches;
 
 import TheDT.cards.AbstractDTCard;
 import TheDT.characters.Dragon;
+import TheDT.characters.DragonTamer;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -14,7 +15,7 @@ public class DragonPowerPatch {
 	public static class DragonStartTurnPower {
 		@SpirePostfixPatch
 		public static void Postfix(AbstractRoom __instance) {
-			Dragon dragon = AbstractDTCard.getLivingDragon();
+			Dragon dragon = DragonTamer.getLivingDragon();
 			if (dragon != null) {
 				for (AbstractPower p : dragon.powers) {
 					p.atEndOfTurnPreEndTurnCards(true);
@@ -27,7 +28,7 @@ public class DragonPowerPatch {
 	public static class DragonDrawPower {
 		@SpireInsertPatch(locator = DrawPowerLocator.class)
 		public static void Insert(AbstractPlayer __instance, int numCards, AbstractCard ___c) {
-			Dragon dragon = AbstractDTCard.getLivingDragon();
+			Dragon dragon = DragonTamer.getLivingDragon();
 			if (dragon != null) {
 				for (AbstractPower p : dragon.powers) {
 					p.onCardDraw(___c);

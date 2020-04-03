@@ -45,7 +45,7 @@ public class TargetDefense extends AbstractDTCard {
 			isBlockModified = isDTDragonBlockModified = true;
 		}
 
-		if (isFrontDragon()) {
+		if (DragonTamer.isFrontDragon()) {
 			rawDescription = EXTENDED_DESCRIPTION[0];
 		} else {
 			rawDescription = DESCRIPTION;
@@ -72,7 +72,7 @@ public class TargetDefense extends AbstractDTCard {
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		if (isFrontDragon()) {
+		if (DragonTamer.isFrontDragon()) {
 			addToBot(new GainBlockAction(((DragonTamer) AbstractDungeon.player).dragon, ((DragonTamer) AbstractDungeon.player).dragon, dtDragonBlock));
 		} else {
 			addToBot(new GainBlockAction(p, p, block));

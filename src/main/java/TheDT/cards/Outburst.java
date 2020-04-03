@@ -2,6 +2,7 @@ package TheDT.cards;
 
 import TheDT.actions.DragonChangeStanceAction;
 import TheDT.characters.Dragon;
+import TheDT.characters.DragonTamer;
 import TheDT.patches.CardColorEnum;
 import TheDT.powers.DragonLoseStancePower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -29,7 +30,7 @@ public class Outburst extends AbstractDTCard {
 	@Override
 	public boolean canUse(AbstractPlayer p, AbstractMonster m) {
 		boolean result = super.canUse(p, m);
-		if (result && getLivingDragon() == null) {
+		if (result && DragonTamer.getLivingDragon() == null) {
 			cantUseMessage = dragonNotAvailableMessage();
 			return false;
 		}
@@ -37,7 +38,7 @@ public class Outburst extends AbstractDTCard {
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		Dragon d = getLivingDragon();
+		Dragon d = DragonTamer.getLivingDragon();
 		if (d != null) {
 			addToBot(new DragonChangeStanceAction(d, WrathStance.STANCE_ID));
 			addToBot(new ApplyPowerAction(d, d, new DragonLoseStancePower(d, EXIT_TURN), EXIT_TURN));

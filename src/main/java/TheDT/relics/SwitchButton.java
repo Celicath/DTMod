@@ -34,7 +34,7 @@ public class SwitchButton extends CustomRelic implements ClickableRelic {
 				AbstractDungeon.getCurrRoom().monsters != null && !AbstractDungeon.getCurrRoom().monsters.areMonstersBasicallyDead() &&
 				!AbstractDungeon.actionManager.turnHasEnded && !disabled
 		) {
-			Dragon d = AbstractDTCard.getLivingDragon();
+			Dragon d = DragonTamer.getLivingDragon();
 			if (d != null) {
 				alreadyUsed = true;
 				flash();

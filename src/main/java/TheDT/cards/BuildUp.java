@@ -1,5 +1,6 @@
 package TheDT.cards;
 
+import TheDT.characters.DragonTamer;
 import TheDT.patches.CardColorEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -33,7 +34,7 @@ public class BuildUp extends AbstractDTCard {
 	@Override
 	public boolean canUse(AbstractPlayer p, AbstractMonster m) {
 		boolean result = super.canUse(p, m);
-		if (result && getLivingDragon() == null) {
+		if (result && DragonTamer.getLivingDragon() == null) {
 			cantUseMessage = dragonNotAvailableMessage();
 			return false;
 		}

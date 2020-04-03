@@ -1,7 +1,7 @@
 package TheDT.powers;
 
 import TheDT.DTModMain;
-import TheDT.cards.AbstractDTCard;
+import TheDT.characters.DragonTamer;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -37,7 +37,7 @@ public class HuntersMarkPower extends AbstractPower {
 	}
 
 	public int onAttacked(DamageInfo info, int damageAmount) {
-		if (info.type != DamageInfo.DamageType.THORNS && info.type != DamageInfo.DamageType.HP_LOSS && info.owner != null && info.owner == AbstractDTCard.getLivingDragon()) {
+		if (info.type != DamageInfo.DamageType.THORNS && info.type != DamageInfo.DamageType.HP_LOSS && info.owner != null && info.owner == DragonTamer.getLivingDragon()) {
 			flash();
 			AbstractPlayer p = AbstractDungeon.player;
 			addToTop(new ApplyPowerAction(p, p, new BondingPower(p, p, 1), 1));

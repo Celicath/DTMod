@@ -2,6 +2,7 @@ package TheDT.patches;
 
 import TheDT.cards.AbstractDTCard;
 import TheDT.characters.Dragon;
+import TheDT.characters.DragonTamer;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import com.megacrit.cardcrawl.powers.AbstractPower;
@@ -12,7 +13,7 @@ public class DragonEndOfRoundPowerPatch {
 	public static class EndOfRoundPower {
 		@SpireInsertPatch(locator = EndOfTurnPowerLocator.class)
 		public static void Insert(MonsterGroup __instance) {
-			Dragon dragon = AbstractDTCard.getLivingDragon();
+			Dragon dragon = DragonTamer.getLivingDragon();
 			if (dragon != null) {
 				for (AbstractPower p : dragon.powers) {
 					p.atEndOfRound();

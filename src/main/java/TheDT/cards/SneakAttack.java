@@ -1,6 +1,7 @@
 package TheDT.cards;
 
 import TheDT.actions.AddAggroAction;
+import TheDT.characters.DragonTamer;
 import TheDT.patches.CardColorEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -35,7 +36,7 @@ public class SneakAttack extends AbstractDTCard {
 	@Override
 	public boolean canUse(AbstractPlayer p, AbstractMonster m) {
 		boolean result = super.canUse(p, m);
-		if (result && !isRearYou()) {
+		if (result && !DragonTamer.isRearYou()) {
 			cantUseMessage = EXTENDED_DESCRIPTION[0];
 			return false;
 		}
@@ -43,7 +44,7 @@ public class SneakAttack extends AbstractDTCard {
 	}
 
 	public void triggerOnGlowCheck() {
-		if (isRearYou()) {
+		if (DragonTamer.isRearYou()) {
 			glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
 		} else {
 			glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
@@ -51,7 +52,7 @@ public class SneakAttack extends AbstractDTCard {
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		if (isRearYou()) {
+		if (DragonTamer.isRearYou()) {
 			addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
 			addToBot(new AddAggroAction(false, 3));
 		}

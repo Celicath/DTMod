@@ -3,6 +3,7 @@ package TheDT.cards;
 import TheDT.actions.ApplyAggroAction;
 import TheDT.actions.FastAnimateFastAttackAction;
 import TheDT.characters.Dragon;
+import TheDT.characters.DragonTamer;
 import TheDT.patches.CardColorEnum;
 import TheDT.powers.BondingPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -36,7 +37,7 @@ public class ComboAttack extends AbstractDTCard {
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		Dragon d = getLivingDragon();
+		Dragon d = DragonTamer.getLivingDragon();
 
 		addToBot(new FastAnimateFastAttackAction(p));
 		addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_VERTICAL));

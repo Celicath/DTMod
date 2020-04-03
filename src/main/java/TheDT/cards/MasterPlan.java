@@ -1,6 +1,7 @@
 package TheDT.cards;
 
 import TheDT.characters.Dragon;
+import TheDT.characters.DragonTamer;
 import TheDT.patches.CardColorEnum;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -29,7 +30,7 @@ public class MasterPlan extends AbstractDTCard {
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		Dragon dragon = getLivingDragon();
+		Dragon dragon = DragonTamer.getLivingDragon();
 		if (dragon != null) {
 			addToBot(new GainBlockAction(dragon, dragon, dtDragonBlock));
 		}

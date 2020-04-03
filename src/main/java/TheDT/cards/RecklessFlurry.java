@@ -3,6 +3,7 @@ package TheDT.cards;
 import TheDT.actions.ApplyAggroAction;
 import TheDT.actions.FastLoseBlockAction;
 import TheDT.characters.Dragon;
+import TheDT.characters.DragonTamer;
 import TheDT.patches.CardColorEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
@@ -39,7 +40,7 @@ public class RecklessFlurry extends AbstractDTCard {
 
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		Dragon dragon = getLivingDragon();
+		Dragon dragon = DragonTamer.getLivingDragon();
 
 		AbstractDTCard choice1 = new AbstractDTCard(RAW_ID_YOU, -2, TYPE, COLOR, CardRarity.SPECIAL, TARGET, RAW_ID, DTCardTarget.DEFAULT) {
 			{

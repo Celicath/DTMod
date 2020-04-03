@@ -3,6 +3,7 @@ package TheDT.powers;
 import TheDT.DTModMain;
 import TheDT.cards.AbstractDTCard;
 import TheDT.characters.Dragon;
+import TheDT.characters.DragonTamer;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -50,7 +51,7 @@ public class ResonanceFormPower extends AbstractPower {
 	@Override
 	public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
 		AbstractPlayer p = AbstractDungeon.player;
-		Dragon dragon = AbstractDTCard.getLivingDragon();
+		Dragon dragon = DragonTamer.getLivingDragon();
 		if (dragon == null || target != p && target != dragon || power.type == PowerType.DEBUFF) {
 			return;
 		}
@@ -78,7 +79,7 @@ public class ResonanceFormPower extends AbstractPower {
 	@Override
 	public int onHeal(int healAmount) {
 		AbstractPlayer p = AbstractDungeon.player;
-		Dragon dragon = AbstractDTCard.getLivingDragon();
+		Dragon dragon = DragonTamer.getLivingDragon();
 		if (disabled || dragon == null || owner != p && owner != dragon) {
 			return healAmount;
 		}
@@ -93,7 +94,7 @@ public class ResonanceFormPower extends AbstractPower {
 	@Override
 	public void onGainedBlock(float blockAmount) {
 		AbstractPlayer p = AbstractDungeon.player;
-		Dragon dragon = AbstractDTCard.getLivingDragon();
+		Dragon dragon = DragonTamer.getLivingDragon();
 		if (disabled || dragon == null || owner != p && owner != dragon) {
 			return;
 		}

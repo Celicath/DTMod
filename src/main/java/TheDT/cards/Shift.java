@@ -3,6 +3,7 @@ package TheDT.cards;
 import TheDT.actions.AddAggroAction;
 import TheDT.actions.ApplyAggroAction;
 import TheDT.characters.Dragon;
+import TheDT.characters.DragonTamer;
 import TheDT.patches.CardColorEnum;
 import com.megacrit.cardcrawl.actions.watcher.ChooseOneAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -33,7 +34,7 @@ public class Shift extends AbstractDTCard {
 	@Override
 	public boolean canUse(AbstractPlayer p, AbstractMonster m) {
 		boolean result = super.canUse(p, m);
-		if (result && getLivingDragon() == null) {
+		if (result && DragonTamer.getLivingDragon() == null) {
 			cantUseMessage = dragonNotAvailableMessage();
 			return false;
 		}
@@ -42,7 +43,7 @@ public class Shift extends AbstractDTCard {
 
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		Dragon dragon = getLivingDragon();
+		Dragon dragon = DragonTamer.getLivingDragon();
 
 		int outerMagicNumber = magicNumber;
 		if (dragon != null) {
@@ -88,7 +89,7 @@ public class Shift extends AbstractDTCard {
 				});
 				addToBot(new ChooseOneAction(choices));
 			} else {
-				if (isFrontDragon()) {
+				if (DragonTamer.isFrontDragon()) {
 					addToBot(new AddAggroAction(false, magicNumber));
 				} else {
 					addToBot(new AddAggroAction(true, magicNumber));

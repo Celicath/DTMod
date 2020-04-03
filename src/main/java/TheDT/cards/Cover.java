@@ -34,7 +34,7 @@ public class Cover extends AbstractDTCard {
 	public void applyPowers() {
 		super.applyPowers();
 
-		if (isRearYou()) {
+		if (DragonTamer.isRearYou()) {
 			rawDescription = DESCRIPTION;
 		} else {
 			rawDescription = EXTENDED_DESCRIPTION[0];
@@ -43,7 +43,7 @@ public class Cover extends AbstractDTCard {
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		if (isRearYou()) {
+		if (DragonTamer.isRearYou()) {
 			addToBot(new GainBlockAction(p, p, block));
 		} else {
 			addToBot(new GainBlockAction(((DragonTamer) AbstractDungeon.player).dragon, ((DragonTamer) AbstractDungeon.player).dragon, dtDragonBlock));

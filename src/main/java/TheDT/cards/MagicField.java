@@ -2,6 +2,7 @@ package TheDT.cards;
 
 import TheDT.DTModMain;
 import TheDT.characters.Dragon;
+import TheDT.characters.DragonTamer;
 import TheDT.optionals.FriendlyMinionHelper;
 import TheDT.patches.CardColorEnum;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -44,7 +45,7 @@ public class MagicField extends AbstractDTCard {
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		Dragon dragon = getLivingDragon();
+		Dragon dragon = DragonTamer.getLivingDragon();
 
 		addToBot(new GainBlockAction(p, p, block, true));
 		if (dragon != null) {

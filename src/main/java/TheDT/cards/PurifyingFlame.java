@@ -1,6 +1,7 @@
 package TheDT.cards;
 
 import TheDT.characters.Dragon;
+import TheDT.characters.DragonTamer;
 import TheDT.patches.CardColorEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -31,7 +32,7 @@ public class PurifyingFlame extends AbstractDTCard {
 	@Override
 	public boolean canUse(AbstractPlayer p, AbstractMonster m) {
 		boolean result = super.canUse(p, m);
-		if (result && getLivingDragon() == null) {
+		if (result && DragonTamer.getLivingDragon() == null) {
 			cantUseMessage = dragonNotAvailableMessage();
 			return false;
 		}
@@ -40,7 +41,7 @@ public class PurifyingFlame extends AbstractDTCard {
 
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		Dragon dragon = getLivingDragon();
+		Dragon dragon = DragonTamer.getLivingDragon();
 
 		if (dragon != null) {
 			addToBot(new DamageAction(m, new DamageInfo(dragon, dtDragonDamage, damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));

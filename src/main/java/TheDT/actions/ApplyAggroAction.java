@@ -26,14 +26,17 @@ public class ApplyAggroAction extends AbstractGameAction {
 			this.isDone = true;
 			return;
 		}
-		if (DTModMain.yourAggro != 0) {
-			addAggroChangeEffect(AbstractDungeon.player, DTModMain.yourAggro);
-		}
-		if (DTModMain.dragonAggro != 0) {
-			addAggroChangeEffect(((DragonTamer) AbstractDungeon.player).dragon, DTModMain.dragonAggro);
-		}
-		if (DTModMain.dragonAggro - DTModMain.yourAggro != 0) {
-			((DragonTamer) AbstractDungeon.player).addAggro(DTModMain.dragonAggro - DTModMain.yourAggro);
+
+		if (!DragonTamer.isSolo()) {
+			if (DTModMain.yourAggro != 0) {
+				addAggroChangeEffect(AbstractDungeon.player, DTModMain.yourAggro);
+			}
+			if (DTModMain.dragonAggro != 0) {
+				addAggroChangeEffect(((DragonTamer) AbstractDungeon.player).dragon, DTModMain.dragonAggro);
+			}
+			if (DTModMain.dragonAggro - DTModMain.yourAggro != 0) {
+				((DragonTamer) AbstractDungeon.player).addAggro(DTModMain.dragonAggro - DTModMain.yourAggro);
+			}
 		}
 		DTModMain.dragonAggro = 0;
 		DTModMain.yourAggro = 0;

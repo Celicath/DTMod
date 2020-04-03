@@ -5,9 +5,17 @@
       "The Dragon Tamer"
     ],
     "TEXT": [
-      "The brave man with full pact with his faithful dragon.",
+      "The brave man and his faithful dragon always train together.",
       "Dragon",
       "You"
+    ]
+  },
+  "Dragon": {
+    "NAMES": [
+      "Dragon"
+    ],
+    "TEXT": [
+      "Dragon is currently fainted and cannot move. At the end of combat, it will revive with 1 HP."
     ]
   }
 }

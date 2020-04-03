@@ -1,6 +1,7 @@
 package TheDT.cards;
 
 import TheDT.characters.Dragon;
+import TheDT.characters.DragonTamer;
 import TheDT.patches.CardColorEnum;
 import TheDT.powers.BattleHarmonyPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -27,7 +28,7 @@ public class BattleHarmony extends AbstractDTCard {
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		addToBot(new ApplyPowerAction(p, p, new BattleHarmonyPower(p, magicNumber)));
-		Dragon d = getLivingDragon();
+		Dragon d = DragonTamer.getLivingDragon();
 		if (d != null) {
 			addToBot(new ApplyPowerAction(d, d, new BattleHarmonyPower(d, magicNumber)));
 		}

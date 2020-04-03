@@ -3,6 +3,7 @@ package TheDT.relics;
 import TheDT.DTModMain;
 import TheDT.cards.AbstractDTCard;
 import TheDT.characters.Dragon;
+import TheDT.characters.DragonTamer;
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
@@ -22,7 +23,7 @@ public class DragonFood extends CustomRelic {
 
 	public void onVictory() {
 		flash();
-		Dragon d = AbstractDTCard.getLivingDragon();
+		Dragon d = DragonTamer.getLivingDragon();
 		if (d != null) {
 			addToTop(new RelicAboveCreatureAction(d, this));
 			d.heal(AMOUNT);

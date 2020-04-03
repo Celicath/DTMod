@@ -1,6 +1,7 @@
 package TheDT.cards;
 
 import TheDT.characters.Dragon;
+import TheDT.characters.DragonTamer;
 import TheDT.optionCards.TauntingStrikeDragon;
 import TheDT.optionCards.TauntingStrikeYou;
 import TheDT.patches.CardColorEnum;
@@ -36,7 +37,7 @@ public class TauntingStrike extends AbstractDTCard {
 
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		Dragon dragon = getLivingDragon();
+		Dragon dragon = DragonTamer.getLivingDragon();
 
 		if (dragon != null) {
 			ArrayList<AbstractCard> choices = new ArrayList<>();

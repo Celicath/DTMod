@@ -3,7 +3,9 @@ package TheDT.characters;
 import TheDT.DTModMain;
 import TheDT.cards.HardSkin;
 import TheDT.patches.CardColorEnum;
+import basemod.BaseMod;
 import basemod.abstracts.CustomPlayer;
+import basemod.abstracts.CustomSavable;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
@@ -16,16 +18,17 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.*;
+import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.MonsterRoom;
 import com.megacrit.cardcrawl.rooms.RestRoom;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
-import com.megacrit.cardcrawl.vfx.BorderFlashEffect;
 import com.megacrit.cardcrawl.vfx.combat.BlockedWordEffect;
 import com.megacrit.cardcrawl.vfx.combat.HbBlockBrokenEffect;
 import com.megacrit.cardcrawl.vfx.combat.StrikeEffect;
@@ -34,9 +37,9 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
 
-import static TheDT.characters.DragonTamer.charStrings;
+public class Dragon extends CustomPlayer implements CustomSavable<ArrayList<Integer>> {
+	public static final CharacterStrings charStrings = CardCrawlGame.languagePack.getCharacterString("Dragon");
 
-public class Dragon extends CustomPlayer {
 	public static final float OFFSET_X = 160.0f;
 	public static final float OFFSET_Y = 60.0f;
 	private static final int HP_BONUS_RATIO = 13;
@@ -74,6 +77,24 @@ public class Dragon extends CustomPlayer {
 		this.hoverTimer = 0.0F;
 		this.nameColor = new Color();
 		this.nameBgColor = new Color(0.0F, 0.0F, 0.0F, 0.0F);
+
+		BaseMod.addSaveField(DTModMain.makeID("Dragon"), this);
+	}
+
+	@Override
+	public ArrayList<Integer> onSave() {
+		ArrayList<Integer> data = new ArrayList<>();
+		data.add(currentHealth);
+		data.add(maxHealth);
+		return data;
+	}
+
+	@Override
+	public void onLoad(ArrayList<Integer> data) {
+		if (data != null && data.size() >= 2) {
+			currentHealth = data.get(0);
+			maxHealth = data.get(1);
+		}
 	}
 
 	@Override
@@ -222,8 +243,6 @@ public class Dragon extends CustomPlayer {
 			AbstractDungeon.effectList.add(new StrikeEffect(this, this.hb.cX, this.hb.cY, damageAmount));
 			if (this.currentHealth < 0) {
 				this.currentHealth = 0;
-			} else if (this.currentHealth < this.maxHealth / 4) {
-				AbstractDungeon.topLevelEffects.add(new BorderFlashEffect(new Color(1.0F, 0.1F, 0.05F, 0.0F)));
 			}
 
 			this.healthBarUpdatedEvent();
@@ -240,10 +259,13 @@ public class Dragon extends CustomPlayer {
 			if (this.currentHealth < 1) {
 				// TODO: maybe add some dragon revival things
 
-				this.isDead = true;
-				this.currentHealth = 0;
-				if (this.currentBlock > 0) {
-					this.loseBlock();
+				isDead = true;
+				master.setAggro(0);
+				master.setFront(master);
+
+				currentHealth = 0;
+				if (currentBlock > 0) {
+					loseBlock();
 					AbstractDungeon.effectList.add(new HbBlockBrokenEffect(this.hb.cX - this.hb.width / 2.0F + BLOCK_ICON_X, this.hb.cY - this.hb.height / 2.0F + BLOCK_ICON_Y));
 				}
 			}
@@ -336,11 +358,7 @@ public class Dragon extends CustomPlayer {
 
 		if ((!AbstractDungeon.player.isDraggingCard || AbstractDungeon.player.hoveredCard == null || AbstractDungeon.player.hoveredCard.target == AbstractCard.CardTarget.ENEMY) && !this.isDying) {
 			if (this.hoverTimer != 0.0F) {
-				if (this.hoverTimer * 2.0F > 1.0F) {
-					this.nameColor.a = 1.0F;
-				} else {
-					this.nameColor.a = this.hoverTimer * 2.0F;
-				}
+				this.nameColor.a = Math.min(this.hoverTimer * 2.0F, 1.0F);
 			} else {
 				this.nameColor.a = MathHelper.slowColorLerpSnap(this.nameColor.a, 0.0F);
 			}
@@ -381,12 +399,34 @@ public class Dragon extends CustomPlayer {
 	}
 
 	@Override
-	public boolean isDeadOrEscaped() {
-		return this.isDying || this.halfDead;
-	}
-
 	public void preBattlePrep() {
 		powers.clear();
 		healthBarUpdatedEvent();
+	}
+
+	@Override
+	public void onVictory() {
+		if (isDead) {
+			isDead = false;
+			if (currentHealth == 0) {
+				heal(1);
+			}
+		}
+	}
+
+	@Override
+	public void renderPowerTips(SpriteBatch sb) {
+		if (isDead) {
+			ArrayList<PowerTip> tips = new ArrayList<>();
+			tips.add(new PowerTip(charStrings.NAMES[0], charStrings.TEXT[0]));
+
+			if (hb.cX + hb.width / 2.0F < TIP_X_THRESHOLD) {
+				TipHelper.queuePowerTips(hb.cX + hb.width / 2.0F + TIP_OFFSET_R_X, hb.cY + TipHelper.calculateAdditionalOffset(tips, hb.cY), tips);
+			} else {
+				TipHelper.queuePowerTips(hb.cX - hb.width / 2.0F + TIP_OFFSET_L_X, hb.cY + TipHelper.calculateAdditionalOffset(tips, hb.cY), tips);
+			}
+		} else {
+			super.renderPowerTips(sb);
+		}
 	}
 }

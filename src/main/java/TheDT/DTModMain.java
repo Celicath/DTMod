@@ -4,6 +4,7 @@ import TheDT.Interfaces.ShufflePower;
 import TheDT.actions.FreezeAggroAction;
 import TheDT.cards.AbstractDTCard;
 import TheDT.cards.RepeatStrike;
+import TheDT.characters.Dragon;
 import TheDT.characters.DragonTamer;
 import TheDT.modules.TargetMarker;
 import TheDT.optionals.OptionalRelicHelper;

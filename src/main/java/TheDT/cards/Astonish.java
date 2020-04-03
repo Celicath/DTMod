@@ -30,9 +30,9 @@ public class Astonish extends AbstractDTCard {
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		Dragon dragon = getLivingDragon();
+		Dragon dragon = DragonTamer.getLivingDragon();
 
-		if (dragon != null && !isRearYou()) {
+		if (dragon != null && !DragonTamer.isRearYou()) {
 			addToBot(new FastAnimateFastAttackAction(dragon));
 			addToBot(new DamageAction(m, new DamageInfo(dragon, dtDragonDamage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
 		} else {
@@ -45,10 +45,10 @@ public class Astonish extends AbstractDTCard {
 
 	public void applyPowers() {
 		boolean attackerIsYou = true;
-		if (getLivingDragon() != null) {
+		if (DragonTamer.getLivingDragon() != null) {
 			baseDamage = Math.abs(((DragonTamer) AbstractDungeon.player).aggro) * magicNumber;
 			dtBaseDragonDamage = Math.abs(((DragonTamer) AbstractDungeon.player).aggro) * magicNumber;
-			if (!isRearYou()) {
+			if (!DragonTamer.isRearYou()) {
 				attackerIsYou = false;
 			}
 		} else {

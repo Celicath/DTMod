@@ -5,6 +5,7 @@ import TheDT.actions.FastAnimateFastAttackAction;
 import TheDT.cards.AbstractDTCard;
 import TheDT.cards.TauntingStrike;
 import TheDT.characters.Dragon;
+import TheDT.characters.DragonTamer;
 import TheDT.patches.CardColorEnum;
 import TheDT.powers.TauntPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -50,7 +51,7 @@ public class TauntingStrikeDragon extends AbstractDTCard {
 
 	@Override
 	public void onChoseThisOption() {
-		Dragon dragon = getLivingDragon();
+		Dragon dragon = DragonTamer.getLivingDragon();
 		if (dragon != null) {
 			if (target == null) {
 				target = AbstractDungeon.getCurrRoom().monsters.getRandomMonster(null, true, AbstractDungeon.cardRandomRng);

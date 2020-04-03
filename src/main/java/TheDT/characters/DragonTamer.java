@@ -408,6 +408,12 @@ public class DragonTamer extends CustomPlayer {
 		dragon.applyEndOfTurnTriggers();
 	}
 
+	@Override
+	public void onVictory() {
+		super.onVictory();
+		dragon.onVictory();
+	}
+
 	public Texture getAttackIcon() {
 		if (attackerIcon == null) {
 			attackerIcon = new Texture(DTModMain.makePath("ui/Attacker.png"));
@@ -415,17 +421,48 @@ public class DragonTamer extends CustomPlayer {
 		return attackerIcon;
 	}
 
-	public boolean isCurrentTargetDragon(AbstractCreature monster) {
-		if (monster.hasPower(TauntPower.POWER_ID)) {
-			return ((TauntPower) monster.getPower(TauntPower.POWER_ID)).targetIsDragon;
+	public static Dragon getLivingDragon() {
+		if (AbstractDungeon.player instanceof DragonTamer) {
+			Dragon dragon = ((DragonTamer) AbstractDungeon.player).dragon;
+			if (dragon.isDead) return null;
+			return dragon;
+		}
+		return null;
+	}
+
+	public static boolean isFrontDragon() {
+		if (AbstractDungeon.player instanceof DragonTamer) {
+			Dragon dragon = ((DragonTamer) AbstractDungeon.player).dragon;
+			if (dragon.isDead) return false;
+			return ((DragonTamer) AbstractDungeon.player).front == dragon;
+		}
+		return false;
+	}
+
+	public static boolean isRearYou() {
+		if (AbstractDungeon.player instanceof DragonTamer) {
+			Dragon dragon = ((DragonTamer) AbstractDungeon.player).dragon;
+			if (dragon.isDead) return true;
+			return ((DragonTamer) AbstractDungeon.player).front != AbstractDungeon.player;
+		}
+		return true;
+	}
+
+	public static boolean isCurrentTargetDragon(AbstractCreature monster) {
+		if (AbstractDungeon.player instanceof DragonTamer && !((DragonTamer) AbstractDungeon.player).dragon.isDead) {
+			if (monster.hasPower(TauntPower.POWER_ID)) {
+				return ((TauntPower) monster.getPower(TauntPower.POWER_ID)).targetIsDragon;
+			} else {
+				return ((DragonTamer) AbstractDungeon.player).front == ((DragonTamer) AbstractDungeon.player).dragon;
+			}
 		} else {
-			return front == dragon;
+			return false;
 		}
 	}
 
 	public static boolean isSolo() {
 		if (AbstractDungeon.player instanceof DragonTamer) {
-			return ((DragonTamer) AbstractDungeon.player).dragon.isDeadOrEscaped();
+			return ((DragonTamer) AbstractDungeon.player).dragon.isDead;
 		} else {
 			return true;
 		}

@@ -1,6 +1,7 @@
 package TheDT.patches;
 
 import TheDT.cards.AbstractDTCard;
+import TheDT.characters.DragonTamer;
 import TheDT.powers.SafeguardPower;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch;
@@ -35,9 +36,9 @@ public class SafeguardPatch {
 			}
 			if (targetID.equals(BarricadePower.POWER_ID) && __instance.hasPower(SafeguardPower.POWER_ID)) {
 				if (__instance == AbstractDungeon.player) {
-					return AbstractDTCard.isRearYou();
-				} else if (__instance == AbstractDTCard.getLivingDragon()) {
-					return !AbstractDTCard.isFrontDragon();
+					return DragonTamer.isRearYou();
+				} else if (__instance == DragonTamer.getLivingDragon()) {
+					return !DragonTamer.isFrontDragon();
 				} else {
 					return __result;
 				}

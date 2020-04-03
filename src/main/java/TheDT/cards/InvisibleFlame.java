@@ -1,6 +1,7 @@
 package TheDT.cards;
 
 import TheDT.characters.Dragon;
+import TheDT.characters.DragonTamer;
 import TheDT.patches.CardColorEnum;
 import TheDT.powers.InvisibleFlamePower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -28,7 +29,7 @@ public class InvisibleFlame extends AbstractDTCard {
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		addToBot(new ApplyPowerAction(p, p, new InvisibleFlamePower(p, magicNumber), magicNumber));
-		Dragon d = getLivingDragon();
+		Dragon d = DragonTamer.getLivingDragon();
 		if (d != null) {
 			addToBot(new ApplyPowerAction(d, d, new InvisibleFlamePower(d, magicNumber), magicNumber));
 		}
