@@ -366,12 +366,38 @@
     "DESCRIPTION": "Ethereal. NL Whenever You or Dragon gains Strength, Dexterity, Block or HP, the other gains a copy of it.",
     "UPGRADE_DESCRIPTION": "Whenever You or Dragon gains Strength, Dexterity, Block or HP, the other gains a copy of it."
   },
-  "DTMod:Accelerate": {
-    "NAME": "Accelerate",
-    "DESCRIPTION": "Choose one of any future effect. Copy and receive it immediately."
-  },
   "DTMod:FierySynthesis": {
     "NAME": "Fiery Synthesis",
     "DESCRIPTION": "Dragon deals !DT:THD! damage. NL While in your deck, ALL potions become ragontaer:Blaze_Potion."
+  },
+  "DTMod:Jump": {
+    "NAME": "Jump",
+    "DESCRIPTION": "What should be the effect for the final card be?"
+  },
+  "DTMod:BondingBonus": {
+    "NAME": "Bonding Bonus",
+    "DESCRIPTION": "You get one of these effects when you get 4 Bonding.",
+    "EXTENDED_DESCRIPTION": [
+      "Artifact",
+      "You and Dragon gains 1 Artifact.",
+      "Explosive",
+      "Deal 15 damage to ALL enemies.",
+      "Temporary HP",
+      "You and Dragon gains 10 Temporary_HP.",
+      "Strength",
+      "You and Dragon gains 3 Strength.",
+      "Dexterity",
+      "You and Dragon gains 2 Dexterity.",
+      "Energy",
+      "Gain [E] [E] [E].",
+      "Draw",
+      "Draw cards until your hand is full.",
+      "Weaken",
+      "Apply 3 Weak to ALL enemies.",
+      "Vulnerable",
+      "Apply 3 Vulnerable to ALL enemies.",
+      "Chaos",
+      "Play the top 3 cards of your draw pile."
+    ]
   }
 }

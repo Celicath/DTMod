@@ -9,6 +9,7 @@ import TheDT.powers.TauntPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -56,6 +57,10 @@ public class TauntingStrikeYou extends AbstractDTCard {
 		}
 		addToBot(new FastAnimateFastAttackAction(p));
 		addToBot(new DamageAction(target, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
+		TauntPower tp = (TauntPower) (target.getPower(TauntPower.POWER_ID));
+		if (tp != null && tp.targetIsDragon) {
+			addToBot(new RemoveSpecificPowerAction(target, target, TauntPower.POWER_ID));
+		}
 		addToBot(new ApplyPowerAction(target, p, new TauntPower(target, false, 1), 1));
 		addToBot(new ApplyAggroAction());
 	}

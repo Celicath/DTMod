@@ -1,7 +1,6 @@
 package TheDT.relics;
 
 import TheDT.DTModMain;
-import TheDT.cards.AbstractDTCard;
 import TheDT.characters.Dragon;
 import TheDT.characters.DragonTamer;
 import basemod.abstracts.CustomRelic;

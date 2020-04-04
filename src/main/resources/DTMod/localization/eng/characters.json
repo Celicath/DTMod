@@ -5,9 +5,7 @@
       "The Dragon Tamer"
     ],
     "TEXT": [
-      "The brave man and his faithful dragon always train together.",
-      "Dragon",
-      "You"
+      "The brave man and his faithful dragon always train together."
     ]
   },
   "Dragon": {
@@ -17,5 +15,12 @@
     "TEXT": [
       "Dragon is currently fainted and cannot move. At the end of combat, it will revive with 1 HP."
     ]
+  },
+  "HighlightWords": {
+    "NAMES": [
+      "Dragon",
+      "You"
+    ],
+    "TEXT": []
   }
 }

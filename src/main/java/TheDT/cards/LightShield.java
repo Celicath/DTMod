@@ -19,6 +19,7 @@ public class LightShield extends AbstractDTCard {
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.BOTH;
 
 	private static final int POWER = 10;
+	private static final int UPGRADE_BONUS = 2;
 	private static final int RATIO = 2;
 	private static final int UPGRADE_RATIO = 2;
 
@@ -74,6 +75,8 @@ public class LightShield extends AbstractDTCard {
 	public void upgrade() {
 		if (!upgraded) {
 			upgradeName();
+			upgradeBlock(UPGRADE_BONUS);
+			upgradeDTDragonBlock(UPGRADE_BONUS);
 			upgradeMagicNumber(UPGRADE_RATIO);
 		}
 	}

@@ -2,7 +2,6 @@ package TheDT.patches;
 
 import TheDT.characters.Dragon;
 import TheDT.characters.DragonTamer;
-import TheDT.powers.SafeguardPower;
 import com.evacipated.cardcrawl.mod.stslib.patches.core.AbstractCreature.TempHPField;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.actions.GameActionManager;
@@ -13,7 +12,7 @@ import com.megacrit.cardcrawl.powers.BlurPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import javassist.CtBehavior;
 
-public class DragonPatch {
+public class DragonCombatPatch {
 	@SpirePatch(clz = GameActionManager.class, method = "getNextAction")
 	public static class DragonStartTurn {
 		@SpireInsertPatch(locator = StartTurnLocator.class)

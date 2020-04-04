@@ -1,6 +1,5 @@
 package TheDT.cards;
 
-import TheDT.characters.DragonTamer;
 import TheDT.patches.CardColorEnum;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
@@ -45,16 +44,6 @@ public class GearUp extends AbstractDTCard {
 
 		magicNumber = baseMagicNumber = MAGIC;
 		cardsToPreview = previews.get(0);
-	}
-
-	@Override
-	public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-		boolean result = super.canUse(p, m);
-		if (result && DragonTamer.getLivingDragon() == null) {
-			cantUseMessage = dragonNotAvailableMessage();
-			return false;
-		}
-		return result;
 	}
 
 	@Override

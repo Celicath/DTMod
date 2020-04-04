@@ -1,6 +1,5 @@
 package TheDT.patches;
 
-import TheDT.cards.AbstractDTCard;
 import TheDT.characters.DragonTamer;
 import TheDT.powers.SafeguardPower;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;

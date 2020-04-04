@@ -1,7 +1,6 @@
 package TheDT.powers;
 
 import TheDT.DTModMain;
-import TheDT.cards.AbstractDTCard;
 import TheDT.characters.Dragon;
 import TheDT.characters.DragonTamer;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;

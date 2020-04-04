@@ -41,5 +41,10 @@
     "TEXT": [
       "Play"
     ]
+  },
+  "DTMod:RestOption": {
+    "TEXT": [
+      "Dragon heals 30% HP ("
+    ]
   }
 }

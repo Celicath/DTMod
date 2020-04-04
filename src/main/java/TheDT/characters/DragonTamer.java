@@ -96,7 +96,7 @@ public class DragonTamer extends CustomPlayer {
 		this.dialogX = (this.drawX + 0.0F * Settings.scale);
 		this.dialogY = (this.drawY + 220.0F * Settings.scale);
 
-		dragon = new Dragon(charStrings.TEXT[1], 0.0f, 0.0f, 220.0f, 290.0f, this);
+		dragon = new Dragon(Dragon.charStrings.NAMES[0], 0.0f, 0.0f, 220.0f, 290.0f, this);
 		dragon.initializeClass(loadout);
 	}
 

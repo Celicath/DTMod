@@ -1,18 +1,21 @@
 package TheDT.patches;
 
 import TheDT.cards.AbstractDTCard;
-import TheDT.characters.DragonTamer;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.localization.CharacterStrings;
 import javassist.CtBehavior;
 
 public class SecondKeywordPatch {
+	public static final CharacterStrings charStrings = CardCrawlGame.languagePack.getCharacterString("HighlightWords");
+
 	@SpirePatch(clz = AbstractCard.class, method = "initializeDescription")
 	public static class ColorYouOrDragonPatch {
 		@SpireInsertPatch(locator = TokenInitLocator.class)
 		public static void Insert(AbstractCard __instance, @ByRef String[] ___word) {
 			if (__instance instanceof AbstractDTCard) {
-				for (String t : DragonTamer.charStrings.TEXT) {
+				for (String t : charStrings.NAMES) {
 					if (___word[0].equals(t)) {
 						___word[0] = "[#60D0D0]" + t + "[]";
 						return;

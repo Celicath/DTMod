@@ -1,7 +1,6 @@
 package TheDT.powers;
 
 import TheDT.DTModMain;
-import TheDT.cards.AbstractDTCard;
 import TheDT.characters.DragonTamer;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;

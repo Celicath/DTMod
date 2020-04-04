@@ -114,7 +114,7 @@ public class Dragon extends CustomPlayer implements CustomSavable<ArrayList<Inte
 
 	@Override
 	public String getTitle(AbstractPlayer.PlayerClass playerClass) {
-		return charStrings.TEXT[1];
+		return charStrings.NAMES[0];
 	}
 
 	@Override

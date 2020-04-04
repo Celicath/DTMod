@@ -5,7 +5,6 @@ import TheDT.characters.Dragon;
 import TheDT.characters.DragonTamer;
 import basemod.abstracts.CustomCard;
 import com.badlogic.gdx.math.MathUtils;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;

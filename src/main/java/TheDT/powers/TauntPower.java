@@ -24,7 +24,7 @@ public class TauntPower extends AbstractPower {
 		this.amount = amount;
 		this.targetIsDragon = targetIsDragon;
 		this.updateDescription();
-		this.type = PowerType.BUFF;
+		this.type = PowerType.DEBUFF;
 		this.isTurnBased = true;
 		this.loadRegion("lockon");
 	}

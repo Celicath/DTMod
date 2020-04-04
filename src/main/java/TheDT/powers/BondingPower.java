@@ -1,18 +1,19 @@
 package TheDT.powers;
 
 import TheDT.DTModMain;
+import TheDT.optionCards.BondingBonus;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
-import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
+import com.megacrit.cardcrawl.actions.watcher.ChooseOneAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.vfx.SpeechBubble;
+
+import java.util.ArrayList;
 
 public class BondingPower extends AbstractPower {
 	public AbstractCreature source;
@@ -27,7 +28,8 @@ public class BondingPower extends AbstractPower {
 	public static final TextureAtlas.AtlasRegion IMG48 = new TextureAtlas.AtlasRegion(
 			ImageMaster.loadImage(DTModMain.GetPowerPath(RAW_ID, 48)), 0, 0, 32, 32);
 
-	public static final int THRESHOLD = 4;
+	public static final int BONUS_AMOUNT = 4;
+	public static final int OPTION_COUNT = 10;
 
 	public BondingPower(AbstractCreature owner, AbstractCreature source, int amount) {
 		this.name = NAME;
@@ -46,22 +48,34 @@ public class BondingPower extends AbstractPower {
 
 	@Override
 	public void updateDescription() {
-		this.description = DESCRIPTIONS[0] + THRESHOLD + DESCRIPTIONS[1];
+		description = DESCRIPTIONS[0] + BONUS_AMOUNT + DESCRIPTIONS[1];
 	}
 
 	@Override
-	public void atEndOfTurn(boolean isPlayer) {
-		if (isPlayer) {
-			if (amount >= THRESHOLD) {
-				this.flash();
-				AbstractDungeon.effectList.add(new SpeechBubble(
-						AbstractDungeon.player.dialogX,
-						AbstractDungeon.player.dialogY,
-						2.0f,
-						"A Mythical help appears! (LEVEL " + amount + ")",
-						true));
-				addToBot(new GainBlockAction(owner, owner, amount));
-				addToBot(new DamageAllEnemiesAction(null, DamageInfo.createDamageMatrix(amount, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.FIRE));
+	public void stackPower(int stackAmount) {
+		super.stackPower(stackAmount);
+		while (amount >= BONUS_AMOUNT) {
+			ArrayList<AbstractCard> choices = new ArrayList<>();
+
+			int index1 = AbstractDungeon.cardRandomRng.random(OPTION_COUNT - 1);
+			int index2 = AbstractDungeon.cardRandomRng.random(OPTION_COUNT - 2);
+			int index3 = AbstractDungeon.cardRandomRng.random(OPTION_COUNT - 3);
+			if (index2 == index1) {
+				index2 = OPTION_COUNT - 1;
+			}
+			if (index3 == index2) {
+				index3 = OPTION_COUNT - 2;
+			}
+			if (index3 == index1) {
+				index3 = OPTION_COUNT - 1;
+			}
+			choices.add(new BondingBonus(index1));
+			choices.add(new BondingBonus(index2));
+			choices.add(new BondingBonus(index3));
+			addToTop(new ChooseOneAction(choices));
+			amount -= BONUS_AMOUNT;
+			if (amount <= 0) {
+				addToTop(new RemoveSpecificPowerAction(owner, owner, ID));
 			}
 		}
 	}

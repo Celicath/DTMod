@@ -1,6 +1,5 @@
 package TheDT.actions;
 
-import TheDT.cards.AbstractDTCard;
 import TheDT.characters.Dragon;
 import TheDT.characters.DragonTamer;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
