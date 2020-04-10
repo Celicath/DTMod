@@ -1,12 +1,12 @@
 {
   "modid": "DTMod",
-  "name": "The DT",
+  "name": "The Dragon Tamer",
   "author_list": [
     "Celicath"
   ],
   "credits": "",
-  "description": "Adds a character called The Dragon Tamer, who fights together with his faithful dragon friend.\n\n- Adds 76 cards and 12 relics.",
-  "version": "0.0.2",
+  "description": "Adds a character called The Dragon Tamer, who fights together with his faithful dragon friend.\n\n- Adds 74/75 cards and 12 relics.",
+  "version": "0.1.0",
   "sts_version": "01-27-2020",
   "mts_version": "3.16.0",
   "dependencies": [

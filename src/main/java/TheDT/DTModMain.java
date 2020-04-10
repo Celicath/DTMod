@@ -14,6 +14,8 @@ import TheDT.patches.TheDTEnum;
 import TheDT.potions.BlazePotion;
 import TheDT.powers.ResonanceFormPower;
 import TheDT.relics.*;
+import TheDT.screens.DragonStatusButton;
+import TheDT.screens.DragonStatusScreen;
 import TheDT.variables.DTDragonBlock;
 import TheDT.variables.DTDragonDamage;
 import basemod.AutoAdd;
@@ -52,7 +54,7 @@ import java.util.Properties;
 public class DTModMain
 		implements EditCardsSubscriber, EditRelicsSubscriber, EditStringsSubscriber, EditKeywordsSubscriber,
 		EditCharactersSubscriber, PostInitializeSubscriber, OnStartBattleSubscriber, PreMonsterTurnSubscriber,
-		PostEnergyRechargeSubscriber {
+		PostEnergyRechargeSubscriber, StartGameSubscriber {
 	public static final Logger logger = LogManager.getLogger(DTModMain.class.getName());
 
 	private static final String MODNAME = "The DT";
@@ -115,6 +117,11 @@ public class DTModMain
 	public static int burnGen = 0;
 	public static int bondingGained = 0;
 
+	// Screens
+	public static DragonStatusScreen dragonStatusScreen;
+	public static DragonStatusButton dragonStatusButton;
+	boolean topPanelAdded = false;
+
 	public DTModMain() {
 		logger.info("Subscribe to basemod hooks");
 
@@ -156,6 +163,18 @@ public class DTModMain
 		logger.info("done editing characters");
 	}
 
+	@Override
+	public void receiveStartGame() {
+		if (AbstractDungeon.player instanceof DragonTamer) {
+			if (!topPanelAdded) {
+				BaseMod.addTopPanelItem(dragonStatusButton);
+				topPanelAdded = true;
+			}
+		} else if(topPanelAdded) {
+			BaseMod.removeTopPanelItem(dragonStatusButton);
+			topPanelAdded = false;
+		}
+	}
 
 	public static void loadConfig() {
 		logger.debug("loadConfig started.");
@@ -205,8 +224,9 @@ public class DTModMain
 
 		targetMarker = new TargetMarker();
 		previewBurn = new Burn();
+		dragonStatusScreen = new DragonStatusScreen();
+		dragonStatusButton = new DragonStatusButton();
 	}
-
 
 	public void receiveEditPotions() {
 		logger.info("begin editing potions");

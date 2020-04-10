@@ -91,6 +91,27 @@ public abstract class AbstractDTCard extends CustomCard {
 		initializeDescription();
 	}
 
+	public AbstractDTCard(String rawId,
+	                      String name,
+	                      CustomCard.RegionName img,
+	                      int cost,
+	                      String rawDescription,
+	                      CardType type,
+	                      CardColor color,
+	                      CardRarity rarity,
+	                      CardTarget target,
+	                      DTCardTarget dtCardTarget) {
+		super(DTModMain.makeID(rawId), name, img, cost, rawDescription, type, color, rarity, target);
+
+		this.dtCardTarget = dtCardTarget;
+		NAME = name;
+
+		cardStrings = CardCrawlGame.languagePack.getCardStrings(DTModMain.makeID(rawId));
+		DESCRIPTION = cardStrings.DESCRIPTION;
+		UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
+		EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
+	}
+
 	@Override
 	public void displayUpgrades() {
 		super.displayUpgrades();

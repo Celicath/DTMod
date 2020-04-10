@@ -41,7 +41,7 @@ import java.util.ArrayList;
 import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.getCurrRoom;
 
 public class DragonTamer extends CustomPlayer {
-	public static final CharacterStrings charStrings = CardCrawlGame.languagePack.getCharacterString("TheDT");
+	public static final CharacterStrings charStrings = CardCrawlGame.languagePack.getCharacterString(DTModMain.makeID("TheDT"));
 	public static final Logger logger = LogManager.getLogger(DTModMain.class.getName());
 
 	public static final int ENERGY_PER_TURN = 3;
@@ -301,7 +301,7 @@ public class DragonTamer extends CustomPlayer {
 
 		aggro = 0;
 		front = this;
-		addAggro(3);
+		addAggro(dragon.getTier());
 
 		frontChangedThisTurn = false;
 		battleHarmonyYou = false;
@@ -419,6 +419,13 @@ public class DragonTamer extends CustomPlayer {
 			attackerIcon = new Texture(DTModMain.makePath("ui/Attacker.png"));
 		}
 		return attackerIcon;
+	}
+
+	public static Dragon getDragon() {
+		if (AbstractDungeon.player instanceof DragonTamer) {
+			return ((DragonTamer) AbstractDungeon.player).dragon;
+		}
+		return null;
 	}
 
 	public static Dragon getLivingDragon() {

@@ -1,5 +1,5 @@
 {
-  "TheDT": {
+  "DTMod:TheDT": {
     "NAMES": [
       "the Dragon Tamer",
       "The Dragon Tamer"
@@ -8,19 +8,57 @@
       "The brave man and his faithful dragon always train together."
     ]
   },
-  "Dragon": {
+  "DTMod:Dragon": {
     "NAMES": [
       "Dragon"
     ],
     "TEXT": [
-      "Dragon is currently fainted and cannot move. At the end of combat, it will revive with 1 HP."
+      "Dragon is fainted and cannot move. At the end of combat, it will revive with #b1 HP."
     ]
   },
-  "HighlightWords": {
+  "DTMod:HighlightWords": {
     "NAMES": [
       "Dragon",
       "You"
     ],
     "TEXT": []
+  },
+  "DTMod:DragonGrowth": {
+    "NAMES": [
+      "Baby Dragon",
+      "Growing Dragon",
+      "Red Dragon",
+      "Blue Dragon",
+      "Green Dragon",
+      "Purple Dragon",
+      "Mature Dragon",
+      "Fierce Dragon",
+      "Ancient Dragon",
+      "Bird-Faced Dragon",
+      "Greedy Dragon"
+    ],
+    "TEXT": [
+      "",
+      "Gain [#87ceeb]7[] Max. HP.",
+      "Start combat with\n[#87ceeb]1[] Strength.",
+      "Start combat with\n[#87ceeb]1[] Dexterity.",
+      "Start combat with\n[#87ceeb]1[] Bonding.",
+      "Draw [#87ceeb]4[] additional cards\non turn [#87ceeb]2[].",
+      "Gain [#87ceeb]10[] Max. HP.",
+      "Twin Bite gives [#87ceeb]3[] Strength.",
+      "Start combat with\n[#87ceeb]2[] Artifact.",
+      "Heal [#87ceeb]1[] HP whenever\nyou play a Power card.",
+      "Gain [#87ceeb]75[] additional gold\nfrom combats.",
+      "",
+      "Requires 8 Attacks",
+      "Requires 5 Block cards",
+      "Requires 3 Bonding cards",
+      "Requires 4 Tactic cards",
+      "",
+      "Requires 10 Dragon cards\nand a Twin Bite",
+      "Requires 4 cards\nfrom other color",
+      "Requires 7 Powers",
+      "Requires 30 cards"
+    ]
   }
 }

@@ -46,5 +46,27 @@
     "TEXT": [
       "Dragon heals 30% HP ("
     ]
+  },
+  "DTMod:DragonStatus": {
+    "TEXT": [
+      "Dragon Status",
+      "View detailed information about [#60D0D0]Dragon[].",
+      "Dragon Tier [#87ceeb]",
+      "[] (Current)",
+      "[] (Available after beating Act [#87ceeb]",
+      "[])",
+      "At the end of Act [#87ceeb]",
+      "[], [#60D0D0]Dragon[] will grow\nto one of tier [#87ceeb]",
+      "[] dragons.",
+      "Abilities",
+      "Tier [#87ceeb]",
+      "[] Dragon",
+      "Start combat with [#87ceeb]",
+      "[] Aggro.",
+      "Immortal Body",
+      "When HP becomes [#87ceeb]0[], revive with [#87ceeb]1[] HP at the end of combat.",
+      " Perk",
+      "Close"
+    ]
   }
 }

@@ -1,5 +1,6 @@
 package TheDT.patches;
 
+import TheDT.DTModMain;
 import TheDT.cards.AbstractDTCard;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -8,7 +9,7 @@ import com.megacrit.cardcrawl.localization.CharacterStrings;
 import javassist.CtBehavior;
 
 public class SecondKeywordPatch {
-	public static final CharacterStrings charStrings = CardCrawlGame.languagePack.getCharacterString("HighlightWords");
+	public static final CharacterStrings charStrings = CardCrawlGame.languagePack.getCharacterString(DTModMain.makeID("HighlightWords"));
 
 	@SpirePatch(clz = AbstractCard.class, method = "initializeDescription")
 	public static class ColorYouOrDragonPatch {

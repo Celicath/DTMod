@@ -3,6 +3,10 @@ package TheDT.characters;
 import TheDT.DTModMain;
 import TheDT.cards.HardSkin;
 import TheDT.patches.CardColorEnum;
+import TheDT.powers.BirdFacePower;
+import TheDT.powers.BondingPower;
+import TheDT.powers.FiercePower;
+import TheDT.powers.GreedyPower;
 import basemod.BaseMod;
 import basemod.abstracts.CustomPlayer;
 import basemod.abstracts.CustomSavable;
@@ -15,6 +19,7 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.Interpolation;
 import com.evacipated.cardcrawl.mod.stslib.patches.tempHp.PlayerDamage;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -23,7 +28,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.*;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
-import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.*;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.MonsterRoom;
@@ -38,7 +43,8 @@ import org.apache.logging.log4j.Logger;
 import java.util.ArrayList;
 
 public class Dragon extends CustomPlayer implements CustomSavable<ArrayList<Integer>> {
-	public static final CharacterStrings charStrings = CardCrawlGame.languagePack.getCharacterString("Dragon");
+	public static final CharacterStrings charStrings = CardCrawlGame.languagePack.getCharacterString(DTModMain.makeID("Dragon"));
+	public static final CharacterStrings dragonGrowthStrings = CardCrawlGame.languagePack.getCharacterString(DTModMain.makeID("DragonGrowth"));
 
 	public static final float OFFSET_X = 160.0f;
 	public static final float OFFSET_Y = 60.0f;
@@ -46,15 +52,21 @@ public class Dragon extends CustomPlayer implements CustomSavable<ArrayList<Inte
 	private static final Logger logger = LogManager.getLogger(AbstractPlayer.class.getName());
 	public DragonTamer master;
 	public Texture img;
+	public static Texture[][] imgs = null;
 	public Color attackIconColor = CardHelper.getColor(255, 80, 80);
 
 	private float hoverTimer;
 	private Color nameColor;
 	private Color nameBgColor;
 
+	public int tier2Perk = -1;
+	public int tier3Perk = -1;
+
 	public Dragon(String name, float hb_x, float hb_y, float hb_w, float hb_h, DragonTamer master) {
 		super(name, master.chosenClass, null,
 				null, null, null, null);
+		logger.info("Dragon constructor called");
+
 		this.name = name;
 
 		this.hb_h = hb_h * Settings.scale;
@@ -78,23 +90,81 @@ public class Dragon extends CustomPlayer implements CustomSavable<ArrayList<Inte
 		this.nameColor = new Color();
 		this.nameBgColor = new Color(0.0F, 0.0F, 0.0F, 0.0F);
 
+		if (imgs == null) {
+			imgs = new Texture[4][];
+			imgs[1] = new Texture[]{
+					ImageMaster.loadImage(DTModMain.makePath("char/Dragon/baby.png")),
+			};
+			imgs[2] = new Texture[]{
+					ImageMaster.loadImage(DTModMain.makePath("char/Dragon/growing1.png")),
+					ImageMaster.loadImage(DTModMain.makePath("char/Dragon/growing2.png")),
+					ImageMaster.loadImage(DTModMain.makePath("char/Dragon/growing3.png")),
+					ImageMaster.loadImage(DTModMain.makePath("char/Dragon/growing4.png")),
+					ImageMaster.loadImage(DTModMain.makePath("char/Dragon/growing5.png"))
+			};
+			imgs[3] = new Texture[]{
+					ImageMaster.loadImage(DTModMain.makePath("char/Dragon/mature1.png")),
+					ImageMaster.loadImage(DTModMain.makePath("char/Dragon/mature2.png")),
+					ImageMaster.loadImage(DTModMain.makePath("char/Dragon/mature3.png")),
+					ImageMaster.loadImage(DTModMain.makePath("char/Dragon/mature4.png")),
+					ImageMaster.loadImage(DTModMain.makePath("char/Dragon/mature5.png")),
+			};
+		}
+
+
 		BaseMod.addSaveField(DTModMain.makeID("Dragon"), this);
 	}
 
 	@Override
 	public ArrayList<Integer> onSave() {
+		logger.info("Dragon onSave called");
 		ArrayList<Integer> data = new ArrayList<>();
 		data.add(currentHealth);
 		data.add(maxHealth);
+		data.add(tier2Perk);
+		data.add(tier3Perk);
 		return data;
 	}
 
 	@Override
 	public void onLoad(ArrayList<Integer> data) {
-		if (data != null && data.size() >= 2) {
+		logger.info("Dragon onLoad called");
+		if (data == null) {
+			return;
+		}
+		if (data.size() >= 2) {
 			currentHealth = data.get(0);
 			maxHealth = data.get(1);
 		}
+
+		for (int i = 2; i < data.size(); i++) {
+			switch (i) {
+				case 2:
+					tier2Perk = data.get(i);
+					break;
+				case 3:
+					tier3Perk = data.get(i);
+					break;
+			}
+			setImage(i, data.get(i));
+		}
+	}
+
+	void setImage(int tier, int choice) {
+		if (choice < 0) return;
+		img = imgs[tier][choice];
+	}
+
+	void grow(int tier, int choice) {
+		switch (tier) {
+			case 2:
+				tier2Perk = choice;
+				break;
+			case 3:
+				tier3Perk = choice;
+				break;
+		}
+		setImage(tier, choice);
 	}
 
 	@Override
@@ -187,7 +257,7 @@ public class Dragon extends CustomPlayer implements CustomSavable<ArrayList<Inte
 	}
 
 	public void initializeClass(CharSelectInfo info) {
-		this.img = ImageMaster.loadImage(DTModMain.makePath("char/TheDT/dragon.png"));
+		setImage(1, 0);
 		this.maxHealth = info.maxHp * (100 + HP_BONUS_RATIO) / 100;
 		this.currentHealth = info.currentHp * (100 + HP_BONUS_RATIO) / 100;
 	}
@@ -379,6 +449,9 @@ public class Dragon extends CustomPlayer implements CustomSavable<ArrayList<Inte
 		}
 	}
 
+	public int getTier() {
+		return tier2Perk == -1 ? 1 : tier3Perk == -1 ? 2 : 3;
+	}
 
 	@Override
 	public void renderReticle(SpriteBatch sb) {
@@ -402,6 +475,43 @@ public class Dragon extends CustomPlayer implements CustomSavable<ArrayList<Inte
 	public void preBattlePrep() {
 		powers.clear();
 		healthBarUpdatedEvent();
+
+		switch (tier2Perk) {
+			case 1:
+				AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(
+						this, this, new StrengthPower(this, 1), 1));
+				break;
+			case 2:
+				AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(
+						this, this, new DexterityPower(this, 1), 1));
+				break;
+			case 3:
+				AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(
+						AbstractDungeon.player, AbstractDungeon.player, new BondingPower(AbstractDungeon.player, AbstractDungeon.player, 1), 1));
+				break;
+			case 4:
+				AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(
+						this, this, new DrawCardNextTurnPower(this, 4), 4));
+				break;
+		}
+		switch (tier3Perk) {
+			case 1:
+				AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(
+						this, this, new FiercePower(this, 3), 3));
+				break;
+			case 2:
+				AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(
+						this, this, new ArtifactPower(this, 2), 2));
+				break;
+			case 3:
+				AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(
+						this, this, new BirdFacePower(this, 1), 1));
+				break;
+			case 4:
+				AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(
+						this, this, new GreedyPower(this, 75), 75));
+				break;
+		}
 	}
 
 	@Override
@@ -411,6 +521,9 @@ public class Dragon extends CustomPlayer implements CustomSavable<ArrayList<Inte
 			if (currentHealth == 0) {
 				heal(1);
 			}
+		}
+		for (AbstractPower p : powers) {
+			p.onVictory();
 		}
 	}
 

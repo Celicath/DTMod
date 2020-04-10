@@ -1,10 +1,12 @@
 package TheDT.optionCards;
 
+import TheDT.DTModMain;
 import TheDT.cards.AbstractDTCard;
 import TheDT.characters.Dragon;
 import TheDT.characters.DragonTamer;
 import TheDT.patches.CardColorEnum;
 import basemod.BaseMod;
+import basemod.abstracts.CustomCard;
 import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -15,6 +17,7 @@ import com.megacrit.cardcrawl.actions.unique.ExpertiseAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.*;
@@ -22,22 +25,21 @@ import com.megacrit.cardcrawl.powers.*;
 public class BondingBonus extends AbstractDTCard {
 	public static final String RAW_ID = "BondingBonus";
 	private static final int COST = -2;
-	private static final CardType TYPE = CardType.SKILL;
 	private static final CardColor COLOR = CardColorEnum.DT_ORANGE;
 	private static final CardRarity RARITY = CardRarity.SPECIAL;
 	private static final CardTarget TARGET = CardTarget.SELF;
 	private static final DTCardTarget DT_CARD_TARGET = DTCardTarget.BOTH;
 
+	private static final String[] BONDING_BONUS = CardCrawlGame.languagePack.getCardStrings(DTModMain.makeID(RAW_ID)).EXTENDED_DESCRIPTION;
+	private static final CustomCard.RegionName[] REGIONS;
+	private static final CardType[] TYPES;
+
 	int index;
 
 	public BondingBonus(int index) {
-		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, RAW_ID, DT_CARD_TARGET);
+		super(RAW_ID, BONDING_BONUS[index * 2], REGIONS[index], COST, BONDING_BONUS[index * 2 + 1], TYPES[index], COLOR, RARITY, TARGET, DT_CARD_TARGET);
 
 		this.index = index;
-		name = EXTENDED_DESCRIPTION[index * 2];
-		rawDescription = EXTENDED_DESCRIPTION[index * 2 + 1];
-		initializeTitle();
-		initializeDescription();
 	}
 
 	@Override
@@ -98,5 +100,32 @@ public class BondingBonus extends AbstractDTCard {
 	}
 
 	public void upgrade() {
+	}
+
+	static {
+		REGIONS = new CustomCard.RegionName[]{
+				new CustomCard.RegionName("colorless/skill/panacea"),
+				new CustomCard.RegionName("green/attack/die_die_die"),
+				new CustomCard.RegionName("red/skill/impervious"),
+				new CustomCard.RegionName("red/power/inflame"),
+				new CustomCard.RegionName("green/power/footwork"),
+				new CustomCard.RegionName("blue/skill/double_energy"),
+				new CustomCard.RegionName("purple/skill/scrawl"),
+				new CustomCard.RegionName("colorless/skill/blind"),
+				new CustomCard.RegionName("colorless/skill/trip"),
+				new CustomCard.RegionName("blue/skill/chaos")
+		};
+		TYPES = new CardType[]{
+				CardType.SKILL,
+				CardType.ATTACK,
+				CardType.SKILL,
+				CardType.POWER,
+				CardType.POWER,
+				CardType.SKILL,
+				CardType.SKILL,
+				CardType.SKILL,
+				CardType.SKILL,
+				CardType.SKILL
+		};
 	}
 }

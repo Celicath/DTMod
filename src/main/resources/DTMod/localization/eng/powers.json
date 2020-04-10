@@ -141,5 +141,23 @@
     "DESCRIPTIONS": [
       "Whenever You or Dragon gains Strength, Dexterity, Block or HP, the other gains a copy of it."
     ]
+  },
+  "DTMod:FiercePower": {
+    "NAME": "Fierce",
+    "DESCRIPTIONS": [
+      "After you play #yTwin #yBite, gain #b3 #yStrength."
+    ]
+  },
+  "DTMod:BirdFacePower": {
+    "NAME": "Bird Faced",
+    "DESCRIPTIONS": [
+      "Whenever you play a Power, Dragon heals #b1 HP."
+    ]
+  },
+  "DTMod:GreedyPower": {
+    "NAME": "Greedy",
+    "DESCRIPTIONS": [
+      "At the end of combat, gain #b75 additional Gold."
+    ]
   }
 }
