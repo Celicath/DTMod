@@ -10,7 +10,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-import static TheDT.patches.CustomTags.DT_TACTICS;
+import static TheDT.patches.CustomTags.DT_TACTIC;
 
 public class SneakAttack extends AbstractDTCard {
 	public static final String RAW_ID = "SneakAttack";
@@ -30,7 +30,7 @@ public class SneakAttack extends AbstractDTCard {
 		baseDamage = POWER;
 		baseMagicNumber = MAGIC;
 		magicNumber = this.baseMagicNumber;
-		tags.add(DT_TACTICS);
+		tags.add(DT_TACTIC);
 	}
 
 	@Override

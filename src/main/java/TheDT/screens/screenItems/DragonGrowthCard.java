@@ -9,6 +9,9 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.MathHelper;
+import javafx.util.Pair;
+
+import java.util.function.Consumer;
 
 public class DragonGrowthCard extends ClickableUIElement {
 	public static Texture growthCardTexture = new Texture(DTModMain.makePath("ui/GrowthCard.png"));
@@ -33,16 +36,19 @@ public class DragonGrowthCard extends ClickableUIElement {
 	int dragonTier;
 	int dragonIndex;
 	boolean curTier;
+	int current = 0, goal = 0;
+	Consumer<Pair<Integer, Integer>> callback;
 
 	public static final Color uiColorHover = Color.WHITE.cpy();
 	public static final Color uiColorUnhover = new Color(0.8f, 0.8f, 0.8f, 0.9f);
+	public static final Color progressColor = new Color(1.0f, 0.6f, 0.6f, 1.0f);
 
 	static {
 		growthCardTexture.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
 		growthCardDisabledTexture.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
 	}
 
-	public DragonGrowthCard(float cX, float cY, int dragonTier, int dragonIndex) {
+	public DragonGrowthCard(float cX, float cY, int dragonTier, int dragonIndex, Consumer<Pair<Integer, Integer>> callback) {
 		super(growthCardTexture);
 
 		this.dragonTier = dragonTier;
@@ -55,6 +61,7 @@ public class DragonGrowthCard extends ClickableUIElement {
 
 		uiScale = 1.0f;
 		uiColor = uiColorUnhover;
+		this.callback = callback;
 	}
 
 	@Override
@@ -69,9 +76,15 @@ public class DragonGrowthCard extends ClickableUIElement {
 		uiColor = uiColorUnhover;
 	}
 
+	public void setProgress(int current, int goal) {
+		this.current = current;
+		this.goal = goal;
+		setClickable(current >= goal);
+	}
+
 	@Override
 	protected void onClick() {
-
+		callback.accept(new Pair<>(dragonTier, dragonIndex));
 	}
 
 	public void moveX(float cX) {
@@ -85,9 +98,9 @@ public class DragonGrowthCard extends ClickableUIElement {
 		curTier = false;
 	}
 
-	public void setCurrent(boolean curTier) {
-		this.curTier = curTier;
-		if (curTier) {
+	public void setIfCurrent(boolean isCurrent) {
+		this.curTier = isCurrent;
+		if (isCurrent) {
 			frameScale = 0.75f;
 		} else {
 			frameScale = 0.5f;
@@ -126,16 +139,27 @@ public class DragonGrowthCard extends ClickableUIElement {
 				DRAGON_WIDTH, DRAGON_HEIGHT, dragonScale, dragonScale, 0.0F, 0, 0, DRAGON_WIDTH, DRAGON_HEIGHT, false, false);
 
 		int index = dragonTier == 1 ? 0 : dragonTier * 5 + dragonIndex - 9;
+
+		FontHelper.cardTitleFont.getData().setScale(1.0F);
 		FontHelper.renderFontCentered(sb, FontHelper.cardTitleFont, Dragon.dragonGrowthStrings.NAMES[index],
-				cX, cY + CARD_HEIGHT * 0.34f, Color.YELLOW);
+				cX, cY + CARD_HEIGHT * 0.4f * scale, Color.YELLOW);
 
 		if (!curTier) {
-			FontHelper.renderFontCentered(sb, FontHelper.topPanelAmountFont, Dragon.dragonGrowthStrings.TEXT[index + 10],
-					cX, cY + CARD_HEIGHT * 0.25f, Color.LIGHT_GRAY);
+			if (goal > 0) {
+				FontHelper.topPanelAmountFont.getData().setScale(1.0F);
+				FontHelper.renderFontCentered(sb, FontHelper.topPanelAmountFont,
+						Dragon.dragonGrowthStrings.TEXT[11] + goal + Dragon.dragonGrowthStrings.TEXT[index + 11],
+						cX, cY + CARD_HEIGHT * 0.3f * scale, Color.LIGHT_GRAY);
+				if (current < goal) {
+					FontHelper.renderFontCentered(sb, FontHelper.cardDescFont_L,
+							current == -1 ? Dragon.dragonGrowthStrings.TEXT[22] : current + "/" + goal,
+							cX, cY + CARD_HEIGHT * 0.54f * scale, progressColor);
+				}
+			}
+			FontHelper.cardDescFont_L.getData().setScale(1.0F);
 			FontHelper.renderFontCentered(sb, FontHelper.cardDescFont_L, Dragon.dragonGrowthStrings.TEXT[index],
-					cX, cY - CARD_HEIGHT * 0.2f, Color.WHITE);
+					cX, cY - CARD_HEIGHT * 0.25f * scale, Color.WHITE);
 		}
-
 		renderHitbox(sb);
 	}
 }

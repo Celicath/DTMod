@@ -1,6 +1,7 @@
 package TheDT.cards;
 
 import TheDT.patches.CardColorEnum;
+import TheDT.patches.CustomTags;
 import TheDT.powers.HuntersMarkPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -29,6 +30,7 @@ public class HuntersMark extends AbstractDTCard {
 		baseMagicNumber = magicNumber = MAGIC;
 
 		exhaust = true;
+		tags.add(CustomTags.DT_BONDING);
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {

@@ -49,16 +49,18 @@
       "Start combat with\n[#87ceeb]2[] Artifact.",
       "Heal [#87ceeb]1[] HP whenever\nyou play a Power card.",
       "Gain [#87ceeb]75[] additional gold\nfrom combats.",
+      "Requires ",
       "",
-      "Requires 8 Attacks",
-      "Requires 5 Block cards",
-      "Requires 3 Bonding cards",
-      "Requires 4 Tactic cards",
+      " Attacks",
+      " Skills",
+      " Bonding cards",
+      " Tactic cards",
       "",
-      "Requires 10 Dragon cards\nand a Twin Bite",
-      "Requires 4 cards\nfrom other color",
-      "Requires 7 Powers",
-      "Requires 30 cards"
+      " Dragon cards\nand a Twin Bite",
+      " cards\nfrom other color",
+      " Powers",
+      " cards",
+      "No Twin Bite"
     ]
   }
 }

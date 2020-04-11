@@ -1,19 +1,27 @@
 package TheDT.screens;
 
 import TheDT.DTModMain;
+import TheDT.cards.AbstractDTCard;
+import TheDT.cards.TwinBite;
 import TheDT.characters.Dragon;
 import TheDT.characters.DragonTamer;
+import TheDT.patches.CardColorEnum;
 import TheDT.patches.CurrentScreenEnum;
+import TheDT.patches.CustomTags;
 import TheDT.screens.screenItems.DragonGrowthCard;
 import TheDT.screens.screenItems.DragonStatusScrollButton;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.UIStrings;
+import javafx.util.Pair;
+
+import java.util.function.Function;
 
 public class DragonStatusScreen {
 	private static UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(DTModMain.makeID("DragonStatus"));
@@ -30,16 +38,18 @@ public class DragonStatusScreen {
 	int curTier;
 	int curIndex;
 
+	public boolean needSelection;
+
 	public DragonStatusScreen() {
 		dragonGrowthCards = new DragonGrowthCard[4][];
 		dragonGrowthCards[1] = new DragonGrowthCard[]{
-				new DragonGrowthCard(Settings.WIDTH / 2.0f, Settings.HEIGHT / 2.0f, 1, 0)
+				new DragonGrowthCard(Settings.WIDTH / 2.0f, Settings.HEIGHT / 2.0f, 1, 0, this::onClickCard)
 		};
 		for (int i = 2; i <= 3; i++) {
 			dragonGrowthCards[i] = new DragonGrowthCard[5];
 			for (int j = 0; j < 5; j++) {
 				dragonGrowthCards[i][j] = new DragonGrowthCard(
-						Settings.WIDTH * (14 + 18 * j) / 100.0f, Settings.HEIGHT * (i - 0.5f), i, j);
+						Settings.WIDTH * (14 + 18 * j) / 100.0f, Settings.HEIGHT * (i - 0.5f), i, j, this::onClickCard);
 			}
 		}
 		dragonStatusScrollButtons = new DragonStatusScrollButton[]{
@@ -51,11 +61,30 @@ public class DragonStatusScreen {
 	}
 
 	public void open() {
+		open(true, false, true);
+		needSelection = false;
+	}
+
+	public void openSelection() {
+		open(true, false, false);
+		needSelection = true;
+		yOffset = targetOffset = curTier * Settings.HEIGHT;
+	}
+
+	public void open(boolean resetPositions, boolean proceed, boolean cancel) {
 		AbstractDungeon.player.releaseCard();
 		AbstractDungeon.screen = CurrentScreenEnum.DRAGON_GROWTH;
 		AbstractDungeon.overlayMenu.showBlackScreen();
-		AbstractDungeon.overlayMenu.proceedButton.hide();
-		AbstractDungeon.overlayMenu.cancelButton.show(TEXT[17]);
+		if (proceed) {
+			AbstractDungeon.overlayMenu.proceedButton.show();
+		} else {
+			AbstractDungeon.overlayMenu.proceedButton.hide();
+		}
+		if (cancel) {
+			AbstractDungeon.overlayMenu.cancelButton.show(TEXT[17]);
+		} else {
+			AbstractDungeon.overlayMenu.cancelButton.hide();
+		}
 		AbstractDungeon.isScreenUp = true;
 
 		dragon = DragonTamer.getDragon();
@@ -64,11 +93,14 @@ public class DragonStatusScreen {
 			curIndex = curTier == 2 ? dragon.tier2Perk : curTier == 3 ? dragon.tier3Perk : 0;
 			yOffset = targetOffset = (curTier - 1) * Settings.HEIGHT;
 		}
-		resetPositions();
-		ySpeed = 0;
+		if (resetPositions) {
+			resetPositions();
+			ySpeed = 0;
+		}
 	}
 
 	public void close() {
+		AbstractDungeon.overlayMenu.proceedButton.hide();
 		AbstractDungeon.overlayMenu.cancelButton.hide();
 	}
 
@@ -84,19 +116,53 @@ public class DragonStatusScreen {
 		updateButtons();
 	}
 
+	public void onClickCard(Pair<Integer, Integer> param) {
+		if (needSelection) {
+			int tier = param.getKey();
+			int index = param.getValue();
+			dragon.grow(tier, index);
+			needSelection = false;
+			open(true, true, false);
+		}
+	}
+
 	public void resetPositions() {
 		dragonGrowthCards[curTier][curIndex].moveX(Settings.WIDTH * 0.4f);
-		dragonGrowthCards[curTier][curIndex].setCurrent(true);
+		dragonGrowthCards[curTier][curIndex].setIfCurrent(true);
+
 		for (int i = 2; i <= 3; i++) {
 			if (i == curTier) {
 				continue;
 			}
 			for (int j = 0; j < 5; j++) {
 				dragonGrowthCards[i][j].resetX();
-				dragonGrowthCards[i][j].setCurrent(false);
+				dragonGrowthCards[i][j].setIfCurrent(false);
 			}
 		}
+
+		dragonGrowthCards[2][1].setProgress(countDeck(c -> c.type == AbstractCard.CardType.ATTACK), 8);
+		dragonGrowthCards[2][2].setProgress(countDeck(c -> c.type == AbstractCard.CardType.SKILL), 8);
+		dragonGrowthCards[2][3].setProgress(countDeck(c -> c.tags.contains(CustomTags.DT_BONDING)),  3);
+		dragonGrowthCards[2][4].setProgress(countDeck((c) -> c.tags.contains(CustomTags.DT_TACTIC)), 5);
+		dragonGrowthCards[3][1].setProgress(
+				countDeck((c) -> c instanceof TwinBite) >= 1 ?
+						countDeck((c) -> c instanceof AbstractDTCard && ((AbstractDTCard) c).dtCardTarget == AbstractDTCard.DTCardTarget.DRAGON_ONLY) : -1,
+				 10);
+		dragonGrowthCards[3][2].setProgress(countDeck((c) -> c.color != CardColorEnum.DT_ORANGE), 4);
+		dragonGrowthCards[3][3].setProgress(countDeck((c) -> c.type == AbstractCard.CardType.POWER), 7);
+		dragonGrowthCards[3][4].setProgress(AbstractDungeon.player.masterDeck.size(), 30);
+		dragonGrowthCards[curTier][curIndex].setProgress(0, 0);
 		updateButtons();
+	}
+
+	int countDeck(Function<AbstractCard, Boolean> func) {
+		int count = 0;
+		for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
+			if (func.apply(c)) {
+				count++;
+			}
+		}
+		return count;
 	}
 
 	public void updateButtons() {
@@ -114,9 +180,11 @@ public class DragonStatusScreen {
 				}
 			}
 		}
-		for (int i = curTier == 2 ? 1 : curTier == 3 ? dragonStatusScrollButtons.length : 0; i < dragonStatusScrollButtons.length; i++) {
-			dragonStatusScrollButtons[i].setYOffset(yOffset);
-			dragonStatusScrollButtons[i].update();
+		if (!needSelection) {
+			for (int i = curTier == 2 ? 1 : curTier == 3 ? dragonStatusScrollButtons.length : 0; i < dragonStatusScrollButtons.length; i++) {
+				dragonStatusScrollButtons[i].setYOffset(yOffset);
+				dragonStatusScrollButtons[i].update();
+			}
 		}
 	}
 
@@ -137,8 +205,10 @@ public class DragonStatusScreen {
 				renderCurrentStatus(sb);
 				break;
 		}
-		for (int i = curTier == 2 ? 1 : curTier == 3 ? dragonStatusScrollButtons.length : 0; i < dragonStatusScrollButtons.length; i++) {
-			dragonStatusScrollButtons[i].render(sb);
+		if (!needSelection) {
+			for (int i = curTier == 2 ? 1 : curTier == 3 ? dragonStatusScrollButtons.length : 0; i < dragonStatusScrollButtons.length; i++) {
+				dragonStatusScrollButtons[i].render(sb);
+			}
 		}
 	}
 
@@ -152,6 +222,8 @@ public class DragonStatusScreen {
 		}
 
 		// Abilities
+		FontHelper.cardTitleFont.getData().setScale(1.0F);
+		FontHelper.cardDescFont_L.getData().setScale(1.0F);
 		FontHelper.renderFontLeft(sb, FontHelper.cardTitleFont, TEXT[9], 975 * Settings.scale, 750 * Settings.scale + offset, Color.WHITE);
 		FontHelper.renderFontLeft(sb, FontHelper.cardTitleFont, TEXT[10] + curTier + TEXT[11], 975 * Settings.scale, 675 * Settings.scale + offset, Color.WHITE);
 		FontHelper.renderFontLeft(sb, FontHelper.cardDescFont_L, TEXT[12] + curTier + TEXT[13], 1000 * Settings.scale, 625 * Settings.scale + offset, Color.WHITE);

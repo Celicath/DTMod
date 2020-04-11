@@ -12,7 +12,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.DexterityPower;
 
-import static TheDT.patches.CustomTags.DT_TACTICS;
+import static TheDT.patches.CustomTags.DT_TACTIC;
 
 public class OpeningTactic extends AbstractDTCard {
 	public static final String RAW_ID = "OpeningTactic";
@@ -33,7 +33,7 @@ public class OpeningTactic extends AbstractDTCard {
 		baseMagicNumber = MAGIC;
 		magicNumber = this.baseMagicNumber;
 		isInnate = true;
-		tags.add(DT_TACTICS);
+		tags.add(DT_TACTIC);
 	}
 
 	@Override

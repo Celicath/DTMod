@@ -14,7 +14,7 @@ import com.megacrit.cardcrawl.powers.ArtifactPower;
 import com.megacrit.cardcrawl.powers.GainStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 
-import static TheDT.patches.CustomTags.DT_TACTICS;
+import static TheDT.patches.CustomTags.DT_TACTIC;
 
 public class SwitchingTactic extends AbstractDTCard {
 	public static final String RAW_ID = "SwitchingTactic";
@@ -28,7 +28,7 @@ public class SwitchingTactic extends AbstractDTCard {
 	public SwitchingTactic() {
 		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
 		exhaust = true;
-		tags.add(DT_TACTICS);
+		tags.add(DT_TACTIC);
 
 		if (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(TacticalNote.ID)) {
 			modifyCostForCombat(-9);

@@ -155,7 +155,7 @@ public class Dragon extends CustomPlayer implements CustomSavable<ArrayList<Inte
 		img = imgs[tier][choice];
 	}
 
-	void grow(int tier, int choice) {
+	public void grow(int tier, int choice) {
 		switch (tier) {
 			case 2:
 				tier2Perk = choice;

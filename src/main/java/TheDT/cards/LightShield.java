@@ -4,6 +4,7 @@ import TheDT.DTModMain;
 import TheDT.characters.Dragon;
 import TheDT.characters.DragonTamer;
 import TheDT.patches.CardColorEnum;
+import TheDT.patches.CustomTags;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -29,6 +30,7 @@ public class LightShield extends AbstractDTCard {
 		magicNumber = baseMagicNumber = RATIO;
 		baseBlock = POWER;
 		dtBaseDragonBlock = POWER;
+		tags.add(CustomTags.DT_BONDING);
 	}
 
 	@Override

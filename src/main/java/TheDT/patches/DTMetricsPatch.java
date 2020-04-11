@@ -1,5 +1,6 @@
 package TheDT.patches;
 
+import TheDT.characters.DragonTamer;
 import com.evacipated.cardcrawl.modthespire.lib.ByRef;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch;
@@ -14,6 +15,7 @@ import javassist.ClassPool;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.HashMap;
 
 public class DTMetricsPatch {
 	@SpirePatch(clz = Metrics.class, method = "sendPost", paramtypez = {String.class, String.class})
@@ -50,6 +52,16 @@ public class DTMetricsPatch {
 				} catch (NoSuchMethodException | InvocationTargetException | IllegalAccessException e) {
 					e.printStackTrace();
 				}
+			}
+		}
+	}
+
+	@SpirePatch(clz = Metrics.class, method = "gatherAllData")
+	public static class BuildJsonPatch {
+		@SpirePostfixPatch
+		public static void Postfix(Metrics __instance, boolean death, boolean trueVictor, MonsterGroup monsters, HashMap<Object, Object> ___params) {
+			if (AbstractDungeon.player instanceof DragonTamer) {
+				___params.put("dtmod_dragon_data", ((DragonTamer) AbstractDungeon.player).dragon.onSave());
 			}
 		}
 	}

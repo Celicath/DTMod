@@ -3,6 +3,7 @@ package TheDT.screens;
 import TheDT.DTModMain;
 import TheDT.characters.DragonTamer;
 import TheDT.patches.CurrentScreenEnum;
+import TheDT.patches.DragonStatusScreenPatch;
 import basemod.TopPanelItem;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -22,7 +23,7 @@ public class DragonStatusButton extends TopPanelItem {
 
 	@Override
 	protected void onClick() {
-		if (!CardCrawlGame.isPopupOpen) {
+		if (!CardCrawlGame.isPopupOpen && !(AbstractDungeon.getCurrRoom() instanceof DragonStatusScreenPatch.DragonGrowthRoom)) {
 			toggleScreen();
 		}
 	}

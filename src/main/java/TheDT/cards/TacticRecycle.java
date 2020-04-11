@@ -9,7 +9,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-import static TheDT.patches.CustomTags.DT_TACTICS;
+import static TheDT.patches.CustomTags.DT_TACTIC;
 
 public class TacticRecycle extends AbstractDTCard {
 	public static final String RAW_ID = "TacticRecycle";
@@ -27,7 +27,7 @@ public class TacticRecycle extends AbstractDTCard {
 		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
 		exhaust = true;
 		baseMagicNumber = magicNumber = POWER;
-		tags.add(DT_TACTICS);
+		tags.add(DT_TACTIC);
 	}
 
 	@Override
