@@ -159,9 +159,15 @@ public class Dragon extends CustomPlayer implements CustomSavable<ArrayList<Inte
 		switch (tier) {
 			case 2:
 				tier2Perk = choice;
+				if (choice == 0) {
+					this.increaseMaxHp(7, true);
+				}
 				break;
 			case 3:
 				tier3Perk = choice;
+				if (choice == 0) {
+					this.increaseMaxHp(10, true);
+				}
 				break;
 		}
 		setImage(tier, choice);

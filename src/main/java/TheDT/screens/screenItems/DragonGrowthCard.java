@@ -9,6 +9,8 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.MathHelper;
+import com.megacrit.cardcrawl.helpers.TipHelper;
+import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import javafx.util.Pair;
 
 import java.util.function.Consumer;
@@ -42,6 +44,7 @@ public class DragonGrowthCard extends ClickableUIElement {
 	public static final Color uiColorHover = Color.WHITE.cpy();
 	public static final Color uiColorUnhover = new Color(0.8f, 0.8f, 0.8f, 0.9f);
 	public static final Color progressColor = new Color(1.0f, 0.6f, 0.6f, 1.0f);
+	public static final Color completeColor = new Color(0.6f, 1.0f, 0.6f, 1.0f);
 
 	static {
 		growthCardTexture.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
@@ -66,8 +69,10 @@ public class DragonGrowthCard extends ClickableUIElement {
 
 	@Override
 	protected void onHover() {
-		uiScale = MathHelper.fadeLerpSnap(uiScale, 1.025F);
-		uiColor = uiColorHover;
+		if (isClickable()) {
+			uiScale = MathHelper.fadeLerpSnap(uiScale, 1.025F);
+			uiColor = uiColorHover;
+		}
 	}
 
 	@Override
@@ -150,16 +155,32 @@ public class DragonGrowthCard extends ClickableUIElement {
 				FontHelper.renderFontCentered(sb, FontHelper.topPanelAmountFont,
 						Dragon.dragonGrowthStrings.TEXT[11] + goal + Dragon.dragonGrowthStrings.TEXT[index + 11],
 						cX, cY + CARD_HEIGHT * 0.3f * scale, Color.LIGHT_GRAY);
-				if (current < goal) {
-					FontHelper.renderFontCentered(sb, FontHelper.cardDescFont_L,
-							current == -1 ? Dragon.dragonGrowthStrings.TEXT[22] : current + "/" + goal,
-							cX, cY + CARD_HEIGHT * 0.54f * scale, progressColor);
-				}
+				FontHelper.renderFontCentered(sb, FontHelper.cardDescFont_L,
+						current == -1 ? Dragon.dragonGrowthStrings.TEXT[22] : current + "/" + goal,
+						cX, cY + CARD_HEIGHT * 0.54f * scale, current < goal ? progressColor : completeColor);
 			}
 			FontHelper.cardDescFont_L.getData().setScale(1.0F);
 			FontHelper.renderFontCentered(sb, FontHelper.cardDescFont_L, Dragon.dragonGrowthStrings.TEXT[index],
 					cX, cY - CARD_HEIGHT * 0.25f * scale, Color.WHITE);
 		}
+
+		if (hitbox.hovered) {
+			switch (index) {
+				case 4:
+					TipHelper.renderGenericTip(InputHelper.mX + 50.0F * Settings.scale, InputHelper.mY,
+							Dragon.dragonGrowthStrings.TEXT[23], Dragon.dragonGrowthStrings.TEXT[24]);
+					break;
+				case 5:
+					TipHelper.renderGenericTip(InputHelper.mX + 50.0F * Settings.scale, InputHelper.mY,
+							Dragon.dragonGrowthStrings.TEXT[25], Dragon.dragonGrowthStrings.TEXT[26]);
+					break;
+				case 7:
+					TipHelper.renderGenericTip(InputHelper.mX + 50.0F * Settings.scale, InputHelper.mY,
+							Dragon.dragonGrowthStrings.TEXT[27], Dragon.dragonGrowthStrings.TEXT[28]);
+					break;
+			}
+		}
+
 		renderHitbox(sb);
 	}
 }

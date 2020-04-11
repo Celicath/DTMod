@@ -19,6 +19,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.UIStrings;
+import com.megacrit.cardcrawl.screens.CombatRewardScreen;
 import javafx.util.Pair;
 
 import java.util.function.Function;
@@ -61,42 +62,39 @@ public class DragonStatusScreen {
 	}
 
 	public void open() {
-		open(true, false, true);
+		AbstractDungeon.screen = CurrentScreenEnum.DRAGON_GROWTH;
+		AbstractDungeon.overlayMenu.showBlackScreen();
 		needSelection = false;
+		AbstractDungeon.isScreenUp = true;
+		AbstractDungeon.overlayMenu.proceedButton.hide();
+		AbstractDungeon.overlayMenu.cancelButton.show(TEXT[20]);
+		resetPositions();
+		yOffset = targetOffset = (curTier - 1) * Settings.HEIGHT;
+		ySpeed = 0;
+		reopen();
 	}
 
 	public void openSelection() {
-		open(true, false, false);
 		needSelection = true;
+		AbstractDungeon.overlayMenu.proceedButton.hide();
+		AbstractDungeon.overlayMenu.cancelButton.hide();
+		resetPositions();
 		yOffset = targetOffset = curTier * Settings.HEIGHT;
+		ySpeed = 0;
+		reopen();
 	}
 
-	public void open(boolean resetPositions, boolean proceed, boolean cancel) {
-		AbstractDungeon.player.releaseCard();
-		AbstractDungeon.screen = CurrentScreenEnum.DRAGON_GROWTH;
-		AbstractDungeon.overlayMenu.showBlackScreen();
-		if (proceed) {
-			AbstractDungeon.overlayMenu.proceedButton.show();
-		} else {
-			AbstractDungeon.overlayMenu.proceedButton.hide();
-		}
-		if (cancel) {
-			AbstractDungeon.overlayMenu.cancelButton.show(TEXT[17]);
-		} else {
-			AbstractDungeon.overlayMenu.cancelButton.hide();
-		}
-		AbstractDungeon.isScreenUp = true;
+	public void afterDragonGrowth() {
+		needSelection = false;
+		AbstractDungeon.overlayMenu.proceedButton.setLabel(CombatRewardScreen.TEXT[0]);
+		AbstractDungeon.overlayMenu.proceedButton.show();
+		AbstractDungeon.overlayMenu.cancelButton.hide();
+		resetPositions();
+		reopen();
+	}
 
-		dragon = DragonTamer.getDragon();
-		if (dragon != null) {
-			curTier = dragon.getTier();
-			curIndex = curTier == 2 ? dragon.tier2Perk : curTier == 3 ? dragon.tier3Perk : 0;
-			yOffset = targetOffset = (curTier - 1) * Settings.HEIGHT;
-		}
-		if (resetPositions) {
-			resetPositions();
-			ySpeed = 0;
-		}
+	public void reopen() {
+		AbstractDungeon.player.releaseCard();
 	}
 
 	public void close() {
@@ -121,13 +119,17 @@ public class DragonStatusScreen {
 			int tier = param.getKey();
 			int index = param.getValue();
 			dragon.grow(tier, index);
-			needSelection = false;
-			open(true, true, false);
+			afterDragonGrowth();
 		}
 	}
 
 	public void resetPositions() {
-		dragonGrowthCards[curTier][curIndex].moveX(Settings.WIDTH * 0.4f);
+		dragon = DragonTamer.getDragon();
+		if (dragon != null) {
+			curTier = dragon.getTier();
+			curIndex = curTier == 2 ? dragon.tier2Perk : curTier == 3 ? dragon.tier3Perk : 0;
+		}
+		dragonGrowthCards[curTier][curIndex].moveX(Settings.WIDTH * 0.5f);
 		dragonGrowthCards[curTier][curIndex].setIfCurrent(true);
 
 		for (int i = 2; i <= 3; i++) {
@@ -142,12 +144,13 @@ public class DragonStatusScreen {
 
 		dragonGrowthCards[2][1].setProgress(countDeck(c -> c.type == AbstractCard.CardType.ATTACK), 8);
 		dragonGrowthCards[2][2].setProgress(countDeck(c -> c.type == AbstractCard.CardType.SKILL), 8);
-		dragonGrowthCards[2][3].setProgress(countDeck(c -> c.tags.contains(CustomTags.DT_BONDING)),  3);
-		dragonGrowthCards[2][4].setProgress(countDeck((c) -> c.tags.contains(CustomTags.DT_TACTIC)), 5);
+		dragonGrowthCards[2][3].setProgress(countDeck(c -> c.tags.contains(CustomTags.DT_BONDING)), 3);
+		dragonGrowthCards[2][4].setProgress(countDeck((c) -> c.tags.contains(CustomTags.DT_TACTIC)), 4);
 		dragonGrowthCards[3][1].setProgress(
 				countDeck((c) -> c instanceof TwinBite) >= 1 ?
-						countDeck((c) -> c instanceof AbstractDTCard && ((AbstractDTCard) c).dtCardTarget == AbstractDTCard.DTCardTarget.DRAGON_ONLY) : -1,
-				 10);
+						countDeck((c) -> c instanceof AbstractDTCard &&
+								((AbstractDTCard) c).dtCardTarget != AbstractDTCard.DTCardTarget.DEFAULT &&
+								c.type == AbstractCard.CardType.ATTACK) : -1, 10);
 		dragonGrowthCards[3][2].setProgress(countDeck((c) -> c.color != CardColorEnum.DT_ORANGE), 4);
 		dragonGrowthCards[3][3].setProgress(countDeck((c) -> c.type == AbstractCard.CardType.POWER), 7);
 		dragonGrowthCards[3][4].setProgress(AbstractDungeon.player.masterDeck.size(), 30);
@@ -181,7 +184,7 @@ public class DragonStatusScreen {
 			}
 		}
 		if (!needSelection) {
-			for (int i = curTier == 2 ? 1 : curTier == 3 ? dragonStatusScrollButtons.length : 0; i < dragonStatusScrollButtons.length; i++) {
+			for (int i = curTier == 2 ? 2 : curTier == 3 ? dragonStatusScrollButtons.length : 0; i < dragonStatusScrollButtons.length; i++) {
 				dragonStatusScrollButtons[i].setYOffset(yOffset);
 				dragonStatusScrollButtons[i].update();
 			}
@@ -206,7 +209,7 @@ public class DragonStatusScreen {
 				break;
 		}
 		if (!needSelection) {
-			for (int i = curTier == 2 ? 1 : curTier == 3 ? dragonStatusScrollButtons.length : 0; i < dragonStatusScrollButtons.length; i++) {
+			for (int i = curTier == 2 ? 2 : curTier == 3 ? dragonStatusScrollButtons.length : 0; i < dragonStatusScrollButtons.length; i++) {
 				dragonStatusScrollButtons[i].render(sb);
 			}
 		}
@@ -215,30 +218,35 @@ public class DragonStatusScreen {
 	private void renderCurrentStatus(SpriteBatch sb) {
 		float offset = (curTier - 1) * Settings.HEIGHT - yOffset;
 		FontHelper.renderFontLeft(sb, FontHelper.panelNameFont, TEXT[2] + curTier + TEXT[3], 100 * Settings.scale, 0.79f * Settings.HEIGHT + offset, Color.WHITE);
-
 		// Tier explanation
 		if (curTier < 3) {
-			FontHelper.renderFontLeft(sb, FontHelper.charDescFont, TEXT[6] + curTier + TEXT[7] + (curTier + 1) + TEXT[8], 150 * Settings.scale, 0.6f * Settings.HEIGHT + offset, Color.WHITE);
+			String inst = TEXT[8] + curTier + TEXT[9] + (curTier + 1) + TEXT[10];
+			if (curTier == 2) {
+				inst += TEXT[11];
+			}
+			FontHelper.renderFontLeft(sb, FontHelper.charDescFont, inst, 130 * Settings.scale, 0.64f * Settings.HEIGHT + offset, Color.WHITE);
 		}
 
 		// Abilities
 		FontHelper.cardTitleFont.getData().setScale(1.0F);
 		FontHelper.cardDescFont_L.getData().setScale(1.0F);
-		FontHelper.renderFontLeft(sb, FontHelper.cardTitleFont, TEXT[9], 975 * Settings.scale, 750 * Settings.scale + offset, Color.WHITE);
-		FontHelper.renderFontLeft(sb, FontHelper.cardTitleFont, TEXT[10] + curTier + TEXT[11], 975 * Settings.scale, 675 * Settings.scale + offset, Color.WHITE);
-		FontHelper.renderFontLeft(sb, FontHelper.cardDescFont_L, TEXT[12] + curTier + TEXT[13], 1000 * Settings.scale, 625 * Settings.scale + offset, Color.WHITE);
-		FontHelper.renderFontLeft(sb, FontHelper.cardTitleFont, TEXT[14], 975 * Settings.scale, 550 * Settings.scale + offset, Color.WHITE);
-		FontHelper.renderFontLeft(sb, FontHelper.cardDescFont_L, TEXT[15], 1000 * Settings.scale, 500 * Settings.scale + offset, Color.WHITE);
+		float x1 = Settings.WIDTH / 2.0f + 225 * Settings.scale;
+		float x2 = Settings.WIDTH / 2.0f + 250 * Settings.scale;
+		FontHelper.renderFontLeft(sb, FontHelper.cardTitleFont, TEXT[12], x1, 750 * Settings.scale + offset, Color.WHITE);
+		FontHelper.renderFontLeft(sb, FontHelper.cardTitleFont, TEXT[13] + curTier + TEXT[14], x1, 675 * Settings.scale + offset, Color.WHITE);
+		FontHelper.renderFontLeft(sb, FontHelper.cardDescFont_L, TEXT[15] + curTier + TEXT[16], x2, 625 * Settings.scale + offset, Color.WHITE);
+		FontHelper.renderFontLeft(sb, FontHelper.cardTitleFont, TEXT[17], x1, 550 * Settings.scale + offset, Color.WHITE);
+		FontHelper.renderFontLeft(sb, FontHelper.cardDescFont_L, TEXT[18], x2, 500 * Settings.scale + offset, Color.WHITE);
 		if (curTier >= 2) {
-			FontHelper.renderFontLeft(sb, FontHelper.cardTitleFont, Dragon.dragonGrowthStrings.NAMES[curIndex + 1] + TEXT[16],
-					975 * Settings.scale, 425 * Settings.scale + offset, Color.WHITE);
-			FontHelper.renderFontLeft(sb, FontHelper.cardDescFont_L, Dragon.dragonGrowthStrings.TEXT[curIndex + 1],
-					1000 * Settings.scale, 375 * Settings.scale + offset, Color.WHITE);
+			FontHelper.renderFontLeft(sb, FontHelper.cardTitleFont, Dragon.dragonGrowthStrings.NAMES[dragon.tier2Perk + 1] + TEXT[19],
+					x1, 425 * Settings.scale + offset, Color.WHITE);
+			FontHelper.renderFontLeft(sb, FontHelper.cardDescFont_L, Dragon.dragonGrowthStrings.TEXT[dragon.tier2Perk + 1].replace('\n', ' '),
+					x2, 375 * Settings.scale + offset, Color.WHITE);
 			if (curTier >= 3) {
-				FontHelper.renderFontLeft(sb, FontHelper.cardTitleFont, Dragon.dragonGrowthStrings.NAMES[curIndex + 6] + TEXT[16],
-						975 * Settings.scale, 300 * Settings.scale + offset, Color.WHITE);
-				FontHelper.renderFontLeft(sb, FontHelper.cardDescFont_L, Dragon.dragonGrowthStrings.TEXT[curIndex + 6],
-						1000 * Settings.scale, 250 * Settings.scale + offset, Color.WHITE);
+				FontHelper.renderFontLeft(sb, FontHelper.cardTitleFont, Dragon.dragonGrowthStrings.NAMES[dragon.tier3Perk + 6] + TEXT[19],
+						x1, 300 * Settings.scale + offset, Color.WHITE);
+				FontHelper.renderFontLeft(sb, FontHelper.cardDescFont_L, Dragon.dragonGrowthStrings.TEXT[dragon.tier3Perk + 6].replace('\n', ' '),
+						x2, 250 * Settings.scale + offset, Color.WHITE);
 			}
 		}
 
@@ -247,8 +255,11 @@ public class DragonStatusScreen {
 
 	private void renderTier(SpriteBatch sb, int tier) {
 		float offset = (tier - 1) * Settings.HEIGHT - yOffset;
-		FontHelper.renderFontLeft(sb, FontHelper.panelNameFont, TEXT[2] + tier + TEXT[4] + (tier - 1) + TEXT[5], 100 * Settings.scale, 0.79f * Settings.HEIGHT + offset, Color.WHITE);
-
+		if (needSelection) {
+			FontHelper.renderFontLeft(sb, FontHelper.panelNameFont, TEXT[6] + tier + TEXT[7], 100 * Settings.scale, 0.79f * Settings.HEIGHT + offset, Color.WHITE);
+		} else {
+			FontHelper.renderFontLeft(sb, FontHelper.panelNameFont, TEXT[2] + tier + TEXT[4] + (tier - 1) + TEXT[5], 100 * Settings.scale, 0.79f * Settings.HEIGHT + offset, Color.WHITE);
+		}
 		for (int i = 0; i < 5; i++) {
 			dragonGrowthCards[tier][i].render(sb);
 		}

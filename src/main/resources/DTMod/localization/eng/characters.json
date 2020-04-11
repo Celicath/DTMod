@@ -39,12 +39,12 @@
     ],
     "TEXT": [
       "",
-      "Gain [#87ceeb]7[] Max. HP.",
+      "Gain [#87ceeb]7[] Max HP.",
       "Start combat with\n[#87ceeb]1[] Strength.",
       "Start combat with\n[#87ceeb]1[] Dexterity.",
       "Start combat with\n[#87ceeb]1[] Bonding.",
       "Draw [#87ceeb]4[] additional cards\non turn [#87ceeb]2[].",
-      "Gain [#87ceeb]10[] Max. HP.",
+      "Gain [#87ceeb]10[] Max HP.",
       "Twin Bite gives [#87ceeb]3[] Strength.",
       "Start combat with\n[#87ceeb]2[] Artifact.",
       "Heal [#87ceeb]1[] HP whenever\nyou play a Power card.",
@@ -56,11 +56,17 @@
       " Bonding cards",
       " Tactic cards",
       "",
-      " Dragon cards\nand a Twin Bite",
+      " Dragon Attacks\nand a Twin Bite",
       " cards\nfrom other color",
       " Powers",
       " cards",
-      "No Twin Bite"
+      "No Twin Bite",
+      "Bonding Card",
+      "Cards which gives you Bonding, or have interaction with Bonding.",
+      "Tactic Card",
+      "Cards with \"Tactic\" in its name.",
+      "Dragon Attack",
+      "Attack cards with dragon symbol on it. Dragon can be the attacker of these cards."
     ]
   }
 }

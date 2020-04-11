@@ -9,10 +9,7 @@ import basemod.BaseMod;
 import basemod.abstracts.CustomCard;
 import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
-import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
-import com.megacrit.cardcrawl.actions.common.PlayTopCardAction;
+import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.actions.unique.ExpertiseAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -60,8 +57,8 @@ public class BondingBonus extends AbstractDTCard {
 				addToBot(new DamageAllEnemiesAction(null, DamageInfo.createDamageMatrix(15, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.FIRE));
 				break;
 			case 2:
-				addToBot(new AddTemporaryHPAction(p, p, 10));
-				addToBot(new AddTemporaryHPAction(d, d, 10));
+				addToBot(new GainBlockAction(p, p, 16));
+				addToBot(new GainBlockAction(d, d, 16));
 				break;
 			case 3:
 				addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, 3)));

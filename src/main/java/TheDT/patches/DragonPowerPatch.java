@@ -3,8 +3,11 @@ package TheDT.patches;
 import TheDT.characters.Dragon;
 import TheDT.characters.DragonTamer;
 import com.evacipated.cardcrawl.modthespire.lib.*;
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import javassist.CtBehavior;
@@ -41,6 +44,21 @@ public class DragonPowerPatch {
 		public int[] Locate(CtBehavior ctMethodToPatch) throws Exception {
 			Matcher finalMatcher = new Matcher.FieldAccessMatcher(AbstractPlayer.class, "powers");
 			return LineFinder.findInOrder(ctMethodToPatch, finalMatcher);
+		}
+	}
+
+	@SpirePatch(clz = UseCardAction.class, method = SpirePatch.CONSTRUCTOR, paramtypez = {AbstractCard.class, AbstractCreature.class})
+	public static class DragonOnUseCardPower {
+		@SpirePostfixPatch
+		public static void Postfix(UseCardAction __instance, AbstractCard card, AbstractCreature target) {
+			Dragon dragon = DragonTamer.getLivingDragon();
+			if (dragon != null) {
+				for (AbstractPower p : dragon.powers) {
+					if (!card.dontTriggerOnUseCard) {
+						p.onUseCard(card, __instance);
+					}
+				}
+			}
 		}
 	}
 }

@@ -12,7 +12,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
-public class TacticalNote extends CustomRelic implements CustomSavable<Void> {
+public class TacticalNote extends CustomRelic {
 
 	public static final String RAW_ID = "TacticalNote";
 	public static final String ID = DTModMain.makeID(RAW_ID);
@@ -22,40 +22,6 @@ public class TacticalNote extends CustomRelic implements CustomSavable<Void> {
 	public TacticalNote() {
 		super(ID, new Texture(IMG), new Texture(OUTLINE), RelicTier.UNCOMMON, LandingSound.FLAT);
 		tips.add(new PowerTip(DESCRIPTIONS[1], DESCRIPTIONS[2]));
-	}
-
-	@Override
-	public void onEquip() {
-		for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
-			if (c instanceof SwitchingTactic) {
-				c.modifyCostForCombat(-9);
-			}
-		}
-	}
-
-	@Override
-	public void onUnequip() {
-		for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
-			if (c instanceof SwitchingTactic) {
-				c.cost = c.costForTurn = SwitchingTactic.COST;
-			}
-		}
-	}
-
-	@Override
-	public Void onSave() {
-		return null;
-	}
-
-	@Override
-	public void onLoad(Void v) {
-		if (AbstractDungeon.player != null) {
-			for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
-				if (c instanceof SwitchingTactic) {
-					c.modifyCostForCombat(-9);
-				}
-			}
-		}
 	}
 
 	@Override

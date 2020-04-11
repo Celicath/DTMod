@@ -14,6 +14,7 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
 import java.util.ArrayList;
 
@@ -77,16 +78,18 @@ public class ResonanceFormPower extends AbstractPower {
 
 	@Override
 	public int onHeal(int healAmount) {
-		AbstractPlayer p = AbstractDungeon.player;
-		Dragon dragon = DragonTamer.getLivingDragon();
-		if (disabled || dragon == null || owner != p && owner != dragon) {
-			return healAmount;
+		if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
+			AbstractPlayer p = AbstractDungeon.player;
+			Dragon dragon = DragonTamer.getLivingDragon();
+			if (disabled || dragon == null || owner != p && owner != dragon) {
+				return healAmount;
+			}
+			flash();
+			AbstractCreature otherTarget = owner == p ? dragon : p;
+			disabled = true;
+			otherTarget.heal(healAmount);
+			disabled = false;
 		}
-		flash();
-		AbstractCreature otherTarget = owner == p ? dragon : p;
-		disabled = true;
-		otherTarget.heal(healAmount);
-		disabled = false;
 		return healAmount;
 	}
 

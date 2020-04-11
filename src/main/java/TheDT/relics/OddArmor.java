@@ -29,7 +29,7 @@ public class OddArmor extends CustomRelic {
 	@Override
 	public void atTurnStart() {
 		counter++;
-		if (counter % 2 == 1) {
+		if (counter % 2 == 0) {
 			if (AbstractDungeon.player instanceof DragonTamer) {
 				this.flash();
 				DragonTamer dt = (DragonTamer) AbstractDungeon.player;

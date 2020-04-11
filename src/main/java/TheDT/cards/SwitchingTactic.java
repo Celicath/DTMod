@@ -25,13 +25,20 @@ public class SwitchingTactic extends AbstractDTCard {
 	private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.BOTH;
 
+	public static final int NEW_COST = 0;
+
 	public SwitchingTactic() {
 		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
-		exhaust = true;
 		tags.add(DT_TACTIC);
+	}
 
-		if (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(TacticalNote.ID)) {
-			modifyCostForCombat(-9);
+	@Override
+	public void applyPowers() {
+		super.applyPowers();
+		if (AbstractDungeon.player.hasRelic(TacticalNote.ID)) {
+			selfRetain = true;
+			rawDescription = EXTENDED_DESCRIPTION[0];
+			initializeDescription();
 		}
 	}
 
@@ -71,9 +78,7 @@ public class SwitchingTactic extends AbstractDTCard {
 	public void upgrade() {
 		if (!upgraded) {
 			upgradeName();
-			selfRetain = true;
-			rawDescription = UPGRADE_DESCRIPTION;
-			initializeDescription();
+			upgradeBaseCost(NEW_COST);
 		}
 	}
 }

@@ -55,9 +55,12 @@
       "[] (Current)",
       "[] (Available after beating Act [#87ceeb]",
       "[])",
+      "Choose a Tier [#87ceeb]",
+      "[] Dragon to evolve into.",
       "At the end of Act [#87ceeb]",
-      "[], [#60D0D0]Dragon[] will grow\nto one of tier [#87ceeb]",
+      "[], [#60D0D0]Dragon[] will evolve\ninto one of Tier [#87ceeb]",
       "[] dragons.",
+      "\nIt will keep the Tier [#87ceeb]2[] bonus.",
       "Abilities",
       "Tier [#87ceeb]",
       "[] Dragon",
@@ -66,7 +69,7 @@
       "Immortal Body",
       "When HP becomes [#87ceeb]0[], revive with [#87ceeb]1[] HP at the end of combat.",
       " Perk",
-      "Close"
+      "Close",
     ]
   }
 }

@@ -121,7 +121,7 @@ public class DragonTamer extends CustomPlayer {
 		retVal.add(DTModMain.makeID(TargetDefense.RAW_ID));
 		retVal.add(DTModMain.makeID(TargetDefense.RAW_ID));
 		retVal.add(DTModMain.makeID(TargetDefense.RAW_ID));
-		retVal.add(DTModMain.makeID(SwitchingTactic.RAW_ID));
+		retVal.add(DTModMain.makeID(TargetDefense.RAW_ID));
 		retVal.add(DTModMain.makeID(SwitchingTactic.RAW_ID));
 
 		return retVal;

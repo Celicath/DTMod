@@ -113,7 +113,7 @@ public class TargetMarker {
 		if (solo) {
 			TipHelper.renderGenericTip((float) InputHelper.mX + 50.0F * Settings.scale, (float) InputHelper.mY, TEXT[0], TEXT[5]);
 		} else {
-			if (aggro > 0) {
+			if (DragonTamer.isFrontDragon()) {
 				TipHelper.renderGenericTip((float) InputHelper.mX + 50.0F * Settings.scale, (float) InputHelper.mY, TEXT[0], TEXT[3] + aggro + TEXT[4]);
 			} else {
 				TipHelper.renderGenericTip((float) InputHelper.mX + 50.0F * Settings.scale, (float) InputHelper.mY, TEXT[0], TEXT[1] + -aggro + TEXT[2]);

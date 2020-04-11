@@ -4,12 +4,14 @@ import TheDT.DTModMain;
 import TheDT.characters.Dragon;
 import TheDT.characters.DragonTamer;
 import basemod.abstracts.CustomCard;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.PenNibPower;
 import com.megacrit.cardcrawl.powers.watcher.VigorPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.relics.StrikeDummy;
@@ -27,6 +29,9 @@ public abstract class AbstractDTCard extends CustomCard {
 	public static final String DT_ID = DTModMain.makeID(DT_RAW_ID);
 	private static final CardStrings dtCardStrings = CardCrawlGame.languagePack.getCardStrings(DT_ID);
 	public static final String[] DT_CARD_EXTRA_TEXT = dtCardStrings.EXTENDED_DESCRIPTION;
+	private static Texture dragonIconTexture = null;
+	public static final int DRAGON_ICON_WIDTH = 128;
+	public static final int DRAGON_ICON_HEIGHT = 128;
 
 	protected final CardStrings cardStrings;
 	protected final String NAME;
@@ -42,6 +47,7 @@ public abstract class AbstractDTCard extends CustomCard {
 	static {
 		playerPowerApplyToDragon = new HashSet<>();
 		playerPowerApplyToDragon.add(VigorPower.POWER_ID);
+		playerPowerApplyToDragon.add(PenNibPower.POWER_ID);
 		relicApplyToDragon = new HashSet<>();
 		relicApplyToDragon.add(WristBlade.ID);
 		relicApplyToDragon.add(StrikeDummy.ID);
@@ -377,5 +383,12 @@ public abstract class AbstractDTCard extends CustomCard {
 			return DT_CARD_EXTRA_TEXT[1];
 		}
 		return DT_CARD_EXTRA_TEXT[0];
+	}
+
+	public Texture getDragonIconTexture() {
+		if (dragonIconTexture == null) {
+			dragonIconTexture = new Texture(DTModMain.makePath("ui/DragonIcon.png"));
+		}
+		return dragonIconTexture;
 	}
 }

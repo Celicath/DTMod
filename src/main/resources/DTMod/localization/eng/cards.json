@@ -28,8 +28,10 @@
   },
   "DTMod:SwitchingTactic": {
     "NAME": "Switching Tactic",
-    "DESCRIPTION": "Reverse ragontaer:Aggro. For this turn, reduce Strength of ALL enemies by ragontaer:Aggro difference. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Retain. NL Reverse ragontaer:Aggro. For this turn, reduce Strength of ALL enemies by ragontaer:Aggro difference. NL Exhaust."
+    "DESCRIPTION": "Reverse ragontaer:Aggro. For this turn, reduce Strength of ALL enemies by ragontaer:Aggro difference.",
+    "EXTENDED_DESCRIPTION": [
+      "Retain. NL Reverse ragontaer:Aggro. For this turn, reduce Strength of ALL enemies by ragontaer:Aggro difference."
+    ]
   },
   "DTMod:BronzeWave": {
     "NAME": "Bronze Wave",
@@ -57,7 +59,7 @@
     "DESCRIPTION": "Fetch !M! card from your exhaust pile. (Except Tactic Recycle) NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Fetch !M! cards from your exhaust pile. (Except Tactic Recycle) NL Exhaust.",
     "EXTENDED_DESCRIPTION": [
-      "Fetch !M! card from your exhaust pile and retain them. (Except Tactic Recycle) NL Exhaust.",
+      "Fetch !M! card from your exhaust pile and retain it. (Except Tactic Recycle) NL Exhaust.",
       "Fetch !M! cards from your exhaust pile and retain them. (Except Tactic Recycle) NL Exhaust."
     ]
   },
@@ -383,7 +385,7 @@
       "Explosive",
       "Deal 15 damage to ALL enemies.",
       "Temporary HP",
-      "You and Dragon gain 10 Temporary_HP.",
+      "You and Dragon gain 16 Block.",
       "Strength",
       "You and Dragon gain 3 Strength.",
       "Dexterity",
