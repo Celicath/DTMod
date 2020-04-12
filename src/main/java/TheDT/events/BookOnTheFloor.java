@@ -1,7 +1,7 @@
 package TheDT.events;
 
 import TheDT.DTModMain;
-import TheDT.relics.MythicalSkillbook;
+import TheDT.relics.DragonTamerSkillbook;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -34,8 +34,8 @@ public class BookOnTheFloor extends AbstractImageEvent {
 		switch (this.screen) {
 			case INTRO:
 				this.imageEventText.updateBodyText(DESCRIPTIONS[1]);
-				AbstractDungeon.getCurrRoom().spawnRelicAndObtain((float) (Settings.WIDTH / 2), (float) (Settings.HEIGHT / 2), new MythicalSkillbook());
-				AbstractEvent.logMetricObtainRelic(ID, "Obtain Book", new MythicalSkillbook());
+				AbstractDungeon.getCurrRoom().spawnRelicAndObtain((float) (Settings.WIDTH / 2), (float) (Settings.HEIGHT / 2), new DragonTamerSkillbook());
+				AbstractEvent.logMetricObtainRelic(ID, "Obtain Book", new DragonTamerSkillbook());
 				this.imageEventText.updateDialogOption(0, OPTIONS[1]);
 				this.imageEventText.clearRemainingOptions();
 

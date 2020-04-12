@@ -4,8 +4,7 @@ import TheDT.DTModMain;
 import TheDT.cards.AbstractDTCard;
 import TheDT.characters.DragonTamer;
 import TheDT.patches.LibraryTypeEnum;
-import TheDT.patches.MythicalGameState;
-import TheDT.patches.MythicalSkillbookPatch;
+import TheDT.patches.SkillbookGameState;
 import aspiration.Aspiration;
 import aspiration.relics.skillbooks.SkillbookRelic;
 import com.badlogic.gdx.graphics.Texture;
@@ -16,15 +15,15 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import java.util.ArrayList;
 
-public class MythicalSkillbook extends SkillbookRelic {
+public class DragonTamerSkillbook extends SkillbookRelic {
 
-	public static final String RAW_ID = "MythicalSkillbook";
+	public static final String RAW_ID = "DragonTamerSkillbook";
 	private static final String ID = DTModMain.makeID(RAW_ID); // use DTMod.MythicalSkillbookID if you want this.
 	public static final String IMG = DTModMain.GetRelicPath(RAW_ID);
 	public static final String OUTLINE = DTModMain.GetRelicOutlinePath(RAW_ID);
 
-	public MythicalSkillbook() {
-		super(ID, new Texture(IMG), new Texture(OUTLINE), RelicTier.SPECIAL, LandingSound.MAGICAL, new ArrayList<>());
+	public DragonTamerSkillbook() {
+		super(ID, new Texture(IMG), new Texture(OUTLINE), RelicTier.BOSS, LandingSound.MAGICAL, new ArrayList<>());
 	}
 
 	@Override
@@ -48,9 +47,7 @@ public class MythicalSkillbook extends SkillbookRelic {
 
 	@Override
 	public void atTurnStart() {
-		DTModMain.logger.debug("MythicalGameState.map.size() = " + MythicalGameState.map.size());
-		MythicalGameState.map.clear();
-		DTModMain.logger.debug("MythicalSkillbookPatch.actionCardMap.size() = " + MythicalSkillbookPatch.actionCardMap.size());
+		SkillbookGameState.map.clear();
 	}
 
 	@Override
@@ -101,6 +98,6 @@ public class MythicalSkillbook extends SkillbookRelic {
 
 	@Override
 	public AbstractRelic makeCopy() {
-		return new MythicalSkillbook();
+		return new DragonTamerSkillbook();
 	}
 }

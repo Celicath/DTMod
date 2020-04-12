@@ -39,14 +39,11 @@ public class BattleHarmonyPower extends AbstractPower {
 		if (info.type != DamageInfo.DamageType.THORNS && info.type != DamageInfo.DamageType.HP_LOSS && info.owner == owner) {
 			if (owner == AbstractDungeon.player && !DragonTamer.battleHarmonyYou) {
 				DragonTamer.battleHarmonyYou = true;
-				if (DragonTamer.battleHarmonyDragon) {
-					activate();
-				}
 			} else if (owner == DragonTamer.getLivingDragon() && !DragonTamer.battleHarmonyDragon) {
 				DragonTamer.battleHarmonyDragon = true;
-				if (DragonTamer.battleHarmonyYou) {
-					activate();
-				}
+			}
+			if (DragonTamer.battleHarmonyYou && DragonTamer.battleHarmonyDragon) {
+				activate();
 			}
 		}
 	}
@@ -54,6 +51,8 @@ public class BattleHarmonyPower extends AbstractPower {
 	private void activate() {
 		flash();
 		AbstractPlayer p = AbstractDungeon.player;
+		DragonTamer.battleHarmonyYou = false;
+		DragonTamer.battleHarmonyDragon = false;
 		addToBot(new ApplyPowerAction(p, p, new BondingPower(p, p, amount), amount));
 	}
 }

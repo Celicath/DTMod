@@ -403,6 +403,12 @@ public class DragonTamer extends CustomPlayer {
 	}
 
 	@Override
+	public void applyStartOfTurnPostDrawPowers() {
+		super.applyStartOfTurnPostDrawPowers();
+		dragon.applyStartOfTurnPostDrawPowers();
+	}
+
+	@Override
 	public void applyEndOfTurnTriggers() {
 		super.applyEndOfTurnTriggers();
 		dragon.applyEndOfTurnTriggers();
@@ -462,6 +468,9 @@ public class DragonTamer extends CustomPlayer {
 			} else {
 				return ((DragonTamer) AbstractDungeon.player).front == ((DragonTamer) AbstractDungeon.player).dragon;
 			}
+		} else if (AbstractDungeon.player instanceof Dragon) {
+			// inside monster intent
+			return true;
 		} else {
 			return false;
 		}

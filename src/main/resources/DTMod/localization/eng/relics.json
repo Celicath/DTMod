@@ -7,12 +7,12 @@
       " #yTemporary_HP each."
     ]
   },
-  "DTMod:MythicalSkillbook": {
-    "NAME": "Mythical Skillbook",
-    "FLAVOR": "Seems like a joke to tease non-expert programmer.",
+  "DTMod:DragonTamerSkillbook": {
+    "NAME": "Dragon Tamer's Skillbook",
+    "FLAVOR": "Now the dragon is capable of helping people other than the master.",
     "DESCRIPTIONS": [
-      "Whenever you play a card that affects both you and another character, gain #b1 #yythical:Bonding.",
-      " NL NL #yMulticlass <DTMod class>"
+      "Whenever you play a card that affects both you and another character, gain #b1 #yragontaer:Bonding.",
+      " NL NL #yMulticlass Dragon Tamer"
     ]
   },
   "DTMod:BasicTextbook": {

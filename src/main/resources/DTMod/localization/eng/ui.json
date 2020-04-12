@@ -4,16 +4,6 @@
       "Discard"
     ]
   },
-  "DTMod:EnableEventConfig": {
-    "TEXT": [
-      "Enable \"Help Mythical Creature\" Event."
-    ]
-  },
-  "DTMod:JokeRelic": {
-    "TEXT": [
-      "Joke"
-    ]
-  },
   "DTMod:DraftAction": {
     "TEXT": [
       "Choose a Card to Set the Cost to 0."
@@ -69,7 +59,42 @@
       "Immortal Body",
       "When HP becomes [#87ceeb]0[], revive with [#87ceeb]1[] HP at the end of combat.",
       " Perk",
-      "Close",
+      "Close"
+    ]
+  },
+  "DTMod:MonsterIntent": {
+    "TEXT": [
+      "Aggressive",
+      "This enemy intends to NL #yAttack [#60D0D0]Dragon[] for #b",
+      " damage #b",
+      " times.",
+      "This enemy intends to NL #yAttack [#60D0D0]Dragon[] for #b",
+      " damage.",
+      "Aggressive",
+      "This enemy intends to use a #yBuff and #yAttack [#60D0D0]Dragon[] for #b",
+      " times.",
+      "This enemy intends to use a #yBuff and #yAttack [#60D0D0]Dragon[] for #b",
+      "Strategic",
+      "This enemy intends to inflict a #yNegative #yEffect on [#60D0D0]Dragon[] and #yAttack for #b",
+      "This enemy intends to #yBlock and #yAttack [#60D0D0]Dragon[] for #b",
+      "Defensive",
+      "Cowardly",
+      "Magical",
+      "Sleeping",
+      "Stunned",
+      "Unknown",
+      "This enemy intends to use a #yBuff.",
+      "This enemy intends to inflict a #yNegative #yEffect on [#60D0D0]Dragon[].",
+      "This enemy intends to inflict a powerful #yNegative #yEffect on [#60D0D0]Dragon[].",
+      "This enemy intends to #yBlock on its turn.",
+      "This enemy intends to #yBlock and inflict a #yNegative #yEffect on [#60D0D0]Dragon[].",
+      "This enemy intends to #yBlock and use a #yBuff.",
+      "This enemy intends to #yEscape.",
+      "This enemy intends to use mysterious #yMagic on its turn.",
+      "This enemy is asleep.",
+      "This enemy is #yStunned on its turn.",
+      "This enemy's intentions are #yUnknown (not attacking).",
+      "Blocked"
     ]
   }
 }

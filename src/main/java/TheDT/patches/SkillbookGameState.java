@@ -13,7 +13,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class MythicalGameState {
+public class SkillbookGameState {
 	public static class CharacterState {
 		AbstractCreature creature;
 		int hp;
@@ -55,23 +55,23 @@ public class MythicalGameState {
 	public CharacterState playerState;
 	public ArrayList<CharacterState> otherState;
 
-	private MythicalGameState() {
+	private SkillbookGameState() {
 		affectYou = false;
 		affectOther = false;
 	}
 
-	public static HashMap<AbstractCard, MythicalGameState> map = new HashMap<>();
+	public static HashMap<AbstractCard, SkillbookGameState> map = new HashMap<>();
 
 	public static void reset() {
 		map.clear();
 	}
 
 	public static void save(AbstractCard card) {
-		MythicalGameState state;
+		SkillbookGameState state;
 		if (map.containsKey(card)) {
 			state = map.get(card);
 		} else {
-			state = new MythicalGameState();
+			state = new SkillbookGameState();
 			map.put(card, state);
 		}
 		state.playerState = new CharacterState(AbstractDungeon.player);
@@ -86,7 +86,7 @@ public class MythicalGameState {
 	}
 
 	public static boolean checkDiff(AbstractCard card, AbstractGameAction action) {
-		MythicalGameState state = map.get(card);
+		SkillbookGameState state = map.get(card);
 		if (state.affectYou && state.affectOther) return false;
 
 		String msg = "Affect is";

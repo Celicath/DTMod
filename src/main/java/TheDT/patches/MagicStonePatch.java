@@ -1,5 +1,6 @@
 package TheDT.patches;
 
+import TheDT.actions.FastAddTemporaryHPAction;
 import TheDT.relics.MagicStone;
 import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
 import com.evacipated.cardcrawl.modthespire.lib.*;
@@ -18,7 +19,7 @@ public class MagicStonePatch {
 			AbstractRelic ms = AbstractDungeon.player.getRelic(MagicStone.ID);
 			if (ms != null && __instance.isPlayer && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
 				ms.flash();
-				AbstractDungeon.actionManager.addToTop(new AddTemporaryHPAction(__instance, __instance, __instance.currentHealth - __instance.maxHealth));
+				AbstractDungeon.actionManager.addToTop(new FastAddTemporaryHPAction(__instance, __instance, __instance.currentHealth - __instance.maxHealth));
 			}
 		}
 	}

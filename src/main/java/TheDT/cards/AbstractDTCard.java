@@ -385,7 +385,7 @@ public abstract class AbstractDTCard extends CustomCard {
 		return DT_CARD_EXTRA_TEXT[0];
 	}
 
-	public Texture getDragonIconTexture() {
+	public static Texture getDragonIconTexture() {
 		if (dragonIconTexture == null) {
 			dragonIconTexture = new Texture(DTModMain.makePath("ui/DragonIcon.png"));
 		}

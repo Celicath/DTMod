@@ -1,5 +1,6 @@
 package TheDT.cards;
 
+import TheDT.Interfaces.TacticCard;
 import TheDT.patches.CardColorEnum;
 import TheDT.relics.TacticalNote;
 import com.evacipated.cardcrawl.mod.stslib.actions.common.FetchAction;
@@ -11,7 +12,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static TheDT.patches.CustomTags.DT_TACTIC;
 
-public class TacticRecycle extends AbstractDTCard {
+public class TacticRecycle extends AbstractDTCard implements TacticCard {
 	public static final String RAW_ID = "TacticRecycle";
 	private static final int COST = 1;
 	private static final AbstractCard.CardType TYPE = CardType.SKILL;
@@ -28,15 +29,27 @@ public class TacticRecycle extends AbstractDTCard {
 		exhaust = true;
 		baseMagicNumber = magicNumber = POWER;
 		tags.add(DT_TACTIC);
+
+		if (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(TacticalNote.ID)) {
+			onEquipTacticalNote();
+		}
+	}
+
+	@Override
+	public void onEquipTacticalNote() {
+		rawDescription = upgraded ? EXTENDED_DESCRIPTION[1] : EXTENDED_DESCRIPTION[0];
+		initializeDescription();
+	}
+
+	@Override
+	public void onUnequipTacticalNote() {
+		rawDescription = upgraded ? UPGRADE_DESCRIPTION : DESCRIPTION;
+		initializeDescription();
 	}
 
 	@Override
 	public void applyPowers() {
 		super.applyPowers();
-		if (AbstractDungeon.player.hasRelic(TacticalNote.ID)) {
-			rawDescription = upgraded ? EXTENDED_DESCRIPTION[1] : EXTENDED_DESCRIPTION[0];
-			initializeDescription();
-		}
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
@@ -63,6 +76,9 @@ public class TacticRecycle extends AbstractDTCard {
 			upgradeMagicNumber(UPGRADE_BONUS);
 			rawDescription = UPGRADE_DESCRIPTION;
 			initializeDescription();
+			if (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(TacticalNote.ID)) {
+				onEquipTacticalNote();
+			}
 		}
 	}
 }

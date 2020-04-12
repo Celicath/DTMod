@@ -1,11 +1,11 @@
 package TheDT.optionals;
 
-import TheDT.relics.MythicalSkillbook;
+import TheDT.relics.DragonTamerSkillbook;
 import basemod.BaseMod;
 import basemod.helpers.RelicType;
 
 public class OptionalRelicHelper {
 	public static void registerAspirationRelic() {
-		BaseMod.addRelic(new MythicalSkillbook(), RelicType.SHARED);
+		BaseMod.addRelic(new DragonTamerSkillbook(), RelicType.SHARED);
 	}
 }

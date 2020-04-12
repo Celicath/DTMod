@@ -16,7 +16,7 @@ import javassist.CtBehavior;
 import java.util.HashMap;
 import java.util.HashSet;
 
-public class MythicalSkillbookPatch {
+public class DragonTamerSkillbookPatch {
 	public static HashMap<AbstractGameAction, AbstractCard> actionCardMap = new HashMap<>();
 	public static HashSet<AbstractGameAction> badActionList = new HashSet<>();
 
@@ -61,7 +61,7 @@ public class MythicalSkillbookPatch {
 		@SpireInsertPatch(locator = ActionStartLocator.class)
 		public static void Insert(GameActionManager __instance) {
 			if (actionCardMap.containsKey(__instance.currentAction)) {
-				MythicalGameState.save(actionCardMap.get(__instance.currentAction));
+				SkillbookGameState.save(actionCardMap.get(__instance.currentAction));
 			}
 		}
 	}
@@ -82,7 +82,7 @@ public class MythicalSkillbookPatch {
 				AbstractCard c = actionCardMap.get(__instance.currentAction);
 				actionCardMap.remove(__instance.currentAction);
 
-				if (MythicalGameState.checkDiff(c, __instance.currentAction)) {
+				if (SkillbookGameState.checkDiff(c, __instance.currentAction)) {
 					if (AbstractDungeon.player.hasRelic(DTModMain.MythicalSkillbookID)) {
 						DTModMain.logger.info("Current card [" + c.name + "] IS a Bonding card.");
 						AbstractDungeon.player.getRelic(DTModMain.MythicalSkillbookID).flash();

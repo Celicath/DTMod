@@ -18,7 +18,7 @@ public class LowKick extends AbstractDTCard {
 	private static final AbstractCard.CardTarget TARGET = CardTarget.ENEMY;
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DEFAULT;
 
-	private static final int POWER = 7;
+	private static final int POWER = 8;
 	private static final int UPGRADE_POWER = 3;
 
 	public LowKick() {

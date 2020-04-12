@@ -21,11 +21,13 @@ public class DragonIconPatch {
 				AbstractDTCard c = (AbstractDTCard) __instance;
 				if (c.dtCardTarget != AbstractDTCard.DTCardTarget.DEFAULT && c.type == AbstractCard.CardType.ATTACK) {
 					float scale = c.drawScale * Settings.scale * 0.6f;
-					sb.draw(c.getDragonIconTexture(),
-							c.current_x - DRAGON_ICON_WIDTH / 2.0f - AbstractDTCard.IMG_WIDTH * 0.45f * c.drawScale,
-							c.current_y - DRAGON_ICON_HEIGHT / 2.0f + AbstractDTCard.IMG_HEIGHT * 0.3f * c.drawScale,
-							DRAGON_ICON_WIDTH / 2.0f,
-							DRAGON_ICON_HEIGHT / 2.0f,
+					float ox = DRAGON_ICON_WIDTH / 2.0f + AbstractDTCard.IMG_WIDTH * 0.9f;
+					float oy = DRAGON_ICON_HEIGHT / 2.0f - AbstractDTCard.IMG_HEIGHT * 0.6f;
+					sb.draw(AbstractDTCard.getDragonIconTexture(),
+							c.current_x - ox,
+							c.current_y - oy,
+							ox,
+							oy,
 							DRAGON_ICON_WIDTH,
 							DRAGON_ICON_HEIGHT,
 							scale,
@@ -46,7 +48,7 @@ public class DragonIconPatch {
 
 				if (c.dtCardTarget != AbstractDTCard.DTCardTarget.DEFAULT && c.type == AbstractCard.CardType.ATTACK) {
 					float scale = Settings.scale * 1.2f;
-					sb.draw(c.getDragonIconTexture(),
+					sb.draw(AbstractDTCard.getDragonIconTexture(),
 							Settings.WIDTH / 2.0f - DRAGON_ICON_WIDTH / 2.0f - AbstractDTCard.IMG_WIDTH * 0.9f,
 							Settings.HEIGHT / 2.0f - DRAGON_ICON_HEIGHT / 2.0f + AbstractDTCard.IMG_HEIGHT * 0.6f,
 							DRAGON_ICON_WIDTH / 2.0f,

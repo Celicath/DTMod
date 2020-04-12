@@ -1,5 +1,6 @@
 package TheDT.cards;
 
+import TheDT.Interfaces.TacticCard;
 import TheDT.characters.Dragon;
 import TheDT.characters.DragonTamer;
 import TheDT.patches.CardColorEnum;
@@ -35,11 +36,28 @@ public class BizarreTactic extends AbstractDTCard {
 
 	@Override
 	public void applyPowers() {
+		if (AbstractDungeon.player.hasRelic(TacticalNote.ID)) {
+			baseBlock += 2;
+		}
 		super.applyPowers();
 		if (AbstractDungeon.player.hasRelic(TacticalNote.ID)) {
-			block += 2;
-			isBlockModified = true;
+			baseBlock -= 2;
 			magicNumber = baseMagicNumber + 2;
+			isBlockModified = true;
+			isMagicNumberModified = true;
+		}
+	}
+
+	@Override
+	public void calculateCardDamage(AbstractMonster m) {
+		if (AbstractDungeon.player.hasRelic(TacticalNote.ID)) {
+			baseBlock += 2;
+		}
+		super.calculateCardDamage(m);
+		if (AbstractDungeon.player.hasRelic(TacticalNote.ID)) {
+			baseBlock -= 2;
+			magicNumber = baseMagicNumber + 2;
+			isBlockModified = true;
 			isMagicNumberModified = true;
 		}
 	}

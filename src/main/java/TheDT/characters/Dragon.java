@@ -7,6 +7,7 @@ import TheDT.powers.BirdFacePower;
 import TheDT.powers.BondingPower;
 import TheDT.powers.FiercePower;
 import TheDT.powers.GreedyPower;
+import TheDT.utils.GrayscaleShader;
 import basemod.BaseMod;
 import basemod.abstracts.CustomPlayer;
 import basemod.abstracts.CustomSavable;
@@ -50,6 +51,7 @@ public class Dragon extends CustomPlayer implements CustomSavable<ArrayList<Inte
 	public static final float OFFSET_Y = 60.0f;
 	private static final int HP_BONUS_RATIO = 13;
 	private static final Logger logger = LogManager.getLogger(AbstractPlayer.class.getName());
+	public static final Color deadColor = new Color(0.8f, 0.8f, 0.8f, 0.75f);
 	public DragonTamer master;
 	public Texture img;
 	public static Texture[][] imgs = null;
@@ -415,8 +417,16 @@ public class Dragon extends CustomPlayer implements CustomSavable<ArrayList<Inte
 			if (atlas != null) {
 				renderPlayerImage(sb);
 			} else {
-				sb.setColor(Color.WHITE);
+				if (isDead) {
+					sb.setShader(GrayscaleShader.grayscaleShader);
+					sb.setColor(deadColor);
+				} else {
+					sb.setColor(Color.WHITE);
+				}
 				sb.draw(img, drawX - img.getWidth() * Settings.scale / 2.0F + animX, drawY, img.getWidth() * Settings.scale, img.getHeight() * Settings.scale, 0, 0, img.getWidth(), img.getHeight(), flipHorizontal, flipVertical);
+				if (isDead) {
+					sb.setShader(null);
+				}
 			}
 
 			hb.render(sb);
@@ -547,5 +557,12 @@ public class Dragon extends CustomPlayer implements CustomSavable<ArrayList<Inte
 		} else {
 			super.renderPowerTips(sb);
 		}
+	}
+
+	@Override
+	public void heal(int healAmount) {
+		AbstractDungeon.player = this;
+		super.heal(healAmount);
+		AbstractDungeon.player = master;
 	}
 }

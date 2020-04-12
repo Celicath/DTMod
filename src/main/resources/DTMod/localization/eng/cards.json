@@ -29,9 +29,7 @@
   "DTMod:SwitchingTactic": {
     "NAME": "Switching Tactic",
     "DESCRIPTION": "Reverse ragontaer:Aggro. For this turn, reduce Strength of ALL enemies by ragontaer:Aggro difference.",
-    "EXTENDED_DESCRIPTION": [
-      "Retain. NL Reverse ragontaer:Aggro. For this turn, reduce Strength of ALL enemies by ragontaer:Aggro difference."
-    ]
+    "UPGRADE_DESCRIPTION": "Retain. NL Reverse ragontaer:Aggro. For this turn, reduce Strength of ALL enemies by ragontaer:Aggro difference."
   },
   "DTMod:BronzeWave": {
     "NAME": "Bronze Wave",
@@ -59,8 +57,8 @@
     "DESCRIPTION": "Fetch !M! card from your exhaust pile. (Except Tactic Recycle) NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Fetch !M! cards from your exhaust pile. (Except Tactic Recycle) NL Exhaust.",
     "EXTENDED_DESCRIPTION": [
-      "Fetch !M! card from your exhaust pile and retain it. (Except Tactic Recycle) NL Exhaust.",
-      "Fetch !M! cards from your exhaust pile and retain them. (Except Tactic Recycle) NL Exhaust."
+      "Fetch !M! card from your exhaust pile and Retain it. (Except Tactic Recycle) NL Exhaust.",
+      "Fetch !M! cards from your exhaust pile and Retain them. (Except Tactic Recycle) NL Exhaust."
     ]
   },
   "DTMod:HeadStart": {
@@ -78,7 +76,7 @@
   },
   "DTMod:MagicField": {
     "NAME": "Magic Field",
-    "DESCRIPTION": "All creatures gain !M! Block.",
+    "DESCRIPTION": "ALL creatures gain !M! Block.",
     "EXTENDED_DESCRIPTION": [
       " NL (You: !B! Block)",
       " NL (Dragon: !DT:THB! Block)"
@@ -381,25 +379,25 @@
     "DESCRIPTION": "You get one of these effects when you gain 4 Bonding.",
     "EXTENDED_DESCRIPTION": [
       "Artifact",
-      "You and Dragon gain 1 Artifact.",
+      "You and Dragon gain 2 Artifact.",
       "Explosive",
-      "Deal 15 damage to ALL enemies.",
-      "Temporary HP",
-      "You and Dragon gain 16 Block.",
+      "Deal 20 damage to ALL enemies.",
+      "Block",
+      "You and Dragon gain 20 Block.",
       "Strength",
-      "You and Dragon gain 3 Strength.",
+      "You and Dragon gain 4 Strength.",
       "Dexterity",
-      "You and Dragon gain 2 Dexterity.",
+      "You and Dragon gain 3 Dexterity.",
       "Energy",
-      "Gain [E] [E] [E].",
+      "Gain [E] [E] [E] [E].",
       "Draw",
       "Draw cards until your hand is full.",
       "Weaken",
-      "Apply 3 Weak to ALL enemies.",
+      "Apply 4 Weak to ALL enemies.",
       "Vulnerable",
-      "Apply 3 Vulnerable to ALL enemies.",
+      "Apply 4 Vulnerable to ALL enemies.",
       "Chaos",
-      "Play the top 3 cards of your draw pile."
+      "Play the top 4 cards of your draw pile."
     ]
   }
 }

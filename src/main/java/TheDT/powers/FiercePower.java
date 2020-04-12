@@ -38,7 +38,7 @@ public class FiercePower extends AbstractPower {
 	public void onUseCard(AbstractCard card, UseCardAction action) {
 		if (card instanceof TwinBite) {
 			flash();
-			addToTop(new ApplyPowerAction(owner, owner, new StrengthPower(owner, amount), amount));
+			addToBot(new ApplyPowerAction(owner, owner, new StrengthPower(owner, amount), amount));
 		}
 	}
 }

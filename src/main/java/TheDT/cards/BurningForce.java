@@ -23,6 +23,7 @@ public class BurningForce extends AbstractDTCard {
 	private static final int DAMAGE = 15;
 	private static final int UPGRADE_DAMAGE = 5;
 	private static final int BURN_BONUS = 5;
+	private static final int UPGRADE_BURN_BONUS = 3;
 
 	public BurningForce() {
 		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
@@ -79,6 +80,7 @@ public class BurningForce extends AbstractDTCard {
 		if (!upgraded) {
 			upgradeName();
 			upgradeDTDragonDamage(UPGRADE_DAMAGE);
+			upgradeMagicNumber(UPGRADE_BURN_BONUS);
 		}
 	}
 }

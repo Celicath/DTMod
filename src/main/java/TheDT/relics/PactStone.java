@@ -1,10 +1,10 @@
 package TheDT.relics;
 
 import TheDT.DTModMain;
+import TheDT.actions.FastAddTemporaryHPAction;
 import TheDT.characters.DragonTamer;
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
-import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
@@ -25,11 +25,11 @@ public class PactStone extends CustomRelic {
 	public void atBattleStart() {
 		this.flash();
 		addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
-		addToBot(new AddTemporaryHPAction(AbstractDungeon.player, AbstractDungeon.player, AMOUNT));
+		addToBot(new FastAddTemporaryHPAction(AbstractDungeon.player, AbstractDungeon.player, AMOUNT));
 		if (AbstractDungeon.player instanceof DragonTamer) {
 			DragonTamer dt = (DragonTamer) AbstractDungeon.player;
 			addToBot(new RelicAboveCreatureAction(dt.dragon, this));
-			addToBot(new AddTemporaryHPAction(dt.dragon, dt.dragon, AMOUNT));
+			addToBot(new FastAddTemporaryHPAction(dt.dragon, dt.dragon, AMOUNT));
 		}
 	}
 

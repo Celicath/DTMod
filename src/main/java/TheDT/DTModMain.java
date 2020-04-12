@@ -9,7 +9,7 @@ import TheDT.modules.TargetMarker;
 import TheDT.optionals.OptionalRelicHelper;
 import TheDT.patches.CardColorEnum;
 import TheDT.patches.MonsterTargetPatch;
-import TheDT.patches.MythicalGameState;
+import TheDT.patches.SkillbookGameState;
 import TheDT.patches.TheDTEnum;
 import TheDT.potions.BlazePotion;
 import TheDT.powers.ResonanceFormPower;
@@ -209,17 +209,6 @@ public class DTModMain
 		// Create the Mod Menu
 		ModPanel settingsPanel = new ModPanel();
 
-		enableEventButton = new ModLabeledToggleButton(
-				CardCrawlGame.languagePack.getUIString(DTModMain.makeID("EnableEventConfig")).TEXT[0],
-				400.0f, 480.0f, Settings.CREAM_COLOR, FontHelper.charDescFont,
-				enableEvent, settingsPanel, (label) -> {
-		}, (button) -> {
-			enableEvent = button.enabled;
-			saveConfig();
-		});
-
-		settingsPanel.addUIElement(enableEventButton);
-
 		BaseMod.registerModBadge(badgeTexture, MODNAME, AUTHOR, DESCRIPTION, settingsPanel);
 
 		targetMarker = new TargetMarker();
@@ -349,7 +338,7 @@ public class DTModMain
 
 	@Override
 	public void receiveOnBattleStart(AbstractRoom room) {
-		MythicalGameState.reset();
+		SkillbookGameState.reset();
 		MonsterTargetPatch.prevPlayer = null;
 
 		DTModMain.dragonAggro = 0;

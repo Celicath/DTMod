@@ -8,6 +8,9 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.rewards.RewardItem;
+
+import java.util.Iterator;
 
 public class GreedyPower extends AbstractPower {
 	public static final String RAW_ID = "GreedyPower";
@@ -40,5 +43,6 @@ public class GreedyPower extends AbstractPower {
 	@Override
 	public void onVictory() {
 		AbstractDungeon.getCurrRoom().addGoldToRewards(amount);
+		AbstractDungeon.getCurrRoom().rewards.add(new RewardItem(amount));
 	}
 }

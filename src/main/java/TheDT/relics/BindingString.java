@@ -24,7 +24,7 @@ public class BindingString extends CustomRelic {
 
 	public void atTurnStart() {
 		AbstractPlayer p = AbstractDungeon.player;
-		if (p instanceof DragonTamer && DragonTamer.getAggro() == 0) {
+		if (p instanceof DragonTamer && !DragonTamer.isSolo() && DragonTamer.getAggro() == 0) {
 			flash();
 			addToBot(new RelicAboveCreatureAction(p, this));
 			addToBot(new ApplyPowerAction(p, p, new BondingPower(p, p, 1), 1));
@@ -33,7 +33,7 @@ public class BindingString extends CustomRelic {
 
 	public void updatePulse() {
 		AbstractPlayer p = AbstractDungeon.player;
-		if (p instanceof DragonTamer && DragonTamer.getAggro() == 0) {
+		if (p instanceof DragonTamer && !DragonTamer.isSolo() && DragonTamer.getAggro() == 0) {
 			beginLongPulse();
 		} else {
 			stopPulse();

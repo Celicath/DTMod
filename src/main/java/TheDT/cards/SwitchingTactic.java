@@ -1,5 +1,6 @@
 package TheDT.cards;
 
+import TheDT.Interfaces.TacticCard;
 import TheDT.characters.Dragon;
 import TheDT.characters.DragonTamer;
 import TheDT.patches.CardColorEnum;
@@ -16,7 +17,7 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 
 import static TheDT.patches.CustomTags.DT_TACTIC;
 
-public class SwitchingTactic extends AbstractDTCard {
+public class SwitchingTactic extends AbstractDTCard implements TacticCard {
 	public static final String RAW_ID = "SwitchingTactic";
 	public static final int COST = 1;
 	private static final AbstractCard.CardType TYPE = CardType.SKILL;
@@ -25,21 +26,23 @@ public class SwitchingTactic extends AbstractDTCard {
 	private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.BOTH;
 
-	public static final int NEW_COST = 0;
-
 	public SwitchingTactic() {
 		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
 		tags.add(DT_TACTIC);
+
+		if (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(TacticalNote.ID)) {
+			onEquipTacticalNote();
+		}
 	}
 
 	@Override
-	public void applyPowers() {
-		super.applyPowers();
-		if (AbstractDungeon.player.hasRelic(TacticalNote.ID)) {
-			selfRetain = true;
-			rawDescription = EXTENDED_DESCRIPTION[0];
-			initializeDescription();
-		}
+	public void onEquipTacticalNote() {
+		modifyCostForCombat(-9);
+	}
+
+	@Override
+	public void onUnequipTacticalNote() {
+		cost = costForTurn = COST;
 	}
 
 	@Override
@@ -78,7 +81,12 @@ public class SwitchingTactic extends AbstractDTCard {
 	public void upgrade() {
 		if (!upgraded) {
 			upgradeName();
-			upgradeBaseCost(NEW_COST);
+			selfRetain = true;
+			rawDescription = UPGRADE_DESCRIPTION;
+			initializeDescription();
+			if (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(TacticalNote.ID)) {
+				onEquipTacticalNote();
+			}
 		}
 	}
 }

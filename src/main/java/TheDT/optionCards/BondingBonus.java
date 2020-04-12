@@ -50,42 +50,42 @@ public class BondingBonus extends AbstractDTCard {
 		Dragon d = DragonTamer.getLivingDragon();
 		switch (index) {
 			case 0:
-				addToBot(new ApplyPowerAction(p, p, new ArtifactPower(p, 1)));
-				addToBot(new ApplyPowerAction(d, d, new ArtifactPower(d, 1)));
+				addToBot(new ApplyPowerAction(p, p, new ArtifactPower(p, 2)));
+				addToBot(new ApplyPowerAction(d, d, new ArtifactPower(d, 2)));
 				break;
 			case 1:
-				addToBot(new DamageAllEnemiesAction(null, DamageInfo.createDamageMatrix(15, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.FIRE));
+				addToBot(new DamageAllEnemiesAction(null, DamageInfo.createDamageMatrix(20, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.FIRE));
 				break;
 			case 2:
-				addToBot(new GainBlockAction(p, p, 16));
-				addToBot(new GainBlockAction(d, d, 16));
+				addToBot(new GainBlockAction(p, p, 20));
+				addToBot(new GainBlockAction(d, d, 20));
 				break;
 			case 3:
-				addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, 3)));
-				addToBot(new ApplyPowerAction(d, d, new StrengthPower(d, 3)));
+				addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, 4)));
+				addToBot(new ApplyPowerAction(d, d, new StrengthPower(d, 4)));
 				break;
 			case 4:
-				addToBot(new ApplyPowerAction(p, p, new DexterityPower(p, 2)));
-				addToBot(new ApplyPowerAction(d, d, new DexterityPower(d, 2)));
+				addToBot(new ApplyPowerAction(p, p, new DexterityPower(p, 3)));
+				addToBot(new ApplyPowerAction(d, d, new DexterityPower(d, 3)));
 				break;
 			case 5:
-				addToBot(new GainEnergyAction(3));
+				addToBot(new GainEnergyAction(4));
 				break;
 			case 6:
 				addToBot(new ExpertiseAction(p, BaseMod.MAX_HAND_SIZE));
 				break;
 			case 7:
 				for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
-					addToBot(new ApplyPowerAction(m, p, new WeakPower(m, 3, false), 3));
+					addToBot(new ApplyPowerAction(m, p, new WeakPower(m, 4, false), 3));
 				}
 				break;
 			case 8:
 				for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
-					addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, 3, false), 3));
+					addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, 4, false), 3));
 				}
 				break;
 			case 9:
-				for (int i = 0; i < 3; i++) {
+				for (int i = 0; i < 4; i++) {
 					addToBot(new PlayTopCardAction(AbstractDungeon.getCurrRoom().monsters.getRandomMonster((AbstractMonster) null, true, AbstractDungeon.cardRandomRng), false));
 				}
 				break;
