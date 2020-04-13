@@ -7,8 +7,8 @@ import TheDT.characters.DragonTamer;
 import TheDT.patches.CardColorEnum;
 import basemod.BaseMod;
 import basemod.abstracts.CustomCard;
-import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.actions.unique.ExpertiseAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -18,6 +18,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.*;
+import com.megacrit.cardcrawl.vfx.combat.DieDieDieEffect;
 
 public class BondingBonus extends AbstractDTCard {
 	public static final String RAW_ID = "BondingBonus";
@@ -25,7 +26,7 @@ public class BondingBonus extends AbstractDTCard {
 	private static final CardColor COLOR = CardColorEnum.DT_ORANGE;
 	private static final CardRarity RARITY = CardRarity.SPECIAL;
 	private static final CardTarget TARGET = CardTarget.SELF;
-	private static final DTCardTarget DT_CARD_TARGET = DTCardTarget.BOTH;
+	private static final DTCardTarget DT_CARD_TARGET = DTCardTarget.DEFAULT;
 
 	private static final String[] BONDING_BONUS = CardCrawlGame.languagePack.getCardStrings(DTModMain.makeID(RAW_ID)).EXTENDED_DESCRIPTION;
 	private static final CustomCard.RegionName[] REGIONS;
@@ -54,7 +55,8 @@ public class BondingBonus extends AbstractDTCard {
 				addToBot(new ApplyPowerAction(d, d, new ArtifactPower(d, 2)));
 				break;
 			case 1:
-				addToBot(new DamageAllEnemiesAction(null, DamageInfo.createDamageMatrix(20, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.FIRE));
+				addToBot(new VFXAction(new DieDieDieEffect(), 0.7F));
+				addToBot(new DamageAllEnemiesAction(null, DamageInfo.createDamageMatrix(20, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
 				break;
 			case 2:
 				addToBot(new GainBlockAction(p, p, 20));
@@ -76,12 +78,12 @@ public class BondingBonus extends AbstractDTCard {
 				break;
 			case 7:
 				for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
-					addToBot(new ApplyPowerAction(m, p, new WeakPower(m, 4, false), 3));
+					addToBot(new ApplyPowerAction(m, p, new WeakPower(m, 4, false), 4));
 				}
 				break;
 			case 8:
 				for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
-					addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, 4, false), 3));
+					addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, 4, false), 4));
 				}
 				break;
 			case 9:

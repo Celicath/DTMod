@@ -65,13 +65,13 @@ public class DragonStatusScrollButton extends ClickableUIElement {
 		sb.setColor(color);
 		float halfWidth;
 		float halfHeight;
-		halfWidth = (float)this.image.getWidth() / 2.0F;
-		halfHeight = (float)this.image.getHeight() / 2.0F;
-		sb.draw(this.image, this.x - halfWidth + halfWidth * Settings.scale, this.y - halfHeight + halfHeight * Settings.scale, halfWidth, halfHeight, (float)this.image.getWidth(), (float)this.image.getHeight(), Settings.scale, Settings.scale, this.angle, 0, 0, this.image.getWidth(), this.image.getHeight(), false, flipped);
+		halfWidth = (float) this.image.getWidth() / 2.0F;
+		halfHeight = (float) this.image.getHeight() / 2.0F;
+		sb.draw(this.image, this.x - halfWidth + halfWidth * Settings.scale, this.y - halfHeight + halfHeight * Settings.scale, halfWidth, halfHeight, (float) this.image.getWidth(), (float) this.image.getHeight(), Settings.scale, Settings.scale, this.angle, 0, 0, this.image.getWidth(), this.image.getHeight(), false, flipped);
 		if (this.tint.a > 0.0F) {
 			sb.setBlendFunction(770, 1);
 			sb.setColor(this.tint);
-			sb.draw(this.image, this.x - halfWidth + halfWidth * Settings.scale, this.y - halfHeight + halfHeight * Settings.scale, halfWidth, halfHeight, (float)this.image.getWidth(), (float)this.image.getHeight(), Settings.scale, Settings.scale, this.angle, 0, 0, this.image.getWidth(), this.image.getHeight(), false, flipped);
+			sb.draw(this.image, this.x - halfWidth + halfWidth * Settings.scale, this.y - halfHeight + halfHeight * Settings.scale, halfWidth, halfHeight, (float) this.image.getWidth(), (float) this.image.getHeight(), Settings.scale, Settings.scale, this.angle, 0, 0, this.image.getWidth(), this.image.getHeight(), false, flipped);
 			sb.setBlendFunction(770, 771);
 		}
 

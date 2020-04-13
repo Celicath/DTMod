@@ -35,11 +35,8 @@ import com.megacrit.cardcrawl.actions.utility.DiscardToHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.status.Burn;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardHelper;
-import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
@@ -170,7 +167,7 @@ public class DTModMain
 				BaseMod.addTopPanelItem(dragonStatusButton);
 				topPanelAdded = true;
 			}
-		} else if(topPanelAdded) {
+		} else if (topPanelAdded) {
 			BaseMod.removeTopPanelItem(dragonStatusButton);
 			topPanelAdded = false;
 		}

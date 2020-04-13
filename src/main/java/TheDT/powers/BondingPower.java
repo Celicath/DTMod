@@ -68,6 +68,9 @@ public class BondingPower extends AbstractPower {
 			}
 			if (index3 == index1) {
 				index3 = OPTION_COUNT - 1;
+				if (index3 == index2) {
+					index3 = OPTION_COUNT - 2;
+				}
 			}
 			choices.add(new BondingBonus(index1));
 			choices.add(new BondingBonus(index2));

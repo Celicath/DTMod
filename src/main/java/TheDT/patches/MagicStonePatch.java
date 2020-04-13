@@ -2,7 +2,6 @@ package TheDT.patches;
 
 import TheDT.actions.FastAddTemporaryHPAction;
 import TheDT.relics.MagicStone;
-import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;

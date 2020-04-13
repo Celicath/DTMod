@@ -1,7 +1,6 @@
 package TheDT.screens;
 
 import TheDT.DTModMain;
-import TheDT.characters.DragonTamer;
 import TheDT.patches.CurrentScreenEnum;
 import TheDT.patches.DragonStatusScreenPatch;
 import basemod.TopPanelItem;

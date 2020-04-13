@@ -1,6 +1,5 @@
 package TheDT.cards;
 
-import TheDT.Interfaces.TacticCard;
 import TheDT.characters.Dragon;
 import TheDT.characters.DragonTamer;
 import TheDT.patches.CardColorEnum;

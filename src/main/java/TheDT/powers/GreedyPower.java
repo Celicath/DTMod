@@ -10,8 +10,6 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.rewards.RewardItem;
 
-import java.util.Iterator;
-
 public class GreedyPower extends AbstractPower {
 	public static final String RAW_ID = "GreedyPower";
 	public static final String POWER_ID = DTModMain.makeID(RAW_ID);

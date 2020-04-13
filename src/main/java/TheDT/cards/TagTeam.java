@@ -46,13 +46,13 @@ public class TagTeam extends AbstractDTCard {
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		int multiplier = DragonTamer.frontChangedThisTurn ? 2 : 1;
-		addToBot(new ApplyPowerAction(p, p, new BondingPower(p, p, magicNumber * multiplier), magicNumber * multiplier));
-
 		if (DragonTamer.isFrontDragon()) {
 			addToBot(new GainBlockAction(((DragonTamer) AbstractDungeon.player).dragon, ((DragonTamer) AbstractDungeon.player).dragon, dtDragonBlock * multiplier));
 		} else {
 			addToBot(new GainBlockAction(p, p, block * multiplier));
 		}
+
+		addToBot(new ApplyPowerAction(p, p, new BondingPower(p, p, magicNumber * multiplier), magicNumber * multiplier));
 	}
 
 	public void triggerOnGlowCheck() {
