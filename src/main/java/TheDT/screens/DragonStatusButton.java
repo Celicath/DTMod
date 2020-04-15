@@ -75,7 +75,9 @@ public class DragonStatusButton extends TopPanelItem {
 
 				AbstractDungeon.closeCurrentScreen();
 			}
-			DTModMain.dragonStatusScreen.open();
+			if (AbstractDungeon.screen != AbstractDungeon.CurrentScreen.VICTORY) {
+				DTModMain.dragonStatusScreen.open();
+			}
 		}
 		InputHelper.justClickedLeft = false;
 	}

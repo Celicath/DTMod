@@ -61,7 +61,7 @@
     "DESCRIPTIONS": [
       "All cards containing \"Tactic\" have their effects boosted.",
       "Bonus Effects",
-      "#bSwitching #bTactic - Now has Retain. NL #bBizarre #bTactic - Gain 2 more Block, deal 2 more damage. NL #bRunning #bTactic - Draws 1 extra card. NL #bTactic #bRecycle - The Fetched cards are Retained for 1 turn. NL #bOpening #bTactic - Gain 1 additional Dexterity if the enemy has full HP.\n"
+      "#bSwitching #bTactic - Now costs 0. NL #bBizarre #bTactic - Gain 2 more Block, deal 2 more damage. NL #bRunning #bTactic - Draws 1 extra card. NL #bTactic #bRecycle - The Fetched cards are Retained for 1 turn. NL #bOpening #bTactic - Gain 1 additional Dexterity if the enemy has full HP.\n"
     ]
   },
   "DTMod:SwitchButton": {

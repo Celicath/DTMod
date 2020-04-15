@@ -44,6 +44,7 @@ public class GearUp extends AbstractDTCard {
 
 		magicNumber = baseMagicNumber = MAGIC;
 		cardsToPreview = previews.get(0);
+		exhaust = true;
 	}
 
 	@Override

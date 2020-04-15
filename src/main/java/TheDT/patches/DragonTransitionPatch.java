@@ -8,6 +8,7 @@ import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.dungeons.Exordium;
+import com.megacrit.cardcrawl.stances.NeutralStance;
 
 public class DragonTransitionPatch {
 	@SpirePatch(clz = AbstractDungeon.class, method = "dungeonTransitionSetup")
@@ -42,7 +43,12 @@ public class DragonTransitionPatch {
 		@SpirePostfixPatch
 		public static void Postfix() {
 			if (AbstractDungeon.player instanceof DragonTamer) {
-				((DragonTamer) AbstractDungeon.player).dragon.loseBlock(true);
+				Dragon dragon = DragonTamer.getDragon();
+				dragon.loseBlock(true);
+				if (!dragon.stance.ID.equals(NeutralStance.STANCE_ID)) {
+					dragon.stance = new NeutralStance();
+					dragon.onStanceChange(NeutralStance.STANCE_ID);
+				}
 			}
 		}
 	}
