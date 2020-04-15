@@ -5,7 +5,9 @@ import TheDT.characters.DragonTamer;
 import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.dungeons.Exordium;
 
 public class DragonTransitionPatch {
 	@SpirePatch(clz = AbstractDungeon.class, method = "dungeonTransitionSetup")
@@ -18,6 +20,18 @@ public class DragonTransitionPatch {
 					dragon.heal(MathUtils.round((dragon.maxHealth - dragon.currentHealth) * 0.75F), false);
 				} else {
 					dragon.heal(dragon.maxHealth, false);
+				}
+
+				if (AbstractDungeon.floorNum <= 1 && CardCrawlGame.dungeon instanceof Exordium) {
+					if (AbstractDungeon.ascensionLevel >= 14) {
+						dragon.decreaseMaxHealth(dragon.getAscensionMaxHPLoss());
+					}
+
+					if (AbstractDungeon.ascensionLevel >= 6) {
+						dragon.currentHealth = MathUtils.round(dragon.maxHealth * 0.9F);
+					}
+
+					CardCrawlGame.playtime = 0.0F;
 				}
 			}
 		}

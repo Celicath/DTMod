@@ -28,6 +28,16 @@ public class RepeatStrike extends AbstractDTCard {
 		tags.add(CardTags.STRIKE);
 	}
 
+	@Override
+	public boolean canUse(AbstractPlayer p, AbstractMonster m) {
+		boolean result = super.canUse(p, m);
+		if (result && DragonTamer.getLivingDragon() == null) {
+			cantUseMessage = dragonNotAvailableMessage();
+			return false;
+		}
+		return result;
+	}
+
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		Dragon dragon = DragonTamer.getLivingDragon();
 

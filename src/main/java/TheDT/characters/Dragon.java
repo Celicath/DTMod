@@ -1,6 +1,7 @@
 package TheDT.characters;
 
 import TheDT.DTModMain;
+import TheDT.actions.DragonFaintAction;
 import TheDT.cards.HardSkin;
 import TheDT.patches.CardColorEnum;
 import TheDT.powers.BirdFacePower;
@@ -20,6 +21,7 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.Interpolation;
 import com.evacipated.cardcrawl.mod.stslib.patches.tempHp.PlayerDamage;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -49,7 +51,6 @@ public class Dragon extends CustomPlayer implements CustomSavable<ArrayList<Inte
 
 	public static final float OFFSET_X = 160.0f;
 	public static final float OFFSET_Y = 60.0f;
-	private static final int HP_BONUS_RATIO = 13;
 	private static final Logger logger = LogManager.getLogger(AbstractPlayer.class.getName());
 	public static final Color deadColor = new Color(0.8f, 0.8f, 0.8f, 0.75f);
 	public DragonTamer master;
@@ -264,10 +265,10 @@ public class Dragon extends CustomPlayer implements CustomSavable<ArrayList<Inte
 		return "";
 	}
 
-	public void initializeClass(CharSelectInfo info) {
+	public void initializeClass() {
 		setImage(1, 0);
-		this.maxHealth = info.maxHp * (100 + HP_BONUS_RATIO) / 100;
-		this.currentHealth = info.currentHp * (100 + HP_BONUS_RATIO) / 100;
+		this.maxHealth = 45;
+		this.currentHealth = 45;
 	}
 
 	@Override
@@ -308,7 +309,7 @@ public class Dragon extends CustomPlayer implements CustomSavable<ArrayList<Inte
 				power.onLoseHp(damageAmount);
 			}
 			if (info.owner != null) {
-				for (AbstractPower power : this.powers) {
+				for (AbstractPower power : info.owner.powers) {
 					power.onInflictDamage(info, damageAmount, this);
 				}
 			}
@@ -329,17 +330,15 @@ public class Dragon extends CustomPlayer implements CustomSavable<ArrayList<Inte
 
 				for (AbstractRelic r : master.relics) {
 					if (r != null) {
-						// r.onDragonBloodied(); TODO: Make interface
+						// r.onDragonBloodied();
 					}
 				}
 			}
 
 			if (this.currentHealth < 1) {
-				// TODO: maybe add some dragon revival things
-
 				isDead = true;
-				master.setAggro(0);
-				master.setFront(master);
+
+				AbstractDungeon.actionManager.addToBottom(new DragonFaintAction(master));
 
 				currentHealth = 0;
 				if (currentBlock > 0) {
@@ -503,11 +502,11 @@ public class Dragon extends CustomPlayer implements CustomSavable<ArrayList<Inte
 				break;
 			case 3:
 				AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(
-						AbstractDungeon.player, AbstractDungeon.player, new BondingPower(AbstractDungeon.player, AbstractDungeon.player, 1), 1));
+						AbstractDungeon.player, AbstractDungeon.player, new BondingPower(AbstractDungeon.player, AbstractDungeon.player, 2), 2));
 				break;
 			case 4:
 				AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(
-						this, this, new DrawCardNextTurnPower(this, 4), 4));
+						this, this, new DrawCardNextTurnPower(this, 5), 5));
 				break;
 		}
 		switch (tier3Perk) {

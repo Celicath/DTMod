@@ -55,8 +55,8 @@
       "For #b",
       " turns, ",
       "this enemy will target ",
-      "You",
-      "Dragon",
+      "[#60D0D0]You[]",
+      "[#60D0D0]Dragon[]",
       ", ignoring #yAggro [REMOVE_SPACE]."
     ]
   },
@@ -66,7 +66,7 @@
       "For this turn, ",
       "For #b",
       " turns,",
-      " you take half damage."
+      " [#60D0D0]You[] take half damage."
     ]
   },
   "DTMod:DeepFocusPower": {
@@ -89,7 +89,7 @@
   "DTMod:ShadowImagePower": {
     "NAME": "Shadow Image",
     "DESCRIPTIONS": [
-      "Whenever You or Dragon attacks, the attacker gains #b",
+      "Whenever this character attacks, gain #b",
       " #yBlock."
     ]
   },
@@ -103,7 +103,7 @@
   "DTMod:HuntersMarkPower": {
     "NAME": "Hunter's Mark",
     "DESCRIPTIONS": [
-      "When dragon attacks this enemy, gain #b",
+      "When [#60D0D0]Dragon[] attacks this enemy, gain #b",
       " #yBonding."
     ]
   },
@@ -125,7 +125,7 @@
   "DTMod:BattleHarmonyPower": {
     "NAME": "Battle Harmony",
     "DESCRIPTIONS": [
-      "Whenever both You and Dragon attacks in a single turn, gain #b",
+      "Whenever both [#60D0D0]You[] and [#60D0D0]Dragon[] attacks in a single turn, gain #b",
       " #yBonding [REMOVE_SPACE]."
     ]
   },
@@ -139,25 +139,28 @@
   "DTMod:ResonanceFormPower": {
     "NAME": "Resonance Form",
     "DESCRIPTIONS": [
-      "Whenever You or Dragon gains Strength, Dexterity, Block or HP, the other gains a copy of it."
+      "Whenever [#60D0D0]You[] or [#60D0D0]Dragon[] gains Strength, Dexterity, Block or HP, the other gains a copy of it."
     ]
   },
   "DTMod:FiercePower": {
     "NAME": "Fierce",
     "DESCRIPTIONS": [
-      "After you play #yTwin #yBite, gain #b3 #yStrength."
+      "After you play #yTwin #yBite, gain #b",
+      " #yStrength."
     ]
   },
   "DTMod:BirdFacePower": {
     "NAME": "Bird Faced",
     "DESCRIPTIONS": [
-      "Whenever you play a Power, Dragon heals #b1 HP."
+      "Whenever you play a Power, Dragon heals #b",
+      " HP."
     ]
   },
   "DTMod:GreedyPower": {
     "NAME": "Greedy",
     "DESCRIPTIONS": [
-      "At the end of combat, gain #b75 additional Gold."
+      "At the end of combat, gain #b",
+      " additional Gold."
     ]
   }
 }

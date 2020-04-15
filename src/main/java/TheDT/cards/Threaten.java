@@ -12,14 +12,14 @@ import com.megacrit.cardcrawl.powers.WeakPower;
 
 public class Threaten extends AbstractDTCard {
 	public static final String RAW_ID = "Threaten";
-	private static final int COST = 1;
+	private static final int COST = 0;
 	private static final AbstractCard.CardType TYPE = AbstractCard.CardType.SKILL;
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.DT_ORANGE;
 	private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.COMMON;
 	private static final AbstractCard.CardTarget TARGET = CardTarget.SELF_AND_ENEMY;
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DRAGON_ONLY;
 
-	private static final int POWER = 6;
+	private static final int POWER = 3;
 	private static final int UPGRADE_BONUS = 2;
 	private static final int WEAK = 1;
 	private static final int WEAK_BONUS = 1;
@@ -47,7 +47,7 @@ public class Threaten extends AbstractDTCard {
 
 		if (dragon != null) {
 			addToBot(new GainBlockAction(dragon, dragon, dtDragonBlock));
-			addToBot(new ApplyPowerAction(m, dragon, new WeakPower(dragon, magicNumber, false), magicNumber));
+			addToBot(new ApplyPowerAction(m, dragon, new WeakPower(m, magicNumber, false), magicNumber));
 		}
 	}
 

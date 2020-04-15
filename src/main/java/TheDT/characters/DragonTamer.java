@@ -97,7 +97,7 @@ public class DragonTamer extends CustomPlayer {
 		this.dialogY = (this.drawY + 220.0F * Settings.scale);
 
 		dragon = new Dragon(Dragon.charStrings.NAMES[0], 0.0f, 0.0f, 220.0f, 290.0f, this);
-		dragon.initializeClass(loadout);
+		dragon.initializeClass();
 	}
 
 	@Override
@@ -176,7 +176,7 @@ public class DragonTamer extends CustomPlayer {
 
 	@Override
 	public AbstractCard getStartCardForEvent() {
-		return new HardSkin();
+		return new SwitchingTactic();
 	}
 
 	@Override

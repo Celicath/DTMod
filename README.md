@@ -1,40 +1,42 @@
 
 # DTMod
-This mod adds a named `The Dragon Tamer` to Slay the Spire, who plays as a team with Dragon.
+This mod adds a character named `The Dragon Tamer` to Slay the Spire. Dragon Tamer fights alongside with his Dragon.
 
+Dragon Tamer and Dragon both have low HP (40 and 45 respectively), so they need teamwork to overcome difficulties.
 
 # Dragon
-Dragon is a separate character with own HP, Block and buffs. You control both You and Dragon by playing cards.
+Dragon is a separate character with its own HP, Block and buffs. You control both 'You' and 'Dragon' by playing corresponding cards.
 
-When you play a card saying `Dragon deals X damage`, dragon will attack.
-Dragon can gain Block or buffs using cards with similar text.
+Dragon will attack when you play a card saying `Dragon deals X damage`. Dragon will gain Block with a card `Dragon gains X Block`, and similar for other buffs.
 
-When Dragon's HP becomes 0, it faints. When fainted, attacks by Dragon or effects affecting Dragon cannot be used. Fainted Dragon will revive with 1 HP at the end of combat.
+Dragon faints (instead of die) when its HP becomes 0. It will revive with 1 HP at the end of combat.
 
 
 ### Make dragon evolve!
-Dragon will evolve into tier 2 and 3 dragon after beating act 1 and 2.
-There are 5 dragons for each tier, and each one has different abilities.
-All dragons except the first one from each tier has requirements such as `8 Attack cards in your deck`. If you don't fulfill this requirement at the time you beat act 1 or act 2, Dragon cannot evolve into that one.
+Dragon starts each run as Baby Dragon. Baby Dragon is a Tier 1 dragon with no special abilities.
+
+After beating act 1 and act 2 boss, Dragon will evolve into one of the dragons from higher tier. Each dragon has unique abilities similar to relics.
+
+Some dragons have deck requirements to be able to choose. For example, you need to have 8 Attack cards in your deck at the end of Act 1 to evolve into Red Dragon.
 
 
 # Aggro and Position
-With 2 characters, enemies have to prioritize which one from your team to attack.
+With 2 characters, enemies have to decide which character to attack.
 In this mod, all enemies attack the Front, the one with higher Aggro.
 
 You and Dragon gain Aggro whenever they attack. Aggro increases by 1 per hit, but only 1 when you attack multiple enemies at the same time using AOE attack. 
 
-Only the difference between You and Dragon is important. The one with higher aggro will become the Front, and lower will become the Rear. When they become same, Front & Rear are not exchanged.
+Only the difference between You and Dragon is displayed. The one with higher aggro will become the Front, and lower will become the Rear. When they become same, Front & Rear are not exchanged.
 
-Some cards activate when you switch position, and others cards affect only the Front or the Rear.
-Thus, you may want to carefully control who becomes the Front for efficient combat.
+Some cards activate when you switch position, and other cards affect only the Front or the Rear.
+Thus, you may want to carefully control who becomes the Front at what time.
 
 
 # Other stuff
-* Bonding: Works similar to Mantra. Whenever you gain 4 Bonding, you choose 1 of 3 random powerful effect. (Stronger than potion effects)
+* Bonding: Works similar to Mantra. Whenever you gain 4 Bonding, choose 1 of 3 random powerful effects. (Stronger variations of potion effects)
 * Channeling: Effects happen after 2 turns, but cancelled if you Attack or enemies attack you.
-* Synergy with Burn
-* Cards with while-in-your-deck effects
+* Synergies with Burn / Weak.
+* Cards with while-in-your-deck effects.
 
 # Cross-mod Content
 

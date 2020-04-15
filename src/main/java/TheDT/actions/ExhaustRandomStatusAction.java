@@ -32,12 +32,25 @@ public class ExhaustRandomStatusAction extends AbstractGameAction {
 					}
 				}
 			}
+			if (amount > list.size()) {
+				amount = list.size();
+			}
 			for (int i = 0; i < amount; i++) {
-				if (list.size() == 0) {
-					break;
-				}
 				Pair<AbstractCard, CardGroup> pair = list.get(AbstractDungeon.cardRandomRng.random(list.size() - 1));
-				AbstractDungeon.actionManager.addToTop(new ExhaustSpecificCardAction(pair.getKey(), pair.getValue()));
+				AbstractDungeon.actionManager.addToTop(new ExhaustSpecificCardAction(pair.getKey(), pair.getValue()) {
+					@Override
+					public void update() {
+						super.update();
+						if (pair.getValue() == AbstractDungeon.player.drawPile) {
+							pair.getKey().target_x = Settings.WIDTH * 0.4f;
+						} else if (pair.getValue() == AbstractDungeon.player.discardPile) {
+							pair.getKey().target_x = Settings.WIDTH * 0.6f;
+						} else {
+							return;
+						}
+						pair.getKey().target_y = Settings.HEIGHT / 2.0f;
+					}
+				});
 				list.remove(pair);
 			}
 			isDone = true;

@@ -4,7 +4,7 @@
     "NAMES": [
       "bonding"
     ],
-    "DESCRIPTION": "When you obtain #b4 #yBonding, choose #b1 of #b3 random effects to receive. The effects are slightly stronger than potions."
+    "DESCRIPTION": "Whenever you gain #b4 #yBonding, choose #b1 of #b3 random effects to receive. The effects are stronger variations of potion effects."
   },
   {
     "PROPER_NAME": "Aggro",
@@ -12,7 +12,7 @@
       "aggro",
       "position"
     ],
-    "DESCRIPTION": "Whenever you or Dragon attacks, the attacker gains #b1 Aggro. The character with higher Aggro becomes the #yFront, taking all attacks."
+    "DESCRIPTION": "Whenever [#60D0D0]You[] or [#60D0D0]Dragon[] attacks, the attacker gains #b1 Aggro. The character with higher Aggro becomes the #yFront, taking all attacks."
   },
   {
     "PROPER_NAME": "Front",
@@ -42,14 +42,14 @@
       "taunt",
       "taunts"
     ],
-    "DESCRIPTION": "Taunted enemy will always target who taunted it, ignoring #yFront."
+    "DESCRIPTION": "Taunted enemy will always attack who taunted it, ignoring the #yFront."
   },
   {
     "PROPER_NAME": "Channeling",
     "NAMES": [
       "channeling"
     ],
-    "DESCRIPTION": "If You attack or an enemy attacks You before the effect kicks in, it is cancelled."
+    "DESCRIPTION": "If [#60D0D0]You[] attack or an enemy attacks [#60D0D0]You[] before the effect kicks in, it is cancelled."
   },
   {
     "PROPER_NAME": "Blaze Potion",
