@@ -21,7 +21,6 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.Interpolation;
 import com.evacipated.cardcrawl.mod.stslib.patches.tempHp.PlayerDamage;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -375,8 +374,23 @@ public class Dragon extends CustomPlayer implements CustomSavable<ArrayList<Inte
 			// update orb-like things
 		}
 
+		if (master.flipHorizontal != this.flipHorizontal) {
+			this.flipHorizontal = master.flipHorizontal;
+			move();
+		}
+
 		this.updateEscapeAnimation();
 	}
+
+
+	public void move() {
+		float x = flipHorizontal ? (master.drawX - Dragon.OFFSET_X) : (master.drawX + Dragon.OFFSET_X);
+		movePosition(x, master.drawY + Dragon.OFFSET_Y);
+		if (DragonTamer.isFrontDragon()) {
+			DTModMain.targetMarker.move(this);
+		}
+	}
+
 
 	@Override
 	public void combatUpdate() {
@@ -490,7 +504,10 @@ public class Dragon extends CustomPlayer implements CustomSavable<ArrayList<Inte
 	public void preBattlePrep() {
 		powers.clear();
 		healthBarUpdatedEvent();
+	}
 
+	@Override
+	public void applyStartOfCombatLogic() {
 		switch (tier2Perk) {
 			case 1:
 				AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(

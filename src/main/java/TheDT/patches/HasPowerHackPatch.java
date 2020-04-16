@@ -14,6 +14,7 @@ import com.megacrit.cardcrawl.monsters.beyond.SpireGrowth;
 import com.megacrit.cardcrawl.powers.BarricadePower;
 import com.megacrit.cardcrawl.powers.ConstrictedPower;
 import com.megacrit.cardcrawl.powers.EntanglePower;
+import com.megacrit.cardcrawl.powers.SurroundedPower;
 
 public class HasPowerHackPatch {
 	public static boolean shouldPatchBarricade = false;
@@ -82,6 +83,12 @@ public class HasPowerHackPatch {
 				Dragon dragon = DragonTamer.getLivingDragon();
 				if (dragon != null && __instance != dragon && dragon.hasPower(ConstrictedPower.POWER_ID)) {
 					return true;
+				} else {
+					return __result;
+				}
+			} else if (targetID.equals(SurroundedPower.POWER_ID)) {
+				if (__instance instanceof Dragon) {
+					return __result || ((Dragon) __instance).master.hasPower(SurroundedPower.POWER_ID);
 				} else {
 					return __result;
 				}

@@ -64,12 +64,18 @@ public class SwitchingTactic extends AbstractDTCard implements TacticCard {
 			} else {
 				magicNumber = Math.abs(dtp.aggro);
 				dtp.setAggro(-dtp.aggro);
-				for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
-					addToBot(new ApplyPowerAction(mo, p, new StrengthPower(mo, -magicNumber), -magicNumber, true, AbstractGameAction.AttackEffect.NONE));
-					if (!mo.hasPower(ArtifactPower.POWER_ID)) {
-						addToBot(new ApplyPowerAction(mo, p, new GainStrengthPower(mo, magicNumber), magicNumber, true, AbstractGameAction.AttackEffect.NONE));
+				addToBot(new AbstractGameAction() {
+					@Override
+					public void update() {
+						for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
+							addToBot(new ApplyPowerAction(mo, p, new StrengthPower(mo, -magicNumber), -magicNumber, true, AbstractGameAction.AttackEffect.NONE));
+							if (!mo.hasPower(ArtifactPower.POWER_ID)) {
+								addToBot(new ApplyPowerAction(mo, p, new GainStrengthPower(mo, magicNumber), magicNumber, true, AbstractGameAction.AttackEffect.NONE));
+							}
+						}
+						isDone = true;
 					}
-				}
+				});
 			}
 		}
 	}

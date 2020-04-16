@@ -40,7 +40,6 @@ public class GreedyPower extends AbstractPower {
 
 	@Override
 	public void onVictory() {
-		AbstractDungeon.getCurrRoom().addGoldToRewards(amount);
 		AbstractDungeon.getCurrRoom().rewards.add(new RewardItem(amount));
 	}
 }

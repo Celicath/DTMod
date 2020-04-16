@@ -17,8 +17,8 @@
   "DTMod:BondingPower": {
     "NAME": "Bonding",
     "DESCRIPTIONS": [
-      "When you obtain #b",
-      " #yBonding, choose #b1 of #b3 random bonuses, slightly better than potions."
+      "When you gain #b",
+      " #yBonding, choose #b1 of #b3 random bonuses, stronger variations of potions."
     ]
   },
   "DTMod:CalculatedDefensePower": {

@@ -224,7 +224,7 @@ public class DragonTamer extends CustomPlayer {
 	@Override
 	public void movePosition(float x, float y) {
 		super.movePosition(x, y);
-		dragon.movePosition(x + Dragon.OFFSET_X, y + Dragon.OFFSET_Y);
+		dragon.move();
 	}
 
 	@Override
@@ -306,6 +306,7 @@ public class DragonTamer extends CustomPlayer {
 		frontChangedThisTurn = false;
 		battleHarmonyYou = false;
 		battleHarmonyDragon = false;
+
 	}
 
 	public void setFront(AbstractCreature newTarget) {
@@ -392,6 +393,12 @@ public class DragonTamer extends CustomPlayer {
 	public void updateAnimations() {
 		super.updateAnimations();
 		dragon.updateAnimations();
+	}
+
+	@Override
+	public void applyStartOfCombatLogic() {
+		super.applyStartOfCombatLogic();
+		dragon.applyStartOfCombatLogic();
 	}
 
 	@Override

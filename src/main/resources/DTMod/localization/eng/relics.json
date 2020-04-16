@@ -3,7 +3,7 @@
     "NAME": "Pact Stone",
     "FLAVOR": "The evidence of your friendship.",
     "DESCRIPTIONS": [
-      "At the start of each combat, you and Dragon gain #b",
+      "At the start of each combat, You and Dragon gain #b",
       " #yTemporary_HP each."
     ]
   },
@@ -36,7 +36,7 @@
     "NAME": "Magic Stone",
     "FLAVOR": "The Pact Stone absorbed weird magic.",
     "DESCRIPTIONS": [
-      "Replaces #yPact #yStone. At the start of each combat, you and Dragon heals #b",
+      "Replaces #yPact #yStone. At the start of each combat, You and Dragon heal #b",
       " HP. NL During combat, excess amount of healing is converted to #yTemporary_HP."
     ]
   },

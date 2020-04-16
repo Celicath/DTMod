@@ -87,7 +87,7 @@ public class BondingBonus extends AbstractDTCard {
 				}
 				break;
 			case 9:
-				for (int i = 0; i < 4; i++) {
+				for (int i = 0; i < 3; i++) {
 					addToBot(new PlayTopCardAction(AbstractDungeon.getCurrRoom().monsters.getRandomMonster(null, true, AbstractDungeon.cardRandomRng), false));
 				}
 				break;

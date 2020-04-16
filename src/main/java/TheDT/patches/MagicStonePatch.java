@@ -1,6 +1,7 @@
 package TheDT.patches;
 
 import TheDT.actions.FastAddTemporaryHPAction;
+import TheDT.characters.Dragon;
 import TheDT.relics.MagicStone;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -16,6 +17,9 @@ public class MagicStonePatch {
 		@SpireInsertPatch(locator = OverhealLocator.class)
 		public static void Insert(AbstractCreature __instance, int healAmount, boolean showEffect) {
 			AbstractRelic ms = AbstractDungeon.player.getRelic(MagicStone.ID);
+			if (AbstractDungeon.player instanceof Dragon) {
+				ms = ((Dragon) AbstractDungeon.player).master.getRelic(MagicStone.ID);
+			}
 			if (ms != null && __instance.isPlayer && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
 				ms.flash();
 				AbstractDungeon.actionManager.addToTop(new FastAddTemporaryHPAction(__instance, __instance, __instance.currentHealth - __instance.maxHealth));
