@@ -10,12 +10,12 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
 
-public class DraftAction extends AbstractGameAction {
+public class PredictionAction extends AbstractGameAction {
 	private AbstractPlayer p;
 	private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(DTModMain.makeID("DraftAction"));
 	public static final String[] TEXT = uiStrings.TEXT;
 
-	public DraftAction() {
+	public PredictionAction() {
 		p = AbstractDungeon.player;
 		duration = Settings.ACTION_DUR_MED;
 		actionType = ActionType.CARD_MANIPULATION;
@@ -27,8 +27,10 @@ public class DraftAction extends AbstractGameAction {
 			CardGroup tmp = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
 
 			for (AbstractCard card : p.drawPile.group) {
-				tmp.addToRandomSpot(card);
+				tmp.addToBottom(card);
 			}
+			tmp.sortAlphabetically(true);
+			tmp.sortByRarityPlusStatusCardType(true);
 
 			if (tmp.size() == 0) {
 				this.isDone = true;
@@ -41,6 +43,9 @@ public class DraftAction extends AbstractGameAction {
 			if (AbstractDungeon.gridSelectScreen.selectedCards.size() != 0) {
 				for (AbstractCard c : AbstractDungeon.gridSelectScreen.selectedCards) {
 					c.freeToPlayOnce = true;
+					if (AbstractDungeon.player.drawPile.group.remove(c)) {
+						AbstractDungeon.player.drawPile.addToTop(c);
+					}
 				}
 				AbstractDungeon.gridSelectScreen.selectedCards.clear();
 			}

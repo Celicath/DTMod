@@ -41,7 +41,7 @@
   },
   "DTMod:Prediction": {
     "NAME": "Prediction",
-    "DESCRIPTION": "Choose a card from your draw pile. NL It costs 0 until played."
+    "DESCRIPTION": "Choose a card from your draw pile and put it on top. NL It costs 0 until played."
   },
   "DTMod:ForbiddenStrike": {
     "NAME": "Forbidden Strike",
@@ -63,7 +63,7 @@
   },
   "DTMod:HeadStart": {
     "NAME": "Head Start",
-    "DESCRIPTION": "Innate. NL Scry !M!. NL Draw 2 cards. NL Exhaust."
+    "DESCRIPTION": "Innate. NL Gain [E]. NL Draw !M! cards. NL Exhaust."
   },
   "DTMod:CleansingStrike": {
     "NAME": "Cleansing Strike",
@@ -172,7 +172,7 @@
   },
   "DTMod:Hide": {
     "NAME": "Hide",
-    "DESCRIPTION": "Gain !B! Block. NL Gain !M! Weak."
+    "DESCRIPTION": "You gain !B! Block. NL Next turn, draw !M! card."
   },
   "DTMod:Threaten": {
     "NAME": "Threaten",
@@ -273,8 +273,8 @@
   },
   "DTMod:Haste": {
     "NAME": "Haste",
-    "DESCRIPTION": "Play a Power card from your hand. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Play a Power card from your hand. NL Gain [E]. NL Exhaust."
+    "DESCRIPTION": "Gain [E]. NL Play a random Power from your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain [E] [E]. NL Play a random Power from your hand. NL Exhaust."
   },
   "DTMod:RedScale": {
     "NAME": "Red Scale",
@@ -340,7 +340,7 @@
   },
   "DTMod:LightShield": {
     "NAME": "Light Shield",
-    "DESCRIPTION": "Gain !B! Block. NL Dragon gains !DT:THB! Block. NL Gain !M! additional Block for every ragontaer:Bonding you gained this combat."
+    "DESCRIPTION": "You gain !B! Block. NL Dragon gains !DT:THB! Block. NL Gain !M! additional Block for every ragontaer:Bonding you gained this combat."
   },
   "DTMod:StunTrap": {
     "NAME": "Stun Trap",

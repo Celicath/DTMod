@@ -22,6 +22,7 @@ import com.badlogic.gdx.math.Interpolation;
 import com.evacipated.cardcrawl.mod.stslib.patches.tempHp.PlayerDamage;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -522,8 +523,9 @@ public class Dragon extends CustomPlayer implements CustomSavable<ArrayList<Inte
 						AbstractDungeon.player, AbstractDungeon.player, new BondingPower(AbstractDungeon.player, AbstractDungeon.player, 2), 2));
 				break;
 			case 4:
+				AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(1));
 				AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(
-						this, this, new DrawCardNextTurnPower(this, 5), 5));
+						this, this, new EnergizedPower(this, 1), 1));
 				break;
 		}
 		switch (tier3Perk) {

@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import com.megacrit.cardcrawl.vfx.PlayerTurnEffect;
 import javassist.CtBehavior;
 
 public class DragonPowerPatch {
@@ -56,6 +57,19 @@ public class DragonPowerPatch {
 					if (!card.dontTriggerOnUseCard) {
 						p.onUseCard(card, __instance);
 					}
+				}
+			}
+		}
+	}
+
+	@SpirePatch(clz = PlayerTurnEffect.class, method = SpirePatch.CONSTRUCTOR)
+	public static class DragonOnEnergyRechargePower {
+		@SpirePostfixPatch
+		public static void Postfix(PlayerTurnEffect __instance) {
+			Dragon dragon = DragonTamer.getLivingDragon();
+			if (dragon != null) {
+				for (AbstractPower p : dragon.powers) {
+					p.onEnergyRecharge();
 				}
 			}
 		}

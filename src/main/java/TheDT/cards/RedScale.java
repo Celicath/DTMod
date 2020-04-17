@@ -11,14 +11,14 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public class RedScale extends AbstractDTCard {
 	public static final String RAW_ID = "RedScale";
-	private static final int COST = 1;
+	private static final int COST = 2;
 	private static final AbstractCard.CardType TYPE = CardType.SKILL;
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.DT_ORANGE;
 	private static final AbstractCard.CardRarity RARITY = CardRarity.UNCOMMON;
 	private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DRAGON_ONLY;
 
-	private static final int BLOCK = 7;
+	private static final int BLOCK = 18;
 
 	public static HardSkin preview = new HardSkin();
 	public static HardSkin previewPlus = new HardSkin() {

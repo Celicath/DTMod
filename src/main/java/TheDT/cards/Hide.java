@@ -6,31 +6,31 @@ import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.WeakPower;
+import com.megacrit.cardcrawl.powers.DrawCardNextTurnPower;
 
 public class Hide extends AbstractDTCard {
 	public static final String RAW_ID = "Hide";
-	private static final int COST = 1;
+	private static final int COST = 0;
 	private static final AbstractCard.CardType TYPE = AbstractCard.CardType.SKILL;
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.DT_ORANGE;
 	private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.COMMON;
 	private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DEFAULT;
 
-	private static final int POWER = 15;
-	private static final int UPGRADE_BONUS = 5;
-	private static final int WEAK = 2;
+	private static final int POWER = 3;
+	private static final int UPGRADE_BONUS = 3;
+	private static final int DRAW = 1;
 
 	public Hide() {
 		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
 
 		baseBlock = POWER;
-		magicNumber = baseMagicNumber = WEAK;
+		magicNumber = baseMagicNumber = DRAW;
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		addToBot(new GainBlockAction(p, p, block));
-		addToBot(new ApplyPowerAction(p, p, new WeakPower(p, magicNumber, false), magicNumber));
+		addToBot(new ApplyPowerAction(p, p, new DrawCardNextTurnPower(p, magicNumber), magicNumber));
 	}
 
 	public AbstractCard makeCopy() {
