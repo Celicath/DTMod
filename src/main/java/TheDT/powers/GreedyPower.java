@@ -40,6 +40,17 @@ public class GreedyPower extends AbstractPower {
 
 	@Override
 	public void onVictory() {
+		boolean addDummy = true;
+		for (RewardItem i : AbstractDungeon.getCurrRoom().rewards) {
+			if (i.type == RewardItem.RewardType.GOLD) {
+				addDummy = false;
+				break;
+			}
+		}
+
+		if (addDummy) {
+			AbstractDungeon.getCurrRoom().addGoldToRewards(0);
+		}
 		AbstractDungeon.getCurrRoom().rewards.add(new RewardItem(amount));
 	}
 }

@@ -21,7 +21,7 @@ public class LightShield extends AbstractDTCard {
 
 	private static final int POWER = 10;
 	private static final int UPGRADE_BONUS = 2;
-	private static final int RATIO = 2;
+	private static final int RATIO = 1;
 	private static final int UPGRADE_RATIO = 1;
 
 	public LightShield() {

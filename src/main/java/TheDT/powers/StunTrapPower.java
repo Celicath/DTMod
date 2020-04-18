@@ -4,6 +4,7 @@ import TheDT.DTModMain;
 import com.evacipated.cardcrawl.mod.stslib.powers.StunMonsterPower;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -19,8 +20,9 @@ public class StunTrapPower extends AbstractChannelingPower {
 	public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
 	AbstractMonster target;
+	int draw;
 
-	public StunTrapPower(AbstractMonster target, AbstractCreature owner, int turn) {
+	public StunTrapPower(AbstractMonster target, AbstractCreature owner, int turn, int draw) {
 		this.name = NAME;
 		this.ID = POWER_ID;
 		this.owner = owner;
@@ -30,14 +32,15 @@ public class StunTrapPower extends AbstractChannelingPower {
 		this.type = PowerType.BUFF;
 		this.isTurnBased = true;
 		this.loadRegion("channel");
+		this.draw = draw;
 	}
 
 	@Override
 	public void updateDescription() {
 		if (amount == 1) {
-			description = DESCRIPTIONS[0] + target.name + DESCRIPTIONS[3];
+			description = DESCRIPTIONS[0] + target.name + DESCRIPTIONS[3] + draw + DESCRIPTIONS[4];
 		} else {
-			description = DESCRIPTIONS[1] + amount + DESCRIPTIONS[2] + target.name + DESCRIPTIONS[3];
+			description = DESCRIPTIONS[1] + amount + DESCRIPTIONS[2] + target.name + DESCRIPTIONS[3] + draw + DESCRIPTIONS[4];
 		}
 	}
 
@@ -46,5 +49,6 @@ public class StunTrapPower extends AbstractChannelingPower {
 		addToBot(new VFXAction(new WeightyImpactEffect(target.hb.cX, target.hb.cY)));
 		addToBot(new WaitAction(0.4F));
 		addToBot(new ApplyPowerAction(target, owner, new StunMonsterPower(target, 1), 1));
+		addToBot(new DrawCardAction(draw));
 	}
 }

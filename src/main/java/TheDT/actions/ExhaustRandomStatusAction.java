@@ -40,15 +40,24 @@ public class ExhaustRandomStatusAction extends AbstractGameAction {
 				AbstractDungeon.actionManager.addToTop(new ExhaustSpecificCardAction(pair.getKey(), pair.getValue()) {
 					@Override
 					public void update() {
-						super.update();
-						if (pair.getValue() == AbstractDungeon.player.drawPile) {
-							pair.getKey().target_x = Settings.WIDTH * 0.4f;
-						} else if (pair.getValue() == AbstractDungeon.player.discardPile) {
-							pair.getKey().target_x = Settings.WIDTH * 0.6f;
-						} else {
-							return;
+						if (this.duration == Settings.ACTION_DUR_FAST) {
+							AbstractCard c = pair.getKey();
+							CardGroup cg = pair.getValue();
+							if (cg == AbstractDungeon.player.drawPile) {
+								c.current_x = CardGroup.DRAW_PILE_X;
+								c.current_y = CardGroup.DRAW_PILE_Y;
+								pair.getKey().target_x = Settings.WIDTH * 0.4f;
+							} else if (cg == AbstractDungeon.player.discardPile) {
+								c.current_x = CardGroup.DISCARD_PILE_X;
+								c.current_y = CardGroup.DISCARD_PILE_Y;
+								pair.getKey().target_x = Settings.WIDTH * 0.6f;
+							} else {
+								super.update();
+								return;
+							}
+							pair.getKey().target_y = Settings.HEIGHT / 2.0f;
 						}
-						pair.getKey().target_y = Settings.HEIGHT / 2.0f;
+						super.update();
 					}
 				});
 				list.remove(pair);

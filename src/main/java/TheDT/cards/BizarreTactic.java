@@ -12,6 +12,8 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.FlameBarrierPower;
 
+import static TheDT.patches.CustomTags.DT_TACTIC;
+
 public class BizarreTactic extends AbstractDTCard {
 	public static final String RAW_ID = "BizarreTactic";
 	private static final int COST = 1;
@@ -21,8 +23,8 @@ public class BizarreTactic extends AbstractDTCard {
 	private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.BOTH;
 
-	private static final int POWER = 9;
-	private static final int UPGRADE_BONUS = 3;
+	private static final int POWER = 10;
+	private static final int UPGRADE_BONUS = 4;
 	private static final int REFLECT = 4;
 	private static final int REFLECT_BONUS = 2;
 
@@ -31,6 +33,7 @@ public class BizarreTactic extends AbstractDTCard {
 
 		baseBlock = POWER;
 		magicNumber = baseMagicNumber = REFLECT;
+		tags.add(DT_TACTIC);
 	}
 
 	@Override

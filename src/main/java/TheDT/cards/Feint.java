@@ -15,7 +15,7 @@ public class Feint extends AbstractDTCard {
 	private static final AbstractCard.CardTarget TARGET = CardTarget.ENEMY;
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.BOTH;
 
-	private static final int DAMAGE = 6;
+	private static final int DAMAGE = 7;
 	private static final int UPGRADE_DAMAGE = 3;
 
 	public Feint() {

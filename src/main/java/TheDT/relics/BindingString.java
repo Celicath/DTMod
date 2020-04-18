@@ -18,6 +18,8 @@ public class BindingString extends CustomRelic {
 	public static final String IMG = DTModMain.GetRelicPath(RAW_ID);
 	public static final String OUTLINE = DTModMain.GetRelicOutlinePath(RAW_ID);
 
+	public static final int AMOUNT = 2;
+
 	public BindingString() {
 		super(ID, new Texture(IMG), new Texture(OUTLINE), RelicTier.RARE, LandingSound.FLAT);
 	}
@@ -27,7 +29,7 @@ public class BindingString extends CustomRelic {
 		if (p instanceof DragonTamer && !DragonTamer.isSolo() && DragonTamer.getAggro() == 0) {
 			flash();
 			addToBot(new RelicAboveCreatureAction(p, this));
-			addToBot(new ApplyPowerAction(p, p, new BondingPower(p, p, 1), 1));
+			addToBot(new ApplyPowerAction(p, p, new BondingPower(p, p, AMOUNT), AMOUNT));
 		}
 	}
 
@@ -42,7 +44,7 @@ public class BindingString extends CustomRelic {
 
 	@Override
 	public String getUpdatedDescription() {
-		return DESCRIPTIONS[0];
+		return DESCRIPTIONS[0] + AMOUNT + DESCRIPTIONS[1];
 	}
 
 	@Override

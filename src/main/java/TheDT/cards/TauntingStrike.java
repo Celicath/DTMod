@@ -25,7 +25,7 @@ public class TauntingStrike extends AbstractDTCard {
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.BOTH;
 
 	private static final int DAMAGE = 10;
-	private static final int UPGRADE_DAMAGE = 3;
+	private static final int UPGRADE_DAMAGE = 4;
 
 	public TauntingStrike() {
 		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);

@@ -5,6 +5,7 @@ import TheDT.patches.CardColorEnum;
 import TheDT.relics.TacticalNote;
 import com.evacipated.cardcrawl.mod.stslib.actions.common.FetchAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.red.Exhume;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -58,8 +59,10 @@ public class TacticRecycle extends AbstractDTCard implements TacticCard {
 				(c -> !c.cardID.equals(Exhume.ID) && !c.cardID.equals(cardID)),
 				magicNumber,
 				(cards) -> {
-					if (AbstractDungeon.player.hasRelic(TacticalNote.ID)) {
-						for (AbstractCard c : cards) {
+					for (AbstractCard c : cards) {
+						c.current_x = CardGroup.DISCARD_PILE_X;
+						c.current_y = CardGroup.DISCARD_PILE_Y;
+						if (AbstractDungeon.player.hasRelic(TacticalNote.ID)) {
 							c.retain = true;
 						}
 					}
@@ -74,10 +77,11 @@ public class TacticRecycle extends AbstractDTCard implements TacticCard {
 		if (!upgraded) {
 			upgradeName();
 			upgradeMagicNumber(UPGRADE_BONUS);
-			rawDescription = UPGRADE_DESCRIPTION;
-			initializeDescription();
 			if (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(TacticalNote.ID)) {
 				onEquipTacticalNote();
+			} else {
+				rawDescription = UPGRADE_DESCRIPTION;
+				initializeDescription();
 			}
 		}
 	}

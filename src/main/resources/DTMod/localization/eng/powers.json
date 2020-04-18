@@ -113,7 +113,8 @@
       "Next turn, ",
       "After #b",
       " turns, ",
-      " is Stunned."
+      " is Stunned and you draw #b",
+      " cards."
     ]
   },
   "DTMod:SafeguardPower": {

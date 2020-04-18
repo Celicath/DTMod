@@ -17,16 +17,18 @@ public class StunTrap extends AbstractDTCard {
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DEFAULT;
 
 	private static final int NEW_COST = 0;
+	private static final int DRAW = 3;
 
 	public StunTrap() {
 		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
 
+		magicNumber = baseMagicNumber = DRAW;
 		exhaust = true;
 	}
 
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		addToBot(new ApplyPowerAction(p, p, new StunTrapPower(m, p, 2)));
+		addToBot(new ApplyPowerAction(p, p, new StunTrapPower(m, p, 2, magicNumber)));
 	}
 
 	public AbstractCard makeCopy() {

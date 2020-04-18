@@ -145,7 +145,7 @@ public class DragonStatusScreen {
 		dragonGrowthCards[2][1].setProgress(countDeck(c -> c.type == AbstractCard.CardType.ATTACK), 8);
 		dragonGrowthCards[2][2].setProgress(countDeck(c -> c.type == AbstractCard.CardType.SKILL), 8);
 		dragonGrowthCards[2][3].setProgress(countDeck(c -> c.tags.contains(CustomTags.DT_BONDING)), 3);
-		dragonGrowthCards[2][4].setProgress(countDeck((c) -> c.tags.contains(CustomTags.DT_TACTIC)), 4);
+		dragonGrowthCards[2][4].setProgress(countDeck((c) -> c.tags.contains(CustomTags.DT_TACTIC)), 3);
 		dragonGrowthCards[3][1].setProgress(
 				countDeck((c) -> c instanceof TwinBite) >= 1 ?
 						countDeck((c) -> c instanceof AbstractDTCard &&

@@ -83,7 +83,8 @@
     "NAME": "Binding String",
     "FLAVOR": "The combination of two fighters is better when they are close.",
     "DESCRIPTIONS": [
-      "At the start of your turn, if You and Dragon have the same #yragontaer:Aggro, gain #b1 #yragontaer:Bonding."
+      "At the start of your turn, if You and Dragon have the same #yragontaer:Aggro, gain #b",
+      " #yragontaer:Bonding."
     ]
   },
   "DTMod:TheChair": {

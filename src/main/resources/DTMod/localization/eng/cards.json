@@ -172,7 +172,10 @@
   },
   "DTMod:Hide": {
     "NAME": "Hide",
-    "DESCRIPTION": "You gain !B! Block. NL Next turn, draw !M! card."
+    "DESCRIPTION": "The ragontaer:Front gains !B! Block. NL Next turn, draw !M! cards.",
+    "EXTENDED_DESCRIPTION": [
+      "The ragontaer:Front gains !DT:THB! Block. NL Next turn, draw !M! cards."
+    ]
   },
   "DTMod:Threaten": {
     "NAME": "Threaten",
@@ -344,7 +347,7 @@
   },
   "DTMod:StunTrap": {
     "NAME": "Stun Trap",
-    "DESCRIPTION": "After 2 turns, Stun the enemy. NL ragontaer:Channeling. NL Exhaust."
+    "DESCRIPTION": "After 2 turns, Stun the enemy and draw !M! cards. NL ragontaer:Channeling. NL Exhaust."
   },
   "DTMod:GearUp": {
     "NAME": "Gear Up",
