@@ -12,8 +12,8 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 
-public class FullCharge extends AbstractDTCard {
-	public static final String RAW_ID = "FullCharge";
+public class MaximumCharge extends AbstractDTCard {
+	public static final String RAW_ID = "MaximumCharge";
 	private static final int COST = 2;
 	private static final AbstractCard.CardType TYPE = CardType.ATTACK;
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.DT_ORANGE;
@@ -26,7 +26,7 @@ public class FullCharge extends AbstractDTCard {
 	private static final int VULNERABLE = 3;
 	private static final int VULNERABLE_UPGRADE = -1;
 
-	public FullCharge() {
+	public MaximumCharge() {
 		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
 		dtBaseDragonDamage = DAMAGE;
 		magicNumber = baseMagicNumber = VULNERABLE;
@@ -52,7 +52,7 @@ public class FullCharge extends AbstractDTCard {
 	}
 
 	public AbstractCard makeCopy() {
-		return new FullCharge();
+		return new MaximumCharge();
 	}
 
 	public void upgrade() {

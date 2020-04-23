@@ -80,6 +80,8 @@ public class LightShield extends AbstractDTCard {
 			upgradeBlock(UPGRADE_BONUS);
 			upgradeDTDragonBlock(UPGRADE_BONUS);
 			upgradeMagicNumber(UPGRADE_RATIO);
+			rawDescription = UPGRADE_DESCRIPTION;
+			initializeDescription();
 		}
 	}
 }

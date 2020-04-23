@@ -12,8 +12,8 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.MetallicizePower;
 
-public class Melt extends AbstractDTCard {
-	public static final String RAW_ID = "Melt";
+public class Dissolve extends AbstractDTCard {
+	public static final String RAW_ID = "Dissolve";
 	private static final int COST = 1;
 	private static final AbstractCard.CardType TYPE = CardType.POWER;
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.DT_ORANGE;
@@ -25,7 +25,7 @@ public class Melt extends AbstractDTCard {
 	private static final int UPGRADE_BONUS = 2;
 	private static final int BURN = 2;
 
-	public Melt() {
+	public Dissolve() {
 		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
 		baseMagicNumber = magicNumber = POWER;
 		cardsToPreview = DTModMain.previewBurn;
@@ -51,7 +51,7 @@ public class Melt extends AbstractDTCard {
 	}
 
 	public AbstractCard makeCopy() {
-		return new Melt();
+		return new Dissolve();
 	}
 
 	public void upgrade() {

@@ -1,7 +1,5 @@
 package TheDT.cards;
 
-import TheDT.characters.Dragon;
-import TheDT.characters.DragonTamer;
 import TheDT.patches.CardColorEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -19,7 +17,7 @@ public class BreakAttack extends AbstractDTCard {
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.DT_ORANGE;
 	private static final AbstractCard.CardRarity RARITY = CardRarity.COMMON;
 	private static final AbstractCard.CardTarget TARGET = CardTarget.ENEMY;
-	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DRAGON_ONLY;
+	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DEFAULT;
 
 	private static final int DAMAGE = 8;
 	private static final int UPGRADE_DAMAGE = 3;
@@ -28,28 +26,14 @@ public class BreakAttack extends AbstractDTCard {
 
 	public BreakAttack() {
 		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
-		dtBaseDragonDamage = DAMAGE;
+		baseDamage = DAMAGE;
 		baseMagicNumber = magicNumber = MAGIC;
 		exhaust = true;
 	}
 
-	@Override
-	public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-		boolean result = super.canUse(p, m);
-		if (result && DragonTamer.getLivingDragon() == null) {
-			cantUseMessage = dragonNotAvailableMessage();
-			return false;
-		}
-		return result;
-	}
-
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		Dragon dragon = DragonTamer.getLivingDragon();
-
-		if (dragon != null) {
-			addToBot(new DamageAction(m, new DamageInfo(dragon, dtDragonDamage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
-			addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, this.magicNumber, false), this.magicNumber));
-		}
+		addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
+		addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, magicNumber, false), magicNumber));
 	}
 
 	public AbstractCard makeCopy() {
@@ -59,7 +43,7 @@ public class BreakAttack extends AbstractDTCard {
 	public void upgrade() {
 		if (!upgraded) {
 			upgradeName();
-			upgradeDTDragonDamage(UPGRADE_DAMAGE);
+			upgradeDamage(UPGRADE_DAMAGE);
 			upgradeMagicNumber(UPGRADE_MAGIC);
 		}
 	}

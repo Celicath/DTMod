@@ -28,8 +28,8 @@
   },
   "DTMod:SwitchingTactic": {
     "NAME": "Switching Tactic",
-    "DESCRIPTION": "Reverse ragontaer:Aggro. For this turn, reduce Strength of ALL enemies by ragontaer:Aggro difference.",
-    "UPGRADE_DESCRIPTION": "Retain. NL Reverse ragontaer:Aggro. For this turn, reduce Strength of ALL enemies by ragontaer:Aggro difference."
+    "DESCRIPTION": "Reverse ragontaer:Aggro. This turn, ALL enemies lose Strength equal to ragontaer:Aggro difference.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Reverse ragontaer:Aggro. This turn, ALL enemies lose Strength equal to ragontaer:Aggro difference."
   },
   "DTMod:BronzeWave": {
     "NAME": "Bronze Wave",
@@ -72,7 +72,7 @@
   },
   "DTMod:Training": {
     "NAME": "Training",
-    "DESCRIPTION": "Gain !M! Strength. NL Dragon gains !M! Strength. NL Gain 1 ragontaer:Bonding."
+    "DESCRIPTION": "You and Dragon gain !M! Strength each. NL Gain 1 ragontaer:Bonding."
   },
   "DTMod:MagicField": {
     "NAME": "Magic Field",
@@ -84,7 +84,7 @@
   },
   "DTMod:CalculatedDefense": {
     "NAME": "Calculated Defense",
-    "DESCRIPTION": "Your team takes !M! less Attack damage from Weakened enemies."
+    "DESCRIPTION": "You and Dragon take !M! less Attack damage from Weakened enemies."
   },
   "DTMod:ExcessFootwork": {
     "NAME": "Excess Footwork",
@@ -100,7 +100,7 @@
   },
   "DTMod:BreakAttack": {
     "NAME": "Break Attack",
-    "DESCRIPTION": "Dragon deals !DT:THD! damage. NL Apply !M! Vulnerable. NL Exhaust."
+    "DESCRIPTION": "Deals !D! damage. NL Apply !M! Vulnerable. NL Exhaust."
   },
   "DTMod:BuildUp": {
     "NAME": "Build Up",
@@ -230,20 +230,20 @@
     "NAME": "Burning Force",
     "DESCRIPTION": "Dragon deals !DT:THD! damage. NL Deals !M! additional damage for every Burn created this combat."
   },
-  "DTMod:FullCharge": {
-    "NAME": "Full Charge",
+  "DTMod:MaximumCharge": {
+    "NAME": "Maximum Charge",
     "DESCRIPTION": "Dragon deals !DT:THD! damage. NL Dragon gains !M! Vulnerable."
   },
   "DTMod:SneakAttack": {
     "NAME": "Sneak Attack",
-    "DESCRIPTION": "Only usable if you are the ragontaer:Rear. NL Deal !D! damage and gain 3 additional ragontaer:Aggro.",
+    "DESCRIPTION": "Only usable if You are the ragontaer:Rear. NL Deal !D! damage and gain 3 additional ragontaer:Aggro.",
     "EXTENDED_DESCRIPTION": [
       "I'm not the Rear!"
     ]
   },
   "DTMod:LastStand": {
     "NAME": "Last Stand",
-    "DESCRIPTION": "For this turn, you recieve half damage from attacks. Exhaust."
+    "DESCRIPTION": "For this turn, You recieve half damage from attacks. NL Exhaust."
   },
   "DTMod:DeepFocus": {
     "NAME": "Deep Focus",
@@ -309,8 +309,8 @@
     "DESCRIPTION": "Whenever your team ragontaer:Switch, gain [E].",
     "UPGRADE_DESCRIPTION": "Innate. NL Whenever your team ragontaer:Switch, gain [E]."
   },
-  "DTMod:Melt": {
-    "NAME": "Melt",
+  "DTMod:Dissolve": {
+    "NAME": "Dissolve",
     "DESCRIPTION": "Add 2 Burns into your hand. NL At the end of your turn, Dragon gains !M! Block."
   },
   "DTMod:InvisibleFlame": {
@@ -343,7 +343,8 @@
   },
   "DTMod:LightShield": {
     "NAME": "Light Shield",
-    "DESCRIPTION": "You gain !B! Block. NL Dragon gains !DT:THB! Block. NL Gain !M! additional Block for every ragontaer:Bonding you gained this combat."
+    "DESCRIPTION": "You gain !B! Block. NL Dragon gains !DT:THB! Block. NL Gain !M! additional Block for every ragontaer:Bonding you gained this combat.",
+    "UPGRADE_DESCRIPTION": "You gain !B! Block. NL Dragon gains !DT:THB! Block. NL Gain !M! additional Block for every ragontaer:Bonding you gained this combat."
   },
   "DTMod:StunTrap": {
     "NAME": "Stun Trap",
@@ -361,8 +362,8 @@
   },
   "DTMod:BattleHarmony": {
     "NAME": "Battle Harmony",
-    "DESCRIPTION": "Whenever both You and Dragon attacks in a single turn, gain !M! ragontaer:Bonding.",
-    "UPGRADE_DESCRIPTION": "Innate. NL Whenever both You and Dragon attacks in a single turn, gain !M! ragontaer:Bonding."
+    "DESCRIPTION": "Whenever both You and Dragon attack in a single turn, gain !M! ragontaer:Bonding.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Whenever both You and Dragon attack in a single turn, gain !M! ragontaer:Bonding."
   },
   "DTMod:ResonanceForm": {
     "NAME": "Resonance Form",

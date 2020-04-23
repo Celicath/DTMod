@@ -4,17 +4,17 @@
       "Discard"
     ]
   },
-  "DTMod:DraftAction": {
+  "DTMod:PredictionAction": {
     "TEXT": [
-      "Choose a Card to Set the Cost to 0."
+      "Choose a Card to put on top."
     ]
   },
   "DTMod:Aggro": {
     "TEXT": [
       "Aggro+",
       "",
-      "Target changed to You",
-      "Target changed to Dragon"
+      "Front changed to You",
+      "Front changed to Dragon"
     ]
   },
   "DTMod:TargetMarker": {
@@ -25,11 +25,6 @@
       "#yDragon is the #yFront. NL Dragon has #b",
       " more #yAggro than You.",
       "#yYou are fighting solo. NL You are considered both the #yFront and the #yRear."
-    ]
-  },
-  "DTMod:HasteAction": {
-    "TEXT": [
-      "Play"
     ]
   },
   "DTMod:RestOption": {

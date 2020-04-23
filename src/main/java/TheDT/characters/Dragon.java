@@ -543,7 +543,7 @@ public class Dragon extends CustomPlayer implements CustomSavable<ArrayList<Inte
 				break;
 			case 4:
 				AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(
-						this, this, new GreedyPower(this, 60), 60));
+						this, this, new GreedyPower(this, 75), 75));
 				break;
 		}
 	}

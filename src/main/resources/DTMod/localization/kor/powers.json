@@ -1,0 +1,152 @@
+{
+  "DTMod:BondingPower": {
+    "NAME": "결속",
+    "DESCRIPTIONS": [
+      "#y결속 [REMOVE_SPACE]을 #b",
+      " 얻으면 무작위 보너스 3개 중 1개를 선택합니다. 이 보너스는 포션 효과의 강화판입니다."
+    ]
+  },
+  "DTMod:CalculatedDefensePower": {
+    "NAME": "계산된 방어",
+    "DESCRIPTIONS": [
+      "약화에 걸린 적으로부터 공격 피해를 #b",
+      " 적게 받습니다."
+    ]
+  },
+  "DTMod:DragonLoseStancePower": {
+    "NAME": "폭발",
+    "DESCRIPTIONS": [
+      "#b",
+      " 턴 후, 격노에서 벗어납니다."
+    ]
+  },
+  "DTMod:OddArmorPower": {
+    "NAME": "이상한 갑옷",
+    "DESCRIPTIONS": [
+      "공격 피해를 #b",
+      " 적게 받습니다."
+    ]
+  },
+  "DTMod:AdaptationPower": {
+    "NAME": "적응",
+    "DESCRIPTIONS": [
+      "덱을 섞을 때마다 모든 선천성 카드를 손으로 가져옵니다."
+    ]
+  },
+  "DTMod:TauntPower": {
+    "NAME": "도발당함",
+    "DESCRIPTIONS": [
+      "이번 턴에, ",
+      "#b",
+      " 턴 동안, ",
+      "이 적은 #y전위를 무시하고",
+      "[#60D0D0]당신[]을",
+      "[#60D0D0]드래곤[]을",
+      " 공격합니다."
+    ]
+  },
+  "DTMod:LastStandPower": {
+    "NAME": "최후의 저항",
+    "DESCRIPTIONS": [
+      "이번 턴 동안, ",
+      "#b",
+      " 턴 동안, ",
+      " 공격 피해를 절반만 받습니다."
+    ]
+  },
+  "DTMod:DeepFocusPower": {
+    "NAME": "정신 집중",
+    "DESCRIPTIONS": [
+      "다음 턴에, ",
+      "#b",
+      " 턴 후에, ",
+      "힘을 #b",
+      " 얻습니다. #y채널링."
+    ]
+  },
+  "DTMod:DoubleTeamPower": {
+    "NAME": "교대의 춤",
+    "DESCRIPTIONS": [
+      "#y교체할 때마다 ",
+      " 를 얻습니다."
+    ]
+  },
+  "DTMod:ShadowImagePower": {
+    "NAME": "그림자 잔상",
+    "DESCRIPTIONS": [
+      "공격할 때마다 방어도를 #b",
+      " 얻습니다."
+    ]
+  },
+  "DTMod:InvisibleFlamePower": {
+    "NAME": "보이지 않는 불꽃",
+    "DESCRIPTIONS": [
+      "#y전위가 공격할 때마다, 무작위 적에게 피해를 #b",
+      " 줍니다."
+    ]
+  },
+  "DTMod:HuntersMarkPower": {
+    "NAME": "사냥꾼의 징표",
+    "DESCRIPTIONS": [
+      "[#60D0D0]드래곤[]이 이 적을 공격하면, #y결속 [REMOVE_SPACE]을 #b",
+      " 얻습니다."
+    ]
+  },
+  "DTMod:StunTrapPower": {
+    "NAME": "기절 트랩",
+    "DESCRIPTIONS": [
+      "다음 턴에, ",
+      "#b",
+      " 턴 후에, ",
+      " 이(가) 기절하고 카드를 #b",
+      " 장 뽑습니다. #y채널링."
+    ]
+  },
+  "DTMod:SafeguardPower": {
+    "NAME": "장벽",
+    "DESCRIPTIONS": [
+      "턴 시작 시 #y후위 [REMOVE_SPACE]의 방어도가 사라지지 않습니다."
+    ]
+  },
+  "DTMod:BattleHarmonyPower": {
+    "NAME": "조화로운 전투",
+    "DESCRIPTIONS": [
+      "한 턴에 [#60D0D0]당신[]과 [#60D0D0]드래곤[]이 모두 공격하면, #y결속 [REMOVE_SPACE]을 #b",
+      " 얻습니다."
+    ]
+  },
+  "DTMod:ArbitrationPower": {
+    "NAME": "중재",
+    "DESCRIPTIONS": [
+      "#y교체할 때마다 모든 적에게 약화를 #b",
+      " 부여합니다."
+    ]
+  },
+  "DTMod:ResonanceFormPower": {
+    "NAME": "공명의 형상",
+    "DESCRIPTIONS": [
+      "[#60D0D0]당신[] 또는 [#60D0D0]드래곤[]이 힘, 민첩, 방어도, 체력을 얻을 때, 다른 한 명이 같은 효과를 받습니다."
+    ]
+  },
+  "DTMod:FiercePower": {
+    "NAME": "맹렬함",
+    "DESCRIPTIONS": [
+      "#y두번 #y물기 카드를 사용한 후, #y힘 [REMOVE_SPACE]을 #b",
+      " 얻습니다."
+    ]
+  },
+  "DTMod:BirdFacePower": {
+    "NAME": "새머리",
+    "DESCRIPTIONS": [
+      "파워 카드를 사용할 때마다 체력을 #b",
+      " 회복합니다."
+    ]
+  },
+  "DTMod:GreedyPower": {
+    "NAME": "탐욕적",
+    "DESCRIPTIONS": [
+      "전투 종료 시 #y골드 [REMOVE_SPACE]를 #b",
+      " 추가로 얻습니다."
+    ]
+  }
+}

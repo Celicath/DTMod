@@ -1,0 +1,407 @@
+{
+  "DTMod:AbstractDTCard": {
+    "NAME": "AbstractDTCard",
+    "DESCRIPTION": "Common texts",
+    "EXTENDED_DESCRIPTION": [
+      "나에게는 드래곤이 없다.",
+      "드래곤이 기절했어."
+    ]
+  },
+  "DTMod:Strike": {
+    "NAME": "타격",
+    "DESCRIPTION": "피해를 !D! 줍니다."
+  },
+  "DTMod:TargetDefense": {
+    "NAME": "지정 수비",
+    "DESCRIPTION": "ragontaer:전위가 방어도를 NL !B! 얻습니다.",
+    "EXTENDED_DESCRIPTION": [
+      "ragontaer:전위가 방어도를 NL !DT:THB! 얻습니다."
+    ]
+  },
+  "DTMod:TwinBite": {
+    "NAME": "두번 물기",
+    "DESCRIPTION": "드래곤이 피해를 !DT:THD! 만큼 2번 줍니다."
+  },
+  "DTMod:HardSkin": {
+    "NAME": "단단한 피부",
+    "DESCRIPTION": "보존. NL 드래곤이 방어도를 NL !DT:THB! 얻습니다. NL 소멸."
+  },
+  "DTMod:SwitchingTactic": {
+    "NAME": "교체 전술",
+    "DESCRIPTION": "ragontaer:어그로를 뒤바꿉니다. 적 전체의 힘을 1턴 동안 ragontaer:어그로 차이만큼 낮춥니다.",
+    "UPGRADE_DESCRIPTION": "보존. NL ragontaer:어그로를 뒤바꿉니다. 적 전체의 힘을 1턴 동안 ragontaer:어그로 차이만큼 낮춥니다."
+  },
+  "DTMod:BronzeWave": {
+    "NAME": "동의 파동",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 피해를 !D! 줍니다."
+  },
+  "DTMod:RunningTactic": {
+    "NAME": "질주 전술",
+    "DESCRIPTION": "카드를 !M! 장 뽑습니다. NL 당신은 ragontaer:어그로를 2 얻습니다."
+  },
+  "DTMod:Prediction": {
+    "NAME": "예측",
+    "DESCRIPTION": "뽑을 카드 더미에 있는 카드 한 장을 골라 맨 위에 놓습니다. NL 사용 전까지 그 카드의 비용이 0이 됩니다."
+  },
+  "DTMod:ForbiddenStrike": {
+    "NAME": "금지된 타격",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 덱에 있으면, 휴식 장소에서 이 카드만 강화할 수 있습니다.",
+    "UPGRADE_DESCRIPTION": "피해를 !D! 줍니다. NL 덱에 있으면, 휴식 장소에서 이름에 \"타격\" 이 붙은 카드만 강화할 수 있습니다."
+  },
+  "DTMod:OpeningTactic": {
+    "NAME": "시작 전술",
+    "DESCRIPTION": "선천성. NL 적의 체력이 가득 차 있으면, 민첩을 !M! 얻습니다. NL 피해를 !D! 줍니다."
+  },
+  "DTMod:TacticRecycle": {
+    "NAME": "전술 재활용",
+    "DESCRIPTION": "소멸된 카드를 !M! 장 선택해 가져옵니다. (전술 재활용은 제외) NL 소멸.",
+    "UPGRADE_DESCRIPTION": "소멸된 카드를 !M! 장 선택해 가져옵니다. (전술 재활용은 제외) NL 소멸.",
+    "EXTENDED_DESCRIPTION": [
+      "소멸된 카드를 !M! 장 선택해 가져오고 보존합니다. (전술 재활용은 제외) NL 소멸.",
+      "소멸된 카드를 !M! 장 선택해 가져오고 보존합니다. (전술 재활용은 제외) NL 소멸."
+    ]
+  },
+  "DTMod:HeadStart": {
+    "NAME": "상쾌한 출발",
+    "DESCRIPTION": "선천성. NL [E] 를 얻습니다. NL 카드를 !M! 장 뽑습니다. NL 소멸."
+  },
+  "DTMod:CleansingStrike": {
+    "NAME": "정화 타격",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 무작위 위치의 상태이상 또는 저주 카드를 !M! 장 소멸시킵니다.",
+    "UPGRADE_DESCRIPTION": "피해를 !D! 줍니다. NL 무작위 위치의 상태이상 또는 저주 카드를 !M! 장 소멸시킵니다."
+  },
+  "DTMod:Training": {
+    "NAME": "훈련",
+    "DESCRIPTION": "당신과 드래곤이 힘을 !M! 얻습니다. NL ragontaer:결속을 1 얻습니다."
+  },
+  "DTMod:MagicField": {
+    "NAME": "마법 필드",
+    "DESCRIPTION": "모든 캐릭터가 방어도를 !M! 얻습니다.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (당신: !B! 방어도)",
+      " NL (드래곤: !DT:THB! 방어도)"
+    ]
+  },
+  "DTMod:CalculatedDefense": {
+    "NAME": "계산된 방어",
+    "DESCRIPTION": "당신과 드래곤이 약화 에 걸린 적으로부터 받는 공격 피해가 !M! 감소합니다."
+  },
+  "DTMod:ExcessFootwork": {
+    "NAME": "현란한 발놀림",
+    "DESCRIPTION": "민첩을 !M! 얻습니다. NL 매 턴 종료 시 민첩을 1 잃습니다."
+  },
+  "DTMod:PreemptiveStrike": {
+    "NAME": "선제 타격",
+    "DESCRIPTION": "선천성. NL 무작위 적들에게 피해를 !D! 만큼 3 번 줍니다. NL 소멸."
+  },
+  "DTMod:ComboAttack": {
+    "NAME": "콤보 어택",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 드래곤이 피해를 NL !DT:THD! 줍니다. NL ragontaer:결속을 1 얻습니다."
+  },
+  "DTMod:BreakAttack": {
+    "NAME": "약점 공격",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 취약을 !M! 부여합니다. NL 소멸."
+  },
+  "DTMod:BuildUp": {
+    "NAME": "빌드업",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 다음에 사용하는 공격 카드의 피해량이 !M! 증가합니다."
+  },
+  "DTMod:Outburst": {
+    "NAME": "폭발",
+    "DESCRIPTION": "드래곤이 2턴 동안 진노합니다."
+  },
+  "DTMod:RepeatStrike": {
+    "NAME": "반복 타격",
+    "DESCRIPTION": "드래곤이 피해를 NL !DT:THD! 줍니다. NL 매 턴 시작 시 버린 카드 더미에서 손으로 가져옵니다.",
+    "UPGRADE_DESCRIPTION": "선천성. NL 드래곤이 피해를 NL !DT:THD! 줍니다. NL 매 턴 시작 시 버린 카드 더미에서 손으로 가져옵니다."
+  },
+  "DTMod:FireUp": {
+    "NAME": "점화",
+    "DESCRIPTION": "드래곤이 힘 !M! 과 민첩 1 을 얻습니다."
+  },
+  "DTMod:FireBreath": {
+    "NAME": "파이어브레스",
+    "DESCRIPTION": "드래곤이 적 전체에게 피해를 !DT:THD! 줍니다."
+  },
+  "DTMod:ShieldDrain": {
+    "NAME": "방패 흡수",
+    "DESCRIPTION": "적의 모든 방어도를 훔칩니다. NL 피해를 !D! 줍니다."
+  },
+  "DTMod:LowKick": {
+    "NAME": "로우 킥",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 적이 가진 약화 수치만큼 카드를 뽑습니다."
+  },
+  "DTMod:Punisher": {
+    "NAME": "응징",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 적이 약화 상태면 다시 피해를 !D! 줍니다."
+  },
+  "DTMod:Adaptation": {
+    "NAME": "적응",
+    "DESCRIPTION": "덱을 섞을 때마다 모든 선천성 카드를 손으로 가져옵니다."
+  },
+  "DTMod:MasterPlan": {
+    "NAME": "완벽한 계획",
+    "DESCRIPTION": "드래곤이 방어도를 !DT:THB! 얻습니다. NL 다음 턴에 당신은 방어도를 !B! 얻습니다."
+  },
+  "DTMod:QuickFly": {
+    "NAME": "고속 비행",
+    "DESCRIPTION": "선천성. NL 드래곤이 피해를 NL !DT:THD! 줍니다. NL 카드를 1장 뽑습니다."
+  },
+  "DTMod:Feint": {
+    "NAME": "페인트",
+    "DESCRIPTION": "무작위 선택: 당신이 피해를 !D! 주거나, 드래곤이 피해를 NL !DT:THD! 줍니다."
+  },
+  "DTMod:BlazingStrike": {
+    "NAME": "불타는 타격",
+    "DESCRIPTION": "드래곤이 피해를 NL !DT:THD! 줍니다. NL *화상 1장을 손으로 가져옵니다."
+  },
+  "DTMod:HeatWave": {
+    "NAME": "열풍",
+    "DESCRIPTION": "드래곤이 모든 적에게 피해를 !DT:THD! 주고 약화를 !M! 부여합니다."
+  },
+  "DTMod:Weaken": {
+    "NAME": "약화시키기",
+    "DESCRIPTION": "약화를 !M! 부여합니다. NL 소멸."
+  },
+  "DTMod:Cover": {
+    "NAME": "엄호",
+    "DESCRIPTION": "ragontaer:후위가 방어도를 NL !B! 얻습니다. NL 카드를 !M! 장 뽑습니다.",
+    "EXTENDED_DESCRIPTION": [
+      "ragontaer:후위가 방어도를 NL !DT:THB! 얻습니다. NL 카드를 !M! 장 뽑습니다."
+    ]
+  },
+  "DTMod:Hide": {
+    "NAME": "숨기",
+    "DESCRIPTION": "ragontaer:전위가 방어도를 NL !B! 얻습니다. NL 다음 턴에 카드를 !M! 장 뽑습니다.",
+    "EXTENDED_DESCRIPTION": [
+      "ragontaer:전위가 방어도를 NL !DT:THB! 얻습니다. NL 다음 턴에 카드를 !M! 장 뽑습니다."
+    ]
+  },
+  "DTMod:Threaten": {
+    "NAME": "위협",
+    "DESCRIPTION": "선천성. NL 드래곤이 방어도를 NL !DT:THB! 얻고 약화를 NL !M! 부여합니다."
+  },
+  "DTMod:BurningEnergy": {
+    "NAME": "타오르는 에너지",
+    "DESCRIPTION": "[E] [E] 를 얻습니다. NL *화상 을 버린 카드 더미에 넣습니다.",
+    "UPGRADE_DESCRIPTION": " [E] [E] [E] 를 얻습니다. NL *화상 을 버린 카드 더미에 넣습니다."
+  },
+  "DTMod:BizarreTactic": {
+    "NAME": "이상한 전술",
+    "DESCRIPTION": "당신은 방어도를 !B! 얻습니다. NL 드래곤이 이번 턴에 공격을 받을 때마다 공격한 대상에게 피해를 !M! 줍니다."
+  },
+  "DTMod:DarkBreath": {
+    "NAME": "악의의 숨결",
+    "DESCRIPTION": "드래곤이 피해를 !DT:THD! 주고, 약화를 !M! 부여하고, ragontaer:어그로를 2 추가로 얻습니다."
+  },
+  "DTMod:PurifyingFlame": {
+    "NAME": "정화의 불꽃",
+    "DESCRIPTION": "드래곤이 피해를 NL !DT:THD! 줍니다. NL 드래곤이 지닌 모든 해로운 효과를 제거합니다. NL 소멸."
+  },
+  "DTMod:ForkedFlame": {
+    "NAME": "갈래 불꽃",
+    "DESCRIPTION": "X번 반복: 드래곤이 무작위 적 둘에게 피해를 !DT:THD! 줍니다."
+  },
+  "DTMod:Astonish": {
+    "NAME": "놀래키기",
+    "DESCRIPTION": "ragontaer:후위가 ragontaer:어그로 차이의 !M! 배 만큼 피해를 줍니다.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (피해를 !D! 줍니다.)",
+      " NL (드래곤이 피해를 NL !DT:THD! 줍니다.)"
+    ]
+  },
+  "DTMod:DaggerTrick": {
+    "NAME": "단검 곡예",
+    "DESCRIPTION": "피해를 !D! 만큼 X+1 번 줍니다. 이 공격은 ragontaer:어그로를 증가시키지 않습니다."
+  },
+  "DTMod:TauntingStrike": {
+    "NAME": "도발 타격",
+    "DESCRIPTION": "선택: 당신이 피해를 NL !D! 주거나, 드래곤이 피해를 !DT:THD! 줍니다. NL 공격자는 적을 1턴간 ragontaer:도발 합니다."
+  },
+  "DTMod:TauntingStrikeYou": {
+    "NAME": "공격자: 당신",
+    "DESCRIPTION": "피해를 !D! 줍니다."
+  },
+  "DTMod:TauntingStrikeDragon": {
+    "NAME": "공격자: Dragon",
+    "DESCRIPTION": "드래곤이 피해를 NL !DT:THD! 줍니다."
+  },
+  "DTMod:BurningForce": {
+    "NAME": "타오르는 힘",
+    "DESCRIPTION": "드래곤이 피해를 NL !DT:THD! 줍니다. NL 이번 전투에서 생성된 *화상 하나 당 !M! 의 추가 피해를 줍니다."
+  },
+  "DTMod:MaximumCharge": {
+    "NAME": "최대 출력",
+    "DESCRIPTION": "드래곤이 피해를 NL !DT:THD! 줍니다. NL 드래곤이 취약을 !M! 얻습니다."
+  },
+  "DTMod:SneakAttack": {
+    "NAME": "기습 공격",
+    "DESCRIPTION": "당신이 ragontaer:후위일 때만 사용할 수 있습니다. NL 피해를 !D! 주고 ragontaer:어그로를 3 추가로 얻습니다.",
+    "EXTENDED_DESCRIPTION": [
+      "나는 후위가 아니다!"
+    ]
+  },
+  "DTMod:LastStand": {
+    "NAME": "최후의 저항",
+    "DESCRIPTION": "이번 턴 동안 당신은 공격 피해를 절반만 받습니다. NL 소멸."
+  },
+  "DTMod:DeepFocus": {
+    "NAME": "정신 집중",
+    "DESCRIPTION": "2턴 후, 힘을 !M! 얻습니다. NL ragontaer:채널링."
+  },
+  "DTMod:GhostSkin": {
+    "NAME": "유령 피부",
+    "DESCRIPTION": "드래곤이 불가침을 !M! 얻습니다. NL 드래곤이 민첩을 5 잃습니다. NL 소멸."
+  },
+  "DTMod:Observe": {
+    "NAME": "관찰",
+    "DESCRIPTION": "선천성. NL 뽑을 카드 더미에 있는 카드 !M! 장당 [E] 를 얻습니다."
+  },
+  "DTMod:Shift": {
+    "NAME": "시프트",
+    "DESCRIPTION": "ragontaer:후위가 ragontaer:어그로를 !M! 얻습니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION": "선택: NL 당신 또는 드래곤이 ragontaer:어그로를 !M! 얻습니다. NL 소멸."
+  },
+  "DTMod:ShiftYou": {
+    "NAME": "시프트: 당신",
+    "DESCRIPTION": "당신은 ragontaer:어그로를 !M! 얻습니다."
+  },
+  "DTMod:ShiftDragon": {
+    "NAME": "시프트: 드래곤",
+    "DESCRIPTION": "드래곤이 ragontaer:어그로를 !M! 얻습니다."
+  },
+  "DTMod:Coolant": {
+    "NAME": "냉각제",
+    "DESCRIPTION": "예지 !M!. NL 예지로 본 상태이상과 저주 카드를 모두 소멸시킵니다."
+  },
+  "DTMod:Haste": {
+    "NAME": "급속",
+    "DESCRIPTION": "[E] 를 얻습니다. NL 손에 있는 무작위 파워 카드를 사용합니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION": " [E] [E] 를 얻습니다. NL 손에 있는 무작위 파워 카드를 사용합니다. NL 소멸."
+  },
+  "DTMod:RedScale": {
+    "NAME": "붉은 비늘",
+    "DESCRIPTION": "드래곤이 방어도를 !DT:THB! 얻습니다. NL *단단한 *피부 를 손으로 가져옵니다.",
+    "UPGRADE_DESCRIPTION": "드래곤이 방어도를 !DT:THB! 얻습니다. NL  *단단한 *피부+ 를 손으로 가져옵니다."
+  },
+  "DTMod:TagTeam": {
+    "NAME": "태그 팀",
+    "DESCRIPTION": "ragontaer:전위가 방어도를 NL !B! 얻습니다. NL ragontaer:결속을 !M! 얻습니다. NL 이번 턴에 ragontaer:교체 했다면, 효과를 2배로 받습니다.",
+    "EXTENDED_DESCRIPTION": [
+      "ragontaer:전위가 방어도를 NL !DT:THB! 얻습니다. NL ragontaer:결속을 !M! 얻습니다. NL 이번 턴에 ragontaer:교체 했다면, 효과를 2배로 받습니다."
+    ]
+  },
+  "DTMod:Overwhelm": {
+    "NAME": "깔보기",
+    "DESCRIPTION": "약화를 !M! 부여합니다. NL 모든 적은 자신에게 부여된 약화의 2배 만큼 체력을 잃습니다."
+  },
+  "DTMod:WarmUp": {
+    "NAME": "준비운동",
+    "DESCRIPTION": "턴 시작 시 카드를 !M! 장 더 뽑습니다.",
+    "UPGRADE_DESCRIPTION": "선천성. NL 턴 시작 시 카드를 !M! 장 더 뽑습니다."
+  },
+  "DTMod:ShadowImage": {
+    "NAME": "그림자 잔상",
+    "DESCRIPTION": "당신과 드래곤이 공격할 때, 공격자가 방어도를 !M! 얻습니다."
+  },
+  "DTMod:DoubleTeam": {
+    "NAME": "교대의 춤",
+    "DESCRIPTION": "ragontaer:교체할 때마다 [E] 를 얻습니다.",
+    "UPGRADE_DESCRIPTION": "선천성. NL ragontaer:교체할 때마다 [E] 를 얻습니다."
+  },
+  "DTMod:Dissolve": {
+    "NAME": "초고온",
+    "DESCRIPTION": "*화상 을 2장 받습니다. NL 턴 종료 시 드래곤이 방어도를 !M! 얻습니다."
+  },
+  "DTMod:InvisibleFlame": {
+    "NAME": "보이지 않는 불꽃",
+    "DESCRIPTION": "ragontaer:전위가 공격할 때마다 무작위 적에게 !M! 의 피해를 줍니다."
+  },
+  "DTMod:Arbitration": {
+    "NAME": "중재",
+    "DESCRIPTION": "ragontaer:교체할 때마다 모든 적에게 약화를 !M! 부여합니다."
+  },
+  "DTMod:Inferno": {
+    "NAME": "인페르노",
+    "DESCRIPTION": "드래곤이 모든 적에게 피해를 !DT:THD! 줍니다. 뽑을 카드 더미에 *화상 을 적 숫자만큼 섞어 넣습니다."
+  },
+  "DTMod:RecklessFlurry": {
+    "NAME": "무모한 난동",
+    "DESCRIPTION": "공격자를 선택합니다. NL 공격자는 모든 방어도를 잃고 그 2배만큼 모든 적에게 피해를 줍니다."
+  },
+  "DTMod:RecklessFlurryYou": {
+    "NAME": "공격자: 당신",
+    "DESCRIPTION": "모든 적에게 피해를 !D! 줍니다."
+  },
+  "DTMod:RecklessFlurryDragon": {
+    "NAME": "공격자: 드래곤",
+    "DESCRIPTION": "드래곤이 모든 적에게 피해를 !DT:THD! 줍니다."
+  },
+  "DTMod:HuntersMark": {
+    "NAME": "사냥꾼의 징표",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 드래곤이 해당 적을 공격할 때마다, ragontaer:결속을 1 얻습니다. NL 소멸."
+  },
+  "DTMod:LightShield": {
+    "NAME": "빛의 보호막",
+    "DESCRIPTION": "당신은 방어도를 !B! 얻습니다. NL 드래곤이 방어도를 !DT:THB! 얻습니다. NL 이번 전투에서 얻은 ragontaer:결속 만큼 방어도를 추가로 얻습니다.",
+    "UPGRADE_DESCRIPTION": "당신은 방어도를 !B! 얻습니다. NL 드래곤이 방어도를 !DT:THB! 얻습니다. NL 이번 전투에서 얻은 ragontaer:결속의 !M! 배 만큼 방어도를 추가로 얻습니다."
+  },
+  "DTMod:StunTrap": {
+    "NAME": "기절 트랩",
+    "DESCRIPTION": "2턴 후, 적을 기절시키고 카드를 !M! 장 뽑습니다. NL ragontaer:채널링. NL 소멸."
+  },
+  "DTMod:GearUp": {
+    "NAME": "만반의 준비",
+    "DESCRIPTION": "*안전 과 *단단한 *피부 를 2장씩 얻습니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION": "*안전+ 와 *단단한 *피부+ 를 2장씩 얻습니다. NL 소멸."
+  },
+  "DTMod:Safeguard": {
+    "NAME": "장벽",
+    "DESCRIPTION": "턴 시작 시 ragontaer:후위의 방어도가 사라지지 않습니다.",
+    "UPGRADE_DESCRIPTION": "선천성. NL 턴 시작 시 ragontaer:후위의 방어도가 사라지지 않습니다."
+  },
+  "DTMod:BattleHarmony": {
+    "NAME": "조화로운 전투",
+    "DESCRIPTION": "한 턴에 당신과 드래곤이 모두 공격하면, ragontaer:결속을 !M! 얻습니다.",
+    "UPGRADE_DESCRIPTION": "선천성. NL 한 턴에 당신과 드래곤이 모두 공격하면, ragontaer:결속을 !M! 얻습니다."
+  },
+  "DTMod:ResonanceForm": {
+    "NAME": "공명의 형상",
+    "DESCRIPTION": "휘발성. NL 당신 또는 드래곤이 힘, 민첩, 방어도, 체력을 얻을 때, 다른 한 명이 같은 효과를 받습니다.",
+    "UPGRADE_DESCRIPTION": "당신 또는 드래곤이 힘, 민첩, 방어도, 체력을 얻을 때, 다른 한 명이 같은 효과를 받습니다."
+  },
+  "DTMod:FierySynthesis": {
+    "NAME": "불타는 연금술",
+    "DESCRIPTION": "드래곤이 피해를 NL !DT:THD! 줍니다. NL 덱에 있으면, 모든 포션이 ragontaer:불타는_포션 으로 바뀝니다."
+  },
+  "DTMod:Jump": {
+    "NAME": "Jump",
+    "DESCRIPTION": "What should be the effect for the final card be?"
+  },
+  "DTMod:BondingBonus": {
+    "NAME": "Bonding Bonus",
+    "DESCRIPTION": "You get one of these effects when you gain 4 Bonding.",
+    "EXTENDED_DESCRIPTION": [
+      "인공물",
+      "당신과 드래곤이 인공물을 2 얻습니다.",
+      "천개의 검",
+      "모든 적에게 피해를 20 줍니다.",
+      "방어도",
+      "당신과 드래곤이 방어도를 20 얻습니다.",
+      "힘",
+      "당신과 드래곤이 힘을 4 얻습니다.",
+      "민첩",
+      "당신과 드래곤이 민첩을 3 얻습니다.",
+      "에너지",
+      "[E] [E] [E] [E] 를 얻습니다.",
+      "드로우",
+      "손이 가득 찰 때까지 카드를 뽑습니다.",
+      "약화",
+      "모든 적에게 약화를 4 부여합니다.",
+      "취약",
+      "모든 적에게 취약을 4 부여합니다.",
+      "혼돈",
+      "뽑을 카드 더미 위에서부터 3장의 카드를 사용합니다."
+    ]
+  }
+}

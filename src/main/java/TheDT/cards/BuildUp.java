@@ -21,7 +21,7 @@ public class BuildUp extends AbstractDTCard {
 
 	private static final int DAMAGE = 7;
 	private static final int UPGRADE_DAMAGE = 2;
-	private static final int MAGIC = 4;
+	private static final int MAGIC = 5;
 	private static final int UPGRADE_MAGIC = 2;
 
 	public BuildUp() {

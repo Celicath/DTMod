@@ -35,6 +35,7 @@ import com.megacrit.cardcrawl.actions.utility.DiscardToHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.status.Burn;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.localization.*;
@@ -307,14 +308,13 @@ public class DTModMain
 	}
 
 	public static String getLocCode() {
-		return "eng";
-/*		if (Settings.language == Settings.GameLanguage.KOR) {
-			return "kor";
-		} else {
-			return "eng";
-		}*/
+		switch (Settings.language) {
+			case KOR:
+				return "kor";
+			default:
+				return "eng";
+		}
 	}
-
 
 	@Override
 	public void receiveEditKeywords() {

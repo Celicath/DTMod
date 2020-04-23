@@ -1,19 +1,4 @@
 {
-  "DTMod:StackedDeckPower": {
-    "NAME": "Stacked Deck",
-    "DESCRIPTIONS": [
-      "At the start of your turn, Look at the top #b",
-      " cards of your draw pile and discard any of them."
-    ]
-  },
-  "DTMod:EnergyManipulation": {
-    "NAME": "Energy Manipulated",
-    "DESCRIPTIONS": [
-      "Gain #b2 additional [E] for #b",
-      " turn.",
-      " turns."
-    ]
-  },
   "DTMod:BondingPower": {
     "NAME": "Bonding",
     "DESCRIPTIONS": [
@@ -24,7 +9,7 @@
   "DTMod:CalculatedDefensePower": {
     "NAME": "Calculated Defense",
     "DESCRIPTIONS": [
-      "Reduce the damage from Weakened enemies by #b",
+      "Reduce the attack damage from Weakened enemies by #b",
       "."
     ]
   },
@@ -57,7 +42,7 @@
       "this enemy will target ",
       "[#60D0D0]You[]",
       "[#60D0D0]Dragon[]",
-      ", ignoring #yAggro [REMOVE_SPACE]."
+      ", ignoring the #yFront [REMOVE_SPACE]."
     ]
   },
   "DTMod:LastStandPower": {
@@ -66,7 +51,7 @@
       "For this turn, ",
       "For #b",
       " turns,",
-      " [#60D0D0]You[] take half damage."
+      " take half damage from attacks."
     ]
   },
   "DTMod:DeepFocusPower": {
@@ -114,7 +99,7 @@
       "After #b",
       " turns, ",
       " is Stunned and you draw #b",
-      " cards."
+      " cards. #yChanneling."
     ]
   },
   "DTMod:SafeguardPower": {

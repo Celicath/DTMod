@@ -1,0 +1,9 @@
+{
+  "DTMod:BlazePotion": {
+    "NAME": "불타는 포션",
+    "DESCRIPTIONS": [
+      "피해를 #b",
+      " 줍니다."
+    ]
+  }
+}

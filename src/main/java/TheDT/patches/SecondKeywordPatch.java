@@ -22,6 +22,16 @@ public class SecondKeywordPatch {
 						return;
 					}
 				}
+				for (String t : charStrings.TEXT) {
+					if (___word[0].equals(t)) {
+						for (String p : charStrings.NAMES) {
+							if (t.startsWith(p)) {
+								___word[0] = "[#60D0D0]" + p + "[]" + t.substring(p.length());
+								return;
+							}
+						}
+					}
+				}
 			}
 		}
 

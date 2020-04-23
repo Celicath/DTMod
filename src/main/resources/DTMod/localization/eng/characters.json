@@ -18,8 +18,8 @@
   },
   "DTMod:HighlightWords": {
     "NAMES": [
-      "Dragon",
-      "You"
+      "You",
+      "Dragon"
     ],
     "TEXT": []
   },
@@ -48,7 +48,7 @@
       "Twin Bite gives [#87ceeb]3[] Strength.",
       "Start combat with\n[#87ceeb]2[] Artifact.",
       "Heal [#87ceeb]1[] HP whenever\nyou play a Power card.",
-      "Gain [#87ceeb]60[] additional gold\nfrom combats.",
+      "Gain [#87ceeb]75[] additional gold\nfrom combats.",
       "Requires ",
       "",
       " Attacks",

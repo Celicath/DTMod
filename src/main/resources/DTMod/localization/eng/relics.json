@@ -25,11 +25,11 @@
   },
   "DTMod:OddArmor": {
     "NAME": "Odd Armor",
-    "FLAVOR": "It's too odd. Even though it's effective.",
+    "FLAVOR": "Because it looks odd, people don't want to wear it even though it's powerful.",
     "DESCRIPTIONS": [
-      "On odd-numbered turns, reduce the attack damage you take by #b",
-      ". On even-numbered turns, reduce the attack damage Dragon takes by #b",
-      "."
+      "On odd-numbered turns, You take #b",
+      " less damage from attacks. NL On even-numbered turns, Dragon takes #b",
+      " less damage from attacks."
     ]
   },
   "DTMod:MagicStone": {
@@ -76,7 +76,7 @@
     "FLAVOR": "The origin form of Liquid Memories.",
     "DESCRIPTIONS": [
       "At the start of turn #b",
-      " [REMOVE_SPACE], #yFetch a card from your discard pile. It costs #b0 until played."
+      " [REMOVE_SPACE], #yFetch a card from your discard pile. It costs #b0 for the turn."
     ]
   },
   "DTMod:BindingString": {

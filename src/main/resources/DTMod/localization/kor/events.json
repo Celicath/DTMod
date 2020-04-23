@@ -1,0 +1,30 @@
+{
+  "DTMod:SpireHeart": {
+    "NAME": "첨탑의 심장",
+    "DESCRIPTIONS": [
+      "NL 당신은 드래곤과의 결속을 느낍니다..."
+    ],
+    "OPTIONS": [
+    ]
+  },
+  "DTMod:Vampires": {
+    "NAME": "흡혈귀(?)",
+    "DESCRIPTIONS": [
+      "불이 밝혀지지 않은 어두운 거리로 나아가자, 어두운 의식을 치르고 있는 후드를 눌러쓴 자들이 몇몇 보입니다. 당신이 다가가자 그들이 기분나쁜 미소를 지으며 돌아섰습니다. 그들 중 가장 키가 큰 자는 송곳니가 길게 삐져 나와 있습니다. 그가 당신에게 창백한 손을 내밉니다. NL ~\"우리와~ ~함께~ ~하자,~ ~용맹하고~ ~위대한~ ~자들이어.~ ~첨탑의~ ~따스함을~ ~느낄~ ~수~ ~있다네.\"~"
+    ],
+    "OPTIONS": [
+    ]
+  },
+  "DTMod:BookOnTheFloor": {
+    "NAME": "Book on the Floor",
+    "DESCRIPTIONS": [
+      "You enter an eerie room with wall of books. NL Looking around, you find an impressive looking book on the ground. NL You NEED TO pick up this book.",
+      "Your mind overflows with mythical energy. You decide to make bond with others.",
+      "(This event is deprecated)"
+    ],
+    "OPTIONS": [
+      "[Obtain Book] #gObtain #ga #gspecial #gRelic.",
+      "[Leave]"
+    ]
+  }
+}

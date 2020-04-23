@@ -12,7 +12,7 @@ import com.megacrit.cardcrawl.localization.UIStrings;
 
 public class PredictionAction extends AbstractGameAction {
 	private AbstractPlayer p;
-	private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(DTModMain.makeID("DraftAction"));
+	private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(DTModMain.makeID("PredictionAction"));
 	public static final String[] TEXT = uiStrings.TEXT;
 
 	public PredictionAction() {

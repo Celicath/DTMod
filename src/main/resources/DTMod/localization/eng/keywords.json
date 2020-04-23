@@ -4,13 +4,12 @@
     "NAMES": [
       "bonding"
     ],
-    "DESCRIPTION": "Whenever you gain #b4 #yBonding, choose #b1 of #b3 random bonuses. The bonuses are stronger variations of potion effects."
+    "DESCRIPTION": "Whenever your team gains #b4 #yBonding, choose #b1 of #b3 random bonuses. The bonuses are stronger variations of potion effects."
   },
   {
     "PROPER_NAME": "Aggro",
     "NAMES": [
-      "aggro",
-      "position"
+      "aggro"
     ],
     "DESCRIPTION": "Whenever [#60D0D0]You[] or [#60D0D0]Dragon[] attacks, the attacker gains #b1 Aggro. The character with higher Aggro becomes the #yFront, taking all attacks."
   },
