@@ -10,6 +10,7 @@ Dragon is a separate character with its own HP, Block and buffs. You control bot
 Dragon will attack when you play a card saying `Dragon deals X damage`. Dragon will gain Block with a card `Dragon gains X Block`, and similar for other buffs.
 
 Dragon faints (instead of die) when its HP becomes 0. It will revive with 1 HP at the end of combat.
+Dragon heals with rest or between Acts, as you normally do.
 
 
 ### Make dragon evolve!
@@ -24,18 +25,21 @@ Some dragons have deck requirements to be able to choose. For example, you need 
 With 2 characters, enemies have to decide which character to attack.
 In this mod, all enemies attack the Front, the one with higher Aggro.
 
-You and Dragon gain Aggro whenever they attack. Aggro increases by 1 per hit, but only 1 when you attack multiple enemies at the same time using AOE attack. 
+You and Dragon gain Aggro whenever they attack. Aggro increases by 1 per hit, but only 1 when you attack multiple enemies at the same time using AOE attacks.
 
-Only the difference between You and Dragon is displayed. The one with higher aggro will become the Front, and lower will become the Rear. When they become same, Front & Rear are not exchanged.
+Only the difference between Your and Dragon's Aggro is displayed, because that's all you need to know.
+When the Aggro are same, the Front and the Rear remain unchanged. They only exchange their position when the Aggro of the Rear becomes higher than the Front. This exchange is keyworded as 'Switch'.
 
-Some cards activate when you switch position, and other cards affect only the Front or the Rear.
-Thus, you may want to carefully control who becomes the Front at what time.
-
+### Control the Positions
+To prevent damage from enemies, you generally want to give Block to the Front. Target Defense from your starting deck does exactly that.
+However, there are other cards which give Block to only one character (You or Dragon), or even the Rear.
+To make advantage of these cards, you need to actively Switch. Switching Tactic from your starting deck helps that, by reversing Aggro.
+Of course, you may find other ways to use the Rear's Block.
 
 # Other stuff
-* Bonding: Works similar to Mantra. Whenever you gain 4 Bonding, choose 1 of 3 random powerful effects. (Stronger variations of potion effects)
-* Channeling: Effects happen after 2 turns, but cancelled if you Attack or enemies attack you.
-* Synergies with Burn / Weak.
+* Bonding: Works similar to Mantra. Whenever your team gain 4 Bonding, choose 1 of 3 random powerful bonuses. (Stronger variations of potion effects)
+* Channeling: Powerful effects activate after 2 turns, but cancelled if You attack or an enemy attack You.
+* Synergies with Base game mechanics: Burn, Weak, Innate
 * Cards with while-in-your-deck effects.
 
 # Cross-mod Content

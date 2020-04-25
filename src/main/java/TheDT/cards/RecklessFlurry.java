@@ -1,6 +1,7 @@
 package TheDT.cards;
 
 import TheDT.actions.ApplyAggroAction;
+import TheDT.actions.FastAnimateFastAttackAction;
 import TheDT.actions.FastLoseBlockAction;
 import TheDT.characters.Dragon;
 import TheDT.characters.DragonTamer;
@@ -65,6 +66,7 @@ public class RecklessFlurry extends AbstractDTCard {
 			@Override
 			public void onChoseThisOption() {
 				addToBot(new FastLoseBlockAction(p));
+				addToBot(new FastAnimateFastAttackAction(p));
 				addToBot(new VFXAction(new WhirlwindEffect(), 0.0F));
 				addToBot(new SFXAction("ATTACK_HEAVY"));
 				addToBot(new VFXAction(p, new CleaveEffect(), 0.0F));
@@ -99,6 +101,7 @@ public class RecklessFlurry extends AbstractDTCard {
 				@Override
 				public void onChoseThisOption() {
 					addToBot(new FastLoseBlockAction(dragon));
+					addToBot(new FastAnimateFastAttackAction(dragon));
 					addToBot(new VFXAction(new WhirlwindEffect(), 0.0F));
 					addToBot(new DamageAllEnemiesAction(dragon, dragonMultiDamage, damageType, AbstractGameAction.AttackEffect.FIRE));
 					addToBot(new ApplyAggroAction());

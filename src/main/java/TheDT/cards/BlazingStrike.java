@@ -29,6 +29,7 @@ public class BlazingStrike extends AbstractDTCard {
 		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
 		dtBaseDragonDamage = DAMAGE;
 		cardsToPreview = DTModMain.previewBurn;
+		tags.add(CardTags.STRIKE);
 	}
 
 	@Override

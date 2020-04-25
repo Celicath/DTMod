@@ -301,6 +301,7 @@ public class DragonTamer extends CustomPlayer {
 
 		aggro = 0;
 		front = this;
+		dragon.resetFlip();
 		addAggro(dragon.getTier());
 
 		frontChangedThisTurn = false;

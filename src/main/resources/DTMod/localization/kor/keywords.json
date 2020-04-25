@@ -6,7 +6,7 @@
       "결속을",
       "결속의"
     ],
-    "DESCRIPTION": "팀이 #y결속 [REMOVE_SPACE]을 4 얻을 때마다 무작위 보너스 #b3 [REMOVE_SPACE]개 중 #b1 [REMOVE_SPACE]개를 선택합니다. 이 보너스는 포션 효과의 강화판입니다."
+    "DESCRIPTION": "팀이 #y결속 [REMOVE_SPACE]을 #b4 얻을 때마다 무작위 보너스 #b3 [REMOVE_SPACE]개 중 #b1 [REMOVE_SPACE]개를 선택합니다. 이 보너스는 포션 효과의 강화판입니다."
   },
   {
     "PROPER_NAME": "어그로",
@@ -14,7 +14,7 @@
       "어그로",
       "어그로를"
     ],
-    "DESCRIPTION": "[#60D0D0]당신[]과 [#60D0D0]드래곤[]이 공격할 때마다, 공격자가 어그로를 #b1 얻습니다. 어그로가 더 높은 캐릭터는 #y전위 [REMOVE_SPACE]가 되어 모든 적의 공격을 받습니다."
+    "DESCRIPTION": "[#60D0D0]당신[]과 [#60D0D0]드래곤[]은 공격시 공격 횟수만큼 어그로를 얻습니다. 어그로가 더 높은 캐릭터는 #y전위 [REMOVE_SPACE]가 되어 모든 적의 공격을 받습니다."
   },
   {
     "PROPER_NAME": "전위",

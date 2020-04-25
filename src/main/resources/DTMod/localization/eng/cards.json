@@ -192,7 +192,7 @@
   },
   "DTMod:DarkBreath": {
     "NAME": "Dark Breath",
-    "DESCRIPTION": "Dragon deals !DT:THD! damage, apply !M! Weak, and gain 2 additional ragontaer:Aggro."
+    "DESCRIPTION": "Dragon deals !DT:THD! damage twice and apply !M! Weak."
   },
   "DTMod:PurifyingFlame": {
     "NAME": "Purifying Flame",
@@ -236,7 +236,7 @@
   },
   "DTMod:SneakAttack": {
     "NAME": "Sneak Attack",
-    "DESCRIPTION": "Only usable if You are the ragontaer:Rear. NL Deal !D! damage and gain 3 additional ragontaer:Aggro.",
+    "DESCRIPTION": "Only usable if You are the ragontaer:Rear. NL Deal !D! damage 4 times.",
     "EXTENDED_DESCRIPTION": [
       "I'm not the Rear!"
     ]

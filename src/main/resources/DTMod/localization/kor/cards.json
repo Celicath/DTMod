@@ -141,7 +141,7 @@
   },
   "DTMod:MasterPlan": {
     "NAME": "완벽한 계획",
-    "DESCRIPTION": "드래곤이 방어도를 !DT:THB! 얻습니다. NL 다음 턴에 당신은 방어도를 !B! 얻습니다."
+    "DESCRIPTION": "드래곤이 방어도를 NL !DT:THB! 얻습니다. NL 다음 턴에 당신은 방어도를 !B! 얻습니다."
   },
   "DTMod:QuickFly": {
     "NAME": "고속 비행",
@@ -188,11 +188,11 @@
   },
   "DTMod:BizarreTactic": {
     "NAME": "이상한 전술",
-    "DESCRIPTION": "당신은 방어도를 !B! 얻습니다. NL 드래곤이 이번 턴에 공격을 받을 때마다 공격한 대상에게 피해를 !M! 줍니다."
+    "DESCRIPTION": "당신은 방어도를 NL !B! 얻습니다. NL 드래곤이 이번 턴에 공격을 받을 때마다 공격한 대상에게 피해를 !M! 줍니다."
   },
   "DTMod:DarkBreath": {
     "NAME": "악의의 숨결",
-    "DESCRIPTION": "드래곤이 피해를 !DT:THD! 주고, 약화를 !M! 부여하고, ragontaer:어그로를 2 추가로 얻습니다."
+    "DESCRIPTION": "드래곤이 피해를 !DT:THD! 만큼 2번 주고, 약화를 !M! 부여합니다."
   },
   "DTMod:PurifyingFlame": {
     "NAME": "정화의 불꽃",
@@ -236,7 +236,7 @@
   },
   "DTMod:SneakAttack": {
     "NAME": "기습 공격",
-    "DESCRIPTION": "당신이 ragontaer:후위일 때만 사용할 수 있습니다. NL 피해를 !D! 주고 ragontaer:어그로를 3 추가로 얻습니다.",
+    "DESCRIPTION": "당신이 ragontaer:후위일 때만 사용할 수 있습니다. NL 피해를 !D! 만큼 4번 줍니다.",
     "EXTENDED_DESCRIPTION": [
       "나는 후위가 아니다!"
     ]
@@ -323,11 +323,11 @@
   },
   "DTMod:Inferno": {
     "NAME": "인페르노",
-    "DESCRIPTION": "드래곤이 모든 적에게 피해를 !DT:THD! 줍니다. 뽑을 카드 더미에 *화상 을 적 숫자만큼 섞어 넣습니다."
+    "DESCRIPTION": "드래곤이 모든 적에게 피해를 !DT:THD! 줍니다. NL 뽑을 카드 더미에 *화상 을 적 숫자만큼 섞어 넣습니다."
   },
   "DTMod:RecklessFlurry": {
     "NAME": "무모한 난동",
-    "DESCRIPTION": "공격자를 선택합니다. NL 공격자는 모든 방어도를 잃고 그 2배만큼 모든 적에게 피해를 줍니다."
+    "DESCRIPTION": "공격자를 선택합니다. NL 공격자는 방어도를 전부 소모하여 그 2배만큼 모든 적에게 피해를 줍니다."
   },
   "DTMod:RecklessFlurryYou": {
     "NAME": "공격자: 당신",
@@ -343,12 +343,12 @@
   },
   "DTMod:LightShield": {
     "NAME": "빛의 보호막",
-    "DESCRIPTION": "당신은 방어도를 !B! 얻습니다. NL 드래곤이 방어도를 !DT:THB! 얻습니다. NL 이번 전투에서 얻은 ragontaer:결속 만큼 방어도를 추가로 얻습니다.",
-    "UPGRADE_DESCRIPTION": "당신은 방어도를 !B! 얻습니다. NL 드래곤이 방어도를 !DT:THB! 얻습니다. NL 이번 전투에서 얻은 ragontaer:결속의 !M! 배 만큼 방어도를 추가로 얻습니다."
+    "DESCRIPTION": "당신은 !B! , 드래곤은 !DT:THB! 의 방어도를 얻습니다. NL 이번 전투에서 얻은 ragontaer:결속 만큼 추가 방어도를 얻습니다.",
+    "UPGRADE_DESCRIPTION": "당신은 !B! , 드래곤은 !DT:THB! 의 방어도를 얻습니다. NL 이번 전투에서 얻은 ragontaer:결속의 !M! 배 만큼 추가 방어도를 얻습니다."
   },
   "DTMod:StunTrap": {
-    "NAME": "기절 트랩",
-    "DESCRIPTION": "2턴 후, 적을 기절시키고 카드를 !M! 장 뽑습니다. NL ragontaer:채널링. NL 소멸."
+    "NAME": "기절의 덫",
+    "DESCRIPTION": "2턴 후, 적을 기절시키고 카드를 NL !M! 장 뽑습니다. NL ragontaer:채널링. NL 소멸."
   },
   "DTMod:GearUp": {
     "NAME": "만반의 준비",

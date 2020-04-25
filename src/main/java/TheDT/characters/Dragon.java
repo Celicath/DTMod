@@ -383,6 +383,10 @@ public class Dragon extends CustomPlayer implements CustomSavable<ArrayList<Inte
 		this.updateEscapeAnimation();
 	}
 
+	public void resetFlip() {
+		this.flipHorizontal = false;
+		move();
+	}
 
 	public void move() {
 		float x = flipHorizontal ? (master.drawX - Dragon.OFFSET_X) : (master.drawX + Dragon.OFFSET_X);

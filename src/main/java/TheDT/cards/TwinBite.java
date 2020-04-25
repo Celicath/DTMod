@@ -20,7 +20,7 @@ public class TwinBite extends AbstractDTCard {
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DRAGON_ONLY;
 
 	private static final int DAMAGE = 8;
-	private static final int UPGRADE_DAMAGE = 3;
+	private static final int UPGRADE_DAMAGE = 2;
 
 	public TwinBite() {
 		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);

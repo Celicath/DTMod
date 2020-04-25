@@ -93,7 +93,7 @@
     ]
   },
   "DTMod:StunTrapPower": {
-    "NAME": "기절 트랩",
+    "NAME": "기절의 덫",
     "DESCRIPTIONS": [
       "다음 턴에, ",
       "#b",

@@ -1,6 +1,5 @@
 package TheDT.cards;
 
-import TheDT.actions.AddAggroAction;
 import TheDT.characters.DragonTamer;
 import TheDT.patches.CardColorEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -21,16 +20,13 @@ public class SneakAttack extends AbstractDTCard {
 	private static final AbstractCard.CardTarget TARGET = CardTarget.ENEMY;
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DEFAULT;
 
-	private static final int POWER = 14;
-	private static final int UPGRADE_BONUS = 4;
-	private static final int MAGIC = 1;
+	private static final int POWER = 3;
+	private static final int UPGRADE_BONUS = 1;
+	private static final int HIT = 4;
 
 	public SneakAttack() {
 		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
 		baseDamage = POWER;
-		baseMagicNumber = MAGIC;
-		magicNumber = this.baseMagicNumber;
-		tags.add(DT_TACTIC);
 	}
 
 	@Override
@@ -53,8 +49,9 @@ public class SneakAttack extends AbstractDTCard {
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		if (DragonTamer.isRearYou()) {
-			addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
-			addToBot(new AddAggroAction(false, 3));
+			for (int i = 0; i < HIT; i++) {
+				addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+			}
 		}
 	}
 

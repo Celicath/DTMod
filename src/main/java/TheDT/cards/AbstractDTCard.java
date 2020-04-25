@@ -378,6 +378,15 @@ public abstract class AbstractDTCard extends CustomCard {
 		upgradedDTDragonBlock = true;
 	}
 
+	public void resetAttributes() {
+		super.resetAttributes();
+		isDTDragonBlockModified = false;
+		isDTDragonDamageModified = false;
+		dtDragonBlock = dtBaseDragonBlock;
+		dtDragonDamage = dtBaseDragonDamage;
+	}
+
+
 	public String dragonNotAvailableMessage() {
 		if (AbstractDungeon.player instanceof DragonTamer) {
 			return DT_CARD_EXTRA_TEXT[1];
