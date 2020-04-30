@@ -28,7 +28,7 @@ public class TauntingStrikeDragon extends AbstractDTCard {
 	private static final DTCardTarget DT_CARD_TARGET = DTCardTarget.DRAGON_ONLY;
 
 	private static final int DAMAGE = 10;
-	private static final int UPGRADE_DAMAGE = 3;
+	private static final int UPGRADE_DAMAGE = 4;
 
 	private AbstractMonster target;
 
@@ -36,9 +36,7 @@ public class TauntingStrikeDragon extends AbstractDTCard {
 		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, TauntingStrike.RAW_ID, DT_CARD_TARGET);
 		dtBaseDragonDamage = DAMAGE;
 		this.dtDragonDamage = damage;
-		if (dtBaseDragonDamage != dtDragonDamage) {
-			isDTDragonDamageModified = true;
-		}
+		isDTDragonDamageModified = dtBaseDragonDamage != dtDragonDamage;
 		target = m;
 		initializeDescription();
 
@@ -76,6 +74,7 @@ public class TauntingStrikeDragon extends AbstractDTCard {
 		if (!upgraded) {
 			upgradeName();
 			upgradeDTDragonDamage(UPGRADE_DAMAGE);
+			isDTDragonDamageModified = dtBaseDragonDamage != dtDragonDamage;
 		}
 	}
 }

@@ -21,7 +21,10 @@
       "You",
       "Dragon"
     ],
-    "TEXT": []
+    "TEXT": [
+      "You.",
+      "Dragon."
+    ]
   },
   "DTMod:DragonGrowth": {
     "NAMES": [

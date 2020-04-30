@@ -41,6 +41,7 @@ import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.relics.MercuryHourglass;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -52,7 +53,7 @@ import java.util.Properties;
 public class DTModMain
 		implements EditCardsSubscriber, EditRelicsSubscriber, EditStringsSubscriber, EditKeywordsSubscriber,
 		EditCharactersSubscriber, PostInitializeSubscriber, OnStartBattleSubscriber, PreMonsterTurnSubscriber,
-		PostEnergyRechargeSubscriber, StartGameSubscriber {
+		PostEnergyRechargeSubscriber, StartGameSubscriber, PostDungeonInitializeSubscriber {
 	public static final Logger logger = LogManager.getLogger(DTModMain.class.getName());
 
 	private static final String MODNAME = "The DT";
@@ -294,6 +295,14 @@ public class DTModMain
 		BaseMod.loadCustomStrings(CharacterStrings.class, characterStrings);
 
 		logger.info("Done editing strings");
+	}
+
+
+	@Override
+	public void receivePostDungeonInitialize() {
+		if (AbstractDungeon.player.chosenClass == TheDTEnum.THE_DT) {
+			AbstractDungeon.uncommonRelicPool.remove(MercuryHourglass.ID);
+		}
 	}
 
 	public static void onShuffle() {

@@ -368,13 +368,11 @@ public abstract class AbstractDTCard extends CustomCard {
 
 	public void upgradeDTDragonDamage(int amount) {
 		dtBaseDragonDamage += amount;
-		dtDragonDamage = dtBaseDragonDamage;
 		upgradedDTDragonDamage = true;
 	}
 
 	public void upgradeDTDragonBlock(int amount) {
 		dtBaseDragonBlock += amount;
-		dtDragonBlock = dtBaseDragonBlock;
 		upgradedDTDragonBlock = true;
 	}
 

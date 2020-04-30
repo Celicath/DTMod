@@ -48,6 +48,11 @@ public class BindingString extends CustomRelic {
 	}
 
 	@Override
+	public void onVictory() {
+		this.pulse = false;// 77
+	}// 78
+
+	@Override
 	public AbstractRelic makeCopy() {
 		return new BindingString();
 	}

@@ -13,14 +13,14 @@
   },
   "DTMod:TargetDefense": {
     "NAME": "Target Defense",
-    "DESCRIPTION": "The ragontaer:Front gains !B! Block.",
+    "DESCRIPTION": "The ragontaer:Front gains NL !B! Block.",
     "EXTENDED_DESCRIPTION": [
-      "The ragontaer:Front gains !DT:THB! Block."
+      "The ragontaer:Front gains NL !DT:THB! Block."
     ]
   },
   "DTMod:TwinBite": {
     "NAME": "Twin Bite",
-    "DESCRIPTION": "Dragon deals !DT:THD! damage twice."
+    "DESCRIPTION": "Dragon deals NL !DT:THD! damage twice."
   },
   "DTMod:HardSkin": {
     "NAME": "Hard Skin",
@@ -28,8 +28,8 @@
   },
   "DTMod:SwitchingTactic": {
     "NAME": "Switching Tactic",
-    "DESCRIPTION": "Reverse ragontaer:Aggro. This turn, ALL enemies lose Strength equal to ragontaer:Aggro difference.",
-    "UPGRADE_DESCRIPTION": "Retain. NL Reverse ragontaer:Aggro. This turn, ALL enemies lose Strength equal to ragontaer:Aggro difference."
+    "DESCRIPTION": "Reverse ragontaer:Aggro. NL This turn, ALL enemies lose Strength equal to ragontaer:Aggro difference.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Reverse ragontaer:Aggro. NL This turn, ALL enemies lose Strength equal to ragontaer:Aggro difference."
   },
   "DTMod:BronzeWave": {
     "NAME": "Bronze Wave",
@@ -76,7 +76,7 @@
   },
   "DTMod:MagicField": {
     "NAME": "Magic Field",
-    "DESCRIPTION": "ALL creatures gain !M! Block.",
+    "DESCRIPTION": "ALL creatures gain NL !M! Block.",
     "EXTENDED_DESCRIPTION": [
       " NL (You: !B! Block)",
       " NL (Dragon: !DT:THB! Block)"
@@ -84,7 +84,7 @@
   },
   "DTMod:CalculatedDefense": {
     "NAME": "Calculated Defense",
-    "DESCRIPTION": "You and Dragon take !M! less Attack damage from Weakened enemies."
+    "DESCRIPTION": "You and Dragon take !M! less damage from Weakened enemies."
   },
   "DTMod:ExcessFootwork": {
     "NAME": "Excess Footwork",
@@ -100,7 +100,7 @@
   },
   "DTMod:BreakAttack": {
     "NAME": "Break Attack",
-    "DESCRIPTION": "Deals !D! damage. NL Apply !M! Vulnerable. NL Exhaust."
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Vulnerable. NL Exhaust."
   },
   "DTMod:BuildUp": {
     "NAME": "Build Up",
@@ -117,11 +117,11 @@
   },
   "DTMod:FireUp": {
     "NAME": "Fire Up",
-    "DESCRIPTION": "Dragon gains !M! Strength and 1 Dexterity."
+    "DESCRIPTION": "Dragon gains NL !M! Strength and NL 1 Dexterity."
   },
   "DTMod:FireBreath": {
     "NAME": "Fire Breath",
-    "DESCRIPTION": "Dragon deals !DT:THD! damage to ALL enemies."
+    "DESCRIPTION": "Dragon deals NL !DT:THD! damage to ALL enemies."
   },
   "DTMod:ShieldDrain": {
     "NAME": "Shield Drain",
@@ -141,11 +141,11 @@
   },
   "DTMod:MasterPlan": {
     "NAME": "Master Plan",
-    "DESCRIPTION": "Dragon gains !DT:THB! Block. NL Next turn, You gain !B! Block."
+    "DESCRIPTION": "Dragon gains !DT:THB! Block. NL Next turn, You gain NL !B! Block."
   },
   "DTMod:QuickFly": {
     "NAME": "Quick Fly",
-    "DESCRIPTION": "Innate. NL Dragon deals !DT:THD! damage. NL Draw a card."
+    "DESCRIPTION": "Innate. NL Dragon deals NL !DT:THD! damage. NL Draw a card."
   },
   "DTMod:Feint": {
     "NAME": "Feint",
@@ -153,7 +153,7 @@
   },
   "DTMod:BlazingStrike": {
     "NAME": "Blazing Strike",
-    "DESCRIPTION": "Dragon deals !DT:THD! damage. NL Add a Burn into your hand."
+    "DESCRIPTION": "Dragon deals NL !DT:THD! damage. NL Add a Burn into your hand."
   },
   "DTMod:HeatWave": {
     "NAME": "Heat Wave",
@@ -165,16 +165,16 @@
   },
   "DTMod:Cover": {
     "NAME": "Cover",
-    "DESCRIPTION": "The ragontaer:Rear gains !B! Block. NL Draw !M! cards.",
+    "DESCRIPTION": "The ragontaer:Rear gains NL !B! Block. NL Draw !M! cards.",
     "EXTENDED_DESCRIPTION": [
-      "The ragontaer:Rear gains !DT:THB! Block. NL Draw !M! cards."
+      "The ragontaer:Rear gains NL !DT:THB! Block. NL Draw !M! cards."
     ]
   },
   "DTMod:Hide": {
     "NAME": "Hide",
-    "DESCRIPTION": "The ragontaer:Front gains !B! Block. NL Next turn, draw !M! cards.",
+    "DESCRIPTION": "The ragontaer:Front gains NL !B! Block. NL Next turn, draw !M! cards.",
     "EXTENDED_DESCRIPTION": [
-      "The ragontaer:Front gains !DT:THB! Block. NL Next turn, draw !M! cards."
+      "The ragontaer:Front gains NL !DT:THB! Block. NL Next turn, draw !M! cards."
     ]
   },
   "DTMod:Threaten": {
@@ -196,7 +196,7 @@
   },
   "DTMod:PurifyingFlame": {
     "NAME": "Purifying Flame",
-    "DESCRIPTION": "Dragon deals !DT:THD! damage. NL Remove all debuffs from Dragon. NL Exhaust."
+    "DESCRIPTION": "Dragon deals NL !DT:THD! damage. NL Remove all debuffs from Dragon. NL Exhaust."
   },
   "DTMod:ForkedFlame": {
     "NAME": "Forked Flame",
@@ -224,15 +224,15 @@
   },
   "DTMod:TauntingStrikeDragon": {
     "NAME": "Attacker: Dragon",
-    "DESCRIPTION": "Dragon deals !DT:THD! damage."
+    "DESCRIPTION": "Dragon deals NL !DT:THD! damage."
   },
   "DTMod:BurningForce": {
     "NAME": "Burning Force",
-    "DESCRIPTION": "Dragon deals !DT:THD! damage. NL Deals !M! additional damage for every Burn created this combat."
+    "DESCRIPTION": "Dragon deals NL !DT:THD! damage. NL Deals !M! additional damage for every Burn created this combat."
   },
   "DTMod:MaximumCharge": {
     "NAME": "Maximum Charge",
-    "DESCRIPTION": "Dragon deals !DT:THD! damage. NL Dragon gains !M! Vulnerable."
+    "DESCRIPTION": "Dragon deals NL !DT:THD! damage. NL Dragon gains NL !M! Vulnerable."
   },
   "DTMod:SneakAttack": {
     "NAME": "Sneak Attack",
@@ -251,7 +251,7 @@
   },
   "DTMod:GhostSkin": {
     "NAME": "Ghost Skin",
-    "DESCRIPTION": "Dragon gains !M! Intangible. NL Dragon loses 5 Dexterity. NL Exhaust."
+    "DESCRIPTION": "Dragon gains NL !M! Intangible. NL Dragon loses NL 5 Dexterity. NL Exhaust."
   },
   "DTMod:Observe": {
     "NAME": "Observe",
@@ -259,8 +259,8 @@
   },
   "DTMod:Shift": {
     "NAME": "Shift",
-    "DESCRIPTION": "The ragontaer:Rear gains !M! ragontaer:Aggro. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Choose one: NL You or Dragon gains !M! ragontaer:Aggro. NL Exhaust."
+    "DESCRIPTION": "Retain. NL The ragontaer:Rear gains NL !M! ragontaer:Aggro. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Choose one: NL You or Dragon gains NL !M! ragontaer:Aggro. NL Exhaust."
   },
   "DTMod:ShiftYou": {
     "NAME": "Shift: You",
@@ -311,7 +311,7 @@
   },
   "DTMod:Dissolve": {
     "NAME": "Dissolve",
-    "DESCRIPTION": "Add 2 Burns into your hand. NL At the end of your turn, Dragon gains !M! Block."
+    "DESCRIPTION": "Add 2 Burns into your hand. NL At the end of your turn, Dragon gains NL !M! Block."
   },
   "DTMod:InvisibleFlame": {
     "NAME": "Invisible Flame",
@@ -323,11 +323,11 @@
   },
   "DTMod:Inferno": {
     "NAME": "Inferno",
-    "DESCRIPTION": "Dragon deals !DT:THD! damage to ALL enemies. Shuffle a Burn into your draw pile for each enemy."
+    "DESCRIPTION": "Dragon deals NL !DT:THD! damage to ALL enemies. Shuffle a Burn into your draw pile for each enemy."
   },
   "DTMod:RecklessFlurry": {
     "NAME": "Reckless Flurry",
-    "DESCRIPTION": "Choose the attacker. NL The attacker loses all Block and deal damage equal to twice the Block lost to ALL enemies."
+    "DESCRIPTION": "Choose the attacker. NL The attacker loses all Block and deal twice that much to ALL enemies."
   },
   "DTMod:RecklessFlurryYou": {
     "NAME": "Attacker: You",
@@ -335,7 +335,7 @@
   },
   "DTMod:RecklessFlurryDragon": {
     "NAME": "Attacker: Dragon",
-    "DESCRIPTION": "Dragon deals !DT:THD! damage to ALL enemies."
+    "DESCRIPTION": "Dragon deals NL !DT:THD! damage to ALL enemies."
   },
   "DTMod:HuntersMark": {
     "NAME": "Hunter's Mark",
@@ -372,7 +372,7 @@
   },
   "DTMod:FierySynthesis": {
     "NAME": "Fiery Synthesis",
-    "DESCRIPTION": "Dragon deals !DT:THD! damage. NL While in your deck, ALL potions become ragontaer:Blaze_Potion."
+    "DESCRIPTION": "Dragon deals NL !DT:THD! damage. NL While in your deck, ALL potions become ragontaer:Blaze_Potion."
   },
   "DTMod:Jump": {
     "NAME": "Jump",

@@ -35,7 +35,7 @@ public class HuntersMark extends AbstractDTCard {
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-		addToBot(new ApplyPowerAction(m, p, new HuntersMarkPower(p, magicNumber), magicNumber));
+		addToBot(new ApplyPowerAction(m, p, new HuntersMarkPower(m, magicNumber), magicNumber));
 	}
 
 	public AbstractCard makeCopy() {

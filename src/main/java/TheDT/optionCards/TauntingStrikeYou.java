@@ -26,7 +26,7 @@ public class TauntingStrikeYou extends AbstractDTCard {
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DEFAULT;
 
 	private static final int DAMAGE = 10;
-	private static final int UPGRADE_DAMAGE = 3;
+	private static final int UPGRADE_DAMAGE = 4;
 
 	private AbstractMonster target;
 
@@ -34,9 +34,7 @@ public class TauntingStrikeYou extends AbstractDTCard {
 		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, TauntingStrike.RAW_ID, DT_CARD_TARGET);
 		baseDamage = DAMAGE;
 		this.damage = damage;
-		if (baseDamage != damage) {
-			isDamageModified = true;
-		}
+		isDamageModified = baseDamage != damage;
 		target = m;
 		initializeDescription();
 
@@ -73,6 +71,7 @@ public class TauntingStrikeYou extends AbstractDTCard {
 		if (!upgraded) {
 			upgradeName();
 			upgradeDamage(UPGRADE_DAMAGE);
+			isDamageModified = baseDamage != damage;
 		}
 	}
 }

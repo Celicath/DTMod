@@ -1,8 +1,8 @@
 package TheDT.patches;
 
-import TheDT.actions.FastAddTemporaryHPAction;
 import TheDT.characters.Dragon;
 import TheDT.relics.MagicStone;
+import com.evacipated.cardcrawl.mod.stslib.patches.core.AbstractCreature.TempHPField;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -22,7 +22,7 @@ public class MagicStonePatch {
 			}
 			if (ms != null && __instance.isPlayer && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
 				ms.flash();
-				AbstractDungeon.actionManager.addToTop(new FastAddTemporaryHPAction(__instance, __instance, __instance.currentHealth - __instance.maxHealth));
+				TempHPField.tempHp.set(__instance, TempHPField.tempHp.get(__instance) + __instance.currentHealth - __instance.maxHealth);
 			}
 		}
 	}

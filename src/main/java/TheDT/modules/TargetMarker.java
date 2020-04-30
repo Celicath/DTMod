@@ -1,6 +1,7 @@
 package TheDT.modules;
 
 import TheDT.DTModMain;
+import TheDT.characters.Dragon;
 import TheDT.characters.DragonTamer;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -23,11 +24,15 @@ public class TargetMarker {
 	private Hitbox hb;
 	private static UIStrings uiStrings = null;
 	private static Texture targetTexture = null;
+	private static Texture aggroCounterBgTexture = null;
 	private static Color color = null;
 	public static String[] TEXT = null;
 
 	private static final int WIDTH = 128;
 	private static final int HEIGHT = 128;
+
+	private static final int FONT_BG_WIDTH = 48;
+	private static final int FONT_BG_HEIGHT = 36;
 
 	public float flashTimer;
 	private Color flashColor = new Color(1.0F, 1.0F, 1.0F, 0.0F);
@@ -36,6 +41,7 @@ public class TargetMarker {
 		hb = new Hitbox(WIDTH * Settings.scale * 1.2f, HEIGHT * Settings.scale * 1.2f);
 		uiStrings = CardCrawlGame.languagePack.getUIString(DTModMain.makeID("TargetMarker"));
 		targetTexture = ImageMaster.loadImage(DTModMain.makePath("ui/Target.png"));
+		aggroCounterBgTexture = ImageMaster.loadImage(DTModMain.makePath("ui/AggroCounterBG.png"));
 		TEXT = uiStrings.TEXT;
 		color = new Color(0xffdf8fff);
 		flashTimer = 0;
@@ -65,7 +71,11 @@ public class TargetMarker {
 	}
 
 	public void move(AbstractCreature creature) {
-		hb.move(creature.hb.cX, creature.hb.cY + 200.0f * Settings.scale);
+		float offset = 200.0f;
+		if (creature instanceof Dragon) {
+			offset = ((Dragon) creature).getTier() * 20.0f + 140.0f;
+		}
+		hb.move(creature.hb.cX, creature.hb.cY + offset * Settings.scale);
 	}
 
 	public void render(SpriteBatch sb) {
@@ -78,6 +88,17 @@ public class TargetMarker {
 				WIDTH,
 				HEIGHT,
 				Settings.scale * 0.75f, Settings.scale * 0.75f, 0.0F, 0, 0, WIDTH, HEIGHT, false, false);
+
+		sb.draw(
+				aggroCounterBgTexture,
+				hb.cX - FONT_BG_WIDTH / 2.0f,
+				hb.cY - FONT_BG_HEIGHT / 2.0f + 70.0f * Settings.scale,
+				FONT_BG_WIDTH / 2.0f,
+				FONT_BG_HEIGHT / 2.0f,
+				FONT_BG_WIDTH,
+				FONT_BG_HEIGHT,
+				Settings.scale, Settings.scale, 0.0F, 0, 0, FONT_BG_WIDTH, FONT_BG_HEIGHT, false, false);
+
 		FontHelper.renderFontCentered(
 				sb,
 				FontHelper.panelNameFont,

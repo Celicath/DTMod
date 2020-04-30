@@ -259,8 +259,8 @@
   },
   "DTMod:Shift": {
     "NAME": "시프트",
-    "DESCRIPTION": "ragontaer:후위가 ragontaer:어그로를 !M! 얻습니다. NL 소멸.",
-    "UPGRADE_DESCRIPTION": "선택: NL 당신 또는 드래곤이 ragontaer:어그로를 !M! 얻습니다. NL 소멸."
+    "DESCRIPTION": "보존. NL ragontaer:후위가 ragontaer:어그로를 !M! 얻습니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION": "보존. NL 선택: NL 당신 또는 드래곤이 ragontaer:어그로를 !M! 얻습니다. NL 소멸."
   },
   "DTMod:ShiftYou": {
     "NAME": "시프트: 당신",

@@ -1,6 +1,7 @@
 package TheDT.relics;
 
 import TheDT.DTModMain;
+import TheDT.characters.Dragon;
 import TheDT.characters.DragonTamer;
 import TheDT.powers.OddArmorPower;
 import basemod.abstracts.CustomRelic;
@@ -30,11 +31,10 @@ public class OddArmor extends CustomRelic {
 	public void atTurnStart() {
 		counter++;
 		if (counter % 2 == 0) {
-			if (AbstractDungeon.player instanceof DragonTamer) {
+			Dragon d = DragonTamer.getLivingDragon();
+			if (d != null) {
 				this.flash();
-				DragonTamer dt = (DragonTamer) AbstractDungeon.player;
-				addToBot(new ApplyPowerAction(dt.dragon, dt.dragon,
-						new OddArmorPower(dt.dragon, dt.dragon, AMOUNT), AMOUNT));
+				addToBot(new ApplyPowerAction(d, d, new OddArmorPower(d, d, AMOUNT), AMOUNT));
 			}
 		} else {
 			this.flash();

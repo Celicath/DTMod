@@ -28,6 +28,7 @@ public class Shift extends AbstractDTCard {
 	public Shift() {
 		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
 		magicNumber = baseMagicNumber = AGGRO;
+		selfRetain = true;
 		exhaust = true;
 	}
 
