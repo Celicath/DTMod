@@ -15,7 +15,7 @@ public class ForbiddenStrikePatch {
 		public static CardGroup Postfix(CardGroup __result, CardGroup __instance) {
 			if (AbstractDungeon.getCurrRoom() instanceof RestRoom) {
 				int forbiddenLevel = 0;
-				for (AbstractCard c : __result.group) {
+				for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
 					if (c instanceof ForbiddenStrike) {
 						if (c.upgraded) {
 							forbiddenLevel = Math.max(forbiddenLevel, 1);

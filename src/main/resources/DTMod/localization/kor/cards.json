@@ -244,7 +244,7 @@
   },
   "DTMod:LastStand": {
     "NAME": "최후의 저항",
-    "DESCRIPTION": "이번 턴 동안 당신은 공격 피해를 절반만 받습니다. NL 소멸."
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 이번 턴 동안 당신은 공격 피해를 절반만 받습니다. NL 소멸."
   },
   "DTMod:DeepFocus": {
     "NAME": "정신 집중",

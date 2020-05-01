@@ -244,7 +244,7 @@
   },
   "DTMod:LastStand": {
     "NAME": "Last Stand",
-    "DESCRIPTION": "For this turn, You recieve half damage from attacks. NL Exhaust."
+    "DESCRIPTION": "Gain !B! Block. NL For this turn, You receive half damage from attacks. NL Exhaust."
   },
   "DTMod:DeepFocus": {
     "NAME": "Deep Focus",

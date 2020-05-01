@@ -586,8 +586,17 @@ public class Dragon extends CustomPlayer implements CustomSavable<ArrayList<Inte
 
 	@Override
 	public void heal(int healAmount) {
+		AbstractPlayer prevPlayer = AbstractDungeon.player;
 		AbstractDungeon.player = this;
 		super.heal(healAmount);
-		AbstractDungeon.player = master;
+		AbstractDungeon.player = prevPlayer;
+	}
+
+	@Override
+	public void heal(int healAmount, boolean showEffect) {
+		AbstractPlayer prevPlayer = AbstractDungeon.player;
+		AbstractDungeon.player = this;
+		super.heal(healAmount, showEffect);
+		AbstractDungeon.player = prevPlayer;
 	}
 }
