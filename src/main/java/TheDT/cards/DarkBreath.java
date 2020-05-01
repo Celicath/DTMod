@@ -77,8 +77,10 @@ public class DarkBreath extends AbstractDTCard {
 	}
 
 	public void upgrade() {
-		upgradeName();
-		upgradeDTDragonDamage(UPGRADE_BONUS);
-		upgradeMagicNumber(WEAK_BONUS);
+		if (!upgraded) {
+			upgradeName();
+			upgradeDTDragonDamage(UPGRADE_BONUS);
+			upgradeMagicNumber(WEAK_BONUS);
+		}
 	}
 }

@@ -150,9 +150,9 @@ public class DragonStatusScreen {
 				countDeck((c) -> c instanceof TwinBite) >= 1 ?
 						countDeck((c) -> c instanceof AbstractDTCard &&
 								((AbstractDTCard) c).dtCardTarget != AbstractDTCard.DTCardTarget.DEFAULT &&
-								c.type == AbstractCard.CardType.ATTACK) : -1, 10);
-		dragonGrowthCards[3][2].setProgress(countDeck((c) -> c.color != CardColorEnum.DT_ORANGE), 4);
-		dragonGrowthCards[3][3].setProgress(countDeck((c) -> c.type == AbstractCard.CardType.POWER), 7);
+								c.type == AbstractCard.CardType.ATTACK) : -1, 8);
+		dragonGrowthCards[3][2].setProgress(countDeck((c) -> c.color != CardColorEnum.DT_ORANGE), 3);
+		dragonGrowthCards[3][3].setProgress(countDeck((c) -> c.type == AbstractCard.CardType.POWER), 6);
 		dragonGrowthCards[3][4].setProgress(AbstractDungeon.player.masterDeck.size(), 30);
 		dragonGrowthCards[curTier][curIndex].setProgress(0, 0);
 		updateButtons();

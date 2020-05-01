@@ -108,7 +108,8 @@
   },
   "DTMod:Outburst": {
     "NAME": "폭발",
-    "DESCRIPTION": "드래곤이 2턴 동안 진노합니다."
+    "DESCRIPTION": "드래곤이 2턴 동안 진노합니다.",
+    "UPGRADE_DESCRIPTION": "[E] 를 얻습니다. NL 드래곤이 2턴 동안 진노합니다."
   },
   "DTMod:RepeatStrike": {
     "NAME": "반복 타격",
@@ -286,9 +287,9 @@
   },
   "DTMod:TagTeam": {
     "NAME": "태그 팀",
-    "DESCRIPTION": "ragontaer:전위가 방어도를 NL !B! 얻습니다. NL ragontaer:결속을 !M! 얻습니다. NL 이번 턴에 ragontaer:교체 했다면, 효과를 2배로 받습니다.",
+    "DESCRIPTION": "ragontaer:전위가 방어도를 NL !B! 얻습니다. NL ragontaer:결속을 !M! 얻습니다. NL 이번 턴에 ragontaer:교대 했다면, 효과를 2배로 받습니다.",
     "EXTENDED_DESCRIPTION": [
-      "ragontaer:전위가 방어도를 NL !DT:THB! 얻습니다. NL ragontaer:결속을 !M! 얻습니다. NL 이번 턴에 ragontaer:교체 했다면, 효과를 2배로 받습니다."
+      "ragontaer:전위가 방어도를 NL !DT:THB! 얻습니다. NL ragontaer:결속을 !M! 얻습니다. NL 이번 턴에 ragontaer:교대 했다면, 효과를 2배로 받습니다."
     ]
   },
   "DTMod:Overwhelm": {

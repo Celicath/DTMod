@@ -108,7 +108,8 @@
   },
   "DTMod:Outburst": {
     "NAME": "Outburst",
-    "DESCRIPTION": "Dragon enters Wrath for 2 turns."
+    "DESCRIPTION": "Dragon enters Wrath for 2 turns.",
+    "UPGRADE_DESCRIPTION": "Gain [E]. NL Dragon enters Wrath for 2 turns."
   },
   "DTMod:RepeatStrike": {
     "NAME": "Repeat Strike",

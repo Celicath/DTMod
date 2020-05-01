@@ -51,9 +51,11 @@ public class RepeatStrike extends AbstractDTCard {
 	}
 
 	public void upgrade() {
-		upgradeName();
-		isInnate = true;
-		rawDescription = UPGRADE_DESCRIPTION;
-		initializeDescription();
+		if (!upgraded) {
+			upgradeName();
+			isInnate = true;
+			rawDescription = UPGRADE_DESCRIPTION;
+			initializeDescription();
+		}
 	}
 }

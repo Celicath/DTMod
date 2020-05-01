@@ -35,8 +35,10 @@ public class ForbiddenStrike extends AbstractDTCard {
 	}
 
 	public void upgrade() {
-		upgradeName();
-		rawDescription = UPGRADE_DESCRIPTION;
-		initializeDescription();
+		if (!upgraded) {
+			upgradeName();
+			rawDescription = UPGRADE_DESCRIPTION;
+			initializeDescription();
+		}
 	}
 }

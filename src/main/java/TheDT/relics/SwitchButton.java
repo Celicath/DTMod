@@ -58,6 +58,7 @@ public class SwitchButton extends CustomRelic implements ClickableRelic {
 	@Override
 	public void atPreBattle() {
 		alreadyUsed = false;
+		beginLongPulse();
 	}
 
 	@Override

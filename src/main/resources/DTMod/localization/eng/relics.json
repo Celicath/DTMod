@@ -3,7 +3,7 @@
     "NAME": "Pact Stone",
     "FLAVOR": "The evidence of your friendship.",
     "DESCRIPTIONS": [
-      "At the start of each combat, You and Dragon gain #b",
+      "At the start of each combat, [#60D0D0]You[] and [#60D0D0]Dragon[] gain #b",
       " #yTemporary_HP each."
     ]
   },
@@ -27,8 +27,8 @@
     "NAME": "Odd Armor",
     "FLAVOR": "Because it looks odd, people don't want to wear it even though it's powerful.",
     "DESCRIPTIONS": [
-      "On odd-numbered turns, You take #b",
-      " less damage from attacks. NL On even-numbered turns, Dragon takes #b",
+      "On odd-numbered turns, [#60D0D0]You[] take #b",
+      " less damage from attacks. NL On even-numbered turns, [#60D0D0]Dragon[] takes #b",
       " less damage from attacks."
     ]
   },
@@ -36,7 +36,7 @@
     "NAME": "Magic Stone",
     "FLAVOR": "The Pact Stone absorbed weird magic.",
     "DESCRIPTIONS": [
-      "Replaces #yPact #yStone. At the start of each combat, You and Dragon heal #b",
+      "Replaces #yPact #yStone. At the start of each combat, [#60D0D0]You[] and [#60D0D0]Dragon[] heal #b",
       " HP. NL During combat, excess amount of healing is converted to #yTemporary_HP."
     ]
   },
@@ -44,7 +44,7 @@
     "NAME": "Dragon Food",
     "FLAVOR": "It's delicious to humans too.",
     "DESCRIPTIONS": [
-      "At the end of combat, Dragon heals #b",
+      "At the end of combat, [#60D0D0]Dragon[] heals #b",
       " HP."
     ]
   },
@@ -68,7 +68,7 @@
     "NAME": "Switch Button",
     "FLAVOR": "Do NOT press this button!",
     "DESCRIPTIONS": [
-      "[#2aecd7]Once [#2aecd7]per [#2aecd7]combat, [#2aecd7]right [#2aecd7]click [#2aecd7]to [#2aecd7]activate.[] You and Dragon swaps #yragontaer:Aggro."
+      "[#2aecd7]Once [#2aecd7]per [#2aecd7]combat, [#2aecd7]right [#2aecd7]click [#2aecd7]to [#2aecd7]activate.[] [#60D0D0]You[] and [#60D0D0]Dragon[] swaps #yragontaer:Aggro."
     ]
   },
   "DTMod:SolidMemories": {
@@ -83,7 +83,7 @@
     "NAME": "Binding String",
     "FLAVOR": "The combination of two fighters is better when they are close.",
     "DESCRIPTIONS": [
-      "At the start of your turn, if You and Dragon have the same #yragontaer:Aggro, gain #b",
+      "At the start of your turn, if [#60D0D0]You[] and [#60D0D0]Dragon[] have the same #yragontaer:Aggro, gain #b",
       " #yragontaer:Bonding."
     ]
   },

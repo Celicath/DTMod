@@ -69,7 +69,9 @@ public class Astonish extends AbstractDTCard {
 	}
 
 	public void upgrade() {
-		upgradeName();
-		upgradeMagicNumber(UPGRADE_BONUS);
+		if (!upgraded) {
+			upgradeName();
+			upgradeMagicNumber(UPGRADE_BONUS);
+		}
 	}
 }

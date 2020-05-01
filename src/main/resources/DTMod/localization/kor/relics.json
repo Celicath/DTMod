@@ -3,13 +3,13 @@
     "NAME": "계약의 돌",
     "FLAVOR": "이 돌 앞에서 우정을 맹세했습니다.",
     "DESCRIPTIONS": [
-      "전투 시작 시 당신과 드래곤은 각각 #y임시체력 [REMOVE_SPACE]을 #b",
+      "전투 시작 시 [#60D0D0]당신[]과 [#60D0D0]드래곤[]은 각각 #y임시체력 [REMOVE_SPACE]을 #b",
       " 얻습니다."
     ]
   },
   "DTMod:DragonTamerSkillbook": {
     "NAME": "드래곤 조련사의 스킬북",
-    "FLAVOR": "새끼였던 드래곤은 이제 주인이 아닌 다른 사람을 도울 수 있게 성장했습니다.",
+    "FLAVOR": "처음 만날 때 새끼였던 드래곤은 이제 주인이 아닌 다른 사람을 도울 수 있게 성장했습니다.",
     "DESCRIPTIONS": [
       "나와 다른 캐릭터에게 영향을 끼치는 카드를 사용할 때마다, #yragontaer:결속 [REMOVE_SPACE]을 #b1 얻습니다.",
       " NL NL #yMulticlass 드래곤 조련사"
@@ -27,8 +27,8 @@
     "NAME": "이상한 갑옷",
     "FLAVOR": "체크무늬가 너무 이상해서 선물받은 사람들이 끈질기게 돌려줍니다.",
     "DESCRIPTIONS": [
-      "홀수 턴에 당신이 받는 공격 피해가 #b",
-      " 감소합니다. NL 짝수 턴에 드래곤이 받는 공격 피해가 #b",
+      "홀수 턴에 [#60D0D0]당신[]이 받는 공격 피해가 #b",
+      " 감소합니다. NL 짝수 턴에 [#60D0D0]드래곤[]이 받는 공격 피해가 #b",
       " 감소합니다."
     ]
   },
@@ -36,7 +36,7 @@
     "NAME": "마법의 돌",
     "FLAVOR": "마법의 힘을 흡수한 계약의 돌.",
     "DESCRIPTIONS": [
-      "#y계약의 #y돌 [REMOVE_SPACE]과 교체됩니다. NL 전투 시작 시 당신과 드래곤이 체력을 #b",
+      "#y계약의 #y돌 [REMOVE_SPACE]과 교체됩니다. NL 전투 시작 시 [#60D0D0]당신[]과 [#60D0D0]드래곤[]이 체력을 #b",
       " 회복합니다. NL 전투 중, 최대 체력을 넘어가는 회복은 #y임시체력 [REMOVE_SPACE]으로 변환됩니다."
     ]
   },
@@ -44,7 +44,7 @@
     "NAME": "드래곤 음식",
     "FLAVOR": "인간도 맛있어 하는 것으로 알려져 있습니다.",
     "DESCRIPTIONS": [
-      "전투 종료 시 드래곤이 체력을 #b",
+      "전투 종료 시 [#60D0D0]드래곤[]이 체력을 #b",
       " 회복합니다."
     ]
   },
@@ -68,7 +68,7 @@
     "NAME": "교체 스위치",
     "FLAVOR": "이 버튼을 절대로 누르지 마시오!",
     "DESCRIPTIONS": [
-      "[#2aecd7]전투마다 [#2aecd7]1번, [#2aecd7]오른쪽 [#2aecd7]클릭으로 [#2aecd7]사용합니다.[] 당신과 드래곤이 #yragontaer:어그로 [REMOVE_SPACE]를 뒤바꿉니다."
+      "[#2aecd7]전투마다 [#2aecd7]1번, [#2aecd7]오른쪽 [#2aecd7]클릭으로 [#2aecd7]사용합니다.[] [#60D0D0]당신[]과 [#60D0D0]드래곤[]이 #yragontaer:어그로 [REMOVE_SPACE]를 뒤바꿉니다."
     ]
   },
   "DTMod:SolidMemories": {
@@ -83,7 +83,7 @@
     "NAME": "고정용 실",
     "FLAVOR": "두 명의 콤보는 가까이 있을 때 더 잘 발휘됩니다.",
     "DESCRIPTIONS": [
-      "턴 시작 시, 당신과 드래곤의 #yragontaer:어그로 [REMOVE_SPACE]가 같다면, #yragontaer:결속 [REMOVE_SPACE]을 #b",
+      "턴 시작 시, [#60D0D0]당신[]과 [#60D0D0]드래곤[]의 #yragontaer:어그로 [REMOVE_SPACE]가 같다면, #yragontaer:결속 [REMOVE_SPACE]을 #b",
       " 얻습니다."
     ]
   },

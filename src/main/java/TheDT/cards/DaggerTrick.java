@@ -32,7 +32,9 @@ public class DaggerTrick extends AbstractDTCard {
 	}
 
 	public void upgrade() {
-		upgradeName();
-		upgradeDamage(UPGRADE_BONUS);
+		if (!upgraded) {
+			upgradeName();
+			upgradeDamage(UPGRADE_BONUS);
+		}
 	}
 }

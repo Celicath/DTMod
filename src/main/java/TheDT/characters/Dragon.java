@@ -49,6 +49,9 @@ public class Dragon extends CustomPlayer implements CustomSavable<ArrayList<Inte
 	public static final CharacterStrings charStrings = CardCrawlGame.languagePack.getCharacterString(DTModMain.makeID("Dragon"));
 	public static final CharacterStrings dragonGrowthStrings = CardCrawlGame.languagePack.getCharacterString(DTModMain.makeID("DragonGrowth"));
 
+	public static final int STARTING_HP = 50;
+	public static final int MAX_HP = 50;
+
 	public static final float OFFSET_X = 160.0f;
 	public static final float OFFSET_Y = 60.0f;
 	private static final Logger logger = LogManager.getLogger(AbstractPlayer.class.getName());
@@ -213,7 +216,7 @@ public class Dragon extends CustomPlayer implements CustomSavable<ArrayList<Inte
 
 	@Override
 	public int getAscensionMaxHPLoss() {
-		return 4;
+		return 5;
 	}
 
 	@Override
@@ -267,8 +270,8 @@ public class Dragon extends CustomPlayer implements CustomSavable<ArrayList<Inte
 
 	public void initializeClass() {
 		setImage(1, 0);
-		this.maxHealth = 45;
-		this.currentHealth = 45;
+		this.currentHealth = STARTING_HP;
+		this.maxHealth = MAX_HP;
 	}
 
 	@Override

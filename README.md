@@ -2,7 +2,7 @@
 # DTMod
 This mod adds a character named `The Dragon Tamer` to Slay the Spire. Dragon Tamer fights alongside with his Dragon.
 
-Dragon Tamer and Dragon both have low HP (40 and 45 respectively), so they need teamwork to overcome difficulties.
+Dragon Tamer and Dragon both have low HP (45 and 50 respectively), so they need teamwork to overcome difficulties.
 
 # Dragon
 Dragon is a separate character with its own HP, Block and buffs. You control both 'You' and 'Dragon' by playing corresponding cards.
@@ -18,7 +18,7 @@ Dragon starts each run as Baby Dragon. Baby Dragon is a Tier 1 dragon with no sp
 
 After beating act 1 and act 2 boss, Dragon will evolve into one of the dragons from higher tier. Each dragon has unique abilities similar to relics.
 
-Some dragons have deck requirements to be able to choose. For example, you need to have 8 Attack cards in your deck at the end of Act 1 to evolve into Red Dragon.
+Some dragons have deck requirements to be able to choose. For example, you need to have 8 Attack cards in your deck at the end of Act 1 to evolve into Red Dragon, who gets +1 Strength each combat.
 
 
 # Aggro and Position
@@ -28,7 +28,7 @@ In this mod, all enemies attack the Front, the one with higher Aggro.
 You and Dragon gain Aggro whenever they attack. Aggro increases by 1 per hit, but only 1 when you attack multiple enemies at the same time using AOE attacks.
 
 Only the difference between Your and Dragon's Aggro is displayed, because that's all you need to know.
-When the Aggro are same, the Front and the Rear remain unchanged. They only exchange their position when the Aggro of the Rear becomes higher than the Front. This exchange is keyworded as 'Switch'.
+When the difference of Aggro becomes 0, the Front and the Rear remain unchanged. They only exchange their position when the Aggro of the Rear becomes higher than the Front. This exchange is keyworded as 'Switch'.
 
 ### Control the Positions
 To prevent damage from enemies, you generally want to give Block to the Front. Target Defense from your starting deck does exactly that.
