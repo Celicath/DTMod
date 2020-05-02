@@ -244,7 +244,7 @@
   },
   "DTMod:LastStand": {
     "NAME": "Last Stand",
-    "DESCRIPTION": "Gain !B! Block. NL For this turn, You receive half damage from attacks. NL Exhaust."
+    "DESCRIPTION": "You gain !B! Block. NL For this turn, You receive half damage from attacks. NL Exhaust."
   },
   "DTMod:DeepFocus": {
     "NAME": "Deep Focus",
@@ -368,16 +368,19 @@
   },
   "DTMod:ResonanceForm": {
     "NAME": "Resonance Form",
-    "DESCRIPTION": "Ethereal. NL Whenever You or Dragon gains Strength, Dexterity, Block or HP, the other gains a copy of it.",
-    "UPGRADE_DESCRIPTION": "Whenever You or Dragon gains Strength, Dexterity, Block or HP, the other gains a copy of it."
+    "DESCRIPTION": "Ethereal. NL When only one of your team gains Strength, Dexterity or Block, the other gains a copy of it.",
+    "UPGRADE_DESCRIPTION": "When only one of your team gains Strength, Dexterity or Block, the other gains a copy of it."
   },
   "DTMod:FierySynthesis": {
     "NAME": "Fiery Synthesis",
     "DESCRIPTION": "Dragon deals NL !DT:THD! damage. NL While in your deck, ALL potions become ragontaer:Blaze_Potion."
   },
-  "DTMod:Jump": {
-    "NAME": "Jump",
-    "DESCRIPTION": "What should be the effect for the final card be?"
+  "DTMod:TurnBack": {
+    "NAME": "Turn Back",
+    "DESCRIPTION": "The ragontaer:Rear gains NL !B! Block. NL Draw a card. NL Startup: Play this card.",
+    "EXTENDED_DESCRIPTION": [
+      "The ragontaer:Rear gains NL !DT:THB! Block. NL Draw a card. NL Startup: Play this card."
+    ]
   },
   "DTMod:BondingBonus": {
     "NAME": "Bonding Bonus",

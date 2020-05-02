@@ -5,8 +5,8 @@
     "Celicath"
   ],
   "credits": "",
-  "description": "Adds a character called The Dragon Tamer, who fights together with his faithful dragon.\n\n- Adds 74/75 cards and 12 relics.",
-  "version": "0.1.11",
+  "description": "Adds a character called The Dragon Tamer, who fights together with his faithful dragon.\n\n- Adds 75 cards and 12 relics.",
+  "version": "0.1.12",
   "sts_version": "01-27-2020",
   "mts_version": "3.16.0",
   "dependencies": [

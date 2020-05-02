@@ -161,7 +161,7 @@ public class DragonTamer extends CustomPlayer {
 
 	@Override
 	public Color getCardTrailColor() {
-		return DTModMain.DT_ORANGE;
+		return DTModMain.DT_ORANGE.cpy();
 	}
 
 	@Override
@@ -191,7 +191,7 @@ public class DragonTamer extends CustomPlayer {
 
 	@Override
 	public Color getCardRenderColor() {
-		return DTModMain.DT_ORANGE;
+		return DTModMain.DT_ORANGE.cpy();
 	}
 
 	@Override

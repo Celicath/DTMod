@@ -1,5 +1,6 @@
 package TheDT.cards;
 
+import TheDT.actions.DisableResonanceFormAction;
 import TheDT.characters.Dragon;
 import TheDT.characters.DragonTamer;
 import TheDT.patches.CardColorEnum;
@@ -35,6 +36,7 @@ public class Training extends AbstractDTCard {
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		Dragon dragon = DragonTamer.getLivingDragon();
 
+		addToBot(new DisableResonanceFormAction(true));
 		addToBot(new VFXAction(p, new InflameEffect(p), dragon == null ? 0.5F : 0.1F));
 		if (dragon != null) {
 			addToBot(new VFXAction(dragon, new InflameEffect(dragon), 0.4F));
@@ -44,6 +46,7 @@ public class Training extends AbstractDTCard {
 			addToBot(new ApplyPowerAction(dragon, dragon, new StrengthPower(dragon, this.magicNumber), this.magicNumber));
 		}
 		addToBot(new ApplyPowerAction(p, p, new BondingPower(p, p, 1), 1));
+		addToBot(new DisableResonanceFormAction(false));
 	}
 
 	public AbstractCard makeCopy() {

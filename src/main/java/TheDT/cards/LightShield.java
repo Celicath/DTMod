@@ -1,6 +1,7 @@
 package TheDT.cards;
 
 import TheDT.DTModMain;
+import TheDT.actions.DisableResonanceFormAction;
 import TheDT.characters.Dragon;
 import TheDT.characters.DragonTamer;
 import TheDT.patches.CardColorEnum;
@@ -64,10 +65,12 @@ public class LightShield extends AbstractDTCard {
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		Dragon dragon = DragonTamer.getLivingDragon();
 
+		addToBot(new DisableResonanceFormAction(true));
 		addToBot(new GainBlockAction(p, p, block));
 		if (dragon != null) {
 			addToBot(new GainBlockAction(dragon, dragon, dtDragonBlock));
 		}
+		addToBot(new DisableResonanceFormAction(false));
 	}
 
 	public AbstractCard makeCopy() {

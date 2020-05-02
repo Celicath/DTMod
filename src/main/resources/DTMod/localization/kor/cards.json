@@ -368,16 +368,19 @@
   },
   "DTMod:ResonanceForm": {
     "NAME": "공명의 형상",
-    "DESCRIPTION": "휘발성. NL 당신 또는 드래곤이 힘, 민첩, 방어도, 체력을 얻을 때, 다른 한 명이 같은 효과를 받습니다.",
-    "UPGRADE_DESCRIPTION": "당신 또는 드래곤이 힘, 민첩, 방어도, 체력을 얻을 때, 다른 한 명이 같은 효과를 받습니다."
+    "DESCRIPTION": "휘발성. NL 당신과 드래곤 중 한 명만 힘, 민첩, 방어도를 얻을 때, 다른 한 명이 같은 효과를 받습니다.",
+    "UPGRADE_DESCRIPTION": "당신과 드래곤 중 한 명만 힘, 민첩, 방어도를 얻을 때, 다른 한 명이 같은 효과를 받습니다."
   },
   "DTMod:FierySynthesis": {
     "NAME": "불타는 연금술",
     "DESCRIPTION": "드래곤이 피해를 NL !DT:THD! 줍니다. NL 덱에 있으면, 모든 포션이 ragontaer:불타는_포션 으로 바뀝니다."
   },
-  "DTMod:Jump": {
-    "NAME": "Jump",
-    "DESCRIPTION": "What should be the effect for the final card be?"
+  "DTMod:TurnBack": {
+    "NAME": "뒤돌기",
+    "DESCRIPTION": "ragontaer:후위가 방어도를 NL !B! 얻습니다. NL 카드를 1장 뽑습니다. NL 전투 시작 시 이 카드를 사용합니다.",
+    "EXTENDED_DESCRIPTION": [
+      "ragontaer:후위가 방어도를 NL !DT:THB! 얻습니다. NL 카드를 1장 뽑습니다. NL 전투 시작 시 이 카드를 사용합니다."
+    ]
   },
   "DTMod:BondingBonus": {
     "NAME": "Bonding Bonus",

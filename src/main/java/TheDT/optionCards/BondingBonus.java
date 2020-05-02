@@ -1,6 +1,7 @@
 package TheDT.optionCards;
 
 import TheDT.DTModMain;
+import TheDT.actions.DisableResonanceFormAction;
 import TheDT.cards.AbstractDTCard;
 import TheDT.characters.Dragon;
 import TheDT.characters.DragonTamer;
@@ -49,6 +50,7 @@ public class BondingBonus extends AbstractDTCard {
 	public void onChoseThisOption() {
 		AbstractPlayer p = AbstractDungeon.player;
 		Dragon d = DragonTamer.getLivingDragon();
+		addToBot(new DisableResonanceFormAction(true));
 		switch (index) {
 			case 0:
 				addToBot(new ApplyPowerAction(p, p, new ArtifactPower(p, 2)));
@@ -92,6 +94,7 @@ public class BondingBonus extends AbstractDTCard {
 				}
 				break;
 		}
+		addToBot(new DisableResonanceFormAction(false));
 	}
 
 	public AbstractCard makeCopy() {

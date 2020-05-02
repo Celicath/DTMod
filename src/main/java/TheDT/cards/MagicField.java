@@ -1,6 +1,7 @@
 package TheDT.cards;
 
 import TheDT.DTModMain;
+import TheDT.actions.DisableResonanceFormAction;
 import TheDT.characters.Dragon;
 import TheDT.characters.DragonTamer;
 import TheDT.optionals.FriendlyMinionHelper;
@@ -47,6 +48,7 @@ public class MagicField extends AbstractDTCard {
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		Dragon dragon = DragonTamer.getLivingDragon();
 
+		addToBot(new DisableResonanceFormAction(true));
 		addToBot(new GainBlockAction(p, p, block, true));
 		if (dragon != null) {
 			addToBot(new GainBlockAction(dragon, dragon, dtDragonBlock, true));
@@ -61,6 +63,7 @@ public class MagicField extends AbstractDTCard {
 				addToBot(new GainBlockAction(mo, mo, magicNumber));
 			}
 		}
+		addToBot(new DisableResonanceFormAction(false));
 
 		rawDescription = DESCRIPTION;
 		initializeDescription();

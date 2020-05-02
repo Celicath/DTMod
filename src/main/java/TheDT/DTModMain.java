@@ -1,6 +1,7 @@
 package TheDT;
 
 import TheDT.Interfaces.ShufflePower;
+import TheDT.actions.DisableResonanceFormAction;
 import TheDT.actions.FreezeAggroAction;
 import TheDT.cards.AbstractDTCard;
 import TheDT.cards.RepeatStrike;
@@ -353,7 +354,8 @@ public class DTModMain
 		FreezeAggroAction.frozen = false;
 		burnGen = 0;
 		bondingGained = 0;
-		ResonanceFormPower.disabled = false;
+		ResonanceFormPower.disabledViaSelf = false;
+		ResonanceFormPower.disabledViaCard = false;
 	}
 
 	@Override

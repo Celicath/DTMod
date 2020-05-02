@@ -14,7 +14,6 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
-import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
 import java.util.ArrayList;
 
@@ -30,7 +29,8 @@ public class ResonanceFormPower extends AbstractPower {
 			ImageMaster.loadImage(DTModMain.GetPowerPath(RAW_ID, 48)), 0, 0, 32, 32);
 
 	public static ArrayList<AbstractPower> blackList = new ArrayList<>();
-	public static boolean disabled = false;
+	public static boolean disabledViaSelf = false;
+	public static boolean disabledViaCard = false;
 
 	public ResonanceFormPower(AbstractCreature owner) {
 		this.name = NAME;
@@ -50,6 +50,9 @@ public class ResonanceFormPower extends AbstractPower {
 
 	@Override
 	public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
+		if (disabledViaCard) {
+			return;
+		}
 		AbstractPlayer p = AbstractDungeon.player;
 		Dragon dragon = DragonTamer.getLivingDragon();
 		if (dragon == null || target != p && target != dragon || power.type == PowerType.DEBUFF) {
@@ -77,33 +80,16 @@ public class ResonanceFormPower extends AbstractPower {
 	}
 
 	@Override
-	public int onHeal(int healAmount) {
-		if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
-			AbstractPlayer p = AbstractDungeon.player;
-			Dragon dragon = DragonTamer.getLivingDragon();
-			if (disabled || dragon == null || owner != p && owner != dragon) {
-				return healAmount;
-			}
-			flash();
-			AbstractCreature otherTarget = owner == p ? dragon : p;
-			disabled = true;
-			otherTarget.heal(healAmount);
-			disabled = false;
-		}
-		return healAmount;
-	}
-
-	@Override
 	public void onGainedBlock(float blockAmount) {
 		AbstractPlayer p = AbstractDungeon.player;
 		Dragon dragon = DragonTamer.getLivingDragon();
-		if (disabled || dragon == null || owner != p && owner != dragon) {
+		if (disabledViaSelf || disabledViaCard || dragon == null || owner != p && owner != dragon) {
 			return;
 		}
 		flash();
 		AbstractCreature otherTarget = owner == p ? dragon : p;
-		disabled = true;
+		disabledViaSelf = true;
 		otherTarget.addBlock((int) blockAmount);
-		disabled = false;
+		disabledViaSelf = false;
 	}
 }
