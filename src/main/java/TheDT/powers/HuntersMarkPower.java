@@ -40,7 +40,7 @@ public class HuntersMarkPower extends AbstractPower {
 		if (info.type != DamageInfo.DamageType.THORNS && info.type != DamageInfo.DamageType.HP_LOSS && info.owner != null && info.owner == DragonTamer.getLivingDragon()) {
 			flash();
 			AbstractPlayer p = AbstractDungeon.player;
-			addToTop(new ApplyPowerAction(p, p, new BondingPower(p, p, 1), 1));
+			addToTop(new ApplyPowerAction(p, p, new BondingPower(p, p, amount), amount));
 		}
 
 		return damageAmount;

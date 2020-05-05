@@ -19,7 +19,7 @@
     "NAME": "Basic Textbook",
     "FLAVOR": "Basic skills are the most important things to learn.",
     "DESCRIPTIONS": [
-      "Increase the damage and #yBlock from starting Strike and Target Defense by #b",
+      "Increase the damage of Strike and #yBlock from Target Defense by #b",
       " [REMOVE_SPACE]."
     ]
   },

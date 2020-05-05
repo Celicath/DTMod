@@ -3,6 +3,7 @@ package TheDT.characters;
 import TheDT.DTModMain;
 import TheDT.actions.DragonFaintAction;
 import TheDT.cards.HardSkin;
+import TheDT.optionals.FriendlyMinionHelper;
 import TheDT.patches.CardColorEnum;
 import TheDT.powers.BirdFacePower;
 import TheDT.powers.BondingPower;
@@ -512,6 +513,9 @@ public class Dragon extends CustomPlayer implements CustomSavable<ArrayList<Inte
 	public void preBattlePrep() {
 		powers.clear();
 		healthBarUpdatedEvent();
+		if (DTModMain.isFriendlyMinionsLoaded) {
+			FriendlyMinionHelper.clearMinions(this);
+		}
 	}
 
 	@Override

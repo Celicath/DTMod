@@ -19,7 +19,7 @@
     "NAME": "기초 교서",
     "FLAVOR": "기초를 다져야 적을 무찌를 수 있다.",
     "DESCRIPTIONS": [
-      "시작 덱의 타격, 지정 수비 카드의 피해량과 #y방어도 [REMOVE_SPACE]를 #b",
+      "타격의 피해량과 지정 수비의 #y방어도 [REMOVE_SPACE]를 #b",
       " [REMOVE_SPACE]씩 증가시킵니다."
     ]
   },
