@@ -19,8 +19,8 @@ public class MasterPlan extends AbstractDTCard {
 	private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.BOTH;
 
-	private static final int POWER = 13;
-	private static final int UPGRADE_BONUS = 3;
+	private static final int POWER = 14;
+	private static final int UPGRADE_BONUS = 4;
 
 	public MasterPlan() {
 		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);

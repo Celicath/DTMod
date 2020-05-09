@@ -20,7 +20,7 @@ public class MagicStonePatch {
 			if (AbstractDungeon.player instanceof Dragon) {
 				ms = ((Dragon) AbstractDungeon.player).master.getRelic(MagicStone.ID);
 			}
-			if (ms != null && __instance.isPlayer && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
+			if (ms != null && __instance.isPlayer && __instance.currentHealth > __instance.maxHealth && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
 				ms.flash();
 				TempHPField.tempHp.set(__instance, TempHPField.tempHp.get(__instance) + __instance.currentHealth - __instance.maxHealth);
 			}

@@ -11,7 +11,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public class InvisibleFlame extends AbstractDTCard {
 	public static final String RAW_ID = "InvisibleFlame";
-	private static final int COST = 2;
+	private static final int COST = 1;
 	private static final AbstractCard.CardType TYPE = CardType.POWER;
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.DT_ORANGE;
 	private static final AbstractCard.CardRarity RARITY = CardRarity.UNCOMMON;

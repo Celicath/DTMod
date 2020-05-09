@@ -19,6 +19,7 @@ public class BattleHarmony extends AbstractDTCard {
 	private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.BOTH;
 
+	private static final int NEW_COST = 1;
 	private static final int MAGIC = 1;
 
 	public BattleHarmony() {
@@ -43,9 +44,7 @@ public class BattleHarmony extends AbstractDTCard {
 	public void upgrade() {
 		if (!upgraded) {
 			upgradeName();
-			isInnate = true;
-			rawDescription = UPGRADE_DESCRIPTION;
-			initializeDescription();
+			upgradeBaseCost(NEW_COST);
 		}
 	}
 }

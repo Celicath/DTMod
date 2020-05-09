@@ -23,7 +23,7 @@ public class MaximumCharge extends AbstractDTCard {
 	private static final AbstractCard.CardTarget TARGET = CardTarget.ENEMY;
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DRAGON_ONLY;
 
-	private static final int DAMAGE = 27;
+	private static final int DAMAGE = 30;
 	private static final int UPGRADE_DAMAGE = 5;
 	private static final int VULNERABLE = 3;
 	private static final int VULNERABLE_UPGRADE = -1;

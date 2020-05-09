@@ -1,6 +1,5 @@
 package TheDT.optionals;
 
-import TheDT.characters.Dragon;
 import TheDT.patches.SkillbookGameState;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;

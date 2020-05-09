@@ -193,7 +193,7 @@
   },
   "DTMod:DarkBreath": {
     "NAME": "악의의 숨결",
-    "DESCRIPTION": "드래곤이 피해를 !DT:THD! 만큼 2번 주고, 약화를 !M! 부여합니다."
+    "DESCRIPTION": "2회 반복: 드래곤이 피해를 !DT:THD! 주고, 약화를 !M! 부여합니다."
   },
   "DTMod:PurifyingFlame": {
     "NAME": "정화의 불꽃",
@@ -252,7 +252,7 @@
   },
   "DTMod:GhostSkin": {
     "NAME": "유령 피부",
-    "DESCRIPTION": "드래곤이 불가침을 !M! 얻습니다. NL 드래곤이 민첩을 5 잃습니다. NL 소멸."
+    "DESCRIPTION": "드래곤이 불가침을 !M! 얻습니다. NL 드래곤이 ragontaer:전위이면, 드래곤이 민첩을 5 잃습니다. NL 소멸."
   },
   "DTMod:Observe": {
     "NAME": "관찰",

@@ -9,8 +9,6 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-import static TheDT.patches.CustomTags.DT_TACTIC;
-
 public class SneakAttack extends AbstractDTCard {
 	public static final String RAW_ID = "SneakAttack";
 	private static final int COST = 1;

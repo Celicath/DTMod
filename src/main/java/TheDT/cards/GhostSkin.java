@@ -45,7 +45,9 @@ public class GhostSkin extends AbstractDTCard {
 
 		if (dragon != null) {
 			addToBot(new ApplyPowerAction(dragon, dragon, new IntangiblePlayerPower(dragon, magicNumber), magicNumber));
-			addToBot(new ApplyPowerAction(dragon, dragon, new DexterityPower(dragon, -DEXTERITY_LOSS), -DEXTERITY_LOSS));
+			if (DragonTamer.isFrontDragon()) {
+				addToBot(new ApplyPowerAction(dragon, dragon, new DexterityPower(dragon, -DEXTERITY_LOSS), -DEXTERITY_LOSS));
+			}
 		}
 	}
 

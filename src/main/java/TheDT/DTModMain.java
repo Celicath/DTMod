@@ -1,7 +1,6 @@
 package TheDT;
 
 import TheDT.Interfaces.ShufflePower;
-import TheDT.actions.DisableResonanceFormAction;
 import TheDT.actions.FreezeAggroAction;
 import TheDT.cards.AbstractDTCard;
 import TheDT.cards.RepeatStrike;

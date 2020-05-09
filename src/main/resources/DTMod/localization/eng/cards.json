@@ -193,7 +193,7 @@
   },
   "DTMod:DarkBreath": {
     "NAME": "Dark Breath",
-    "DESCRIPTION": "Dragon deals !DT:THD! damage twice and apply !M! Weak."
+    "DESCRIPTION": "Do twice: Dragon deals !DT:THD! damage and apply !M! Weak."
   },
   "DTMod:PurifyingFlame": {
     "NAME": "Purifying Flame",
@@ -252,7 +252,7 @@
   },
   "DTMod:GhostSkin": {
     "NAME": "Ghost Skin",
-    "DESCRIPTION": "Dragon gains NL !M! Intangible. NL Dragon loses NL 5 Dexterity. NL Exhaust."
+    "DESCRIPTION": "Dragon gains NL !M! Intangible. NL If Dragon is the ragontaer:Front, it loses 5 Dexterity. NL Exhaust."
   },
   "DTMod:Observe": {
     "NAME": "Observe",

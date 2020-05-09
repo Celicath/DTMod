@@ -63,7 +63,9 @@ public class TacticRecycle extends AbstractDTCard implements TacticCard {
 						c.current_x = CardGroup.DISCARD_PILE_X;
 						c.current_y = CardGroup.DISCARD_PILE_Y;
 						if (AbstractDungeon.player.hasRelic(TacticalNote.ID)) {
-							c.retain = true;
+							if (!c.isEthereal) {
+								c.retain = true;
+							}
 						}
 					}
 				}));

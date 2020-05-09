@@ -24,10 +24,9 @@ public class DarkBreath extends AbstractDTCard {
 	private static final AbstractCard.CardTarget TARGET = CardTarget.ENEMY;
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DRAGON_ONLY;
 
-	private static final int DAMAGE = 4;
-	private static final int UPGRADE_BONUS = 1;
+	private static final int DAMAGE = 3;
+	private static final int UPGRADE_BONUS = 2;
 	private static final int WEAK = 1;
-	private static final int WEAK_BONUS = 1;
 	private static final int HIT = 2;
 
 	public DarkBreath() {
@@ -64,11 +63,11 @@ public class DarkBreath extends AbstractDTCard {
 							super.update();
 						}
 
-					}, 0.15f));
+					}));
 				}
 				addToBot(new DamageAction(m, new DamageInfo(dragon, dtDragonDamage, damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
+				addToBot(new ApplyPowerAction(m, dragon, new WeakPower(m, magicNumber, false), magicNumber));
 			}
-			addToBot(new ApplyPowerAction(m, dragon, new WeakPower(m, magicNumber, false), magicNumber));
 		}
 	}
 
@@ -80,7 +79,6 @@ public class DarkBreath extends AbstractDTCard {
 		if (!upgraded) {
 			upgradeName();
 			upgradeDTDragonDamage(UPGRADE_BONUS);
-			upgradeMagicNumber(WEAK_BONUS);
 		}
 	}
 }
