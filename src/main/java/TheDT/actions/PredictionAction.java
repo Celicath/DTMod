@@ -42,7 +42,9 @@ public class PredictionAction extends AbstractGameAction {
 		} else {
 			if (AbstractDungeon.gridSelectScreen.selectedCards.size() != 0) {
 				for (AbstractCard c : AbstractDungeon.gridSelectScreen.selectedCards) {
-					c.freeToPlayOnce = true;
+					if (c.cost > 0) {
+						c.freeToPlayOnce = true;
+					}
 					if (AbstractDungeon.player.drawPile.group.remove(c)) {
 						AbstractDungeon.player.drawPile.addToTop(c);
 					}

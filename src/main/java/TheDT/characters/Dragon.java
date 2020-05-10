@@ -53,8 +53,8 @@ public class Dragon extends CustomPlayer implements CustomSavable<ArrayList<Inte
 	public static final int STARTING_HP = 50;
 	public static final int MAX_HP = 50;
 
-	public static final float OFFSET_X = 160.0f;
-	public static final float OFFSET_Y = 60.0f;
+	public static final float OFFSET_X = 192.0f;
+	public static final float OFFSET_Y = 72.0f;
 	private static final Logger logger = LogManager.getLogger(AbstractPlayer.class.getName());
 	public static final Color deadColor = new Color(0.8f, 0.8f, 0.8f, 0.75f);
 	public DragonTamer master;
@@ -83,8 +83,8 @@ public class Dragon extends CustomPlayer implements CustomSavable<ArrayList<Inte
 		this.hb = new Hitbox(this.hb_w, this.hb_h);
 		this.healthHb = new Hitbox(this.hb.width, 72.0F * Settings.scale);
 
-		this.drawX = (float) Settings.WIDTH * 0.25F + OFFSET_X;
-		this.drawY = AbstractDungeon.floorY + OFFSET_Y;
+		this.drawX = (float) Settings.WIDTH * 0.25F + OFFSET_X * Settings.scale;
+		this.drawY = AbstractDungeon.floorY + OFFSET_Y * Settings.scale;
 		this.dialogX = (this.drawX + 20.0F * Settings.scale);
 		this.dialogY = (this.drawY + 240.0F * Settings.scale);
 
@@ -393,8 +393,8 @@ public class Dragon extends CustomPlayer implements CustomSavable<ArrayList<Inte
 	}
 
 	public void move() {
-		float x = flipHorizontal ? (master.drawX - Dragon.OFFSET_X) : (master.drawX + Dragon.OFFSET_X);
-		movePosition(x, master.drawY + Dragon.OFFSET_Y);
+		float x = flipHorizontal ? (master.drawX - OFFSET_X * Settings.scale) : (master.drawX + OFFSET_X * Settings.scale);
+		movePosition(x, master.drawY + OFFSET_Y * Settings.scale);
 		if (DragonTamer.isFrontDragon()) {
 			DTModMain.targetMarker.move(this);
 		}
