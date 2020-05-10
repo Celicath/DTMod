@@ -18,7 +18,7 @@ public class SneakAttack extends AbstractDTCard {
 	private static final AbstractCard.CardTarget TARGET = CardTarget.ENEMY;
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DEFAULT;
 
-	private static final int POWER = 3;
+	private static final int POWER = 4;
 	private static final int UPGRADE_BONUS = 1;
 	private static final int HIT = 4;
 
