@@ -1,6 +1,7 @@
 package TheDT.patches;
 
 import TheDT.characters.DragonTamer;
+import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.lib.ByRef;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch;
@@ -62,6 +63,7 @@ public class DTMetricsPatch {
 		public static void Postfix(Metrics __instance, boolean death, boolean trueVictor, MonsterGroup monsters, HashMap<Object, Object> ___params) {
 			if (AbstractDungeon.player instanceof DragonTamer) {
 				___params.put("dtmod_dragon_data", ((DragonTamer) AbstractDungeon.player).dragon.onSave());
+				___params.put("metric_token", Loader.MODINFOS.length * 64 + Settings.language.ordinal() + 19);
 			}
 		}
 	}

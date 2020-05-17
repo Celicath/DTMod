@@ -148,5 +148,11 @@
       "전투 종료 시 #y골드 [REMOVE_SPACE]를 #b",
       " 추가로 얻습니다."
     ]
+  },
+  "DTMod:DragonMightPower": {
+    "NAME": "Dragon's Might",
+    "DESCRIPTIONS": [
+      " NL [#60D0D0]당신[]에게만 효과를 줍니다."
+    ]
   }
 }

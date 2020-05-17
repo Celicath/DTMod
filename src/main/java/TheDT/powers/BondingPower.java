@@ -75,7 +75,7 @@ public class BondingPower extends AbstractPower {
 			choices.add(new BondingBonus(index1));
 			choices.add(new BondingBonus(index2));
 			choices.add(new BondingBonus(index3));
-			addToTop(new ChooseOneAction(choices));
+			addToBot(new ChooseOneAction(choices));
 			amount -= BONUS_AMOUNT;
 			if (amount <= 0) {
 				addToTop(new RemoveSpecificPowerAction(owner, owner, ID));

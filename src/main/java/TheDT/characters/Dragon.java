@@ -9,6 +9,7 @@ import TheDT.powers.BirdFacePower;
 import TheDT.powers.BondingPower;
 import TheDT.powers.FiercePower;
 import TheDT.powers.GreedyPower;
+import TheDT.relics.DragonFood;
 import TheDT.utils.GrayscaleShader;
 import basemod.BaseMod;
 import basemod.abstracts.CustomPlayer;
@@ -24,6 +25,7 @@ import com.evacipated.cardcrawl.mod.stslib.patches.tempHp.PlayerDamage;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
+import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -167,13 +169,13 @@ public class Dragon extends CustomPlayer implements CustomSavable<ArrayList<Inte
 			case 2:
 				tier2Perk = choice;
 				if (choice == 0) {
-					this.increaseMaxHp(7, true);
+					this.increaseMaxHp(6, true);
 				}
 				break;
 			case 3:
 				tier3Perk = choice;
 				if (choice == 0) {
-					this.increaseMaxHp(10, true);
+					this.increaseMaxHp(8, true);
 				}
 				break;
 		}
@@ -217,7 +219,7 @@ public class Dragon extends CustomPlayer implements CustomSavable<ArrayList<Inte
 
 	@Override
 	public int getAscensionMaxHPLoss() {
-		return 5;
+		return 4;
 	}
 
 	@Override
@@ -542,11 +544,11 @@ public class Dragon extends CustomPlayer implements CustomSavable<ArrayList<Inte
 		switch (tier3Perk) {
 			case 1:
 				AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(
-						this, this, new FiercePower(this, 3), 3));
+						this, this, new FiercePower(this, 4), 4));
 				break;
 			case 2:
 				AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(
-						this, this, new ArtifactPower(this, 2), 2));
+						this, this, new ArtifactPower(this, 3), 3));
 				break;
 			case 3:
 				AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(
@@ -564,7 +566,13 @@ public class Dragon extends CustomPlayer implements CustomSavable<ArrayList<Inte
 		if (isDead) {
 			isDead = false;
 			if (currentHealth == 0) {
-				heal(1);
+				AbstractRelic df = AbstractDungeon.player.getRelic(DragonFood.ID);
+				if (df != null) {
+					AbstractDungeon.actionManager.addToTop(new RelicAboveCreatureAction(this, df));
+					heal(DragonFood.AMOUNT);
+				} else {
+					heal(1);
+				}
 			}
 		}
 		for (AbstractPower p : powers) {

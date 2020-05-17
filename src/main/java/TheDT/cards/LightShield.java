@@ -20,8 +20,8 @@ public class LightShield extends AbstractDTCard {
 	private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.BOTH;
 
-	private static final int POWER = 10;
-	private static final int UPGRADE_BONUS = 2;
+	private static final int POWER = 9;
+	private static final int UPGRADE_BONUS = 1;
 	private static final int RATIO = 1;
 	private static final int UPGRADE_RATIO = 1;
 

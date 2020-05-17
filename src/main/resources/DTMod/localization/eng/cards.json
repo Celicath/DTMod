@@ -248,7 +248,7 @@
   },
   "DTMod:DeepFocus": {
     "NAME": "Deep Focus",
-    "DESCRIPTION": "After 2 turns, gain !M! Strength. NL ragontaer:Channeling."
+    "DESCRIPTION": "After 2 turns, NL gain !M! Strength. NL ragontaer:Channeling."
   },
   "DTMod:GhostSkin": {
     "NAME": "Ghost Skin",
@@ -294,7 +294,7 @@
   },
   "DTMod:Overwhelm": {
     "NAME": "Overwhelm",
-    "DESCRIPTION": "Apply !M! Weak. NL All enemies lose HP equal to 2 times their Weak."
+    "DESCRIPTION": "Apply !M! Weak. NL All enemies lose HP equal to 3 times their Weak."
   },
   "DTMod:WarmUp": {
     "NAME": "Warm-Up",

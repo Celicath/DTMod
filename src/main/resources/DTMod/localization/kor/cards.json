@@ -118,7 +118,7 @@
   },
   "DTMod:FireUp": {
     "NAME": "점화",
-    "DESCRIPTION": "드래곤이 힘 !M! 과 민첩 1 을 얻습니다."
+    "DESCRIPTION": "드래곤이 힘을 !M!, 민첩을 1 얻습니다."
   },
   "DTMod:FireBreath": {
     "NAME": "파이어브레스",
@@ -294,7 +294,7 @@
   },
   "DTMod:Overwhelm": {
     "NAME": "깔보기",
-    "DESCRIPTION": "약화를 !M! 부여합니다. NL 모든 적은 자신에게 부여된 약화의 2배 만큼 체력을 잃습니다."
+    "DESCRIPTION": "약화를 !M! 부여합니다. NL 모든 적은 자신에게 부여된 약화의 3배 만큼 체력을 잃습니다."
   },
   "DTMod:WarmUp": {
     "NAME": "준비운동",
@@ -307,8 +307,8 @@
   },
   "DTMod:DoubleTeam": {
     "NAME": "교대의 춤",
-    "DESCRIPTION": "ragontaer:교체할 때마다 [E] 를 얻습니다.",
-    "UPGRADE_DESCRIPTION": "선천성. NL ragontaer:교체할 때마다 [E] 를 얻습니다."
+    "DESCRIPTION": "ragontaer:교대할 때마다 [E] 를 얻습니다.",
+    "UPGRADE_DESCRIPTION": "선천성. NL ragontaer:교대할 때마다 [E] 를 얻습니다."
   },
   "DTMod:Dissolve": {
     "NAME": "초고온",
@@ -320,7 +320,7 @@
   },
   "DTMod:Arbitration": {
     "NAME": "중재",
-    "DESCRIPTION": "ragontaer:교체할 때마다 모든 적에게 약화를 !M! 부여합니다."
+    "DESCRIPTION": "ragontaer:교대할 때마다 모든 적에게 약화를 !M! 부여합니다."
   },
   "DTMod:Inferno": {
     "NAME": "인페르노",

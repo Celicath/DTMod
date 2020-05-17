@@ -19,7 +19,7 @@ public class CleansingStrike extends AbstractDTCard {
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DEFAULT;
 
 	private static final int POWER = 9;
-	private static final int UPGRADE_BONUS = 3;
+	private static final int UPGRADE_BONUS = 1;
 	private static final int EXHAUST = 1;
 	private static final int UPGRADE_EXHAUST = 1;
 

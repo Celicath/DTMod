@@ -31,8 +31,6 @@ public class DragonTransitionPatch {
 					if (AbstractDungeon.ascensionLevel >= 6) {
 						dragon.currentHealth = MathUtils.round(dragon.maxHealth * 0.9F);
 					}
-
-					CardCrawlGame.playtime = 0.0F;
 				}
 			}
 		}

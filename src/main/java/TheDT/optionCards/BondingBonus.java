@@ -54,7 +54,8 @@ public class BondingBonus extends AbstractDTCard {
 		switch (index) {
 			case 0:
 				addToBot(new ApplyPowerAction(p, p, new ArtifactPower(p, 2)));
-				addToBot(new ApplyPowerAction(d, d, new ArtifactPower(d, 2)));
+				if (d != null)
+					addToBot(new ApplyPowerAction(d, d, new ArtifactPower(d, 2)));
 				break;
 			case 1:
 				addToBot(new VFXAction(new DieDieDieEffect(), 0.7F));
@@ -62,15 +63,18 @@ public class BondingBonus extends AbstractDTCard {
 				break;
 			case 2:
 				addToBot(new GainBlockAction(p, p, 20));
-				addToBot(new GainBlockAction(d, d, 20));
+				if (d != null)
+					addToBot(new GainBlockAction(d, d, 20));
 				break;
 			case 3:
 				addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, 4)));
-				addToBot(new ApplyPowerAction(d, d, new StrengthPower(d, 4)));
+				if (d != null)
+					addToBot(new ApplyPowerAction(d, d, new StrengthPower(d, 4)));
 				break;
 			case 4:
 				addToBot(new ApplyPowerAction(p, p, new DexterityPower(p, 3)));
-				addToBot(new ApplyPowerAction(d, d, new DexterityPower(d, 3)));
+				if (d != null)
+					addToBot(new ApplyPowerAction(d, d, new DexterityPower(d, 3)));
 				break;
 			case 5:
 				addToBot(new GainEnergyAction(4));

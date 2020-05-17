@@ -148,5 +148,11 @@
       "At the end of combat, gain #b",
       " additional Gold."
     ]
+  },
+  "DTMod:DragonMightPower": {
+    "NAME": "Dragon's Might",
+    "DESCRIPTIONS": [
+      " NL This power only affects [#60D0D0]You[]."
+    ]
   }
 }
