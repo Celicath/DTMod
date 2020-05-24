@@ -1,6 +1,7 @@
 package TheDT.patches;
 
 import TheDT.DTModMain;
+import TheDT.characters.Dragon;
 import TheDT.characters.DragonTamer;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch;
@@ -21,7 +22,7 @@ public class DragonMightPatch {
 	public static class UpdateDescriptionPatch {
 		@SpirePostfixPatch
 		public static void Postfix(AbstractPower __instance) {
-			if (AbstractDungeon.player instanceof DragonTamer) {
+			if (AbstractDungeon.player instanceof DragonTamer || AbstractDungeon.player instanceof Dragon) {
 				__instance.description += DESCRIPTION_SUFFIX;
 			}
 		}
@@ -31,7 +32,7 @@ public class DragonMightPatch {
 	public static class BadConstructorPatch {
 		@SpirePostfixPatch
 		public static void Postfix(BeatOfDeathPower __instance, AbstractCreature owner, int amount) {
-			if (AbstractDungeon.player instanceof DragonTamer) {
+			if (AbstractDungeon.player instanceof DragonTamer || AbstractDungeon.player instanceof Dragon) {
 				__instance.description += DESCRIPTION_SUFFIX;
 			}
 		}

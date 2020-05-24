@@ -1,5 +1,6 @@
 package TheDT.cards;
 
+import TheDT.characters.Dragon;
 import TheDT.characters.DragonTamer;
 import TheDT.patches.CardColorEnum;
 import TheDT.patches.CustomTags;
@@ -8,7 +9,6 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public class TagTeam extends AbstractDTCard {
@@ -22,7 +22,7 @@ public class TagTeam extends AbstractDTCard {
 
 	private static final int BONDING = 1;
 	private static final int BLOCK = 6;
-	private static final int UPGRADE_BONUS = 3;
+	private static final int UPGRADE_BONUS = 2;
 
 	public TagTeam() {
 		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
@@ -46,13 +46,16 @@ public class TagTeam extends AbstractDTCard {
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		int multiplier = DragonTamer.frontChangedThisTurn ? 2 : 1;
+		Dragon dragon = DragonTamer.getLivingDragon();
 		if (DragonTamer.isFrontDragon()) {
-			addToBot(new GainBlockAction(((DragonTamer) AbstractDungeon.player).dragon, ((DragonTamer) AbstractDungeon.player).dragon, dtDragonBlock * multiplier));
+			addToBot(new GainBlockAction(dragon, dragon, dtDragonBlock * multiplier));
 		} else {
 			addToBot(new GainBlockAction(p, p, block * multiplier));
 		}
 
-		addToBot(new ApplyPowerAction(p, p, new BondingPower(p, p, magicNumber * multiplier), magicNumber * multiplier));
+		if (dragon != null) {
+			addToBot(new ApplyPowerAction(p, p, new BondingPower(p, p, magicNumber * multiplier), magicNumber * multiplier));
+		}
 	}
 
 	public void triggerOnGlowCheck() {

@@ -19,7 +19,7 @@ public class BreakAttack extends AbstractDTCard {
 	private static final AbstractCard.CardTarget TARGET = CardTarget.ENEMY;
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DEFAULT;
 
-	private static final int DAMAGE = 8;
+	private static final int DAMAGE = 7;
 	private static final int UPGRADE_DAMAGE = 3;
 	private static final int MAGIC = 3;
 	private static final int UPGRADE_MAGIC = 1;

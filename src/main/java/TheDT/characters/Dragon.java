@@ -21,6 +21,7 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.Interpolation;
+import com.evacipated.cardcrawl.mod.stslib.patches.core.AbstractCreature.TempHPField;
 import com.evacipated.cardcrawl.mod.stslib.patches.tempHp.PlayerDamage;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -292,11 +293,12 @@ public class Dragon extends CustomPlayer implements CustomSavable<ArrayList<Inte
 		damageAmount = this.decrementBlock(info, damageAmount);
 
 		// Make Temp HP work on Dragon
+		boolean hadTempHP = TempHPField.tempHp.get(this) > 0 && damageAmount > 0;
+
 		int[] tempDA = new int[]{damageAmount};
 		boolean[] tempHB = new boolean[]{hadBlock};
 		PlayerDamage.Insert(this, info, tempDA, tempHB);
 		damageAmount = tempDA[0];
-		hadBlock = tempHB[0];
 
 		if (info.owner != null) {
 			for (AbstractPower power : info.owner.powers) {
@@ -342,9 +344,10 @@ public class Dragon extends CustomPlayer implements CustomSavable<ArrayList<Inte
 			}
 
 			if (this.currentHealth < 1) {
-				isDead = true;
-
-				AbstractDungeon.actionManager.addToBottom(new DragonFaintAction(master));
+				if (!isDead) {
+					isDead = true;
+					AbstractDungeon.actionManager.addToBottom(new DragonFaintAction(master));
+				}
 
 				currentHealth = 0;
 				if (currentBlock > 0) {
@@ -352,9 +355,9 @@ public class Dragon extends CustomPlayer implements CustomSavable<ArrayList<Inte
 					AbstractDungeon.effectList.add(new HbBlockBrokenEffect(this.hb.cX - this.hb.width / 2.0F + BLOCK_ICON_X, this.hb.cY - this.hb.height / 2.0F + BLOCK_ICON_Y));
 				}
 			}
-		} else if (this.currentBlock > 0) {
+		} else if (hadBlock) {
 			AbstractDungeon.effectList.add(new BlockedWordEffect(this, this.hb.cX, this.hb.cY, AbstractPlayer.uiStrings.TEXT[0]));
-		} else if (!hadBlock) {
+		} else if (!hadTempHP) {
 			AbstractDungeon.effectList.add(new StrikeEffect(this, this.hb.cX, this.hb.cY, 0));
 		}
 	}

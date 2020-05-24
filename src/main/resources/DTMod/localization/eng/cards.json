@@ -45,8 +45,7 @@
   },
   "DTMod:ForbiddenStrike": {
     "NAME": "Forbidden Strike",
-    "DESCRIPTION": "Deal !D! damage. NL While in your deck, you can only smith this card at Rest Sites.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL While in your deck, you can only smith cards containing \"Strike\" at Rest Sites."
+    "DESCRIPTION": "Deal !D! damage. NL Can be Upgraded any number of times. NL []You can only Smith this card at Rest Sites."
   },
   "DTMod:OpeningTactic": {
     "NAME": "Opening Tactic",
@@ -63,7 +62,7 @@
   },
   "DTMod:HeadStart": {
     "NAME": "Head Start",
-    "DESCRIPTION": "Innate. NL Gain [E]. NL Draw !M! cards. NL Exhaust."
+    "DESCRIPTION": "Innate. NL Scry !M!. NL Draw !M! cards. NL Exhaust."
   },
   "DTMod:CleansingStrike": {
     "NAME": "Cleansing Strike",
@@ -84,7 +83,7 @@
   },
   "DTMod:CalculatedDefense": {
     "NAME": "Calculated Defense",
-    "DESCRIPTION": "You and Dragon take !M! less damage from Weakened enemies."
+    "DESCRIPTION": "Weakened enemies deal !M! less damage to your team."
   },
   "DTMod:ExcessFootwork": {
     "NAME": "Excess Footwork",
@@ -358,8 +357,7 @@
   },
   "DTMod:Safeguard": {
     "NAME": "Safeguard",
-    "DESCRIPTION": "The ragontaer:Rear no longer loses Block at the start of your turn.",
-    "UPGRADE_DESCRIPTION": "Innate. NL The ragontaer:Rear no longer loses Block at the start of your turn."
+    "DESCRIPTION": "The ragontaer:Rear no longer loses Block at the start of your turn."
   },
   "DTMod:BattleHarmony": {
     "NAME": "Battle Harmony",

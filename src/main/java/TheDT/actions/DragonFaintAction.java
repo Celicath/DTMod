@@ -1,7 +1,9 @@
 package TheDT.actions;
 
 import TheDT.characters.DragonTamer;
+import TheDT.powers.BondingPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 
 public class DragonFaintAction extends AbstractGameAction {
 	DragonTamer master;
@@ -15,5 +17,6 @@ public class DragonFaintAction extends AbstractGameAction {
 		isDone = true;
 		master.setAggro(0);
 		master.setFront(master);
+		addToTop(new RemoveSpecificPowerAction(master, master, BondingPower.POWER_ID));
 	}
 }

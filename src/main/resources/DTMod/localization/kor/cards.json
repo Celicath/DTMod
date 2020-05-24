@@ -45,8 +45,7 @@
   },
   "DTMod:ForbiddenStrike": {
     "NAME": "금지된 타격",
-    "DESCRIPTION": "피해를 !D! 줍니다. NL 덱에 있으면, 휴식 장소에서 이 카드만 강화할 수 있습니다.",
-    "UPGRADE_DESCRIPTION": "피해를 !D! 줍니다. NL 덱에 있으면, 휴식 장소에서 이름에 \"타격\" 이 붙은 카드만 강화할 수 있습니다."
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 강화 횟수에 제한이 없습니다. NL 휴식 장소에서 이 카드만 강화할 수 있습니다."
   },
   "DTMod:OpeningTactic": {
     "NAME": "시작 전술",
@@ -63,7 +62,7 @@
   },
   "DTMod:HeadStart": {
     "NAME": "상쾌한 출발",
-    "DESCRIPTION": "선천성. NL [E] 를 얻습니다. NL 카드를 !M! 장 뽑습니다. NL 소멸."
+    "DESCRIPTION": "선천성. NL 예지 !M!. NL 카드를 !M! 장 뽑습니다. NL 소멸."
   },
   "DTMod:CleansingStrike": {
     "NAME": "정화 타격",
@@ -84,7 +83,7 @@
   },
   "DTMod:CalculatedDefense": {
     "NAME": "계산된 방어",
-    "DESCRIPTION": "당신과 드래곤이 약화 에 걸린 적으로부터 받는 공격 피해가 !M! 감소합니다."
+    "DESCRIPTION": "약화 에 걸린 적들이 우리 팀에 주는 공격 피해가 !M! 감소합니다."
   },
   "DTMod:ExcessFootwork": {
     "NAME": "현란한 발놀림",
@@ -358,8 +357,7 @@
   },
   "DTMod:Safeguard": {
     "NAME": "장벽",
-    "DESCRIPTION": "턴 시작 시 ragontaer:후위의 방어도가 사라지지 않습니다.",
-    "UPGRADE_DESCRIPTION": "선천성. NL 턴 시작 시 ragontaer:후위의 방어도가 사라지지 않습니다."
+    "DESCRIPTION": "턴 시작 시 ragontaer:후위의 방어도가 사라지지 않습니다."
   },
   "DTMod:BattleHarmony": {
     "NAME": "조화로운 전투",

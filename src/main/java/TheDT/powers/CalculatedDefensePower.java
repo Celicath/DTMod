@@ -2,7 +2,6 @@ package TheDT.powers;
 
 import TheDT.DTModMain;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
@@ -22,8 +21,6 @@ public class CalculatedDefensePower extends AbstractPower {
 	public static final TextureAtlas.AtlasRegion IMG48 = new TextureAtlas.AtlasRegion(
 			ImageMaster.loadImage(DTModMain.GetPowerPath(RAW_ID, 48)), 0, 0, 32, 32);
 
-	public static boolean activated = false;
-
 	public CalculatedDefensePower(AbstractCreature owner, AbstractCreature source, int amount) {
 		this.name = NAME;
 		this.ID = POWER_ID;
@@ -40,13 +37,5 @@ public class CalculatedDefensePower extends AbstractPower {
 	@Override
 	public void updateDescription() {
 		this.description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
-	}
-
-	@Override
-	public float atDamageFinalReceive(float damage, DamageInfo.DamageType type) {
-		if (activated && type == DamageInfo.DamageType.NORMAL) {
-			return damage - this.amount;
-		}
-		return damage;
 	}
 }

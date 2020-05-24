@@ -44,8 +44,8 @@ public class Training extends AbstractDTCard {
 		addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, this.magicNumber), this.magicNumber));
 		if (dragon != null) {
 			addToBot(new ApplyPowerAction(dragon, dragon, new StrengthPower(dragon, this.magicNumber), this.magicNumber));
+			addToBot(new ApplyPowerAction(p, p, new BondingPower(p, p, 1), 1));
 		}
-		addToBot(new ApplyPowerAction(p, p, new BondingPower(p, p, 1), 1));
 		addToBot(new DisableResonanceFormAction(false));
 	}
 

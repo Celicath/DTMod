@@ -9,15 +9,17 @@
   "DTMod:CalculatedDefensePower": {
     "NAME": "계산된 방어",
     "DESCRIPTIONS": [
-      "약화에 걸린 적으로부터 공격 피해를 #b",
-      " 적게 받습니다."
+      "약화에 걸린 적들의 공격 피해를 #b",
+      " 감소시킵니다."
     ]
   },
   "DTMod:DragonLoseStancePower": {
     "NAME": "폭발",
     "DESCRIPTIONS": [
+      "다음 턴에, ",
       "#b",
-      " 턴 후, 격노에서 벗어납니다."
+      " 턴 후, ",
+      "격노에서 벗어납니다."
     ]
   },
   "DTMod:OddArmorPower": {

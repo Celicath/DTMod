@@ -48,9 +48,9 @@ public class ComboAttack extends AbstractDTCard {
 			addToBot(new WaitAction(0.1f));
 			addToBot(new FastAnimateFastAttackAction(d));
 			addToBot(new DamageAction(m, new DamageInfo(d, dtDragonDamage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
+			addToBot(new ApplyPowerAction(p, p, new BondingPower(p, p, 1), 1));
 		}
 		addToBot(new ApplyAggroAction());
-		addToBot(new ApplyPowerAction(p, p, new BondingPower(p, p, 1), 1));
 	}
 
 	public AbstractCard makeCopy() {

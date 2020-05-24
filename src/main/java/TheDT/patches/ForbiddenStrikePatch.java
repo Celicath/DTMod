@@ -17,12 +17,7 @@ public class ForbiddenStrikePatch {
 				int forbiddenLevel = 0;
 				for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
 					if (c instanceof ForbiddenStrike) {
-						if (c.upgraded) {
-							forbiddenLevel = Math.max(forbiddenLevel, 1);
-						} else {
-							forbiddenLevel = 2;
-							break;
-						}
+						forbiddenLevel = 2;
 					}
 				}
 				if (forbiddenLevel == 2) {

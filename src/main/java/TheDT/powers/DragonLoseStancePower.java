@@ -35,7 +35,11 @@ public class DragonLoseStancePower extends AbstractPower {
 
 	@Override
 	public void updateDescription() {
-		this.description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
+		if (amount == 1) {
+			description = DESCRIPTIONS[0] + DESCRIPTIONS[3];
+		} else {
+			description = DESCRIPTIONS[1] + amount + DESCRIPTIONS[2] + DESCRIPTIONS[3];
+		}
 	}
 
 	@Override
@@ -47,7 +51,6 @@ public class DragonLoseStancePower extends AbstractPower {
 				addToBot(new ReducePowerAction(owner, owner, POWER_ID, 1));
 			}
 		}
-		this.description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
 	}
 
 	@Override

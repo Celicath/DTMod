@@ -6,10 +6,14 @@ import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.StartupCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
+import com.megacrit.cardcrawl.blights.AbstractBlight;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
 
 public class TurnBack extends AbstractDTCard implements StartupCard {
@@ -39,10 +43,58 @@ public class TurnBack extends AbstractDTCard implements StartupCard {
 		addToBot(new AbstractGameAction() {
 			@Override
 			public void update() {
-				c.applyPowers();
-				c.use(AbstractDungeon.player, null);
+				c.calculateCardDamage(null);
 				AbstractDungeon.effectList.add(0, new ShowCardBrieflyEffect(c));
+				c.use(AbstractDungeon.player, null);
 				isDone = true;
+
+				for (AbstractPower p : AbstractDungeon.player.powers) {
+					p.onPlayCard(c, null);
+				}
+
+				for (AbstractMonster m : AbstractDungeon.getMonsters().monsters) {
+					for (AbstractPower p : m.powers) {
+						p.onPlayCard(c, null);
+					}
+				}
+
+				for (AbstractRelic r : AbstractDungeon.player.relics) {
+					r.onPlayCard(c, null);
+				}
+
+				AbstractDungeon.player.stance.onPlayCard(c);
+
+				for (AbstractBlight b : AbstractDungeon.player.blights) {
+					b.onPlayCard(c, null);
+				}
+
+				for (AbstractCard card : AbstractDungeon.player.hand.group) {
+					card.onPlayCard(c, null);
+				}
+
+				for (AbstractCard card : AbstractDungeon.player.discardPile.group) {
+					card.onPlayCard(c, null);
+				}
+
+				for (AbstractCard card : AbstractDungeon.player.drawPile.group) {
+					card.onPlayCard(c, null);
+				}
+
+				++AbstractDungeon.player.cardsPlayedThisTurn;
+				AbstractDungeon.actionManager.cardsPlayedThisTurn.add(c);
+				AbstractDungeon.actionManager.cardsPlayedThisCombat.add(c);
+
+				UseCardAction usa = new UseCardAction(c);
+
+				for (AbstractPower p : AbstractDungeon.player.powers) {
+					p.onAfterUseCard(c, usa);
+				}
+
+				for (AbstractMonster m : AbstractDungeon.getMonsters().monsters) {
+					for (AbstractPower p : m.powers) {
+						p.onAfterUseCard(c, usa);
+					}
+				}
 			}
 		});
 		return false;

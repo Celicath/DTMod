@@ -17,28 +17,37 @@ public class ForbiddenStrike extends AbstractDTCard {
 	private static final AbstractCard.CardTarget TARGET = CardTarget.ENEMY;
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DEFAULT;
 
-	private static final int DAMAGE = 19;
+	private static final int DAMAGE = 17;
+	private static final int UPGRADE_BONUS = 2;
 
 	public ForbiddenStrike() {
 		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
-		this.baseDamage = DAMAGE;
+		baseDamage = DAMAGE;
 
-		this.tags.add(CardTags.STRIKE);
+		tags.add(CardTags.STRIKE);
 	}
 
+	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
 	}
 
+	@Override
 	public AbstractCard makeCopy() {
 		return new ForbiddenStrike();
 	}
 
+	@Override
+	public boolean canUpgrade() {
+		return true;
+	}
+
+	@Override
 	public void upgrade() {
-		if (!upgraded) {
-			upgradeName();
-			rawDescription = UPGRADE_DESCRIPTION;
-			initializeDescription();
-		}
+		upgradeDamage(UPGRADE_BONUS);
+		timesUpgraded++;
+		upgraded = true;
+		name = cardStrings.NAME + "+" + this.timesUpgraded;
+		initializeTitle();
 	}
 }

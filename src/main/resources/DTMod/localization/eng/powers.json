@@ -16,8 +16,10 @@
   "DTMod:DragonLoseStancePower": {
     "NAME": "Outburst",
     "DESCRIPTIONS": [
+      "Next turn, ",
       "After #b",
-      " turns, exit from Wrath."
+      " turns, ",
+      "exit from Wrath."
     ]
   },
   "DTMod:OddArmorPower": {

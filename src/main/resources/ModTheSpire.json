@@ -6,7 +6,7 @@
   ],
   "credits": "",
   "description": "Adds a character called The Dragon Tamer, who fights together with his faithful dragon.\n\n- Adds 75 cards and 12 relics.",
-  "version": "0.1.17",
+  "version": "0.1.18",
   "sts_version": "01-27-2020",
   "mts_version": "3.16.0",
   "dependencies": [
