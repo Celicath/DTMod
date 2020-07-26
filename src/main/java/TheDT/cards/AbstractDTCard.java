@@ -3,6 +3,7 @@ package TheDT.cards;
 import TheDT.DTModMain;
 import TheDT.characters.Dragon;
 import TheDT.characters.DragonTamer;
+import TheDT.powers.NewVigorPower;
 import basemod.abstracts.CustomCard;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.MathUtils;
@@ -47,6 +48,7 @@ public abstract class AbstractDTCard extends CustomCard {
 	static {
 		playerPowerApplyToDragon = new HashSet<>();
 		playerPowerApplyToDragon.add(VigorPower.POWER_ID);
+		playerPowerApplyToDragon.add(NewVigorPower.POWER_ID);
 		playerPowerApplyToDragon.add(PenNibPower.POWER_ID);
 		relicApplyToDragon = new HashSet<>();
 		relicApplyToDragon.add(WristBlade.ID);

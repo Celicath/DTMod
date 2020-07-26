@@ -1,6 +1,7 @@
 package TheDT.cards;
 
 import TheDT.patches.CardColorEnum;
+import TheDT.powers.NewVigorPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -8,7 +9,6 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.watcher.VigorPower;
 
 public class BuildUp extends AbstractDTCard {
 	public static final String RAW_ID = "BuildUp";
@@ -35,7 +35,7 @@ public class BuildUp extends AbstractDTCard {
 		addToBot(new DamageAction(m,
 				new DamageInfo(p, damage, damageTypeForTurn),
 				AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-		addToBot(new ApplyPowerAction(p, p, new VigorPower(p, magicNumber), magicNumber));
+		addToBot(new ApplyPowerAction(p, p, new NewVigorPower(p, magicNumber), magicNumber));
 	}
 
 	public AbstractCard makeCopy() {

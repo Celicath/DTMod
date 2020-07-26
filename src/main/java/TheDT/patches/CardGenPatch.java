@@ -23,7 +23,7 @@ public class CardGenPatch {
 		@SpirePrefixPatch
 		public static void Prefix(ShowCardAndAddToDiscardEffect __instance, AbstractCard srcCard, float x, float y) {
 			if (srcCard instanceof Burn) {
-				DTModMain.burnGen++;
+				DTModMain.onBurnCreated();
 			}
 		}
 	}
@@ -39,7 +39,7 @@ public class CardGenPatch {
 		@SpirePrefixPatch
 		public static void Prefix(ShowCardAndAddToDiscardEffect __instance, AbstractCard card) {
 			if (card instanceof Burn) {
-				DTModMain.burnGen++;
+				DTModMain.onBurnCreated();
 			}
 		}
 	}
@@ -60,7 +60,7 @@ public class CardGenPatch {
 		@SpirePrefixPatch
 		public static void Prefix(ShowCardAndAddToDrawPileEffect __instance, AbstractCard srcCard, float x, float y, boolean randomSpot, boolean cardOffset, boolean toBottom) {
 			if (srcCard instanceof Burn) {
-				DTModMain.burnGen++;
+				DTModMain.onBurnCreated();
 			}
 		}
 	}
@@ -78,7 +78,7 @@ public class CardGenPatch {
 		@SpirePrefixPatch
 		public static void Prefix(ShowCardAndAddToDrawPileEffect __instance, AbstractCard srcCard, boolean randomSpot, boolean toBottom) {
 			if (srcCard instanceof Burn) {
-				DTModMain.burnGen++;
+				DTModMain.onBurnCreated();
 			}
 		}
 	}
@@ -96,7 +96,7 @@ public class CardGenPatch {
 		@SpirePrefixPatch()
 		public static void Prefix(ShowCardAndAddToHandEffect __instance, AbstractCard card, float offsetX, float offsetY) {
 			if (card instanceof Burn) {
-				DTModMain.burnGen++;
+				DTModMain.onBurnCreated();
 			}
 		}
 	}
@@ -112,7 +112,7 @@ public class CardGenPatch {
 		@SpirePrefixPatch()
 		public static void Prefix(ShowCardAndAddToHandEffect __instance, AbstractCard card) {
 			if (card instanceof Burn) {
-				DTModMain.burnGen++;
+				DTModMain.onBurnCreated();
 			}
 		}
 	}

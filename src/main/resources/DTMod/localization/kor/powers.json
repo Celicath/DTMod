@@ -66,10 +66,10 @@
       " 얻습니다. #y채널링."
     ]
   },
-  "DTMod:DoubleTeamPower": {
+  "DTMod:EnergeticMovePower": {
     "NAME": "교대의 춤",
     "DESCRIPTIONS": [
-      "#y교체할 때마다 ",
+      "#y교대 [REMOVE_SPACE]할 때마다 ",
       " 를 얻습니다."
     ]
   },
@@ -83,12 +83,12 @@
   "DTMod:InvisibleFlamePower": {
     "NAME": "보이지 않는 불꽃",
     "DESCRIPTIONS": [
-      "#y전위가 공격할 때마다, 무작위 적에게 피해를 #b",
+      "#y전위 [REMOVE_SPACE]가 공격할 때마다, 모든 적에게 피해를 #b",
       " 줍니다."
     ]
   },
-  "DTMod:HuntersMarkPower": {
-    "NAME": "사냥꾼의 징표",
+  "DTMod:MagiciansMarkPower": {
+    "NAME": "마술사의 징표",
     "DESCRIPTIONS": [
       "[#60D0D0]드래곤[]이 이 적을 공격하면, #y결속 [REMOVE_SPACE]을 #b",
       " 얻습니다."
@@ -117,23 +117,23 @@
       " 얻습니다."
     ]
   },
-  "DTMod:ArbitrationPower": {
-    "NAME": "중재",
+  "DTMod:ScaryMovePower": {
+    "NAME": "위협행동",
     "DESCRIPTIONS": [
-      "#y교체할 때마다 모든 적에게 약화를 #b",
+      "#y교대 [REMOVE_SPACE]할 때마다 모든 적에게 약화를 #b",
       " 부여합니다."
     ]
   },
   "DTMod:ResonanceFormPower": {
     "NAME": "공명의 형상",
     "DESCRIPTIONS": [
-      "[#60D0D0]당신[] 또는 [#60D0D0]드래곤[]이 힘, 민첩, 방어도, 체력을 얻을 때, 다른 한 명이 같은 효과를 받습니다."
+      "[#60D0D0]당신[]과 [#60D0D0]드래곤[] 중 한 명에게만 힘, 민첩, 방어도를 주는 효과가 둘 모두에게 영향을 줍니다."
     ]
   },
   "DTMod:FiercePower": {
     "NAME": "맹렬함",
     "DESCRIPTIONS": [
-      "#y두번 #y물기 카드를 사용한 후, #y힘 [REMOVE_SPACE]을 #b",
+      "화상을 생성할 때마다 [E] [REMOVE_SPACE]를 #b",
       " 얻습니다."
     ]
   },

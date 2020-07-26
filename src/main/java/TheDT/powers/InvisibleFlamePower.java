@@ -4,7 +4,7 @@ import TheDT.DTModMain;
 import TheDT.characters.DragonTamer;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.DamageRandomEnemyAction;
+import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -50,7 +50,7 @@ public class InvisibleFlamePower extends AbstractPower {
 				if (AbstractDungeon.player instanceof DragonTamer && ((DragonTamer) AbstractDungeon.player).front == owner) {
 					prevAction = AbstractDungeon.actionManager.currentAction;
 					flash();
-					addToBot(new DamageRandomEnemyAction(new DamageInfo(owner, amount, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.FIRE));
+					addToBot(new DamageAllEnemiesAction(null, DamageInfo.createDamageMatrix(amount, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.FIRE));
 				}
 			}
 		}

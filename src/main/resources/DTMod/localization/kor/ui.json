@@ -20,11 +20,11 @@
   "DTMod:TargetMarker": {
     "TEXT": [
       "전위 표시",
-      "#y당신 [REMOVE_SPACE]이 #y전위 [REMOVE_SPACE]입니다. NL 당신은 드래곤보다 어그로가 #b",
+      "[#60D0D0]당신[]이 #y전위 [REMOVE_SPACE]입니다. NL [#60D0D0]당신[]은 [#60D0D0]드래곤[]보다 어그로가 #b",
       " 높습니다.",
-      "#y드래곤 [REMOVE_SPACE]이 #y전위 [REMOVE_SPACE]입니다. NL 드래곤은 당신보다 어그로가 #b",
+      "[#60D0D0]드래곤[]이 #y전위 [REMOVE_SPACE]입니다. NL [#60D0D0]드래곤[]은 [#60D0D0]당신[]보다 어그로가 #b",
       " 높습니다.",
-      "#y당신은 홀로 싸우고 있습니다. NL 당신은 전위이자 후위로 취급됩니다."
+      "[#60D0D0]당신[]은 홀로 싸우고 있습니다. NL #y결속 [REMOVE_SPACE]을 얻을 수 없습니다. NL [#60D0D0]당신[]은 전위이자 후위로 취급됩니다."
     ]
   },
   "DTMod:RestOption": {
@@ -90,6 +90,20 @@
       "이 적은 #y기절 중 입니다. ",
       "이 적의 의도를 #y알 #y수 #y없습니다 (공격은 아님).",
       "방어됨"
+    ]
+  },
+  "DTMod:DragonPotionDescription": {
+    "TEXT": [
+      "[#60D0D0]드래곤[]이 ",
+      "",
+      "드래곤에게 사용 가능",
+      "이 포션을 [#60D0D0]드래곤[]에게 사용할 수 있습니다. (전투 중에만)"
+    ]
+  },
+  "DTMod:DragonPotionDescriptionSubstitute": {
+    "TEXT": [
+      "시",
+      "시 [#60D0D0]드래곤[]이"
     ]
   }
 }

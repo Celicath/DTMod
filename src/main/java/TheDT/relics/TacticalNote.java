@@ -1,10 +1,9 @@
 package TheDT.relics;
 
 import TheDT.DTModMain;
-import TheDT.Interfaces.TacticCard;
 import TheDT.cards.*;
+import TheDT.patches.CustomTags;
 import basemod.abstracts.CustomRelic;
-import basemod.abstracts.CustomSavable;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
@@ -13,55 +12,34 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
-public class TacticalNote extends CustomRelic implements CustomSavable<Void> {
+public class TacticalNote extends CustomRelic {
 
 	public static final String RAW_ID = "TacticalNote";
 	public static final String ID = DTModMain.makeID(RAW_ID);
 	public static final String IMG = DTModMain.GetRelicPath(RAW_ID);
 	public static final String OUTLINE = DTModMain.GetRelicOutlinePath(RAW_ID);
 
+	public static String[] tacticCardsId = new String[]{
+			DTModMain.makeID(SwitchingTactic.RAW_ID),
+			DTModMain.makeID(BizarreTactic.RAW_ID),
+			DTModMain.makeID(RunningTactic.RAW_ID),
+			DTModMain.makeID(EchoTactic.RAW_ID),
+			DTModMain.makeID(OpeningTactic.RAW_ID)
+	};
+
 	public TacticalNote() {
 		super(ID, new Texture(IMG), new Texture(OUTLINE), RelicTier.UNCOMMON, LandingSound.FLAT);
-		tips.add(new PowerTip(DESCRIPTIONS[1], DESCRIPTIONS[2]));
-	}
-
-	@Override
-	public void onEquip() {
-		for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
-			if (c instanceof TacticCard) {
-				((TacticCard) c).onEquipTacticalNote();
-			}
+		String detail = DESCRIPTIONS[2];
+		for (int i = 3; i < DESCRIPTIONS.length; i++) {
+			detail += " NL " + DESCRIPTIONS[i];
 		}
-	}
-
-	@Override
-	public void onUnequip() {
-		for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
-			if (c instanceof TacticCard) {
-				((TacticCard) c).onUnequipTacticalNote();
-			}
-		}
-	}
-
-	@Override
-	public Void onSave() {
-		return null;
-	}
-
-	@Override
-	public void onLoad(Void v) {
-		if (AbstractDungeon.player != null) {
-			for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
-				if (c instanceof TacticCard) {
-					((TacticCard) c).onEquipTacticalNote();
-				}
-			}
-		}
+		tips.add(new PowerTip(DESCRIPTIONS[1], detail));
 	}
 
 	@Override
 	public void onUseCard(AbstractCard card, UseCardAction action) {
-		if (card instanceof SwitchingTactic || card instanceof RunningTactic || card instanceof TacticRecycle || card instanceof BizarreTactic || card instanceof OpeningTactic) {
+		if (card.hasTag(CustomTags.DT_TACTIC)) {
+			flash();
 			AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
 		}
 	}

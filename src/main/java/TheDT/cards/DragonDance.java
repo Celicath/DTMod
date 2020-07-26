@@ -12,8 +12,8 @@ import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.vfx.combat.InflameEffect;
 
-public class FireUp extends AbstractDTCard {
-	public static final String RAW_ID = "FireUp";
+public class DragonDance extends AbstractDTCard {
+	public static final String RAW_ID = "DragonDance";
 	private static final int COST = 2;
 	private static final AbstractCard.CardType TYPE = CardType.POWER;
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.DT_ORANGE;
@@ -25,7 +25,7 @@ public class FireUp extends AbstractDTCard {
 	private static final int DEXTERITY = 1;
 	private static final int UPGRADE_BONUS = 2;
 
-	public FireUp() {
+	public DragonDance() {
 		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
 		baseMagicNumber = magicNumber = STRENGTH;
 	}
@@ -52,7 +52,7 @@ public class FireUp extends AbstractDTCard {
 	}
 
 	public AbstractCard makeCopy() {
-		return new FireUp();
+		return new DragonDance();
 	}
 
 	public void upgrade() {

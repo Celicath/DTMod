@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 public class GearUp extends AbstractDTCard {
 	public static final String RAW_ID = "GearUp";
-	private static final int COST = 0;
+	private static final int COST = 1;
 	private static final AbstractCard.CardType TYPE = CardType.SKILL;
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.DT_ORANGE;
 	private static final AbstractCard.CardRarity RARITY = CardRarity.RARE;

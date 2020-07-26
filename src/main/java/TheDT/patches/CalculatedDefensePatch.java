@@ -1,6 +1,7 @@
 package TheDT.patches;
 
 import TheDT.powers.CalculatedDefensePower;
+import TheDT.powers.OddArmorPower;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -15,8 +16,13 @@ public class CalculatedDefensePatch {
 	public static class ApplyPowerPatch {
 		@SpireInsertPatch(locator = BeforeAtDamageGiveLocator.class)
 		public static void Insert(DamageInfo __instance, AbstractCreature owner, AbstractCreature target, @ByRef float[] ___tmp) {
-			if (owner.hasPower(WeakPower.POWER_ID) && __instance.type == DamageInfo.DamageType.NORMAL) {
+			if (__instance.type == DamageInfo.DamageType.NORMAL) {
 				AbstractPower p = target.getPower(CalculatedDefensePower.POWER_ID);
+				if (p != null && owner.hasPower(WeakPower.POWER_ID)) {
+					___tmp[0] -= p.amount;
+					__instance.isModified = true;
+				}
+				p = target.getPower(OddArmorPower.POWER_ID);
 				if (p != null) {
 					___tmp[0] -= p.amount;
 					__instance.isModified = true;
@@ -29,11 +35,14 @@ public class CalculatedDefensePatch {
 	public static class CalculateDamagePatch {
 		@SpireInsertPatch(locator = BeforeAtDamageGiveLocator2.class)
 		public static void Insert(AbstractMonster __instance, int dmg, @ByRef float[] ___tmp) {
-			if (__instance.hasPower(WeakPower.POWER_ID)) {
-				AbstractPower p = AbstractDungeon.player.getPower(CalculatedDefensePower.POWER_ID);
-				if (p != null) {
-					___tmp[0] -= p.amount;
-				}
+			AbstractPower p = AbstractDungeon.player.getPower(CalculatedDefensePower.POWER_ID);
+			if (p != null && __instance.hasPower(WeakPower.POWER_ID)) {
+				___tmp[0] -= p.amount;
+			}
+
+			p = AbstractDungeon.player.getPower(OddArmorPower.POWER_ID);
+			if (p != null) {
+				___tmp[0] -= p.amount;
 			}
 		}
 	}

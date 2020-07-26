@@ -2,7 +2,6 @@ package TheDT.cards;
 
 import TheDT.actions.HasteAction;
 import TheDT.patches.CardColorEnum;
-import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -13,22 +12,17 @@ public class Haste extends AbstractDTCard {
 	private static final int COST = 0;
 	private static final AbstractCard.CardType TYPE = CardType.SKILL;
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.DT_ORANGE;
-	private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.UNCOMMON;
+	private static final AbstractCard.CardRarity RARITY = CardRarity.UNCOMMON;
 	private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DEFAULT;
 
-	private static final int ENERGY = 1;
-	private static final int UPGRADE_BONUS = 1;
-
 	public Haste() {
 		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
-		baseMagicNumber = magicNumber = ENERGY;
 		exhaust = true;
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		addToBot(new GainEnergyAction(magicNumber));
-		addToBot(new HasteAction());
+		addToBot(new HasteAction(upgraded));
 	}
 
 	public void triggerOnGlowCheck() {
@@ -55,7 +49,6 @@ public class Haste extends AbstractDTCard {
 	public void upgrade() {
 		if (!upgraded) {
 			upgradeName();
-			upgradeMagicNumber(UPGRADE_BONUS);
 			rawDescription = UPGRADE_DESCRIPTION;
 			initializeDescription();
 		}

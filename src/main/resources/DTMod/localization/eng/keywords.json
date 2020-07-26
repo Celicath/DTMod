@@ -4,7 +4,7 @@
     "NAMES": [
       "bonding"
     ],
-    "DESCRIPTION": "Whenever your team gains #b4 #yBonding, choose #b1 of #b3 random bonuses. The bonuses are stronger variations of potion effects."
+    "DESCRIPTION": "Whenever your team gains #b5 #yBonding, choose #b1 of #b3 random bonuses. The bonuses are stronger variations of potion effects."
   },
   {
     "PROPER_NAME": "Aggro",
@@ -18,14 +18,14 @@
     "NAMES": [
       "front"
     ],
-    "DESCRIPTION": "All enemies attack the Front."
+    "DESCRIPTION": "The character marked with Front Marker. NL All enemies attack the Front."
   },
   {
     "PROPER_NAME": "Rear",
     "NAMES": [
       "rear"
     ],
-    "DESCRIPTION": "The Rear is not attacked by enemies."
+    "DESCRIPTION": "The Rear is not normally attacked by enemies."
   },
   {
     "PROPER_NAME": "Switch",
@@ -33,7 +33,7 @@
       "switch",
       "switched"
     ],
-    "DESCRIPTION": "The #yFront becomes the #yRear, and vice versa. Switch happens when the #yAggro of the #yRear becomes higher than the #yFront."
+    "DESCRIPTION": "The #yFront becomes the #yRear, and vice versa. NL Switch happens when the #yAggro of the #yRear becomes higher than the #yFront."
   },
   {
     "PROPER_NAME": "Taunt",
@@ -41,7 +41,7 @@
       "taunt",
       "taunts"
     ],
-    "DESCRIPTION": "Taunted enemy will always attack who taunted it, ignoring the #yFront."
+    "DESCRIPTION": "When an enemy is Taunted, it will always attack the Taunter, not the Front."
   },
   {
     "PROPER_NAME": "Channeling",
@@ -54,7 +54,8 @@
     "PROPER_NAME": "Blaze Potion",
     "NAMES": [
       "blaze potion",
-      "blaze_potion"
+      "blaze_potion",
+      "blaze_potions"
     ],
     "DESCRIPTION": "A potion which deals #b30 damage to an enemy."
   }

@@ -12,14 +12,14 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 
-public class ArbitrationPower extends AbstractPower implements SwitchPower {
-	public static final String RAW_ID = "ArbitrationPower";
+public class ScaryMovePower extends AbstractPower implements SwitchPower {
+	public static final String RAW_ID = "ScaryMovePower";
 	public static final String POWER_ID = DTModMain.makeID(RAW_ID);
 	private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
 	public static final String NAME = powerStrings.NAME;
 	public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-	public ArbitrationPower(AbstractCreature owner, int amount) {
+	public ScaryMovePower(AbstractCreature owner, int amount) {
 		this.name = NAME;
 		this.ID = POWER_ID;
 		this.owner = owner;

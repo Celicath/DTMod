@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.actions.watcher.ChooseOneAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
@@ -28,7 +29,7 @@ public class BondingPower extends AbstractPower {
 	public static final TextureAtlas.AtlasRegion IMG48 = new TextureAtlas.AtlasRegion(
 			ImageMaster.loadImage(DTModMain.GetPowerPath(RAW_ID, 48)), 0, 0, 32, 32);
 
-	public static final int BONUS_AMOUNT = 4;
+	public static final int BONUS_AMOUNT = 5;
 	public static final int OPTION_COUNT = 10;
 
 	public BondingPower(AbstractCreature owner, AbstractCreature source, int amount) {
@@ -75,7 +76,17 @@ public class BondingPower extends AbstractPower {
 			choices.add(new BondingBonus(index1));
 			choices.add(new BondingBonus(index2));
 			choices.add(new BondingBonus(index3));
-			addToBot(new ChooseOneAction(choices));
+			addToBot(new ChooseOneAction(choices) {
+				@Override
+				public void update() {
+					if (this.duration == Settings.ACTION_DUR_FAST) {
+						AbstractDungeon.topPanel.unhoverHitboxes();
+						AbstractDungeon.actionManager.cleanCardQueue();
+						AbstractDungeon.player.releaseCard();
+					}
+					super.update();
+				}
+			});
 			amount -= BONUS_AMOUNT;
 			if (amount <= 0) {
 				addToTop(new RemoveSpecificPowerAction(owner, owner, ID));

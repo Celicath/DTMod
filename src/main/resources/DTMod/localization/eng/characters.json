@@ -5,7 +5,7 @@
       "The Dragon Tamer"
     ],
     "TEXT": [
-      "The brave man and his faithful dragon always train together."
+      "The lucky magician who made a pact with Dragon. NL The duo will always fight together."
     ]
   },
   "DTMod:Dragon": {
@@ -46,9 +46,9 @@
       "Start combat with\n[#87ceeb]1[] Strength.",
       "Start combat with\n[#87ceeb]1[] Dexterity.",
       "Start combat with\n[#87ceeb]2[] Bonding.",
-      "Gain [#87ceeb]1[] energy on\nturn [#87ceeb]1[] and [#87ceeb]2[].",
+      "Draw [#87ceeb]4[] additional\ncards on turn [#87ceeb]2[].",
       "Gain [#87ceeb]8[] Max HP.",
-      "Twin Bite gives [#87ceeb]4[] Strength.",
+      "Gain [#87ceeb]1[] energy whenever\nyou create a Burn.",
       "Start combat with\n[#87ceeb]3[] Artifact.",
       "Heal [#87ceeb]1[] HP whenever\nyou play a Power card.",
       "Gain [#87ceeb]75[] additional gold\nfrom combats.",
@@ -59,17 +59,16 @@
       " Bonding cards",
       " Tactic cards",
       "",
-      " Dragon Attacks\nand a Twin Bite",
+      " Burn cards",
       " cards\nfrom other color",
       " Powers",
       " cards",
-      "No Twin Bite",
       "Bonding Card",
       "Cards which gives you Bonding, or have interaction with Bonding.",
       "Tactic Card",
       "Cards with \"Tactic\" in its name.",
-      "Dragon Attack",
-      "Attack cards with dragon symbol on it. Dragon can be the attacker of these cards."
+      "Burn Card",
+      "Cards which shows Burn when hovered."
     ]
   }
 }

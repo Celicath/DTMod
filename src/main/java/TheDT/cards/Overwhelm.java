@@ -20,13 +20,13 @@ public class Overwhelm extends AbstractDTCard {
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DEFAULT;
 
 	private static final int WEAK = 2;
+	private static final int RATIO = 2;
 	private static final int UPGRADE_BONUS = 1;
-	private static final int RATIO = 3;
 
 	public Overwhelm() {
 		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
 
-		magicNumber = baseMagicNumber = WEAK;
+		magicNumber = baseMagicNumber = RATIO;
 	}
 
 	@Override
@@ -35,8 +35,8 @@ public class Overwhelm extends AbstractDTCard {
 			addToBot(new VFXAction(new PressurePointEffect(m.hb.cX, m.hb.cY)));
 		}
 
-		addToBot(new ApplyPowerAction(m, p, new WeakPower(m, magicNumber, false), magicNumber));
-		addToBot(new TriggerWeakMarksAction(RATIO));
+		addToBot(new ApplyPowerAction(m, p, new WeakPower(m, WEAK, false), WEAK));
+		addToBot(new TriggerWeakMarksAction(magicNumber));
 	}
 
 	public AbstractCard makeCopy() {

@@ -2,8 +2,8 @@
   "DTMod:BondingPower": {
     "NAME": "Bonding",
     "DESCRIPTIONS": [
-      "When you gain #b",
-      " #yBonding, choose #b1 of #b3 random bonuses, stronger variations of potions."
+      "Whenever you gain #b",
+      " #yBonding, choose #b1 of #b3 random bonuses, which are stronger variations of potion effects."
     ]
   },
   "DTMod:CalculatedDefensePower": {
@@ -66,8 +66,8 @@
       " Strength. #yChanneling."
     ]
   },
-  "DTMod:DoubleTeamPower": {
-    "NAME": "Double Team",
+  "DTMod:EnergeticMovePower": {
+    "NAME": "Energetic Move",
     "DESCRIPTIONS": [
       "Whenever your team #ySwitch, gain",
       " [REMOVE_SPACE]."
@@ -84,13 +84,13 @@
     "NAME": "Invisible Flame",
     "DESCRIPTIONS": [
       "Whenever the #yFront attacks, deal #b",
-      " damage to a random enemy."
+      " damage to ALL enemies."
     ]
   },
-  "DTMod:HuntersMarkPower": {
-    "NAME": "Hunter's Mark",
+  "DTMod:MagiciansMarkPower": {
+    "NAME": "Magician's Mark",
     "DESCRIPTIONS": [
-      "When [#60D0D0]Dragon[] attacks this enemy, gain #b",
+      "Whenever [#60D0D0]Dragon[] attacks this enemy, gain #b",
       " #yBonding."
     ]
   },
@@ -117,8 +117,8 @@
       " #yBonding [REMOVE_SPACE]."
     ]
   },
-  "DTMod:ArbitrationPower": {
-    "NAME": "Arbitration",
+  "DTMod:ScaryMovePower": {
+    "NAME": "Scary Move",
     "DESCRIPTIONS": [
       "Whenever your team #ySwitch, apply #b",
       " #yWeak to ALL enemies."
@@ -127,14 +127,14 @@
   "DTMod:ResonanceFormPower": {
     "NAME": "Resonance Form",
     "DESCRIPTIONS": [
-      "Whenever [#60D0D0]You[] or [#60D0D0]Dragon[] gains Strength, Dexterity, Block or HP, the other gains a copy of it."
+      "Effects that give only one of your team Strength, Dexterity or Block now affect both."
     ]
   },
   "DTMod:FiercePower": {
     "NAME": "Fierce",
     "DESCRIPTIONS": [
-      "After you play #yTwin #yBite, gain #b",
-      " #yStrength."
+      "Whenever you create a Burn, gain #b",
+      " [E] [REMOVE_SPACE]."
     ]
   },
   "DTMod:BirdFacePower": {

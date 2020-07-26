@@ -16,13 +16,13 @@ public class BurningForce extends AbstractDTCard {
 	private static final int COST = 2;
 	private static final AbstractCard.CardType TYPE = CardType.ATTACK;
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.DT_ORANGE;
-	private static final AbstractCard.CardRarity RARITY = CardRarity.UNCOMMON;
+	private static final AbstractCard.CardRarity RARITY = CardRarity.COMMON;
 	private static final AbstractCard.CardTarget TARGET = CardTarget.ENEMY;
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DRAGON_ONLY;
 
 	private static final int DAMAGE = 15;
 	private static final int UPGRADE_DAMAGE = 5;
-	private static final int BURN_BONUS = 5;
+	private static final int BURN_BONUS = 7;
 	private static final int UPGRADE_BURN_BONUS = 3;
 
 	public BurningForce() {
@@ -46,7 +46,7 @@ public class BurningForce extends AbstractDTCard {
 		Dragon dragon = DragonTamer.getLivingDragon();
 
 		if (dragon != null) {
-			addToBot(new DamageAction(m, new DamageInfo(dragon, dtDragonDamage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+			addToBot(new DamageAction(m, new DamageInfo(dragon, dtDragonDamage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
 		}
 		rawDescription = DESCRIPTION;
 		initializeDescription();

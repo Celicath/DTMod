@@ -156,7 +156,7 @@ public class DragonGrowthCard extends ClickableUIElement {
 						Dragon.dragonGrowthStrings.TEXT[11] + goal + Dragon.dragonGrowthStrings.TEXT[index + 11],
 						cX, cY + CARD_HEIGHT * 0.3f * scale, Color.LIGHT_GRAY);
 				FontHelper.renderFontCentered(sb, FontHelper.cardDescFont_L,
-						current == -1 ? Dragon.dragonGrowthStrings.TEXT[22] : current + "/" + goal,
+						current + "/" + goal,
 						cX, cY + CARD_HEIGHT * 0.54f * scale, current < goal ? progressColor : completeColor);
 			}
 			FontHelper.cardDescFont_L.getData().setScale(1.0F);
@@ -168,15 +168,15 @@ public class DragonGrowthCard extends ClickableUIElement {
 			switch (index) {
 				case 4:
 					TipHelper.renderGenericTip(InputHelper.mX + 50.0F * Settings.scale, InputHelper.mY,
-							Dragon.dragonGrowthStrings.TEXT[23], Dragon.dragonGrowthStrings.TEXT[24]);
+							Dragon.dragonGrowthStrings.TEXT[22], Dragon.dragonGrowthStrings.TEXT[23]);
 					break;
 				case 5:
 					TipHelper.renderGenericTip(InputHelper.mX + 50.0F * Settings.scale, InputHelper.mY,
-							Dragon.dragonGrowthStrings.TEXT[25], Dragon.dragonGrowthStrings.TEXT[26]);
+							Dragon.dragonGrowthStrings.TEXT[24], Dragon.dragonGrowthStrings.TEXT[25]);
 					break;
 				case 7:
 					TipHelper.renderGenericTip(InputHelper.mX + 50.0F * Settings.scale, InputHelper.mY,
-							Dragon.dragonGrowthStrings.TEXT[27], Dragon.dragonGrowthStrings.TEXT[28]);
+							Dragon.dragonGrowthStrings.TEXT[26], Dragon.dragonGrowthStrings.TEXT[27]);
 					break;
 			}
 		}

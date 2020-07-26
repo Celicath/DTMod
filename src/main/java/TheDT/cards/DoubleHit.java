@@ -10,8 +10,8 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-public class TwinBite extends AbstractDTCard {
-	public static final String RAW_ID = "TwinBite";
+public class DoubleHit extends AbstractDTCard {
+	public static final String RAW_ID = "DoubleHit";
 	private static final int COST = 2;
 	private static final AbstractCard.CardType TYPE = CardType.ATTACK;
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.DT_ORANGE;
@@ -22,7 +22,7 @@ public class TwinBite extends AbstractDTCard {
 	private static final int DAMAGE = 8;
 	private static final int UPGRADE_DAMAGE = 3;
 
-	public TwinBite() {
+	public DoubleHit() {
 		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
 		dtBaseDragonDamage = DAMAGE;
 	}
@@ -48,7 +48,7 @@ public class TwinBite extends AbstractDTCard {
 	}
 
 	public AbstractCard makeCopy() {
-		return new TwinBite();
+		return new DoubleHit();
 	}
 
 	public void upgrade() {

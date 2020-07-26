@@ -11,14 +11,12 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public class Safeguard extends AbstractDTCard {
 	public static final String RAW_ID = "Safeguard";
-	private static final int COST = 2;
+	private static final int COST = 1;
 	private static final AbstractCard.CardType TYPE = CardType.POWER;
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.DT_ORANGE;
 	private static final AbstractCard.CardRarity RARITY = CardRarity.RARE;
 	private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.BOTH;
-
-	private static final int NEW_COST = 1;
 
 	public Safeguard() {
 		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
@@ -40,7 +38,9 @@ public class Safeguard extends AbstractDTCard {
 	public void upgrade() {
 		if (!upgraded) {
 			upgradeName();
-			upgradeBaseCost(NEW_COST);
+			isInnate = true;
+			rawDescription = UPGRADE_DESCRIPTION;
+			initializeDescription();
 		}
 	}
 }

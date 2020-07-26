@@ -1,12 +1,13 @@
 package TheDT.cards;
 
+import TheDT.actions.ConvertPotionsAction;
 import TheDT.characters.Dragon;
 import TheDT.characters.DragonTamer;
 import TheDT.patches.CardColorEnum;
+import TheDT.potions.BlazePotion;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
@@ -16,15 +17,16 @@ public class FierySynthesis extends AbstractDTCard {
 	private static final AbstractCard.CardType TYPE = CardType.ATTACK;
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.DT_ORANGE;
 	private static final AbstractCard.CardRarity RARITY = CardRarity.RARE;
-	private static final AbstractCard.CardTarget TARGET = CardTarget.ENEMY;
+	private static final AbstractCard.CardTarget TARGET = CardTarget.ALL_ENEMY;
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DRAGON_ONLY;
 
-	private static final int DAMAGE = 8;
-	private static final int UPGRADE_BONUS = 4;
+	private static final int DAMAGE = 5;
+	private static final int UPGRADE_BONUS = 3;
 
 	public FierySynthesis() {
 		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
 		dtBaseDragonDamage = DAMAGE;
+		tags.add(CardTags.HEALING);
 	}
 
 	@Override
@@ -41,7 +43,8 @@ public class FierySynthesis extends AbstractDTCard {
 		Dragon dragon = DragonTamer.getLivingDragon();
 
 		if (dragon != null) {
-			addToBot(new DamageAction(m, new DamageInfo(dragon, dtDragonDamage, damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
+			addToBot(new ConvertPotionsAction(new BlazePotion()));
+			addToBot(new DamageAllEnemiesAction(dragon, dragonMultiDamage, damageTypeForTurn, AbstractGameAction.AttackEffect.FIRE));
 		}
 	}
 

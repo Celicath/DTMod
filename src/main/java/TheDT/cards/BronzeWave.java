@@ -32,7 +32,7 @@ public class BronzeWave extends AbstractDTCard {
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		addToBot(new GainBlockAction(p, p, this.block, true));
+		addToBot(new GainBlockAction(p, p, block, true));
 		if (p != null && m != null) {
 			addToBot(new VFXAction(new IronWaveEffect(p.hb.cX, p.hb.cY, m.hb.cX), 0.45F));
 		}

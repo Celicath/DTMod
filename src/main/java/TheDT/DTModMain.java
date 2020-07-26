@@ -1,9 +1,11 @@
 package TheDT;
 
+import TheDT.Interfaces.CreateBurnPower;
 import TheDT.Interfaces.ShufflePower;
 import TheDT.actions.FreezeAggroAction;
 import TheDT.cards.AbstractDTCard;
 import TheDT.cards.RepeatStrike;
+import TheDT.characters.Dragon;
 import TheDT.characters.DragonTamer;
 import TheDT.modules.TargetMarker;
 import TheDT.optionals.OptionalRelicHelper;
@@ -16,6 +18,7 @@ import TheDT.powers.ResonanceFormPower;
 import TheDT.relics.*;
 import TheDT.screens.DragonStatusButton;
 import TheDT.screens.DragonStatusScreen;
+import TheDT.utils.TutorialHelper;
 import TheDT.variables.DTDragonBlock;
 import TheDT.variables.DTDragonDamage;
 import basemod.AutoAdd;
@@ -33,13 +36,11 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.actions.utility.DiscardToHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.status.Burn;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.localization.*;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.MercuryHourglass;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
@@ -52,7 +53,7 @@ import java.util.Properties;
 @SpireInitializer
 public class DTModMain
 		implements EditCardsSubscriber, EditRelicsSubscriber, EditStringsSubscriber, EditKeywordsSubscriber,
-		EditCharactersSubscriber, PostInitializeSubscriber, OnStartBattleSubscriber, PreMonsterTurnSubscriber,
+		EditCharactersSubscriber, PostInitializeSubscriber, OnStartBattleSubscriber,
 		PostEnergyRechargeSubscriber, StartGameSubscriber, PostDungeonInitializeSubscriber {
 	public static final Logger logger = LogManager.getLogger(DTModMain.class.getName());
 
@@ -99,6 +100,7 @@ public class DTModMain
 
 	// Configs
 	public static Properties dtDefaults = new Properties();
+	public static String filename = "DTModSaveData";
 	public static boolean enableEvent = false;
 	ModLabeledToggleButton enableEventButton;
 
@@ -178,7 +180,7 @@ public class DTModMain
 	public static void loadConfig() {
 		logger.debug("loadConfig started.");
 		try {
-			SpireConfig config = new SpireConfig("DTMod", "DTModSaveData", dtDefaults);
+			SpireConfig config = new SpireConfig("DTMod", filename, dtDefaults);
 			config.load();
 			enableEvent = config.getBool("enableEvent");
 		} catch (Exception e) {
@@ -191,7 +193,7 @@ public class DTModMain
 	public static void saveConfig() {
 		logger.debug("saveConfig started.");
 		try {
-			SpireConfig config = new SpireConfig("DTMod", "DTModSaveData", dtDefaults);
+			SpireConfig config = new SpireConfig("DTMod", filename, dtDefaults);
 			config.setBool("enableEvent", enableEvent);
 			config.save();
 		} catch (Exception e) {
@@ -209,6 +211,8 @@ public class DTModMain
 		ModPanel settingsPanel = new ModPanel();
 
 		BaseMod.registerModBadge(badgeTexture, MODNAME, AUTHOR, DESCRIPTION, settingsPanel);
+
+		TutorialHelper.init();
 
 		targetMarker = new TargetMarker();
 		previewBurn = new Burn();
@@ -293,6 +297,9 @@ public class DTModMain
 		// CharacterStrings
 		String characterStrings = GetLocString(loc, "characters");
 		BaseMod.loadCustomStrings(CharacterStrings.class, characterStrings);
+		// TutorialStrings
+		String tutorialStrings = GetLocString(loc, "tutorials");
+		BaseMod.loadCustomStrings(TutorialStrings.class, tutorialStrings);
 
 		logger.info("Done editing strings");
 	}
@@ -312,6 +319,26 @@ public class DTModMain
 		for (AbstractPower p : AbstractDungeon.player.powers) {
 			if (p instanceof ShufflePower) {
 				((ShufflePower) p).onShuffle();
+			}
+		}
+	}
+
+	public static void onBurnCreated() {
+		if (AbstractDungeon.player == null) {
+			return;
+		}
+		burnGen++;
+		for (AbstractPower p : AbstractDungeon.player.powers) {
+			if (p instanceof CreateBurnPower) {
+				((CreateBurnPower) p).onBurnCreated();
+			}
+		}
+		Dragon d = DragonTamer.getLivingDragon();
+		if (d != null) {
+			for (AbstractPower p : d.powers) {
+				if (p instanceof CreateBurnPower) {
+					((CreateBurnPower) p).onBurnCreated();
+				}
 			}
 		}
 	}
@@ -355,17 +382,6 @@ public class DTModMain
 		bondingGained = 0;
 		ResonanceFormPower.disabledViaSelf = false;
 		ResonanceFormPower.disabledViaCard = false;
-	}
-
-	@Override
-	public boolean receivePreMonsterTurn(AbstractMonster m) {
-		CardGroup[] groups = new CardGroup[]{
-				AbstractDungeon.player.hand,
-				AbstractDungeon.player.drawPile,
-				AbstractDungeon.player.discardPile,
-				AbstractDungeon.player.exhaustPile
-		};
-		return true;
 	}
 
 	@Override

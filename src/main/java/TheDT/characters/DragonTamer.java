@@ -117,7 +117,7 @@ public class DragonTamer extends CustomPlayer {
 		retVal.add(DTModMain.makeID(Strike.RAW_ID));
 		retVal.add(DTModMain.makeID(Strike.RAW_ID));
 		retVal.add(DTModMain.makeID(Strike.RAW_ID));
-		retVal.add(DTModMain.makeID(TwinBite.RAW_ID));
+		retVal.add(DTModMain.makeID(DoubleHit.RAW_ID));
 		retVal.add(DTModMain.makeID(TargetDefense.RAW_ID));
 		retVal.add(DTModMain.makeID(TargetDefense.RAW_ID));
 		retVal.add(DTModMain.makeID(TargetDefense.RAW_ID));
@@ -327,8 +327,11 @@ public class DragonTamer extends CustomPlayer {
 					((SwitchPower) p).onSwitch();
 				}
 			}
+			AbstractDungeon.player.hand.applyPowers();
+			AbstractDungeon.player.hand.glowCheck();
 		}
 	}
+
 
 	public void setAggro(int aggro) {
 		this.aggro = aggro;
@@ -405,21 +408,27 @@ public class DragonTamer extends CustomPlayer {
 	@Override
 	public void applyStartOfTurnPowers() {
 		super.applyStartOfTurnPowers();
-		AbstractDungeon.player = dragon; // To make FlameBarrierPower wear off on Dragon. Are you serious devs?
-		dragon.applyStartOfTurnPowers();
-		AbstractDungeon.player = this;
+		if (!dragon.isDead) {
+			AbstractDungeon.player = dragon; // To make FlameBarrierPower wear off on Dragon. Are you serious devs?
+			dragon.applyStartOfTurnPowers();
+			AbstractDungeon.player = this;
+		}
 	}
 
 	@Override
 	public void applyStartOfTurnPostDrawPowers() {
 		super.applyStartOfTurnPostDrawPowers();
-		dragon.applyStartOfTurnPostDrawPowers();
+		if (!dragon.isDead) {
+			dragon.applyStartOfTurnPostDrawPowers();
+		}
 	}
 
 	@Override
 	public void applyEndOfTurnTriggers() {
 		super.applyEndOfTurnTriggers();
-		dragon.applyEndOfTurnTriggers();
+		if (!dragon.isDead) {
+			dragon.applyEndOfTurnTriggers();
+		}
 	}
 
 	@Override

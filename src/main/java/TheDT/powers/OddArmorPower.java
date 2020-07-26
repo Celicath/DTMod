@@ -3,7 +3,6 @@ package TheDT.powers;
 import TheDT.DTModMain;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
@@ -38,19 +37,11 @@ public class OddArmorPower extends AbstractPower {
 
 	@Override
 	public void updateDescription() {
-		this.description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
-	}
-
-	@Override
-	public float atDamageReceive(float damage, DamageInfo.DamageType type) {
-		if (type == DamageInfo.DamageType.NORMAL) {
-			return damage - this.amount;
-		}
-		return damage;
+		description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
 	}
 
 	@Override
 	public void atEndOfRound() {
-		addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, ID));
+		addToBot(new RemoveSpecificPowerAction(owner, owner, ID));
 	}
 }

@@ -1,17 +1,14 @@
 package TheDT.powers;
 
 import TheDT.DTModMain;
-import TheDT.cards.TwinBite;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.utility.UseCardAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
+import TheDT.Interfaces.CreateBurnPower;
+import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.StrengthPower;
 
-public class FiercePower extends AbstractPower {
+public class FiercePower extends AbstractPower implements CreateBurnPower {
 	public static final String RAW_ID = "FiercePower";
 	public static final String POWER_ID = DTModMain.makeID(RAW_ID);
 	private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -31,15 +28,16 @@ public class FiercePower extends AbstractPower {
 
 	@Override
 	public void updateDescription() {
-		description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
-
+		if (amount == 1) {
+			description = DESCRIPTIONS[0] + DESCRIPTIONS[1];
+		} else {
+			description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
+		}
 	}
 
 	@Override
-	public void onUseCard(AbstractCard card, UseCardAction action) {
-		if (card instanceof TwinBite) {
-			flash();
-			addToBot(new ApplyPowerAction(owner, owner, new StrengthPower(owner, amount), amount));
-		}
+	public void onBurnCreated() {
+		flash();
+		addToBot(new GainEnergyAction(amount));
 	}
 }

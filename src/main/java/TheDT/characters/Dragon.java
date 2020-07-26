@@ -11,6 +11,7 @@ import TheDT.powers.FiercePower;
 import TheDT.powers.GreedyPower;
 import TheDT.relics.DragonFood;
 import TheDT.utils.GrayscaleShader;
+import TheDT.utils.TutorialHelper;
 import basemod.BaseMod;
 import basemod.abstracts.CustomPlayer;
 import basemod.abstracts.CustomSavable;
@@ -347,6 +348,8 @@ public class Dragon extends CustomPlayer implements CustomSavable<ArrayList<Inte
 				if (!isDead) {
 					isDead = true;
 					AbstractDungeon.actionManager.addToBottom(new DragonFaintAction(master));
+
+					TutorialHelper.showTutorial();
 				}
 
 				currentHealth = 0;
@@ -539,15 +542,14 @@ public class Dragon extends CustomPlayer implements CustomSavable<ArrayList<Inte
 						AbstractDungeon.player, AbstractDungeon.player, new BondingPower(AbstractDungeon.player, AbstractDungeon.player, 2), 2));
 				break;
 			case 4:
-				AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(1));
 				AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(
-						this, this, new EnergizedPower(this, 1), 1));
+						this, this, new DrawCardNextTurnPower(this, 4), 4));
 				break;
 		}
 		switch (tier3Perk) {
 			case 1:
 				AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(
-						this, this, new FiercePower(this, 4), 4));
+						this, this, new FiercePower(this, 1), 1));
 				break;
 			case 2:
 				AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(

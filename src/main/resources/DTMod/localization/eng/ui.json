@@ -20,11 +20,11 @@
   "DTMod:TargetMarker": {
     "TEXT": [
       "Front Marker",
-      "#yYou are the #yFront. NL You have #b",
-      " more #yAggro than Dragon.",
-      "#yDragon is the #yFront. NL Dragon has #b",
-      " more #yAggro than You.",
-      "#yYou are fighting solo. NL You are considered both the #yFront and the #yRear."
+      "[#60D0D0]You[] are the #yFront. NL [#60D0D0]You[] have #b",
+      " more #yAggro than [#60D0D0]Dragon[].",
+      "[#60D0D0]Dragon[] is the #yFront. NL [#60D0D0]Dragon[] has #b",
+      " more #yAggro than [#60D0D0]You[].",
+      "[#60D0D0]You[] are fighting solo. NL You cannot gain #yBonding. NL [#60D0D0]You[] are considered as both the #yFront and the #yRear."
     ]
   },
   "DTMod:RestOption": {
@@ -90,6 +90,26 @@
       "This enemy is #yStunned on its turn.",
       "This enemy's intentions are #yUnknown (not attacking).",
       "Blocked"
+    ]
+  },
+  "DTMod:DragonPotionDescription": {
+    "TEXT": [
+      "[#60D0D0]Dragon[] ",
+      "",
+      "Available for Dragon",
+      "[#60D0D0]Dragon[] can drink this potion. (Only in battle)"
+    ]
+  },
+  "DTMod:DragonPotionDescriptionSubstitute": {
+    "TEXT": [
+      "gain",
+      "gains",
+      "heal",
+      "heals",
+      "enter",
+      "enters",
+      "lose",
+      "[#60D0D0]Dragon[] loses"
     ]
   }
 }

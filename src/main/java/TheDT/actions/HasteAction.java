@@ -10,11 +10,13 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 public class HasteAction extends AbstractGameAction {
 	private AbstractPlayer p;
+	private boolean upgraded;
 
-	public HasteAction() {
+	public HasteAction(boolean upgraded) {
 		this.actionType = ActionType.CARD_MANIPULATION;
 		this.p = AbstractDungeon.player;
 		this.duration = Settings.ACTION_DUR_FAST;
+		this.upgraded = upgraded;
 	}
 
 	public void update() {
@@ -27,8 +29,14 @@ public class HasteAction extends AbstractGameAction {
 			}
 
 			if (tmp.size() > 0) {
-				AbstractCard c = tmp.getRandomCard(AbstractDungeon.cardRandomRng);
-				AbstractDungeon.actionManager.addCardQueueItem(new CardQueueItem(c, null, c.energyOnUse, true, true), true);
+				if (upgraded) {
+					for (AbstractCard c : tmp.group) {
+						AbstractDungeon.actionManager.addCardQueueItem(new CardQueueItem(c, null, c.energyOnUse, true, true), true);
+					}
+				} else {
+					AbstractCard c = tmp.getRandomCard(AbstractDungeon.cardRandomRng);
+					AbstractDungeon.actionManager.addCardQueueItem(new CardQueueItem(c, null, c.energyOnUse, true, true), true);
+				}
 			}
 			isDone = true;
 		}

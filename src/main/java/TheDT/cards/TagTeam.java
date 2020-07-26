@@ -22,7 +22,7 @@ public class TagTeam extends AbstractDTCard {
 
 	private static final int BONDING = 1;
 	private static final int BLOCK = 6;
-	private static final int UPGRADE_BONUS = 2;
+	private static final int UPGRADE_BONUS = 3;
 
 	public TagTeam() {
 		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);

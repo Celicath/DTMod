@@ -9,8 +9,8 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-public class RedScale extends AbstractDTCard {
-	public static final String RAW_ID = "RedScale";
+public class BlueScale extends AbstractDTCard {
+	public static final String RAW_ID = "BlueScale";
 	private static final int COST = 2;
 	private static final AbstractCard.CardType TYPE = CardType.SKILL;
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.DT_ORANGE;
@@ -18,7 +18,7 @@ public class RedScale extends AbstractDTCard {
 	private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DRAGON_ONLY;
 
-	private static final int BLOCK = 16;
+	private static final int BLOCK = 14;
 
 	public static HardSkin preview = new HardSkin();
 	public static HardSkin previewPlus = new HardSkin() {
@@ -27,7 +27,7 @@ public class RedScale extends AbstractDTCard {
 		}
 	};
 
-	public RedScale() {
+	public BlueScale() {
 		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
 		dtBaseDragonBlock = BLOCK;
 
@@ -55,7 +55,7 @@ public class RedScale extends AbstractDTCard {
 	}
 
 	public AbstractCard makeCopy() {
-		return new RedScale();
+		return new BlueScale();
 	}
 
 	public void upgrade() {
