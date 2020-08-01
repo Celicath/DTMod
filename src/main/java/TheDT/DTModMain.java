@@ -9,10 +9,7 @@ import TheDT.characters.Dragon;
 import TheDT.characters.DragonTamer;
 import TheDT.modules.TargetMarker;
 import TheDT.optionals.OptionalRelicHelper;
-import TheDT.patches.CardColorEnum;
-import TheDT.patches.MonsterTargetPatch;
-import TheDT.patches.SkillbookGameState;
-import TheDT.patches.TheDTEnum;
+import TheDT.patches.*;
 import TheDT.potions.BlazePotion;
 import TheDT.powers.ResonanceFormPower;
 import TheDT.relics.*;
@@ -382,6 +379,8 @@ public class DTModMain
 		bondingGained = 0;
 		ResonanceFormPower.disabledViaSelf = false;
 		ResonanceFormPower.disabledViaCard = false;
+
+		receivePostEnergyRecharge();
 	}
 
 	@Override
@@ -394,6 +393,8 @@ public class DTModMain
 		DragonTamer.frontChangedThisTurn = false;
 		DragonTamer.battleHarmonyYou = false;
 		DragonTamer.battleHarmonyDragon = false;
+
+		DragonMightPatch.triggered.clear();
 	}
 
 	public static String makeID(String idText) {

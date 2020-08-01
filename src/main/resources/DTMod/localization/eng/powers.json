@@ -50,7 +50,7 @@
   "DTMod:LastStandPower": {
     "NAME": "Last Stand",
     "DESCRIPTIONS": [
-      "For this turn, ",
+      "For this turn,",
       "For #b",
       " turns,",
       " take half damage from attacks."

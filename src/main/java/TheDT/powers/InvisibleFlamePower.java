@@ -55,4 +55,5 @@ public class InvisibleFlamePower extends AbstractPower {
 			}
 		}
 	}
+
 }

@@ -12,13 +12,13 @@ import java.util.ArrayList;
 
 public class EchoTacticAction extends AbstractGameAction {
 	private ArrayList<AbstractCard> cannotDuplicate = new ArrayList<>();
-	private boolean noted;
+	private int discount;
 
-	public EchoTacticAction(boolean noted) {
+	public EchoTacticAction(int discount) {
 		setValues(AbstractDungeon.player, source);
 		actionType = ActionType.DRAW;
 		duration = Settings.ACTION_DUR_FAST;
-		this.noted = noted;
+		this.discount = discount;
 	}
 
 	public void update() {
@@ -59,15 +59,13 @@ public class EchoTacticAction extends AbstractGameAction {
 				AbstractDungeon.player.hand.addToTop(c);
 
 				AbstractCard temp = c.makeStatEquivalentCopy();
-				if (noted) {
-					if (temp.costForTurn > 0) {
-						temp.costForTurn--;
-						temp.isCostModifiedForTurn = true;
-					}
-					if (temp.cost > 0) {
-						temp.cost--;
-						temp.isCostModified = true;
-					}
+				if (temp.costForTurn > 0) {
+					temp.isCostModifiedForTurn = true;
+					temp.costForTurn = Math.max(0, temp.costForTurn - discount);
+				}
+				if (temp.cost > 0) {
+					temp.isCostModified = true;
+					temp.cost = Math.max(0, temp.cost - discount);
 				}
 				addToTop(new MakeTempCardInHandAction(temp));
 			}

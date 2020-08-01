@@ -61,10 +61,10 @@
     "DESCRIPTIONS": [
       "All cards containing \"Tactic\" have their effects boosted.",
       "Bonus Effects",
-      "#bSwitching #bTactic - Now costs 0.",
+      "#bSwitching #bTactic - Enemies lose 3 more Strength.",
       "#bBizarre #bTactic - Gain 2 more Block, deal 2 more damage.",
       "#bRunning #bTactic - Draw 1 additional card.",
-      "#bEcho #bTactic - The cost of the copy is reduced by 1.",
+      "#bEcho #bTactic - Now costs 0.",
       "#bOpening #bTactic - Gain 1 additional Dexterity if the enemy has full HP."
     ]
   },

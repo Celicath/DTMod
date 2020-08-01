@@ -21,7 +21,7 @@ import java.util.ArrayList;
 
 public class RecklessFlurry extends AbstractDTCard {
 	public static final String RAW_ID = "RecklessFlurry";
-	private static final int COST = 1;
+	private static final int COST = 2;
 	private static final AbstractCard.CardType TYPE = CardType.ATTACK;
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.DT_ORANGE;
 	private static final AbstractCard.CardRarity RARITY = CardRarity.UNCOMMON;
@@ -29,7 +29,7 @@ public class RecklessFlurry extends AbstractDTCard {
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.BOTH;
 
 	private static final int RATIO = 2;
-	private static final int NEW_COST = 0;
+	private static final int NEW_COST = 1;
 
 	public static final String RAW_ID_YOU = "RecklessFlurryYou";
 	public static final String RAW_ID_DRAGON = "RecklessFlurryDragon";

@@ -26,7 +26,10 @@
   "DTMod:SwitchingTactic": {
     "NAME": "교체 전술",
     "DESCRIPTION": "ragontaer:어그로를 뒤바꿉니다. 적 전체의 힘을 1턴 동안 ragontaer:어그로 차이만큼 낮춥니다.",
-    "UPGRADE_DESCRIPTION": "보존. NL ragontaer:어그로를 뒤바꿉니다. 적 전체의 힘을 1턴 동안 ragontaer:어그로 차이만큼 낮춥니다."
+    "UPGRADE_DESCRIPTION": "보존. NL ragontaer:어그로를 뒤바꿉니다. 적 전체의 힘을 1턴 동안 ragontaer:어그로 차이만큼 낮춥니다.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (힘을 !M! 낮춥니다)"
+    ]
   },
   "DTMod:HardSkin": {
     "NAME": "단단한 피부",
@@ -168,8 +171,7 @@
   },
   "DTMod:EchoTactic": {
     "NAME": "메아리 전술",
-    "DESCRIPTION": "손에 있는 카드를 1장 복사합니다. NL (메아리 전술은 제외) NL 소멸.",
-    "UPGRADE_DESCRIPTION": "카드를 1장 뽑습니다. NL 손에 있는 카드를 1장 복사합니다. NL (메아리 전술은 제외) NL 소멸."
+    "DESCRIPTION": "손에 있는 다른 카드를 1장 복사합니다. NL 복사본의 비용이 !M! 감소합니다. NL 소멸."
   },
   "DTMod:EnergeticMove": {
     "NAME": "교대의 춤",

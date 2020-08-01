@@ -25,7 +25,10 @@
   "DTMod:SwitchingTactic": {
     "NAME": "Switching Tactic",
     "DESCRIPTION": "Reverse ragontaer:Aggro. NL This turn, ALL enemies lose Strength equal to ragontaer:Aggro difference.",
-    "UPGRADE_DESCRIPTION": "Retain. NL Reverse ragontaer:Aggro. NL This turn, ALL enemies lose Strength equal to ragontaer:Aggro difference."
+    "UPGRADE_DESCRIPTION": "Retain. NL Reverse ragontaer:Aggro. NL This turn, ALL enemies lose Strength equal to ragontaer:Aggro difference.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Lose !M! Strength)"
+    ]
   },
   "DTMod:HardSkin": {
     "NAME": "Hard Skin",
@@ -167,8 +170,7 @@
   },
   "DTMod:EchoTactic": {
     "NAME": "Echo Tactic",
-    "DESCRIPTION": "Copy a card from your hand. NL (Except Echo Tactic) NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Draw a card. NL Copy a card from your hand. NL (Except Echo Tactic) NL Exhaust."
+    "DESCRIPTION": "Copy a different card from your hand. NL Reduce the cost of the copy by !M!. NL Exhaust."
   },
   "DTMod:EnergeticMove": {
     "NAME": "Energetic Move",

@@ -18,7 +18,7 @@ import static TheDT.patches.CustomTags.DT_TACTIC;
 
 public class SwitchingTactic extends AbstractDTCard {
 	public static final String RAW_ID = "SwitchingTactic";
-	public static final int COST = 1;
+	public static final int COST = 0;
 	private static final AbstractCard.CardType TYPE = CardType.SKILL;
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.DT_ORANGE;
 	private static final AbstractCard.CardRarity RARITY = CardRarity.BASIC;
@@ -27,6 +27,7 @@ public class SwitchingTactic extends AbstractDTCard {
 
 	public SwitchingTactic() {
 		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
+		baseMagicNumber = 0;
 		tags.add(DT_TACTIC);
 	}
 
@@ -35,7 +36,13 @@ public class SwitchingTactic extends AbstractDTCard {
 		super.applyPowers();
 
 		if (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(TacticalNote.ID)) {
-			modifyCostForCombat(-9);
+			magicNumber = 3;
+			if (AbstractDungeon.player instanceof DragonTamer) {
+				magicNumber += Math.abs(((DragonTamer) AbstractDungeon.player).aggro);
+			}
+			isMagicNumberModified = true;
+			rawDescription = (upgraded ? UPGRADE_DESCRIPTION : DESCRIPTION) + EXTENDED_DESCRIPTION[0];
+			initializeDescription();
 		}
 	}
 
@@ -56,8 +63,13 @@ public class SwitchingTactic extends AbstractDTCard {
 			if (dtp.aggro == 0) {
 				dtp.setFront(dtp.front == d ? dtp : d);
 			} else {
-				magicNumber = Math.abs(dtp.aggro);
 				dtp.setAggro(-dtp.aggro);
+			}
+			magicNumber = Math.abs(dtp.aggro);
+			if (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(TacticalNote.ID)) {
+				magicNumber += 3;
+			}
+			if (magicNumber > 0) {
 				addToBot(new AbstractGameAction() {
 					@Override
 					public void update() {
@@ -72,6 +84,8 @@ public class SwitchingTactic extends AbstractDTCard {
 				});
 			}
 		}
+		rawDescription = upgraded ? UPGRADE_DESCRIPTION : DESCRIPTION;
+		initializeDescription();
 	}
 
 	public AbstractCard makeCopy() {
