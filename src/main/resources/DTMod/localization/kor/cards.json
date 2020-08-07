@@ -7,7 +7,6 @@
       "드래곤이 기절했어."
     ]
   },
-
   "DTMod:Strike": {
     "NAME": "타격",
     "DESCRIPTION": "피해를 !D! 줍니다."
@@ -99,10 +98,6 @@
   "DTMod:BreakAttack": {
     "NAME": "약점 공격",
     "DESCRIPTION": "피해를 !D! 줍니다. NL 취약을 !M! 부여합니다. NL 소멸."
-  },
-  "DTMod:BronzeWave": {
-    "NAME": "동의 파동",
-    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 피해를 !D! 줍니다."
   },
   "DTMod:BuildUp": {
     "NAME": "빌드업",
@@ -386,11 +381,11 @@
   },
   "DTMod:TauntingStrikeDragon": {
     "NAME": "공격자: 드래곤",
-    "DESCRIPTION": "드래곤이 피해를 NL !DT:THD! 줍니다."
+    "DESCRIPTION": "드래곤이 피해를 NL !DT:THD! 주고 ragontaer:도발 합니다."
   },
   "DTMod:TauntingStrikeYou": {
     "NAME": "공격자: 당신",
-    "DESCRIPTION": "피해를 !D! 줍니다."
+    "DESCRIPTION": "당신이 피해를 !D! 주고 ragontaer:도발 합니다."
   },
   "DTMod:Threaten": {
     "NAME": "위협",
@@ -399,6 +394,18 @@
   "DTMod:Training": {
     "NAME": "훈련",
     "DESCRIPTION": "당신과 드래곤이 힘을 !M! 얻습니다. NL ragontaer:결속을 1 얻습니다."
+  },
+  "DTMod:TriAttack": {
+    "NAME": "트라이어택",
+    "DESCRIPTION": "!M! 번 선택: NL 당신이 피해를 !D! 주거나 드래곤이 피해를 !DT:THD! 줍니다."
+  },
+  "DTMod:TriAttackDragon": {
+    "NAME": "공격자: 드래곤",
+    "DESCRIPTION": "드래곤이 피해를 NL !DT:THD! 줍니다."
+  },
+  "DTMod:TriAttackYou": {
+    "NAME": "공격자: 당신",
+    "DESCRIPTION": "피해를 !D! 줍니다."
   },
   "DTMod:TurnBack": {
     "NAME": "뒤돌기",

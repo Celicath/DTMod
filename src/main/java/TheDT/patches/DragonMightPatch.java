@@ -49,7 +49,7 @@ public class DragonMightPatch {
 	public static class SporeCloudPowerImmunePatch {
 		@SpirePostfixPatch
 		public static void Postfix(SporeCloudPower __instance) {
-			showImmune(__instance);
+			showImmune(__instance, true);
 		}
 	}
 
@@ -57,7 +57,7 @@ public class DragonMightPatch {
 	public static class SharpHidePowerImmunePatch {
 		@SpirePostfixPatch
 		public static void Postfix(SharpHidePower __instance, AbstractCard card, UseCardAction action) {
-			showImmune(__instance);
+			showImmune(__instance, false);
 		}
 	}
 
@@ -65,11 +65,11 @@ public class DragonMightPatch {
 	public static class BeatOfDeathPowerImmunePatch {
 		@SpirePostfixPatch
 		public static void Postfix(BeatOfDeathPower __instance, AbstractCard card, UseCardAction action) {
-			showImmune(__instance);
+			showImmune(__instance, false);
 		}
 	}
 
-	public static void showImmune(AbstractPower p) {
+	public static void showImmune(AbstractPower p, boolean top) {
 		if (!triggered.contains(p)) {
 			triggered.add(p);
 			Dragon d = DragonTamer.getLivingDragon();
@@ -77,7 +77,12 @@ public class DragonMightPatch {
 				d = (Dragon) AbstractDungeon.player;
 			}
 			if (d != null) {
-				AbstractDungeon.actionManager.addToTop(new TextAboveCreatureAction(d, ApplyPowerAction.TEXT[1]));
+				TextAboveCreatureAction taca = new TextAboveCreatureAction(d, ApplyPowerAction.TEXT[1]);
+				if (top) {
+					AbstractDungeon.actionManager.addToTop(taca);
+				} else {
+					AbstractDungeon.actionManager.addToBottom(taca);
+				}
 			}
 		}
 	}

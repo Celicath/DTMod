@@ -91,9 +91,6 @@ public class DragonPotionPatch {
 
 	@SpirePatch(clz = PotionPopUp.class, method = "updateInput")
 	public static class PotionDrinkPatch {
-		public static final String USE_ID_YOU = "ChooseOptionYou";
-		public static final String USE_ID_DRAGON = "ChooseOptionDragon";
-
 		public static ExprEditor Instrument() {
 			return new ExprEditor() {
 				@Override
@@ -168,7 +165,7 @@ public class DragonPotionPatch {
 			}
 			InputHelper.moveCursorToNeutralPosition();
 			ArrayList<AbstractCard> choices = new ArrayList<>();
-			choices.add(new AbstractDTCard(USE_ID_YOU, -2, AbstractCard.CardType.SKILL, CardColorEnum.DT_ORANGE, AbstractCard.CardRarity.SPECIAL, AbstractCard.CardTarget.SELF, AbstractDTCard.DTCardTarget.DEFAULT) {
+			choices.add(new AbstractDTCard(DTModMain.CHOICE_ID_YOU, -2, AbstractCard.CardType.SKILL, CardColorEnum.DT_ORANGE, AbstractCard.CardRarity.SPECIAL, AbstractCard.CardTarget.SELF, AbstractDTCard.DTCardTarget.DEFAULT) {
 				{
 					rawDescription = convertPotionText(potion);
 					initializeDescription();
@@ -187,7 +184,7 @@ public class DragonPotionPatch {
 					potion.use(null);
 				}
 			});
-			choices.add(new AbstractDTCard(USE_ID_DRAGON, -2, AbstractCard.CardType.SKILL, CardColorEnum.DT_ORANGE, AbstractCard.CardRarity.SPECIAL, AbstractCard.CardTarget.SELF, AbstractDTCard.DTCardTarget.DEFAULT) {
+			choices.add(new AbstractDTCard(DTModMain.CHOICE_ID_DRAGON, -2, AbstractCard.CardType.SKILL, CardColorEnum.DT_ORANGE, AbstractCard.CardRarity.SPECIAL, AbstractCard.CardTarget.SELF, AbstractDTCard.DTCardTarget.DEFAULT) {
 				{
 					rawDescription = dragonify(convertPotionText(potion));
 					initializeDescription();

@@ -19,7 +19,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.screens.CombatRewardScreen;
-import javafx.util.Pair;
 
 import java.util.function.Function;
 
@@ -37,6 +36,7 @@ public class DragonStatusScreen {
 	Dragon dragon;
 	int curTier;
 	int curIndex;
+	int availableIndices;
 
 	public boolean needSelection;
 
@@ -78,6 +78,15 @@ public class DragonStatusScreen {
 		AbstractDungeon.overlayMenu.proceedButton.hide();
 		AbstractDungeon.overlayMenu.cancelButton.hide();
 		resetPositions();
+		if (curTier == 1 || curTier == 2) {
+			availableIndices = 0;
+			for (int i = 1; i < 5; i++) {
+				availableIndices <<= 1;
+				if (dragonGrowthCards[curTier + 1][i].isClickable()) {
+					availableIndices++;
+				}
+			}
+		}
 		yOffset = targetOffset = curTier * Settings.HEIGHT;
 		ySpeed = 0;
 		reopen();
@@ -113,11 +122,9 @@ public class DragonStatusScreen {
 		updateButtons();
 	}
 
-	public void onClickCard(Pair<Integer, Integer> param) {
+	public void onClickCard(int tier, int index) {
 		if (needSelection) {
-			int tier = param.getKey();
-			int index = param.getValue();
-			dragon.grow(tier, index);
+			dragon.grow(tier, index, availableIndices);
 			afterDragonGrowth();
 		}
 	}

@@ -99,10 +99,6 @@
     "NAME": "Break Attack",
     "DESCRIPTION": "Deal !D! damage. NL Apply !M! Vulnerable. NL Exhaust."
   },
-  "DTMod:BronzeWave": {
-    "NAME": "Bronze Wave",
-    "DESCRIPTION": "Gain !B! Block. NL Deal !D! damage."
-  },
   "DTMod:BuildUp": {
     "NAME": "Build Up",
     "DESCRIPTION": "Deal !D! damage. Next Attack card deals !M! additional damage."
@@ -170,7 +166,7 @@
   },
   "DTMod:EchoTactic": {
     "NAME": "Echo Tactic",
-    "DESCRIPTION": "Copy a different card from your hand. NL Reduce the cost of the copy by !M!. NL Exhaust."
+    "DESCRIPTION": "Copy a different card from your hand. NL Reduce its cost by !M!. NL Exhaust."
   },
   "DTMod:EnergeticMove": {
     "NAME": "Energetic Move",
@@ -394,11 +390,11 @@
   },
   "DTMod:TauntingStrikeDragon": {
     "NAME": "Attacker: Dragon",
-    "DESCRIPTION": "Dragon deals NL !DT:THD! damage."
+    "DESCRIPTION": "Dragon deals NL !DT:THD! damage and NL ragontaer:Taunt it."
   },
   "DTMod:TauntingStrikeYou": {
     "NAME": "Attacker: You",
-    "DESCRIPTION": "Deal !D! damage."
+    "DESCRIPTION": "You deal !D! damage and ragontaer:Taunt it."
   },
   "DTMod:Threaten": {
     "NAME": "Threaten",
@@ -407,6 +403,18 @@
   "DTMod:Training": {
     "NAME": "Training",
     "DESCRIPTION": "You and Dragon gain !M! Strength each. NL Gain 1 ragontaer:Bonding."
+  },
+  "DTMod:TriAttack": {
+    "NAME": "Tri Attack",
+    "DESCRIPTION": "Choose !M! times: NL You deal !D! damage or Dragon deals !DT:THD! damage."
+  },
+  "DTMod:TriAttackDragon": {
+    "NAME": "Attacker: Dragon",
+    "DESCRIPTION": "Dragon deals !DT:THD! damage."
+  },
+  "DTMod:TriAttackYou": {
+    "NAME": "Attacker: You",
+    "DESCRIPTION": "You deal !D! damage."
   },
   "DTMod:TurnBack": {
     "NAME": "Turn Back",

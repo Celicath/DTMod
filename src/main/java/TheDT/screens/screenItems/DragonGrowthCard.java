@@ -13,7 +13,7 @@ import com.megacrit.cardcrawl.helpers.TipHelper;
 import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import javafx.util.Pair;
 
-import java.util.function.Consumer;
+import java.util.function.BiConsumer;
 
 public class DragonGrowthCard extends ClickableUIElement {
 	public static Texture growthCardTexture = new Texture(DTModMain.makePath("ui/GrowthCard.png"));
@@ -39,7 +39,7 @@ public class DragonGrowthCard extends ClickableUIElement {
 	int dragonIndex;
 	boolean curTier;
 	int current = 0, goal = 0;
-	Consumer<Pair<Integer, Integer>> callback;
+	BiConsumer<Integer, Integer> callback;
 
 	public static final Color uiColorHover = Color.WHITE.cpy();
 	public static final Color uiColorUnhover = new Color(0.8f, 0.8f, 0.8f, 0.9f);
@@ -51,7 +51,7 @@ public class DragonGrowthCard extends ClickableUIElement {
 		growthCardDisabledTexture.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
 	}
 
-	public DragonGrowthCard(float cX, float cY, int dragonTier, int dragonIndex, Consumer<Pair<Integer, Integer>> callback) {
+	public DragonGrowthCard(float cX, float cY, int dragonTier, int dragonIndex, BiConsumer<Integer, Integer> callback) {
 		super(growthCardTexture);
 
 		this.dragonTier = dragonTier;
@@ -89,7 +89,7 @@ public class DragonGrowthCard extends ClickableUIElement {
 
 	@Override
 	protected void onClick() {
-		callback.accept(new Pair<>(dragonTier, dragonIndex));
+		callback.accept(dragonTier, dragonIndex);
 	}
 
 	public void moveX(float cX) {

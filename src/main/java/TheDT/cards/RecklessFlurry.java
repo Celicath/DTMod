@@ -65,7 +65,7 @@ public class RecklessFlurry extends AbstractDTCard {
 
 			@Override
 			public void onChoseThisOption() {
-				addToBot(new FastLoseBlockAction(p));
+				addToBot(new FastLoseBlockAction(p, p.currentBlock));
 				addToBot(new FastAnimateFastAttackAction(p));
 				addToBot(new VFXAction(new WhirlwindEffect(), 0.0F));
 				addToBot(new SFXAction("ATTACK_HEAVY"));
@@ -100,7 +100,7 @@ public class RecklessFlurry extends AbstractDTCard {
 
 				@Override
 				public void onChoseThisOption() {
-					addToBot(new FastLoseBlockAction(dragon));
+					addToBot(new FastLoseBlockAction(dragon, dragon.currentBlock));
 					addToBot(new FastAnimateFastAttackAction(dragon));
 					addToBot(new VFXAction(new WhirlwindEffect(), 0.0F));
 					addToBot(new DamageAllEnemiesAction(dragon, dragonMultiDamage, damageType, AbstractGameAction.AttackEffect.FIRE));

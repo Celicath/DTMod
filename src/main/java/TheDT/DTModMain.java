@@ -105,6 +105,9 @@ public class DTModMain
 	public static Burn previewBurn = null;
 	public static String MythicalSkillbookID = makeID("MythicalSkillbook");
 
+	public static final String CHOICE_ID_YOU = "ChooseOptionYou";
+	public static final String CHOICE_ID_DRAGON = "ChooseOptionDragon";
+
 	public static String makePath(String resource) {
 		return DT_MOD_ASSETS_FOLDER + "/" + resource;
 	}

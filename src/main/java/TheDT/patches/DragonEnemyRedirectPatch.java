@@ -22,13 +22,17 @@ public class DragonEnemyRedirectPatch {
 			}
 		}
 
-
 		@SpireInsertPatch(locator = AfterStealGoldLocator.class)
 		public static void Insert(DamageAction __instance) {
 			if (prevTarget != null) {
 				__instance.target = prevTarget;
 				prevTarget = null;
 			}
+		}
+
+		@SpirePostfixPatch
+		public static void Postfix(DamageAction __instance) {
+			Insert(__instance);
 		}
 	}
 

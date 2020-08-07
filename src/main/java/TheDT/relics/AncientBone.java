@@ -23,7 +23,7 @@ public class AncientBone extends CustomRelic {
 	}
 
 	@Override
-	public void atBattleStart() {
+	public void atBattleStartPreDraw() {
 		AbstractPlayer p = AbstractDungeon.player instanceof DragonTamer ? ((DragonTamer) AbstractDungeon.player).dragon : AbstractDungeon.player;
 
 		AbstractDungeon.actionManager.addToTop(new MakeTempCardInHandAction(new HardSkin(), false));

@@ -26,7 +26,6 @@ import com.evacipated.cardcrawl.mod.stslib.patches.core.AbstractCreature.TempHPF
 import com.evacipated.cardcrawl.mod.stslib.patches.tempHp.PlayerDamage;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -72,6 +71,9 @@ public class Dragon extends CustomPlayer implements CustomSavable<ArrayList<Inte
 
 	public int tier2Perk = -1;
 	public int tier3Perk = -1;
+
+	public int availableTier2Perks = 0;
+	public int availableTier3Perks = 0;
 
 	public Dragon(String name, float hb_x, float hb_y, float hb_w, float hb_h, DragonTamer master) {
 		super(name, master.chosenClass, null,
@@ -134,6 +136,8 @@ public class Dragon extends CustomPlayer implements CustomSavable<ArrayList<Inte
 		data.add(maxHealth);
 		data.add(tier2Perk);
 		data.add(tier3Perk);
+		data.add(availableTier2Perks);
+		data.add(availableTier3Perks);
 		return data;
 	}
 
@@ -152,12 +156,19 @@ public class Dragon extends CustomPlayer implements CustomSavable<ArrayList<Inte
 			switch (i) {
 				case 2:
 					tier2Perk = data.get(i);
+					setImage(i, data.get(i));
 					break;
 				case 3:
 					tier3Perk = data.get(i);
+					setImage(i, data.get(i));
+					break;
+				case 4:
+					availableTier2Perks = data.get(i);
+					break;
+				case 5:
+					availableTier3Perks = data.get(i);
 					break;
 			}
-			setImage(i, data.get(i));
 		}
 	}
 
@@ -166,16 +177,18 @@ public class Dragon extends CustomPlayer implements CustomSavable<ArrayList<Inte
 		img = imgs[tier][choice];
 	}
 
-	public void grow(int tier, int choice) {
+	public void grow(int tier, int choice, int availableChoices) {
 		switch (tier) {
 			case 2:
 				tier2Perk = choice;
+				availableTier2Perks = availableChoices;
 				if (choice == 0) {
 					this.increaseMaxHp(6, true);
 				}
 				break;
 			case 3:
 				tier3Perk = choice;
+				availableTier3Perks = availableChoices;
 				if (choice == 0) {
 					this.increaseMaxHp(8, true);
 				}
@@ -303,19 +316,31 @@ public class Dragon extends CustomPlayer implements CustomSavable<ArrayList<Inte
 
 		if (info.owner != null) {
 			for (AbstractPower power : info.owner.powers) {
+				damageAmount = power.onAttackToChangeDamage(info, damageAmount);
+			}
+		}
+
+		for (AbstractPower power : powers) {
+			damageAmount = power.onAttackedToChangeDamage(info, damageAmount);
+		}
+
+		if (info.owner != null) {
+			for (AbstractPower power : info.owner.powers) {
 				power.onAttack(info, damageAmount, this);
 			}
 			for (AbstractPower power : this.powers) {
 				power.onAttacked(info, damageAmount);
 			}
-
 		} else {
 			logger.info("NO OWNER, DON'T TRIGGER POWERS");
 		}
 
 		if (damageAmount > 0) {
-			for (AbstractPower power : this.powers) {
+			for (AbstractPower power : powers) {
 				power.onLoseHp(damageAmount);
+			}
+			for (AbstractPower power : powers) {
+				power.wasHPLost(info, damageAmount);// 1793
 			}
 			if (info.owner != null) {
 				for (AbstractPower power : info.owner.powers) {

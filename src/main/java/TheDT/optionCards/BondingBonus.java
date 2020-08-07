@@ -102,7 +102,7 @@ public class BondingBonus extends AbstractDTCard {
 	}
 
 	public AbstractCard makeCopy() {
-		return new TauntingStrikeDragon(null, baseDamage);
+		return new BondingBonus(index);
 	}
 
 	public void upgrade() {
