@@ -7,6 +7,7 @@ import TheDT.powers.NewVigorPower;
 import basemod.abstracts.CustomCard;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.MathUtils;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -134,6 +135,33 @@ public abstract class AbstractDTCard extends CustomCard {
 	}
 
 	@Override
+	protected void applyPowersToBlock() {
+		super.applyPowersToBlock();
+
+		Dragon dragon = DragonTamer.getLivingDragon();
+		if (dtBaseDragonBlock != -1) {
+			dtDragonBlock = dtBaseDragonBlock;
+			if (dragon != null) {
+				isDTDragonBlockModified = false;
+				float tmp = (float) dtBaseDragonBlock;
+
+				for (AbstractPower p : dragon.powers) {
+					tmp = p.modifyBlock(tmp);
+					if (dtBaseDragonBlock != MathUtils.floor(tmp)) {
+						isDTDragonBlockModified = true;
+					}
+				}
+
+				if (tmp < 0.0F) {
+					tmp = 0.0F;
+				}
+
+				dtDragonBlock = MathUtils.floor(tmp);
+			}
+		}
+	}
+
+	@Override
 	public void applyPowers() {
 		super.applyPowers();
 		Dragon dragon = DragonTamer.getLivingDragon();
@@ -228,26 +256,6 @@ public abstract class AbstractDTCard extends CustomCard {
 						isDTDragonDamageModified = true;
 					}
 				}
-			}
-		}
-		if (dtBaseDragonBlock != -1) {
-			dtDragonBlock = dtBaseDragonBlock;
-			if (dragon != null) {
-				isDTDragonBlockModified = false;
-				float tmp = (float) dtBaseDragonBlock;
-
-				for (AbstractPower p : dragon.powers) {
-					tmp = p.modifyBlock(tmp);
-					if (dtBaseDragonBlock != MathUtils.floor(tmp)) {
-						isDTDragonBlockModified = true;
-					}
-				}
-
-				if (tmp < 0.0F) {
-					tmp = 0.0F;
-				}
-
-				dtDragonBlock = MathUtils.floor(tmp);
 			}
 		}
 	}
@@ -378,6 +386,18 @@ public abstract class AbstractDTCard extends CustomCard {
 		upgradedDTDragonBlock = true;
 	}
 
+	@Override
+	public AbstractCard makeStatEquivalentCopy() {
+		AbstractCard card = super.makeStatEquivalentCopy();
+		if (card instanceof AbstractDTCard) {
+			AbstractDTCard dtCard = (AbstractDTCard) card;
+			dtCard.dtBaseDragonDamage = dtBaseDragonDamage;
+			dtCard.dtBaseDragonBlock = dtBaseDragonBlock;
+		}
+		return card;
+	}
+
+	@Override
 	public void resetAttributes() {
 		super.resetAttributes();
 		isDTDragonBlockModified = false;

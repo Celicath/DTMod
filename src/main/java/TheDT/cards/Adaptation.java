@@ -22,7 +22,9 @@ public class Adaptation extends AbstractDTCard {
 
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		addToBot(new ApplyPowerAction(p, p, new AdaptationPower(p, p)));
+		if (!p.hasPower(AdaptationPower.POWER_ID)) {
+			addToBot(new ApplyPowerAction(p, p, new AdaptationPower(p, p)));
+		}
 	}
 
 	public AbstractCard makeCopy() {

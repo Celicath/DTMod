@@ -5,5 +5,12 @@
       "Deal #b",
       " damage."
     ]
+  },
+  "DTMod:LesserBlazePotion": {
+    "NAME": "Lesser Blaze Potion",
+    "DESCRIPTIONS": [
+      "Deal #b",
+      " damage."
+    ]
   }
 }

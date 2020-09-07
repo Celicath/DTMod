@@ -11,11 +11,12 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 public class MonsterIntentPatch {
 	public static AbstractPlayer prevPlayer = null;
 
+	@SpirePatch(clz = AbstractMonster.class, method = "applyPowers")
 	@SpirePatch(clz = AbstractMonster.class, method = "createIntent")
-	public static class CalculateDamageChangeTarget {
+	public static class ChangeTargetPatch {
 		@SpirePrefixPatch
 		public static void Prefix(AbstractMonster __instance) {
-			if (AbstractDungeon.player instanceof DragonTamer && ((DragonTamer) AbstractDungeon.player).isCurrentTargetDragon(__instance)) {
+			if (AbstractDungeon.player instanceof DragonTamer && DragonTamer.isCurrentTargetDragon(__instance)) {
 				prevPlayer = AbstractDungeon.player;
 				AbstractDungeon.player = ((DragonTamer) AbstractDungeon.player).dragon;
 			}

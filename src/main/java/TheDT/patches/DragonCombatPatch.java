@@ -33,19 +33,4 @@ public class DragonCombatPatch {
 			return LineFinder.findInOrder(ctMethodToPatch, finalMatcher);
 		}
 	}
-
-	@SpirePatch(clz = AbstractRoom.class, method = "endBattle")
-	public static class DragonBattleEnd {
-		public static void Prefix(AbstractRoom __instance) {
-			if (AbstractDungeon.player instanceof DragonTamer) {
-				Dragon dragon = ((DragonTamer) AbstractDungeon.player).dragon;
-				TempHPField.tempHp.set(dragon, 0);
-				if (dragon.isDying) {
-					dragon.heal(1);
-					dragon.isDying = false;
-					dragon.isDead = false;
-				}
-			}
-		}
-	}
 }

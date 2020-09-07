@@ -144,13 +144,14 @@
       "ragontaer:후위가 방어도를 NL !DT:THB! 얻습니다. NL 카드를 !M! 장 뽑습니다."
     ]
   },
-  "DTMod:DaggerTrick": {
-    "NAME": "단검 곡예",
-    "DESCRIPTION": "피해를 !D! 만큼 X+1 번 줍니다. 이 공격은 ragontaer:어그로를 증가시키지 않습니다."
+  "DTMod:CrossStep": {
+    "NAME": "엇갈림",
+    "DESCRIPTION": "ragontaer:교대할 때마다 [E] 를 얻습니다.",
+    "UPGRADE_DESCRIPTION": "선천성. NL ragontaer:교대할 때마다 [E] 를 얻습니다."
   },
   "DTMod:DarkBreath": {
     "NAME": "악의의 숨결",
-    "DESCRIPTION": "드래곤이 피해를 !DT:THD! 만큼 2번 주고, 약화를 !M! 부여합니다."
+    "DESCRIPTION": "드래곤이 피해를 !DT:THD! 만큼 2번 주고, 취약을 !M! 부여합니다."
   },
   "DTMod:DeepFocus": {
     "NAME": "정신 집중",
@@ -162,16 +163,11 @@
   },
   "DTMod:DragonDance": {
     "NAME": "용의 춤",
-    "DESCRIPTION": "드래곤이 힘을 !M!, 민첩을 1 얻습니다."
+    "DESCRIPTION": "드래곤이 힘 !M! 과 민첩 2 를 얻습니다."
   },
   "DTMod:EchoTactic": {
     "NAME": "메아리 전술",
     "DESCRIPTION": "손에 있는 다른 카드를 1장 복사합니다. NL 복사본의 비용이 !M! 감소합니다. NL 소멸."
-  },
-  "DTMod:EnergeticMove": {
-    "NAME": "교대의 춤",
-    "DESCRIPTION": "ragontaer:교대할 때마다 [E] 를 얻습니다.",
-    "UPGRADE_DESCRIPTION": "선천성. NL ragontaer:교대할 때마다 [E] 를 얻습니다."
   },
   "DTMod:ExcessFootwork": {
     "NAME": "현란한 발놀림",
@@ -185,15 +181,15 @@
     "NAME": "불타는 연금술",
     "DESCRIPTION": "드래곤이 적 전체에게 피해를 !DT:THD! 줍니다. NL 모든 포션을 ragontaer:불타는_포션 으로 바꿉니다."
   },
-  "DTMod:FireBreath": {
-    "NAME": "파이어브레스",
+  "DTMod:FlameSlash": {
+    "NAME": "화염 베기",
     "DESCRIPTION": "드래곤이 적 전체에게 피해를 !DT:THD! 줍니다."
   },
   "DTMod:ForbiddenStrike": {
     "NAME": "금지된 타격",
     "DESCRIPTION": "피해를 !D! 줍니다. NL 강화 횟수에 제한이 없습니다. NL 휴식 장소에서 다른 카드를 강화할 수 없습니다."
   },
-  "DTMod:ForkedFlame": {
+  "DTMod:ForkedFire": {
     "NAME": "갈래 불꽃",
     "DESCRIPTION": "X번 반복: 드래곤이 무작위 적 둘에게 피해를 !DT:THD! 줍니다."
   },
@@ -262,11 +258,18 @@
   },
   "DTMod:MasterPlan": {
     "NAME": "완벽한 계획",
-    "DESCRIPTION": "드래곤이 방어도를 NL !DT:THB! 얻습니다. NL 다음 턴에 당신은 방어도를 !B! 얻습니다."
+    "DESCRIPTION": "ragontaer:전위가 방어도를 NL !B! 얻습니다. NL ragontaer:후위는 다음 턴에 방어도를 !DT:THB! 얻습니다.",
+    "EXTENDED_DESCRIPTION": [
+      "ragontaer:전위가 방어도를 NL !DT:THB! 얻습니다. NL ragontaer:후위는 다음 턴에 방어도를 !B! 얻습니다."
+    ]
   },
   "DTMod:MaximumCharge": {
     "NAME": "최대 출력",
     "DESCRIPTION": "드래곤이 피해를 NL !DT:THD! 줍니다. NL 드래곤이 취약을 !M! 얻습니다."
+  },
+  "DTMod:Multitask": {
+    "NAME": "멀티태스킹",
+    "DESCRIPTION": "화상 생성, 약화 부여, ragontaer:교대 중 둘을 달성할 때마다 카드를 !M! 장 뽑습니다."
   },
   "DTMod:Observe": {
     "NAME": "관측",
@@ -332,10 +335,6 @@
     "DESCRIPTION": "턴 시작 시 ragontaer:후위의 방어도가 사라지지 않습니다.",
     "UPGRADE_DESCRIPTION": "선천성. NL 턴 시작 시 ragontaer:후위의 방어도가 사라지지 않습니다."
   },
-  "DTMod:ScaryMove": {
-    "NAME": "위협행동",
-    "DESCRIPTION": "ragontaer:교대할 때마다 모든 적에게 약화를 !M! 부여합니다."
-  },
   "DTMod:ShadowImage": {
     "NAME": "그림자 잔상",
     "DESCRIPTION": "당신과 드래곤이 공격할 때, 공격자가 방어도를 !M! 얻습니다."
@@ -363,6 +362,10 @@
     "EXTENDED_DESCRIPTION": [
       "나는 후위가 아니다!"
     ]
+  },
+  "DTMod:StarRain": {
+    "NAME": "별비",
+    "DESCRIPTION": "피해를 !D! 만큼 X+1 번 줍니다. 이 공격은 ragontaer:어그로를 증가시키지 않습니다."
   },
   "DTMod:StunTrap": {
     "NAME": "기절의 덫",

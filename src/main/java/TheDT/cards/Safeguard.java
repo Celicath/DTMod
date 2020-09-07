@@ -24,10 +24,14 @@ public class Safeguard extends AbstractDTCard {
 
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		addToBot(new ApplyPowerAction(p, p, new SafeguardPower(p)));
+		if (!p.hasPower(SafeguardPower.POWER_ID)) {
+			addToBot(new ApplyPowerAction(p, p, new SafeguardPower(p)));
+		}
 		Dragon d = DragonTamer.getLivingDragon();
 		if (d != null) {
-			addToBot(new ApplyPowerAction(d, d, new SafeguardPower(d)));
+			if (!d.hasPower(SafeguardPower.POWER_ID)) {
+				addToBot(new ApplyPowerAction(d, d, new SafeguardPower(d)));
+			}
 		}
 	}
 

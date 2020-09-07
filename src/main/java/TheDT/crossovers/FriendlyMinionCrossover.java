@@ -1,4 +1,4 @@
-package TheDT.optionals;
+package TheDT.crossovers;
 
 import TheDT.patches.SkillbookGameState;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -10,7 +10,7 @@ import kobting.friendlyminions.helpers.BasePlayerMinionHelper;
 
 import java.util.ArrayList;
 
-public class FriendlyMinionHelper {
+public class FriendlyMinionCrossover {
 	public static void addFriendlyMinionStates(ArrayList<SkillbookGameState.CharacterState> state) {
 		if (AbstractDungeon.player instanceof AbstractPlayerWithMinions) {
 			for (AbstractMonster m : ((AbstractPlayerWithMinions) AbstractDungeon.player).minions.monsters) {

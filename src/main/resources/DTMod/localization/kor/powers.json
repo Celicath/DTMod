@@ -66,8 +66,8 @@
       " 얻습니다. #y채널링."
     ]
   },
-  "DTMod:EnergeticMovePower": {
-    "NAME": "교대의 춤",
+  "DTMod:CrossStepPower": {
+    "NAME": "엇갈림",
     "DESCRIPTIONS": [
       "#y교대 [REMOVE_SPACE]할 때마다 ",
       " 를 얻습니다."
@@ -117,11 +117,14 @@
       " 얻습니다."
     ]
   },
-  "DTMod:ScaryMovePower": {
-    "NAME": "위협행동",
+  "DTMod:MultitaskPower": {
+    "NAME": "멀티태스킹",
     "DESCRIPTIONS": [
-      "#y교대 [REMOVE_SPACE]할 때마다 모든 적에게 약화를 #b",
-      " 부여합니다."
+      "다음 중 둘을 달성할 때마다 카드를 #b",
+      " 장 뽑습니다:",
+      "- 화상 생성",
+      "- 약화 부여",
+      "- 교대"
     ]
   },
   "DTMod:ResonanceFormPower": {
@@ -130,10 +133,16 @@
       "[#60D0D0]당신[]과 [#60D0D0]드래곤[] 중 한 명에게만 힘, 민첩, 방어도를 주는 효과가 둘 모두에게 영향을 줍니다."
     ]
   },
+  "DTMod:AggroFixPower": {
+    "NAME": "어그로가 고정됨",
+    "DESCRIPTIONS": [
+      "#y어그로 [REMOVE_SPACE]가 이번 턴이 종료될 때 까지 변하지 않습니다."
+    ]
+  },
   "DTMod:FiercePower": {
     "NAME": "맹렬함",
     "DESCRIPTIONS": [
-      "화상을 생성할 때마다 [E] [REMOVE_SPACE]를 #b",
+      "화상이 생성될 때마다 [E] [REMOVE_SPACE]를 #b",
       " 얻습니다."
     ]
   },
@@ -149,12 +158,6 @@
     "DESCRIPTIONS": [
       "전투 종료 시 #y골드 [REMOVE_SPACE]를 #b",
       " 추가로 얻습니다."
-    ]
-  },
-  "DTMod:DragonMightPower": {
-    "NAME": "Dragon's Might",
-    "DESCRIPTIONS": [
-      " NL [#60D0D0]당신[]에게만 효과를 줍니다."
     ]
   }
 }

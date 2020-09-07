@@ -1,6 +1,9 @@
 package TheDT.powers;
 
 import TheDT.DTModMain;
+import TheDT.Interfaces.RecoloredPower;
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.mod.stslib.powers.StunMonsterPower;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -12,7 +15,7 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.combat.WeightyImpactEffect;
 
-public class StunTrapPower extends AbstractChannelingPower {
+public class StunTrapPower extends AbstractChannelingPower implements RecoloredPower {
 	public static final String RAW_ID = "StunTrapPower";
 	public static final String POWER_ID = DTModMain.makeID(RAW_ID);
 	private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -33,6 +36,16 @@ public class StunTrapPower extends AbstractChannelingPower {
 		this.isTurnBased = true;
 		this.loadRegion("channel");
 		this.draw = draw;
+	}
+
+	@Override
+	public Color getIconColor() {
+		return new Color(1.0f, 1.0f, 0.35f, 1.0f);
+	}
+
+	@Override
+	public void renderIcons(SpriteBatch sb, float x, float y, Color c) {
+		super.renderIcons(sb, x, y, new Color(1.0f, 1.0f, 0.35f, c.a));
 	}
 
 	@Override

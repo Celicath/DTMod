@@ -5,6 +5,8 @@ import TheDT.Interfaces.SwitchPower;
 import TheDT.actions.ApplyAggroAction;
 import TheDT.cards.*;
 import TheDT.patches.CardColorEnum;
+import TheDT.patches.RecoloredPowerPatch;
+import TheDT.powers.BattleHarmonyPower;
 import TheDT.powers.TauntPower;
 import TheDT.relics.BindingString;
 import TheDT.relics.PactStone;
@@ -56,8 +58,6 @@ public class DragonTamer extends CustomPlayer {
 	public AbstractDTCard.DTCardTarget dtTargetMode;
 
 	public static boolean frontChangedThisTurn = false;
-	public static boolean battleHarmonyYou = false;
-	public static boolean battleHarmonyDragon = false;
 
 	// The aggro of Dragon
 	public int aggro;
@@ -290,8 +290,9 @@ public class DragonTamer extends CustomPlayer {
 
 	@Override
 	public void renderPlayerBattleUi(SpriteBatch sb) {
-		dragon.renderBattleUi(sb);
+		RecoloredPowerPatch.tipColorMap.clear();
 		super.renderPlayerBattleUi(sb);
+		dragon.renderPlayerBattleUi(sb);
 	}
 
 	@Override
@@ -305,9 +306,8 @@ public class DragonTamer extends CustomPlayer {
 		addAggro(dragon.getTier());
 
 		frontChangedThisTurn = false;
-		battleHarmonyYou = false;
-		battleHarmonyDragon = false;
-
+		BattleHarmonyPower.youAttacked = false;
+		BattleHarmonyPower.dragonAttacked = false;
 	}
 
 	public void setFront(AbstractCreature newTarget) {
@@ -379,7 +379,13 @@ public class DragonTamer extends CustomPlayer {
 		super.useCard(c, monster, energyOnUse);
 		attackAnimation = true;
 		dragonAttackAnimation = false;
-		AbstractDungeon.actionManager.addToBottom(new ApplyAggroAction());
+		AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
+			@Override
+			public void update() {
+				AbstractDungeon.actionManager.addToBottom(new ApplyAggroAction());
+				isDone = true;
+			}
+		});
 	}
 
 	@Override

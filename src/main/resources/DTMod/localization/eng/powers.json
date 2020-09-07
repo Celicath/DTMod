@@ -66,8 +66,8 @@
       " Strength. #yChanneling."
     ]
   },
-  "DTMod:EnergeticMovePower": {
-    "NAME": "Energetic Move",
+  "DTMod:CrossStepPower": {
+    "NAME": "Cross Step",
     "DESCRIPTIONS": [
       "Whenever your team #ySwitch, gain",
       " [REMOVE_SPACE]."
@@ -117,11 +117,14 @@
       " #yBonding [REMOVE_SPACE]."
     ]
   },
-  "DTMod:ScaryMovePower": {
-    "NAME": "Scary Move",
+  "DTMod:MultitaskPower": {
+    "NAME": "Multitask",
     "DESCRIPTIONS": [
-      "Whenever your team #ySwitch, apply #b",
-      " #yWeak to ALL enemies."
+      "Draw #b",
+      " cards whenever you do 2 of these:",
+      "- Create a Burn",
+      "- Apply Weak",
+      "- Switch"
     ]
   },
   "DTMod:ResonanceFormPower": {
@@ -130,10 +133,16 @@
       "Effects that give only one of your team Strength, Dexterity or Block now affect both."
     ]
   },
+  "DTMod:AggroFixPower": {
+    "NAME": "Aggro Fixed",
+    "DESCRIPTIONS": [
+      "#yAggro no longer changes until the end of this turn."
+    ]
+  },
   "DTMod:FiercePower": {
     "NAME": "Fierce",
     "DESCRIPTIONS": [
-      "Whenever you create a Burn, gain #b",
+      "Whenever a Burn is created, gain #b",
       " [E] [REMOVE_SPACE]."
     ]
   },
@@ -149,12 +158,6 @@
     "DESCRIPTIONS": [
       "At the end of combat, gain #b",
       " additional Gold."
-    ]
-  },
-  "DTMod:DragonMightPower": {
-    "NAME": "Dragon's Might",
-    "DESCRIPTIONS": [
-      " NL This power only affects [#60D0D0]You[]."
     ]
   }
 }

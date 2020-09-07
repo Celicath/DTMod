@@ -1,10 +1,13 @@
 package TheDT.cards;
 
+import TheDT.DTModMain;
 import TheDT.actions.ConvertPotionsAction;
 import TheDT.characters.Dragon;
 import TheDT.characters.DragonTamer;
+import TheDT.crossovers.GathererCrossover;
 import TheDT.patches.CardColorEnum;
 import TheDT.potions.BlazePotion;
+import TheDT.potions.LesserBlazePotion;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -44,6 +47,9 @@ public class FierySynthesis extends AbstractDTCard {
 
 		if (dragon != null) {
 			addToBot(new ConvertPotionsAction(new BlazePotion()));
+			if (DTModMain.isGahtererLoaded) {
+				addToBot(GathererCrossover.newFierySynthesisAction());
+			}
 			addToBot(new DamageAllEnemiesAction(dragon, dragonMultiDamage, damageTypeForTurn, AbstractGameAction.AttackEffect.FIRE));
 		}
 	}

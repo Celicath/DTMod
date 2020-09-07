@@ -25,6 +25,8 @@ public class SwitchingTactic extends AbstractDTCard {
 	private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.BOTH;
 
+	private static final int NOTE_BONUS = 2;
+
 	public SwitchingTactic() {
 		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
 		baseMagicNumber = 0;
@@ -36,7 +38,7 @@ public class SwitchingTactic extends AbstractDTCard {
 		super.applyPowers();
 
 		if (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(TacticalNote.ID)) {
-			magicNumber = 3;
+			magicNumber = NOTE_BONUS;
 			if (AbstractDungeon.player instanceof DragonTamer) {
 				magicNumber += Math.abs(((DragonTamer) AbstractDungeon.player).aggro);
 			}
@@ -67,7 +69,7 @@ public class SwitchingTactic extends AbstractDTCard {
 			}
 			magicNumber = Math.abs(dtp.aggro);
 			if (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(TacticalNote.ID)) {
-				magicNumber += 3;
+				magicNumber += NOTE_BONUS;
 			}
 			if (magicNumber > 0) {
 				addToBot(new AbstractGameAction() {

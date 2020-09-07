@@ -22,7 +22,7 @@ public class DragonDance extends AbstractDTCard {
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DRAGON_ONLY;
 
 	private static final int STRENGTH = 4;
-	private static final int DEXTERITY = 1;
+	private static final int DEXTERITY = 2;
 	private static final int UPGRADE_BONUS = 2;
 
 	public DragonDance() {

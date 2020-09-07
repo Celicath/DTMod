@@ -97,7 +97,9 @@
       "[#60D0D0]Dragon[] ",
       "",
       "Available for Dragon",
-      "[#60D0D0]Dragon[] can drink this potion. (Only in battle)"
+      "[#60D0D0]Dragon[] can drink this potion. (Only in battle)",
+      "When [#60D0D0]Dragon[] is fainted, you can use this potion to revive [#60D0D0]Dragon[] with #b",
+      "% HP."
     ]
   },
   "DTMod:DragonPotionDescriptionSubstitute": {

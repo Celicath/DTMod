@@ -3,7 +3,7 @@ package TheDT.characters;
 import TheDT.DTModMain;
 import TheDT.actions.DragonFaintAction;
 import TheDT.cards.HardSkin;
-import TheDT.optionals.FriendlyMinionHelper;
+import TheDT.crossovers.FriendlyMinionCrossover;
 import TheDT.patches.CardColorEnum;
 import TheDT.powers.BirdFacePower;
 import TheDT.powers.BondingPower;
@@ -536,18 +536,12 @@ public class Dragon extends CustomPlayer implements CustomSavable<ArrayList<Inte
 		}
 	}
 
-	public void renderBattleUi(SpriteBatch sb) {
-		if ((this.hb.hovered || this.healthHb.hovered) && !AbstractDungeon.isScreenUp) {
-			this.renderPowerTips(sb);
-		}
-	}
-
 	@Override
 	public void preBattlePrep() {
 		powers.clear();
 		healthBarUpdatedEvent();
 		if (DTModMain.isFriendlyMinionsLoaded) {
-			FriendlyMinionHelper.clearMinions(this);
+			FriendlyMinionCrossover.clearMinions(this);
 		}
 	}
 
@@ -582,7 +576,7 @@ public class Dragon extends CustomPlayer implements CustomSavable<ArrayList<Inte
 				break;
 			case 3:
 				AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(
-						this, this, new BirdFacePower(this, 1), 1));
+						this, this, new BirdFacePower(this, 2), 2));
 				break;
 			case 4:
 				AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(

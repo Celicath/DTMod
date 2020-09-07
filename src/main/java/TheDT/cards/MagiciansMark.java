@@ -16,12 +16,12 @@ public class MagiciansMark extends AbstractDTCard {
 	private static final int COST = 2;
 	private static final AbstractCard.CardType TYPE = CardType.ATTACK;
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.DT_ORANGE;
-	private static final AbstractCard.CardRarity RARITY = CardRarity.RARE;
+	private static final AbstractCard.CardRarity RARITY = CardRarity.UNCOMMON;
 	private static final AbstractCard.CardTarget TARGET = CardTarget.ENEMY;
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DEFAULT;
 
-	private static final int POWER = 20;
-	private static final int UPGRADE_BONUS = 10;
+	private static final int POWER = 12;
+	private static final int UPGRADE_BONUS = 8;
 	private static final int MAGIC = 1;
 
 	public MagiciansMark() {

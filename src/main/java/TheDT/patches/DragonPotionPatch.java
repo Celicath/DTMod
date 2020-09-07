@@ -12,10 +12,12 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.events.shrines.WeMeetAgain;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.potions.*;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.ui.panels.PotionPopUp;
 import javassist.CannotCompileException;
@@ -25,6 +27,7 @@ import javassist.expr.MethodCall;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Iterator;
 
 public class DragonPotionPatch {
 	private static final String[] uiAdd = CardCrawlGame.languagePack.getUIString(DTModMain.makeID("DragonPotionDescription")).TEXT;
@@ -46,6 +49,16 @@ public class DragonPotionPatch {
 			CultistPotion.POTION_ID
 	));
 
+	public static void addTipsToPotions(AbstractPotion potion) {
+		if (AbstractDungeon.player instanceof DragonTamer || AbstractDungeon.player instanceof Dragon) {
+			if (potionPatchlist.contains(potion.ID)) {
+				potion.tips.add(new PowerTip(uiAdd[2], uiAdd[3]));
+			} else if (potion.ID.equals(FairyPotion.POTION_ID)) {
+				potion.tips.add(new PowerTip(uiAdd[2], uiAdd[4] + potion.getPotency() + uiAdd[5]));
+			}
+		}
+	}
+
 	@SpirePatch(
 			clz = AbstractPotion.class,
 			method = SpirePatch.CONSTRUCTOR,
@@ -63,9 +76,7 @@ public class DragonPotionPatch {
 	public static class PotionConstructorPatch1 {
 		@SpirePostfixPatch
 		public static void Postfix(AbstractPotion __instance, String name, String id, AbstractPotion.PotionRarity rarity, AbstractPotion.PotionSize size, AbstractPotion.PotionEffect effect, Color liquidColor, Color hybridColor, Color spotsColor) {
-			if (potionPatchlist.contains(__instance.ID) && (AbstractDungeon.player instanceof DragonTamer || AbstractDungeon.player instanceof Dragon)) {
-				__instance.tips.add(new PowerTip(uiAdd[2], uiAdd[3]));
-			}
+			addTipsToPotions(__instance);
 		}
 	}
 
@@ -83,8 +94,22 @@ public class DragonPotionPatch {
 	public static class PotionConstructorPatch2 {
 		@SpirePostfixPatch
 		public static void Postfix(AbstractPotion __instance, String name, String id, AbstractPotion.PotionRarity rarity, AbstractPotion.PotionSize size, AbstractPotion.PotionColor color) {
-			if (potionPatchlist.contains(__instance.ID) && (AbstractDungeon.player instanceof DragonTamer || AbstractDungeon.player instanceof Dragon)) {
-				__instance.tips.add(new PowerTip(uiAdd[2], uiAdd[3]));
+			addTipsToPotions(__instance);
+		}
+	}
+
+	@SpirePatch(clz = FairyPotion.class, method = "canUse")
+	public static class FairyPotionUsablePatch {
+		@SpirePostfixPatch
+		public static boolean Postfix(boolean __result, FairyPotion __instance) {
+			if (AbstractDungeon.player instanceof DragonTamer && ((DragonTamer) AbstractDungeon.player).dragon.isDead) {
+				if (AbstractDungeon.getCurrRoom().event != null && AbstractDungeon.getCurrRoom().event instanceof WeMeetAgain) {
+					return false;
+				} else {
+					return AbstractDungeon.getCurrRoom().monsters != null && !AbstractDungeon.getCurrRoom().monsters.areMonstersBasicallyDead() && !AbstractDungeon.actionManager.turnHasEnded && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT;
+				}
+			} else {
+				return __result;
 			}
 		}
 	}
@@ -97,8 +122,7 @@ public class DragonPotionPatch {
 				public void edit(MethodCall m) throws CannotCompileException {
 					if (m.getClassName().equals("com.megacrit.cardcrawl.potions.AbstractPotion") && m.getMethodName().equals("use")) {
 						m.replace("" +
-								"TheDT.characters.Dragon d = TheDT.characters.DragonTamer.getLivingDragon();" +
-								"if (!potion.isThrown && d != null) {" +
+								"if (!potion.isThrown && com.megacrit.cardcrawl.dungeons.AbstractDungeon.player instanceof TheDT.characters.DragonTamer) {" +
 								PotionDrinkPatch.class.getName() + ".Do(potion);" +
 								"} else {" +
 								"   $_ = $proceed($$);" +
@@ -159,10 +183,36 @@ public class DragonPotionPatch {
 
 		@SuppressWarnings("unused")
 		public static void Do(AbstractPotion potion) {
-			if (AbstractDungeon.getCurrRoom().phase != AbstractRoom.RoomPhase.COMBAT || !potionPatchlist.contains(potion.ID)) {
+			if (potion instanceof FairyPotion) {
+				Dragon d = DragonTamer.getDragon();
+				if (d != null) {
+					d.isDead = false;
+					boolean modified = false;
+					Iterator<AbstractPower> it = d.powers.iterator();
+					while (it.hasNext()) {
+						AbstractPower p = it.next();
+						if (p.type == AbstractPower.PowerType.DEBUFF) {
+							p.onRemove();
+							it.remove();
+							modified = true;
+						}
+					}
+					if (modified) {
+						AbstractDungeon.onModifyPower();
+					}
+					AbstractPlayer prevPlayer = AbstractDungeon.player;
+					AbstractDungeon.player = d;
+					potion.use(null);
+					AbstractDungeon.player = prevPlayer;
+				}
+				return;
+			}
+			Dragon d = DragonTamer.getLivingDragon();
+			if (AbstractDungeon.getCurrRoom().phase != AbstractRoom.RoomPhase.COMBAT || d == null || !potionPatchlist.contains(potion.ID)) {
 				potion.use(null);
 				return;
 			}
+
 			InputHelper.moveCursorToNeutralPosition();
 			ArrayList<AbstractCard> choices = new ArrayList<>();
 			choices.add(new AbstractDTCard(DTModMain.CHOICE_ID_YOU, -2, AbstractCard.CardType.SKILL, CardColorEnum.DT_ORANGE, AbstractCard.CardRarity.SPECIAL, AbstractCard.CardTarget.SELF, AbstractDTCard.DTCardTarget.DEFAULT) {

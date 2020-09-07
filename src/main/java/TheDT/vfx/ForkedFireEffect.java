@@ -1,7 +1,7 @@
 package TheDT.vfx;
 
 import TheDT.DTModMain;
-import TheDT.actions.ForkedFlameDamageAction;
+import TheDT.actions.ForkedFireDamageAction;
 import TheDT.characters.Dragon;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -18,7 +18,7 @@ import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 
 import java.util.ArrayList;
 
-public class ForkedFlameEffect extends AbstractGameEffect {
+public class ForkedFireEffect extends AbstractGameEffect {
 	public static final float EFFECT_DUR = 0.6f;
 	private boolean init = false;
 	public static Texture fireballTexture = ImageMaster.loadImage(DTModMain.GetVfxPath("fireball"));
@@ -32,7 +32,7 @@ public class ForkedFlameEffect extends AbstractGameEffect {
 	ArrayList<AbstractMonster> targets;
 	ArrayList<Integer> targets_damage;
 
-	public ForkedFlameEffect(Dragon d, float starting_delay, ArrayList<AbstractMonster> targets, ArrayList<Integer> targets_damage) {
+	public ForkedFireEffect(Dragon d, float starting_delay, ArrayList<AbstractMonster> targets, ArrayList<Integer> targets_damage) {
 		this.duration = starting_delay + EFFECT_DUR;
 
 		this.d = d;
@@ -91,8 +91,8 @@ public class ForkedFlameEffect extends AbstractGameEffect {
 		}
 
 		if (isDone) {
-			ForkedFlameDamageAction.target_queue.add(targets);
-			ForkedFlameDamageAction.target_damage_queue.add(targets_damage);
+			ForkedFireDamageAction.target_queue.add(targets);
+			ForkedFireDamageAction.target_damage_queue.add(targets_damage);
 		}
 	}
 

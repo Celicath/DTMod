@@ -1,13 +1,13 @@
 package TheDT.cards;
 
-import TheDT.actions.DaggerTrickAction;
+import TheDT.actions.StarRainAction;
 import TheDT.patches.CardColorEnum;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-public class DaggerTrick extends AbstractDTCard {
-	public static final String RAW_ID = "DaggerTrick";
+public class StarRain extends AbstractDTCard {
+	public static final String RAW_ID = "StarRain";
 	private static final int COST = -1;
 	private static final AbstractCard.CardType TYPE = CardType.ATTACK;
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.DT_ORANGE;
@@ -18,17 +18,17 @@ public class DaggerTrick extends AbstractDTCard {
 	private static final int DAMAGE = 5;
 	private static final int UPGRADE_BONUS = 2;
 
-	public DaggerTrick() {
+	public StarRain() {
 		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
 		baseDamage = DAMAGE;
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		addToBot(new DaggerTrickAction(p, m, damage, damageTypeForTurn, freeToPlayOnce, energyOnUse));
+		addToBot(new StarRainAction(p, m, damage, damageTypeForTurn, freeToPlayOnce, energyOnUse));
 	}
 
 	public AbstractCard makeCopy() {
-		return new DaggerTrick();
+		return new StarRain();
 	}
 
 	public void upgrade() {

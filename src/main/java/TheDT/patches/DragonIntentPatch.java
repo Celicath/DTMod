@@ -171,29 +171,19 @@ public class DragonIntentPatch {
 		@SpirePostfixPatch
 		public static void Postfix(AbstractMonster __instance, SpriteBatch sb, BobEffect ___bobEffect) {
 			if (DragonTamer.isCurrentTargetDragon(__instance)) {
-				switch (__instance.intent) {
-					case ATTACK:
-					case ATTACK_BUFF:
-					case ATTACK_DEBUFF:
-					case ATTACK_DEFEND:
-					case DEBUFF:
-					case STRONG_DEBUFF:
-					case DEFEND_DEBUFF:
-						Color c = Color.WHITE.cpy();
-						c.a = __instance.intentAlpha * 0.95f;
-						sb.setColor(c);
+				Color c = Color.WHITE.cpy();
+				c.a = __instance.intentAlpha * 0.95f;
+				sb.setColor(c);
 
-						sb.draw(AbstractDTCard.getDragonIconTexture(),
-								__instance.intentHb.cX - AbstractDTCard.DRAGON_ICON_WIDTH / 2.0f + 17.0f * Settings.scale,
-								__instance.intentHb.cY - AbstractDTCard.DRAGON_ICON_HEIGHT / 2.0f + ___bobEffect.y + 17.0f * Settings.scale,
-								AbstractDTCard.DRAGON_ICON_WIDTH / 2.0f,
-								AbstractDTCard.DRAGON_ICON_HEIGHT / 2.0f,
-								AbstractDTCard.DRAGON_ICON_WIDTH,
-								AbstractDTCard.DRAGON_ICON_HEIGHT,
-								Settings.scale * 0.4f, Settings.scale * 0.4f,
-								0, 0, 0, AbstractDTCard.DRAGON_ICON_WIDTH, AbstractDTCard.DRAGON_ICON_HEIGHT, false, false);
-						break;
-				}
+				sb.draw(AbstractDTCard.getDragonIconTexture(),
+						__instance.intentHb.cX - AbstractDTCard.DRAGON_ICON_WIDTH / 2.0f + 18.0f * Settings.scale,
+						__instance.intentHb.cY - AbstractDTCard.DRAGON_ICON_HEIGHT / 2.0f + ___bobEffect.y + 18.0f * Settings.scale,
+						AbstractDTCard.DRAGON_ICON_WIDTH / 2.0f,
+						AbstractDTCard.DRAGON_ICON_HEIGHT / 2.0f,
+						AbstractDTCard.DRAGON_ICON_WIDTH,
+						AbstractDTCard.DRAGON_ICON_HEIGHT,
+						Settings.scale * 0.5f, Settings.scale * 0.5f,
+						0, 0, 0, AbstractDTCard.DRAGON_ICON_WIDTH, AbstractDTCard.DRAGON_ICON_HEIGHT, false, false);
 			}
 		}
 	}

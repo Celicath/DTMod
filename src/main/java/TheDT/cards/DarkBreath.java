@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 
@@ -25,15 +26,14 @@ public class DarkBreath extends AbstractDTCard {
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DRAGON_ONLY;
 
 	private static final int DAMAGE = 4;
-	private static final int UPGRADE_BONUS = 1;
-	private static final int WEAK = 1;
-	private static final int UPGRADE_WEAK = 1;
+	private static final int UPGRADE_BONUS = 2;
+	private static final int VULN = 1;
 	private static final int HIT = 2;
 
 	public DarkBreath() {
 		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
 		dtBaseDragonDamage = DAMAGE;
-		magicNumber = baseMagicNumber = WEAK;
+		magicNumber = baseMagicNumber = VULN;
 	}
 
 	@Override
@@ -69,7 +69,7 @@ public class DarkBreath extends AbstractDTCard {
 				addToBot(new DamageAction(m, new DamageInfo(dragon, dtDragonDamage, damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
 			}
 		}
-		addToBot(new ApplyPowerAction(m, dragon, new WeakPower(m, magicNumber, false), magicNumber));
+		addToBot(new ApplyPowerAction(m, dragon, new VulnerablePower(m, magicNumber, false), magicNumber));
 	}
 
 	public AbstractCard makeCopy() {
@@ -80,7 +80,6 @@ public class DarkBreath extends AbstractDTCard {
 		if (!upgraded) {
 			upgradeName();
 			upgradeDTDragonDamage(UPGRADE_BONUS);
-			upgradeMagicNumber(UPGRADE_WEAK);
 		}
 	}
 }

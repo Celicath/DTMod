@@ -44,7 +44,7 @@ public class BirdFacePower extends AbstractPower {
 	public void onUseCard(AbstractCard card, UseCardAction action) {
 		if (card.type == AbstractCard.CardType.POWER) {
 			flash();
-			addToTop(new HealAction(owner, owner, 1, Settings.FAST_MODE ? Settings.ACTION_DUR_FASTER : Settings.ACTION_DUR_FAST));
+			addToTop(new HealAction(owner, owner, amount, Settings.FAST_MODE ? Settings.ACTION_DUR_FASTER : Settings.ACTION_DUR_FAST));
 		}
 	}
 }

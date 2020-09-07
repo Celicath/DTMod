@@ -19,24 +19,42 @@ public class MasterPlan extends AbstractDTCard {
 	private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.BOTH;
 
-	private static final int POWER = 7;
+	private static final int POWER = 6;
 	private static final int UPGRADE_BONUS = 2;
-	private static final int NEXT_TURN_BLOCK = 8;
+	private static final int NEXT_TURN_BLOCK = 9;
 	private static final int UPGRADE_NEXT = 3;
 
 	public MasterPlan() {
 		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
 
-		baseBlock = NEXT_TURN_BLOCK;
-		dtBaseDragonBlock = POWER;
+		baseBlock = POWER;
+		dtBaseDragonBlock = NEXT_TURN_BLOCK;
+	}
+
+	@Override
+	public void applyPowers() {
+		if (DragonTamer.isFrontDragon()) {
+			baseBlock = NEXT_TURN_BLOCK;
+			dtBaseDragonBlock = POWER;
+			rawDescription = EXTENDED_DESCRIPTION[0];
+		} else {
+			baseBlock = POWER;
+			dtBaseDragonBlock = NEXT_TURN_BLOCK;
+			rawDescription = DESCRIPTION;
+		}
+		super.applyPowers();
+		initializeDescription();
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		Dragon dragon = DragonTamer.getLivingDragon();
-		if (dragon != null) {
+		if (DragonTamer.isFrontDragon()) {
 			addToBot(new GainBlockAction(dragon, dragon, dtDragonBlock));
+			addToBot(new ApplyPowerAction(p, p, new NextTurnBlockPower(p, block), block));
+		} else {
+			addToBot(new GainBlockAction(p, p, block));
+			addToBot(new ApplyPowerAction(dragon, dragon, new NextTurnBlockPower(dragon, dtDragonBlock), dtDragonBlock));
 		}
-		addToBot(new ApplyPowerAction(p, p, new NextTurnBlockPower(p, block), block));
 	}
 
 	public AbstractCard makeCopy() {

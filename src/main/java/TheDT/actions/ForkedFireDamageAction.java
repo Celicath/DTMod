@@ -12,13 +12,13 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class ForkedFlameDamageAction extends AbstractGameAction {
+public class ForkedFireDamageAction extends AbstractGameAction {
 	public static Queue<ArrayList<AbstractMonster>> target_queue = new LinkedList<>();
 	public static Queue<ArrayList<Integer>> target_damage_queue = new LinkedList<>();
 
 	private Dragon dragon;
 
-	public ForkedFlameDamageAction(Dragon dragon) {
+	public ForkedFireDamageAction(Dragon dragon) {
 		this.dragon = dragon;
 		this.duration = Settings.ACTION_DUR_XFAST;
 	}
@@ -26,8 +26,8 @@ public class ForkedFlameDamageAction extends AbstractGameAction {
 	@Override
 	public void update() {
 		if (AbstractDungeon.getCurrRoom().monsters.areMonstersBasicallyDead()) {
-			ForkedFlameDamageAction.target_queue.clear();
-			ForkedFlameDamageAction.target_damage_queue.clear();
+			ForkedFireDamageAction.target_queue.clear();
+			ForkedFireDamageAction.target_damage_queue.clear();
 			AbstractDungeon.actionManager.clearPostCombatActions();
 			isDone = true;
 			return;

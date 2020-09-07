@@ -22,8 +22,8 @@ public class HeatWave extends AbstractDTCard {
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DRAGON_ONLY;
 
 	private static final int DAMAGE = 4;
-	private static final int UPGRADE_DAMAGE = 3;
 	private static final int WEAK = 1;
+	private static final int UPGRADE_WEAK = 1;
 
 	public HeatWave() {
 		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
@@ -62,7 +62,7 @@ public class HeatWave extends AbstractDTCard {
 	public void upgrade() {
 		if (!upgraded) {
 			upgradeName();
-			upgradeDTDragonDamage(UPGRADE_DAMAGE);
+			upgradeMagicNumber(UPGRADE_WEAK);
 		}
 	}
 }

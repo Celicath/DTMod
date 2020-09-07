@@ -17,7 +17,7 @@ public class ForbiddenStrike extends AbstractDTCard {
 	private static final AbstractCard.CardTarget TARGET = CardTarget.ENEMY;
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DEFAULT;
 
-	private static final int DAMAGE = 17;
+	private static final int DAMAGE = 19;
 	private static final int UPGRADE_BONUS = 2;
 
 	public ForbiddenStrike() {

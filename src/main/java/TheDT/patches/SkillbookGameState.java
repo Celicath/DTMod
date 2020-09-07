@@ -1,7 +1,7 @@
 package TheDT.patches;
 
 import TheDT.DTModMain;
-import TheDT.optionals.FriendlyMinionHelper;
+import TheDT.crossovers.FriendlyMinionCrossover;
 import com.evacipated.cardcrawl.mod.stslib.patches.core.AbstractCreature.TempHPField;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -81,7 +81,7 @@ public class SkillbookGameState {
 			state.otherState.add(new CharacterState(creature));
 		}
 		if (DTModMain.isFriendlyMinionsLoaded) {
-			FriendlyMinionHelper.addFriendlyMinionStates(state.otherState);
+			FriendlyMinionCrossover.addFriendlyMinionStates(state.otherState);
 		}
 	}
 

@@ -8,7 +8,7 @@ import TheDT.cards.RepeatStrike;
 import TheDT.characters.Dragon;
 import TheDT.characters.DragonTamer;
 import TheDT.modules.TargetMarker;
-import TheDT.optionals.OptionalRelicHelper;
+import TheDT.crossovers.OptionalRelicHelper;
 import TheDT.patches.*;
 import TheDT.potions.BlazePotion;
 import TheDT.powers.ResonanceFormPower;
@@ -93,6 +93,7 @@ public class DTModMain
 
 	// Crossovers
 	public static boolean isAspirationLoaded;
+	public static boolean isGahtererLoaded;
 	public static boolean isFriendlyMinionsLoaded;
 
 	// Configs
@@ -150,6 +151,7 @@ public class DTModMain
 	public static void initialize() {
 		DTModMain mod = new DTModMain();
 		isAspirationLoaded = Loader.isModLoaded("aspiration");
+		isGahtererLoaded = Loader.isModLoaded("gatherermod");
 		isFriendlyMinionsLoaded = Loader.isModLoaded("Friendly_Minions_0987678");
 	}
 
@@ -394,10 +396,6 @@ public class DTModMain
 			}
 		}
 		DragonTamer.frontChangedThisTurn = false;
-		DragonTamer.battleHarmonyYou = false;
-		DragonTamer.battleHarmonyDragon = false;
-
-		DragonMightPatch.triggered.clear();
 	}
 
 	public static String makeID(String idText) {

@@ -1,5 +1,6 @@
 package TheDT.actions;
 
+import TheDT.vfx.StarRainEffect;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -9,16 +10,15 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.relics.ChemicalX;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
-import com.megacrit.cardcrawl.vfx.combat.ThrowDaggerEffect;
 
-public class DaggerTrickAction extends AbstractGameAction {
+public class StarRainAction extends AbstractGameAction {
 	private boolean freeToPlayOnce;
 	private int damage;
 	private AbstractPlayer p;
 	private DamageInfo.DamageType damageTypeForTurn;
 	private int energyOnUse;
 
-	public DaggerTrickAction(AbstractPlayer p, AbstractCreature target, int damage, DamageInfo.DamageType damageTypeForTurn, boolean freeToPlayOnce, int energyOnUse) {
+	public StarRainAction(AbstractPlayer p, AbstractCreature target, int damage, DamageInfo.DamageType damageTypeForTurn, boolean freeToPlayOnce, int energyOnUse) {
 		this.p = p;
 		this.target = target;
 		this.damage = damage;
@@ -45,7 +45,7 @@ public class DaggerTrickAction extends AbstractGameAction {
 			for (int i = 0; i < effect; ++i) {
 				addToTop(new DamageAction(target, new DamageInfo(p, damage, damageTypeForTurn), true));
 				if (target != null && target.hb != null) {
-					addToTop(new VFXAction(new ThrowDaggerEffect(target.hb.cX, target.hb.cY)));
+					addToTop(new VFXAction(new StarRainEffect(target.hb.cX, target.hb.cY)));
 				}
 			}
 			addToTop(new FreezeAggroAction(true));

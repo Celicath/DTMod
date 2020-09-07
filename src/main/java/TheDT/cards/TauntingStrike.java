@@ -54,13 +54,13 @@ public class TauntingStrike extends AbstractDTCard {
 				@Override
 				public void onChoseThisOption() {
 					AbstractPlayer p = AbstractDungeon.player;
-					addToBot(new FastAnimateFastAttackAction(p));
-					addToBot(new DamageAction(targetMonster, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
 					TauntPower tp = (TauntPower) (targetMonster.getPower(TauntPower.POWER_ID));
 					if (tp != null && tp.targetIsDragon) {
 						addToBot(new RemoveSpecificPowerAction(targetMonster, targetMonster, TauntPower.POWER_ID));
 					}
 					addToBot(new ApplyPowerAction(targetMonster, p, new TauntPower(targetMonster, false, 1), 1));
+					addToBot(new FastAnimateFastAttackAction(p));
+					addToBot(new DamageAction(targetMonster, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
 					addToBot(new ApplyAggroAction());
 				}
 			});
@@ -69,13 +69,13 @@ public class TauntingStrike extends AbstractDTCard {
 				public void onChoseThisOption() {
 					Dragon dragon = DragonTamer.getLivingDragon();
 					if (dragon != null) {
-						addToBot(new FastAnimateFastAttackAction(dragon));
-						addToBot(new DamageAction(targetMonster, new DamageInfo(dragon, dtDragonDamage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
 						TauntPower tp = (TauntPower) (targetMonster.getPower(TauntPower.POWER_ID));
 						if (tp != null && !tp.targetIsDragon) {
 							addToBot(new RemoveSpecificPowerAction(targetMonster, targetMonster, TauntPower.POWER_ID));
 						}
 						addToBot(new ApplyPowerAction(targetMonster, dragon, new TauntPower(targetMonster, true, 1), 1));
+						addToBot(new FastAnimateFastAttackAction(dragon));
+						addToBot(new DamageAction(targetMonster, new DamageInfo(dragon, dtDragonDamage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
 					}
 					addToBot(new ApplyAggroAction());
 				}

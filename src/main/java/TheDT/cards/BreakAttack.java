@@ -15,14 +15,14 @@ public class BreakAttack extends AbstractDTCard {
 	private static final int COST = 1;
 	private static final AbstractCard.CardType TYPE = CardType.ATTACK;
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.DT_ORANGE;
-	private static final AbstractCard.CardRarity RARITY = CardRarity.COMMON;
+	private static final AbstractCard.CardRarity RARITY = CardRarity.UNCOMMON;
 	private static final AbstractCard.CardTarget TARGET = CardTarget.ENEMY;
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DEFAULT;
 
 	private static final int DAMAGE = 7;
 	private static final int UPGRADE_DAMAGE = 3;
-	private static final int MAGIC = 3;
-	private static final int UPGRADE_MAGIC = 1;
+	private static final int MAGIC = 4;
+	private static final int UPGRADE_MAGIC = 2;
 
 	public BreakAttack() {
 		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);

@@ -10,8 +10,8 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class EnergeticMovePower extends AbstractPower implements SwitchPower {
-	public static final String RAW_ID = "EnergeticMovePower";
+public class CrossStepPower extends AbstractPower implements SwitchPower {
+	public static final String RAW_ID = "CrossStepPower";
 	public static final String POWER_ID = DTModMain.makeID(RAW_ID);
 	private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
 	public static final String NAME = powerStrings.NAME;
@@ -21,7 +21,7 @@ public class EnergeticMovePower extends AbstractPower implements SwitchPower {
 	public static final TextureAtlas.AtlasRegion IMG48 = new TextureAtlas.AtlasRegion(
 			ImageMaster.loadImage(DTModMain.GetPowerPath(RAW_ID, 48)), 0, 0, 32, 32);
 
-	public EnergeticMovePower(AbstractCreature owner, int amount) {
+	public CrossStepPower(AbstractCreature owner, int amount) {
 		this.name = NAME;
 		this.ID = POWER_ID;
 		this.owner = owner;

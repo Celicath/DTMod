@@ -4,7 +4,7 @@ import TheDT.DTModMain;
 import TheDT.actions.DisableResonanceFormAction;
 import TheDT.characters.Dragon;
 import TheDT.characters.DragonTamer;
-import TheDT.optionals.FriendlyMinionHelper;
+import TheDT.crossovers.FriendlyMinionCrossover;
 import TheDT.patches.CardColorEnum;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -55,7 +55,7 @@ public class MagicField extends AbstractDTCard {
 		}
 
 		if (DTModMain.isFriendlyMinionsLoaded) {
-			FriendlyMinionHelper.giveFriendlyMinionsBlock(magicNumber);
+			FriendlyMinionCrossover.giveFriendlyMinionsBlock(magicNumber);
 		}
 
 		for (AbstractMonster mo : AbstractDungeon.getMonsters().monsters) {

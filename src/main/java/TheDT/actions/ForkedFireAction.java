@@ -2,7 +2,7 @@ package TheDT.actions;
 
 import TheDT.cards.AbstractDTCard;
 import TheDT.characters.Dragon;
-import TheDT.vfx.ForkedFlameEffect;
+import TheDT.vfx.ForkedFireEffect;
 import com.evacipated.cardcrawl.mod.stslib.patches.core.AbstractCreature.TempHPField;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.core.Settings;
@@ -13,7 +13,7 @@ import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 
 import java.util.ArrayList;
 
-public class ForkedFlameAction extends AbstractGameAction {
+public class ForkedFireAction extends AbstractGameAction {
 	private boolean freeToPlayOnce;
 	private int energyOnUse;
 	private Dragon dragon;
@@ -25,7 +25,7 @@ public class ForkedFlameAction extends AbstractGameAction {
 
 	public static final float PERIOD = 0.4f;
 
-	public ForkedFlameAction(Dragon dragon, AbstractDTCard card, boolean freeToPlayOnce, int energyOnUse) {
+	public ForkedFireAction(Dragon dragon, AbstractDTCard card, boolean freeToPlayOnce, int energyOnUse) {
 		this.freeToPlayOnce = freeToPlayOnce;
 		this.duration = Settings.ACTION_DUR_XFAST;
 		this.actionType = ActionType.SPECIAL;
@@ -33,8 +33,8 @@ public class ForkedFlameAction extends AbstractGameAction {
 		this.card = card;
 		this.dragon = dragon;
 
-		ForkedFlameDamageAction.target_queue.clear();
-		ForkedFlameDamageAction.target_damage_queue.clear();
+		ForkedFireDamageAction.target_queue.clear();
+		ForkedFireDamageAction.target_damage_queue.clear();
 	}
 
 	public void update() {
@@ -109,8 +109,8 @@ public class ForkedFlameAction extends AbstractGameAction {
 				}
 			}
 			if (targets.size() > 0) {
-				AbstractDungeon.effectList.add(new ForkedFlameEffect(dragon, PERIOD * i, targets, targets_damage));
-				addToTop(new ForkedFlameDamageAction(dragon));
+				AbstractDungeon.effectList.add(new ForkedFireEffect(dragon, PERIOD * i, targets, targets_damage));
+				addToTop(new ForkedFireDamageAction(dragon));
 			}
 		}
 	}

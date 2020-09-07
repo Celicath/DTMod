@@ -16,8 +16,8 @@ public class Weaken extends AbstractDTCard {
 	private static final AbstractCard.CardTarget TARGET = CardTarget.ENEMY;
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DEFAULT;
 
-	private static final int POWER = 4;
-	private static final int UPGRADE_BONUS = 3;
+	private static final int POWER = 3;
+	private static final int UPGRADE_BONUS = 2;
 
 	public Weaken() {
 		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);

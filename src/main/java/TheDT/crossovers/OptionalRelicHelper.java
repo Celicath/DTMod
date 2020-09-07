@@ -1,4 +1,4 @@
-package TheDT.optionals;
+package TheDT.crossovers;
 
 import TheDT.relics.DragonTamerSkillbook;
 import basemod.BaseMod;

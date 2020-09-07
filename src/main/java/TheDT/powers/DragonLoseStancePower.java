@@ -1,7 +1,10 @@
 package TheDT.powers;
 
 import TheDT.DTModMain;
+import TheDT.Interfaces.RecoloredPower;
 import TheDT.actions.DragonChangeStanceAction;
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -12,7 +15,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.stances.NeutralStance;
 
-public class DragonLoseStancePower extends AbstractPower {
+public class DragonLoseStancePower extends AbstractPower implements RecoloredPower {
 	public static final String RAW_ID = "DragonLoseStancePower";
 	public static final String POWER_ID = DTModMain.makeID(RAW_ID);
 	private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -31,6 +34,16 @@ public class DragonLoseStancePower extends AbstractPower {
 		this.type = PowerType.BUFF;
 		this.isTurnBased = true;
 		this.loadRegion("anger");
+	}
+
+	@Override
+	public Color getIconColor() {
+		return new Color(1.0f, 0.3f, 0.3f, 1.0f);
+	}
+
+	@Override
+	public void renderIcons(SpriteBatch sb, float x, float y, Color c) {
+		super.renderIcons(sb, x, y, new Color(1.0f, 0.3f, 0.3f, c.a));
 	}
 
 	@Override

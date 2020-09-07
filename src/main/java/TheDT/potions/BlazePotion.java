@@ -20,7 +20,7 @@ public class BlazePotion extends CustomPotion {
 	public static final String[] DESCRIPTIONS = potionStrings.DESCRIPTIONS;
 
 	public BlazePotion() {
-		super(potionStrings.NAME, POTION_ID, PotionRarity.PLACEHOLDER, PotionSize.SPHERE, PotionColor.FIRE);
+		super(NAME, POTION_ID, PotionRarity.PLACEHOLDER, PotionSize.SPHERE, PotionColor.FIRE);
 		isThrown = true;
 		targetRequired = true;
 	}
@@ -37,7 +37,7 @@ public class BlazePotion extends CustomPotion {
 	public void use(AbstractCreature target) {
 		DamageInfo info = new DamageInfo(AbstractDungeon.player, potency, DamageInfo.DamageType.THORNS);
 		info.applyEnemyPowersOnly(target);
-		this.addToBot(new DamageAction(target, info, AbstractGameAction.AttackEffect.FIRE));
+		addToBot(new DamageAction(target, info, AbstractGameAction.AttackEffect.FIRE));
 	}
 
 	@Override
