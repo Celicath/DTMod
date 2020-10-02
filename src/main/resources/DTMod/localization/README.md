@@ -10,9 +10,9 @@ This document will explain those features to help localization process.
 
 ### Dragon Status Screen
 
-<img src="https://user-images.githubusercontent.com/1008668/94883043-97088e00-04a4-11eb-9f6b-eca836ea4cb7.png" width="360">
-<img src="https://user-images.githubusercontent.com/1008668/94883048-996ae800-04a4-11eb-9b18-707d5e31519a.png" width="360">
-<img src="https://user-images.githubusercontent.com/1008668/94883340-62490680-04a5-11eb-91eb-329157777dd6.png" width="360">
+![image](https://user-images.githubusercontent.com/1008668/94883043-97088e00-04a4-11eb-9f6b-eca836ea4cb7.png)
+![image](https://user-images.githubusercontent.com/1008668/94883048-996ae800-04a4-11eb-9b18-707d5e31519a.png)
+![image](https://user-images.githubusercontent.com/1008668/94883340-62490680-04a5-11eb-91eb-329157777dd6.png)
 
 This screen gives information about the Dragon. It uses `"DTMod:DragonStatus"` from `ui.json` and `"DTMod:DragonGrowth"`
 from `character.json.`
@@ -26,8 +26,8 @@ image above shows how they are used in tooltips)
 
 ### Choose Attacker Screen
 
-<img src="https://user-images.githubusercontent.com/1008668/94883270-33329500-04a5-11eb-9028-97de4b4a822d.png" width="360">
-<img src="https://user-images.githubusercontent.com/1008668/94883273-3594ef00-04a5-11eb-98db-ed51af28ecd6.png" width="360">
+![image](https://user-images.githubusercontent.com/1008668/94883270-33329500-04a5-11eb-9028-97de4b4a822d.png)
+![image](https://user-images.githubusercontent.com/1008668/94883273-3594ef00-04a5-11eb-98db-ed51af28ecd6.png)
 
 Some cards let you choose either You or Dragon as the attacker. It uses `"DTMod:ChooseAttackerScreen"` from `ui.json`.
 
