@@ -1,6 +1,8 @@
 package TheDT.cards;
 
+import TheDT.Interfaces.ChooseAttackerCard;
 import TheDT.actions.ApplyAggroAction;
+import TheDT.actions.ChooseAttackerAction;
 import TheDT.actions.FastAnimateFastAttackAction;
 import TheDT.actions.FastLoseBlockAction;
 import TheDT.characters.Dragon;
@@ -10,16 +12,15 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
-import com.megacrit.cardcrawl.actions.watcher.ChooseOneAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.combat.CleaveEffect;
 import com.megacrit.cardcrawl.vfx.combat.WhirlwindEffect;
 
-import java.util.ArrayList;
-
-public class RecklessFlurry extends AbstractDTCard {
+public class RecklessFlurry extends AbstractDTCard implements ChooseAttackerCard {
 	public static final String RAW_ID = "RecklessFlurry";
 	private static final int COST = 2;
 	private static final AbstractCard.CardType TYPE = CardType.ATTACK;
@@ -31,86 +32,28 @@ public class RecklessFlurry extends AbstractDTCard {
 	private static final int RATIO = 2;
 	private static final int NEW_COST = 1;
 
-	public static final String RAW_ID_YOU = "RecklessFlurryYou";
-	public static final String RAW_ID_DRAGON = "RecklessFlurryDragon";
-
 	public RecklessFlurry() {
 		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
 		isMultiDamage = true;
 	}
 
 	@Override
+	public void calculateCardDamage(AbstractMonster mo) {
+		baseDamage = AbstractDungeon.player.currentBlock * RATIO;
+		Dragon d = DragonTamer.getLivingDragon();
+		dtBaseDragonDamage = d == null ? 0 : d.currentBlock * RATIO;
+		super.calculateCardDamage(mo);
+	}
+
+	@Override
+	public int calculateCardDamageAsMonster(AbstractCreature attacker, int[] baseDamage, AbstractMonster mo, int[] enemyMultiDamage) {
+		baseDamage[0] = attacker.currentBlock * RATIO;
+		return super.calculateCardDamageAsMonster(attacker, baseDamage, mo, enemyMultiDamage);
+	}
+
+	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		Dragon dragon = DragonTamer.getLivingDragon();
-
-		AbstractDTCard choice1 = new AbstractDTCard(RAW_ID_YOU, -2, TYPE, COLOR, CardRarity.SPECIAL, TARGET, RAW_ID, DTCardTarget.DEFAULT) {
-			{
-				isMultiDamage = true;
-				calculateCardDamage(null);
-			}
-
-			@Override
-			public void upgrade() {
-			}
-
-			@Override
-			public void calculateCardDamage(AbstractMonster mo) {
-				baseDamage = p.currentBlock * RATIO;
-				super.calculateCardDamage(mo);
-			}
-
-			@Override
-			public void use(AbstractPlayer p, AbstractMonster m) {
-			}
-
-			@Override
-			public void onChoseThisOption() {
-				addToBot(new FastLoseBlockAction(p, p.currentBlock));
-				addToBot(new FastAnimateFastAttackAction(p));
-				addToBot(new VFXAction(new WhirlwindEffect(), 0.0F));
-				addToBot(new SFXAction("ATTACK_HEAVY"));
-				addToBot(new VFXAction(p, new CleaveEffect(), 0.0F));
-				addToBot(new DamageAllEnemiesAction(p, multiDamage, damageType, AbstractGameAction.AttackEffect.NONE, true));
-				addToBot(new ApplyAggroAction());
-			}
-		};
-
-		if (dragon != null) {
-			ArrayList<AbstractCard> choices = new ArrayList<>();
-			choices.add(choice1);
-			choices.add(new AbstractDTCard(RAW_ID_DRAGON, -2, TYPE, COLOR, CardRarity.SPECIAL, TARGET, RAW_ID, DTCardTarget.DEFAULT) {
-				{
-					isMultiDamage = true;
-					calculateCardDamage(null);
-				}
-
-				@Override
-				public void upgrade() {
-				}
-
-				@Override
-				public void calculateCardDamage(AbstractMonster mo) {
-					dtBaseDragonDamage = dragon.currentBlock * RATIO;
-					super.calculateCardDamage(mo);
-				}
-
-				@Override
-				public void use(AbstractPlayer p, AbstractMonster m) {
-				}
-
-				@Override
-				public void onChoseThisOption() {
-					addToBot(new FastLoseBlockAction(dragon, dragon.currentBlock));
-					addToBot(new FastAnimateFastAttackAction(dragon));
-					addToBot(new VFXAction(new WhirlwindEffect(), 0.0F));
-					addToBot(new DamageAllEnemiesAction(dragon, dragonMultiDamage, damageType, AbstractGameAction.AttackEffect.FIRE));
-					addToBot(new ApplyAggroAction());
-				}
-			});
-			addToBot(new ChooseOneAction(choices));
-		} else {
-			choice1.onChoseThisOption();
-		}
+		addToBot(new ChooseAttackerAction(this, m, true));
 	}
 
 	public AbstractCard makeCopy() {
@@ -122,5 +65,28 @@ public class RecklessFlurry extends AbstractDTCard {
 			upgradeName();
 			upgradeBaseCost(NEW_COST);
 		}
+	}
+
+	@Override
+	public void onChoseAttacker(AbstractCreature attacker, AbstractMonster m) {
+		addToBot(new FastLoseBlockAction(attacker, attacker.currentBlock));
+		addToBot(new FastAnimateFastAttackAction(attacker));
+		addToBot(new VFXAction(new WhirlwindEffect(), 0.0F));
+		addToBot(new SFXAction("ATTACK_HEAVY"));
+		addToBot(new VFXAction(attacker, new CleaveEffect(), 0.0F));
+		if (attacker instanceof AbstractPlayer) {
+			if (attacker instanceof Dragon) {
+				calculateCardDamage(m);
+				addToBot(new DamageAllEnemiesAction(attacker, dragonMultiDamage, damageType, AbstractGameAction.AttackEffect.NONE, true));
+			} else {
+				calculateCardDamage(m);
+				addToBot(new DamageAllEnemiesAction(attacker, multiDamage, damageType, AbstractGameAction.AttackEffect.NONE, true));
+			}
+		} else {
+			int[] enemyMultiDamage = new int[AbstractDungeon.getCurrRoom().monsters.monsters.size()];
+			calculateCardDamageAsMonster(attacker, new int[]{attacker.currentBlock * RATIO}, m, enemyMultiDamage);
+			addToBot(new DamageAllEnemiesAction(attacker, enemyMultiDamage, damageType, AbstractGameAction.AttackEffect.NONE, true));
+		}
+		addToBot(new ApplyAggroAction());
 	}
 }

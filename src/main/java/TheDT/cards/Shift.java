@@ -1,18 +1,20 @@
 package TheDT.cards;
 
+import TheDT.Interfaces.ChooseAttackerCard;
 import TheDT.actions.AddAggroAction;
 import TheDT.actions.ApplyAggroAction;
+import TheDT.actions.ChooseAttackerAction;
 import TheDT.characters.Dragon;
 import TheDT.characters.DragonTamer;
 import TheDT.patches.CardColorEnum;
-import com.megacrit.cardcrawl.actions.watcher.ChooseOneAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import java.util.ArrayList;
 
-public class Shift extends AbstractDTCard {
+public class Shift extends AbstractDTCard implements ChooseAttackerCard {
 	public static final String RAW_ID = "Shift";
 	private static final int COST = 0;
 	private static final AbstractCard.CardType TYPE = CardType.SKILL;
@@ -21,8 +23,6 @@ public class Shift extends AbstractDTCard {
 	private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.BOTH;
 
-	public static final String RAW_ID_YOU = "ShiftYou";
-	public static final String RAW_ID_DRAGON = "ShiftDragon";
 	private static final int AGGRO = 7;
 
 	public Shift() {
@@ -33,82 +33,41 @@ public class Shift extends AbstractDTCard {
 	}
 
 	@Override
-	public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-		boolean result = super.canUse(p, m);
-		if (result && DragonTamer.getLivingDragon() == null) {
-			cantUseMessage = dragonNotAvailableMessage();
-			return false;
-		}
-		return result;
-	}
-
-	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		Dragon dragon = DragonTamer.getLivingDragon();
-
-		int outerMagicNumber = magicNumber;
-		if (dragon != null) {
-			if (upgraded) {
-				ArrayList<AbstractCard> choices = new ArrayList<>();
-				choices.add(new AbstractDTCard(RAW_ID_YOU, -2, TYPE, COLOR, CardRarity.SPECIAL, TARGET, RAW_ID, DTCardTarget.DEFAULT) {
-					{
-						magicNumber = baseMagicNumber = outerMagicNumber;
-					}
-
-					@Override
-					public void upgrade() {
-					}
-
-					@Override
-					public void use(AbstractPlayer p, AbstractMonster m) {
-					}
-
-					@Override
-					public void onChoseThisOption() {
-						addToBot(new AddAggroAction(false, magicNumber));
-						addToBot(new ApplyAggroAction());
-					}
-				});
-				choices.add(new AbstractDTCard(RAW_ID_DRAGON, -2, TYPE, COLOR, CardRarity.SPECIAL, TARGET, RAW_ID, DTCardTarget.DRAGON_ONLY) {
-					{
-						magicNumber = baseMagicNumber = outerMagicNumber;
-					}
-
-					@Override
-					public void upgrade() {
-					}
-
-					@Override
-					public void use(AbstractPlayer p, AbstractMonster m) {
-					}
-
-					@Override
-					public void onChoseThisOption() {
-						addToBot(new AddAggroAction(true, magicNumber));
-						addToBot(new ApplyAggroAction());
-					}
-				});
-				addToBot(new ChooseOneAction(choices));
+		if (upgraded) {
+			ArrayList<AbstractCard> choices = new ArrayList<>();
+			addToBot(new ChooseAttackerAction(this, m, false));
+		} else {
+			if (DragonTamer.isFrontDragon()) {
+				addToBot(new AddAggroAction(false, magicNumber));
 			} else {
-				if (DragonTamer.isFrontDragon()) {
-					addToBot(new AddAggroAction(false, magicNumber));
-				} else {
-					addToBot(new AddAggroAction(true, magicNumber));
-				}
-				addToBot(new ApplyAggroAction());
+				addToBot(new AddAggroAction(true, magicNumber));
 			}
 		}
 	}
 
+	@Override
 	public AbstractCard makeCopy() {
 		return new Shift();
 	}
 
+	@Override
 	public void upgrade() {
 		if (!upgraded) {
 			upgradeName();
 			rawDescription = UPGRADE_DESCRIPTION;
 			initializeDescription();
 		}
+	}
+
+	@Override
+	public void onChoseAttacker(AbstractCreature attacker, AbstractMonster m) {
+		addToBot(new AddAggroAction(attacker instanceof Dragon, magicNumber));
+		addToBot(new ApplyAggroAction());
+	}
+
+	@Override
+	public String hoverText(AbstractCreature hovered, AbstractMonster m) {
+		return ApplyAggroAction.getAggroText(magicNumber);
 	}
 }

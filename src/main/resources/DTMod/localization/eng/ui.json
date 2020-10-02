@@ -9,6 +9,11 @@
       "Choose a Card to put on top."
     ]
   },
+  "DTMod:HasteAction": {
+    "TEXT": [
+      "Play"
+    ]
+  },
   "DTMod:Aggro": {
     "TEXT": [
       "Aggro+",
@@ -24,7 +29,7 @@
       " more #yAggro than [#60D0D0]Dragon[].",
       "[#60D0D0]Dragon[] is the #yFront. NL [#60D0D0]Dragon[] has #b",
       " more #yAggro than [#60D0D0]You[].",
-      "[#60D0D0]You[] are fighting solo. NL You cannot gain #yBonding. NL [#60D0D0]You[] are considered as both the #yFront and the #yRear."
+      "[#60D0D0]You[] are fighting solo. NL [#60D0D0]You[] are considered as both the #yFront and the #yRear."
     ]
   },
   "DTMod:RestOption": {
@@ -94,24 +99,35 @@
   },
   "DTMod:DragonPotionDescription": {
     "TEXT": [
-      "[#60D0D0]Dragon[] ",
-      "",
       "Available for Dragon",
       "[#60D0D0]Dragon[] can drink this potion. (Only in battle)",
-      "When [#60D0D0]Dragon[] is fainted, you can use this potion to revive [#60D0D0]Dragon[] with #b",
+      "When [#60D0D0]Dragon[]'s HP becomes 0, you can use this potion to revive [#60D0D0]Dragon[] with #b",
       "% HP."
     ]
   },
-  "DTMod:DragonPotionDescriptionSubstitute": {
+  "DTMod:DragonRelicDescription": {
     "TEXT": [
-      "gain",
-      "gains",
-      "heal",
-      "heals",
-      "enter",
-      "enters",
-      "lose",
-      "[#60D0D0]Dragon[] loses"
+      "Affects Dragon",
+      "This relic also affects [#60D0D0]Dragon[]."
+    ]
+  },
+  "DTMod:ChooseAttackerScreen": {
+    "TEXT": [
+      "Choose the attacker",
+      "Choose the character",
+      "",
+      " Damage"
+    ]
+  },
+  "DTMod:Config": {
+    "TEXT": [
+      "Enemy target display",
+      "Target change",
+      "Taunted enemy's attack",
+      "Hover (Enemy)",
+      "Hover (Front Marker)",
+      "All (Default)",
+      "None"
     ]
   }
 }

@@ -7,7 +7,6 @@ import TheDT.characters.DragonTamer;
 import TheDT.crossovers.GathererCrossover;
 import TheDT.patches.CardColorEnum;
 import TheDT.potions.BlazePotion;
-import TheDT.potions.LesserBlazePotion;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;

@@ -3,7 +3,9 @@ package TheDT.powers;
 import TheDT.DTModMain;
 import TheDT.characters.DragonTamer;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -24,6 +26,8 @@ public class MagiciansMarkPower extends AbstractPower {
 	public static final TextureAtlas.AtlasRegion IMG48 = new TextureAtlas.AtlasRegion(
 			ImageMaster.loadImage(DTModMain.GetPowerPath(RAW_ID, 48)), 0, 0, 32, 32);
 
+	boolean alreadyRemoving = false;
+
 	public MagiciansMarkPower(AbstractCreature owner, int amount) {
 		this.name = NAME;
 		this.ID = POWER_ID;
@@ -40,7 +44,25 @@ public class MagiciansMarkPower extends AbstractPower {
 		if (info.type != DamageInfo.DamageType.THORNS && info.type != DamageInfo.DamageType.HP_LOSS && info.owner != null && info.owner == DragonTamer.getLivingDragon()) {
 			flash();
 			AbstractPlayer p = AbstractDungeon.player;
-			addToTop(new ApplyPowerAction(p, p, new BondingPower(p, p, amount), amount));
+			MagiciansMarkPower thisPower = this;
+			addToBot(new AbstractGameAction() {
+				@Override
+				public void update() {
+					if (thisPower.amount > 1) {
+						reducePower(1);
+						updateDescription();
+						AbstractDungeon.onModifyPower();
+						addToTop(new ApplyPowerAction(p, p, new BondingPower(p, p, 1), 1));
+					} else {
+						if (!alreadyRemoving) {
+							alreadyRemoving = true;
+							addToTop(new RemoveSpecificPowerAction(owner, owner, thisPower));
+							addToTop(new ApplyPowerAction(p, p, new BondingPower(p, p, 1), 1));
+						}
+					}
+					isDone = true;
+				}
+			});
 		}
 
 		return damageAmount;

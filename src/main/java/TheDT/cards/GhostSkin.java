@@ -20,12 +20,12 @@ public class GhostSkin extends AbstractDTCard {
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DRAGON_ONLY;
 
 	private static final int INTANGIBLE = 1;
-	private static final int DEXTERITY_LOSS = 5;
-	private static final int NEW_COST = 0;
+	private static final int DEXTERITY_LOSS = 3;
+	private static final int DEXTERITY_UPGRADE = -2;
 
 	public GhostSkin() {
 		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
-		baseMagicNumber = magicNumber = INTANGIBLE;
+		baseMagicNumber = magicNumber = DEXTERITY_LOSS;
 		exhaust = true;
 	}
 
@@ -44,10 +44,8 @@ public class GhostSkin extends AbstractDTCard {
 		Dragon dragon = DragonTamer.getLivingDragon();
 
 		if (dragon != null) {
-			addToBot(new ApplyPowerAction(dragon, dragon, new IntangiblePlayerPower(dragon, magicNumber), magicNumber));
-			if (DragonTamer.isFrontDragon()) {
-				addToBot(new ApplyPowerAction(dragon, dragon, new DexterityPower(dragon, -DEXTERITY_LOSS), -DEXTERITY_LOSS));
-			}
+			addToBot(new ApplyPowerAction(dragon, dragon, new IntangiblePlayerPower(dragon, INTANGIBLE), INTANGIBLE));
+			addToBot(new ApplyPowerAction(dragon, dragon, new DexterityPower(dragon, -magicNumber), -magicNumber));
 		}
 	}
 
@@ -58,7 +56,7 @@ public class GhostSkin extends AbstractDTCard {
 	public void upgrade() {
 		if (!upgraded) {
 			upgradeName();
-			upgradeBaseCost(NEW_COST);
+			upgradeMagicNumber(DEXTERITY_UPGRADE);
 		}
 	}
 }

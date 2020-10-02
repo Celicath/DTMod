@@ -19,7 +19,7 @@ public class BuildUp extends AbstractDTCard {
 	private static final AbstractCard.CardTarget TARGET = CardTarget.ENEMY;
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DEFAULT;
 
-	private static final int DAMAGE = 6;
+	private static final int DAMAGE = 7;
 	private static final int UPGRADE_DAMAGE = 2;
 	private static final int MAGIC = 4;
 	private static final int UPGRADE_MAGIC = 2;

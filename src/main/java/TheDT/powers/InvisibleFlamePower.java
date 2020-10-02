@@ -47,7 +47,7 @@ public class InvisibleFlamePower extends AbstractPower {
 	public void onAttack(DamageInfo info, int damageAmount, AbstractCreature target) {
 		if (prevAction != AbstractDungeon.actionManager.currentAction) {
 			if (info.type != DamageInfo.DamageType.THORNS && info.type != DamageInfo.DamageType.HP_LOSS && info.owner == owner) {
-				if (AbstractDungeon.player instanceof DragonTamer && ((DragonTamer) AbstractDungeon.player).front == owner) {
+				if (!(AbstractDungeon.player instanceof DragonTamer) || ((DragonTamer) AbstractDungeon.player).front == owner) {
 					prevAction = AbstractDungeon.actionManager.currentAction;
 					flash();
 					addToBot(new DamageAllEnemiesAction(null, DamageInfo.createDamageMatrix(amount, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.FIRE));
@@ -55,5 +55,4 @@ public class InvisibleFlamePower extends AbstractPower {
 			}
 		}
 	}
-
 }

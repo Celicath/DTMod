@@ -1,37 +1,37 @@
 package TheDT.patches;
 
 import TheDT.DTModMain;
-import TheDT.cards.AbstractDTCard;
 import TheDT.characters.Dragon;
 import TheDT.characters.DragonTamer;
+import basemod.BaseMod;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
-import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
-import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch;
-import com.megacrit.cardcrawl.actions.watcher.ChooseOneAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.GameCursor;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.events.shrines.WeMeetAgain;
+import com.megacrit.cardcrawl.helpers.Hitbox;
 import com.megacrit.cardcrawl.helpers.PowerTip;
+import com.megacrit.cardcrawl.helpers.controller.CInputActionSet;
 import com.megacrit.cardcrawl.helpers.input.InputHelper;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.metrics.MetricData;
 import com.megacrit.cardcrawl.potions.*;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.ui.panels.PotionPopUp;
-import javassist.CannotCompileException;
-import javassist.expr.ExprEditor;
-import javassist.expr.MethodCall;
+import javassist.CtBehavior;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Iterator;
 
 public class DragonPotionPatch {
-	private static final String[] uiAdd = CardCrawlGame.languagePack.getUIString(DTModMain.makeID("DragonPotionDescription")).TEXT;
-	private static final String[] uiSubstitute = CardCrawlGame.languagePack.getUIString(DTModMain.makeID("DragonPotionDescriptionSubstitute")).TEXT;
+	private static final String[] TEXT = CardCrawlGame.languagePack.getUIString(DTModMain.makeID("DragonPotionDescription")).TEXT;
 	public static final HashSet<String> potionPatchlist = new HashSet<>(Arrays.asList(
 			AncientPotion.POTION_ID,
 			BlockPotion.POTION_ID,
@@ -49,12 +49,16 @@ public class DragonPotionPatch {
 			CultistPotion.POTION_ID
 	));
 
+	public static boolean targetModeHijack = false;
+	public static boolean autoTargetFirst = false;
+	public static AbstractPlayer hoveredPlayer = null;
+
 	public static void addTipsToPotions(AbstractPotion potion) {
 		if (AbstractDungeon.player instanceof DragonTamer || AbstractDungeon.player instanceof Dragon) {
 			if (potionPatchlist.contains(potion.ID)) {
-				potion.tips.add(new PowerTip(uiAdd[2], uiAdd[3]));
+				potion.tips.add(new PowerTip(TEXT[0], TEXT[1]));
 			} else if (potion.ID.equals(FairyPotion.POTION_ID)) {
-				potion.tips.add(new PowerTip(uiAdd[2], uiAdd[4] + potion.getPotency() + uiAdd[5]));
+				potion.tips.add(new PowerTip(TEXT[0], TEXT[2] + potion.getPotency() + TEXT[3]));
 			}
 		}
 	}
@@ -116,147 +120,188 @@ public class DragonPotionPatch {
 
 	@SpirePatch(clz = PotionPopUp.class, method = "updateInput")
 	public static class PotionDrinkPatch {
-		public static ExprEditor Instrument() {
-			return new ExprEditor() {
-				@Override
-				public void edit(MethodCall m) throws CannotCompileException {
-					if (m.getClassName().equals("com.megacrit.cardcrawl.potions.AbstractPotion") && m.getMethodName().equals("use")) {
-						m.replace("" +
-								"if (!potion.isThrown && com.megacrit.cardcrawl.dungeons.AbstractDungeon.player instanceof TheDT.characters.DragonTamer) {" +
-								PotionDrinkPatch.class.getName() + ".Do(potion);" +
-								"} else {" +
-								"   $_ = $proceed($$);" +
-								"}"
-						);
-					}
-				}
-			};
-		}
-
-		static String convertPotionText(AbstractPotion potion) {
-			StringBuilder sb = new StringBuilder();
-			boolean first = true;
-			for (String word : potion.description.split(" ")) {
-				if (first) first = false;
-				else sb.append(' ');
-				if ((word.length() > 0) && (word.charAt(0) == '#')) {
-					switch (word.charAt(1)) {
-						case 'r':
-							word = "[#ff6563]" + word.substring(2) + "[]]";
-							break;
-						case 'g':
-							word = "[#7fff00]" + word.substring(2) + "[]";
-							break;
-						case 'b':
-							word = "[#87ceeb]" + word.substring(2) + "[]";
-							break;
-						case 'y':
-							word = "[#efc851]" + word.substring(2) + "[]";
-							break;
-					}
-				}
-				sb.append(word);
-			}
-			return sb.toString();
-		}
-
-		static String dragonify(String text) {
-			StringBuilder sb = new StringBuilder(uiAdd[0]);
-			boolean first = true;
-			for (String word : text.split(" ")) {
-				if (first) {
-					word = word.toLowerCase();
-					first = false;
-				} else {
-					sb.append(' ');
-				}
-				for (int i = 0; i < uiSubstitute.length / 2; i++) {
-					if (word.equals(uiSubstitute[2 * i])) {
-						word = uiSubstitute[2 * i + 1];
-					}
-				}
-
-				sb.append(word);
-			}
-			return sb + uiAdd[1];
-		}
-
-		@SuppressWarnings("unused")
-		public static void Do(AbstractPotion potion) {
-			if (potion instanceof FairyPotion) {
-				Dragon d = DragonTamer.getDragon();
-				if (d != null) {
-					d.isDead = false;
-					boolean modified = false;
-					Iterator<AbstractPower> it = d.powers.iterator();
-					while (it.hasNext()) {
-						AbstractPower p = it.next();
-						if (p.type == AbstractPower.PowerType.DEBUFF) {
-							p.onRemove();
-							it.remove();
-							modified = true;
+		@SpireInsertPatch(locator = HijackLocator.class)
+		public static SpireReturn<Void> InsertHijack(PotionPopUp __instance, AbstractPotion ___potion) {
+			if (AbstractDungeon.player instanceof DragonTamer) {
+				if (___potion instanceof FairyPotion) {
+					Dragon d = DragonTamer.getDragon();
+					if (d != null) {
+						d.isDead = false;
+						boolean modified = false;
+						Iterator<AbstractPower> it = d.powers.iterator();
+						while (it.hasNext()) {
+							AbstractPower p = it.next();
+							if (p.type == AbstractPower.PowerType.DEBUFF) {
+								p.onRemove();
+								it.remove();
+								modified = true;
+							}
 						}
+						if (modified) {
+							AbstractDungeon.onModifyPower();
+						}
+						AbstractPlayer prevPlayer = AbstractDungeon.player;
+						AbstractDungeon.player = d;
+						___potion.use(null);
+						AbstractDungeon.player = prevPlayer;
 					}
-					if (modified) {
-						AbstractDungeon.onModifyPower();
-					}
-					AbstractPlayer prevPlayer = AbstractDungeon.player;
-					AbstractDungeon.player = d;
-					potion.use(null);
-					AbstractDungeon.player = prevPlayer;
+					return SpireReturn.Continue();
 				}
-				return;
+
+				Dragon d = DragonTamer.getLivingDragon();
+				if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT && d != null && potionPatchlist.contains(___potion.ID)) {
+					__instance.targetMode = true;
+					targetModeHijack = true;
+					GameCursor.hidden = true;
+					autoTargetFirst = true;
+					__instance.close();
+					return SpireReturn.Return(null);
+				}
+			}
+			return SpireReturn.Continue();
+		}
+
+		@SpireInsertPatch(locator = CancelHijackLocator.class)
+		public static void InsertCancelHijack(PotionPopUp __instance) {
+			targetModeHijack = false;
+		}
+	}
+
+	private static class HijackLocator extends SpireInsertLocator {
+		@Override
+		public int[] Locate(CtBehavior ctMethodToPatch) throws Exception {
+			Matcher finalMatcher = new Matcher.FieldAccessMatcher(MetricData.class, "potions_floor_usage");
+			return LineFinder.findInOrder(ctMethodToPatch, finalMatcher);
+		}
+	}
+
+	private static class CancelHijackLocator extends SpireInsertLocator {
+		@Override
+		public int[] Locate(CtBehavior ctMethodToPatch) throws Exception {
+			Matcher finalMatcher = new Matcher.FieldAccessMatcher(PotionPopUp.class, "targetMode");
+			return LineFinder.findInOrder(ctMethodToPatch, finalMatcher);
+		}
+	}
+
+
+	@SpirePatch(clz = PotionPopUp.class, method = "updateControllerTargetInput")
+	public static class PotionTargetControllerPatch {
+		@SpirePrefixPatch
+		public static SpireReturn<Void> Prefix(PotionPopUp __instance) {
+			if (!targetModeHijack) {
+				return SpireReturn.Continue();
+			}
+			if (Settings.isControllerMode) {
+				int offsetIndex = 0;
+
+				if (CInputActionSet.left.isJustPressed() || CInputActionSet.altLeft.isJustPressed()) {
+					--offsetIndex;
+				}
+
+				if (CInputActionSet.right.isJustPressed() || CInputActionSet.altRight.isJustPressed()) {
+					++offsetIndex;
+				}
+
+				if (autoTargetFirst) {
+					autoTargetFirst = false;
+					offsetIndex = 1;
+				}
+
+				if (offsetIndex != 0) {
+					Dragon d = DragonTamer.getLivingDragon();
+
+					int index = -1;
+					if (AbstractDungeon.player.hb.hovered) {
+						index = 0;
+					}
+					if (d != null && d.hb.hovered) {
+						index = 1;
+					}
+
+					index += offsetIndex;
+					if (index > 1) {
+						index = 0;
+					} else if (index < 0) {
+						index = 1;
+					}
+
+					if (index == 1 && d == null) {
+						index = 0;
+					}
+
+					Hitbox target = index == 1 ? d.hb : AbstractDungeon.player.hb;
+					Gdx.input.setCursorPosition((int) target.cX, Settings.HEIGHT - (int) target.cY);
+				}
+			}
+			return SpireReturn.Return(null);
+		}
+	}
+
+	@SpirePatch(clz = PotionPopUp.class, method = "updateTargetMode")
+	public static class PotionTargetPatch {
+		@SpirePrefixPatch
+		public static SpireReturn<Void> Prefix(PotionPopUp __instance, AbstractPotion ___potion, int ___slot) {
+			if (!targetModeHijack) {
+				return SpireReturn.Continue();
+			}
+
+			if (InputHelper.justClickedRight || AbstractDungeon.isScreenUp || InputHelper.mY > Settings.HEIGHT - 80.0F * Settings.scale || AbstractDungeon.player.hoveredCard != null || InputHelper.mY < 140.0F * Settings.scale || CInputActionSet.cancel.isJustPressed()) {
+				CInputActionSet.cancel.unpress();
+				__instance.targetMode = false;
+				targetModeHijack = false;
+				GameCursor.hidden = false;
+			}
+
+			hoveredPlayer = null;
+			if (AbstractDungeon.player.hb.hovered) {
+				hoveredPlayer = AbstractDungeon.player;
 			}
 			Dragon d = DragonTamer.getLivingDragon();
-			if (AbstractDungeon.getCurrRoom().phase != AbstractRoom.RoomPhase.COMBAT || d == null || !potionPatchlist.contains(potion.ID)) {
-				potion.use(null);
-				return;
+			if (d != null && d.hb.hovered) {
+				hoveredPlayer = d;
 			}
 
-			InputHelper.moveCursorToNeutralPosition();
-			ArrayList<AbstractCard> choices = new ArrayList<>();
-			choices.add(new AbstractDTCard(DTModMain.CHOICE_ID_YOU, -2, AbstractCard.CardType.SKILL, CardColorEnum.DT_ORANGE, AbstractCard.CardRarity.SPECIAL, AbstractCard.CardTarget.SELF, AbstractDTCard.DTCardTarget.DEFAULT) {
-				{
-					rawDescription = convertPotionText(potion);
-					initializeDescription();
-				}
+			if (InputHelper.justClickedLeft || CInputActionSet.select.isJustPressed()) {
+				InputHelper.justClickedLeft = false;
+				CInputActionSet.select.unpress();
+				if (hoveredPlayer != null) {
+					CardCrawlGame.metricData.potions_floor_usage.add(AbstractDungeon.floorNum);
 
-				@Override
-				public void upgrade() {
-				}
+					BaseMod.publishPrePotionUse(___potion);
+					if (hoveredPlayer == d) {
+						AbstractPlayer prev = AbstractDungeon.player;
+						AbstractDungeon.player = DragonTamer.getDragon();
+						___potion.use(null);
+						AbstractDungeon.player = prev;
+					} else {
+						___potion.use(null);
+					}
 
-				@Override
-				public void use(AbstractPlayer p, AbstractMonster m) {
-				}
+					for (AbstractRelic r : AbstractDungeon.player.relics) {
+						r.onUsePotion();
+					}
 
-				@Override
-				public void onChoseThisOption() {
-					potion.use(null);
-				}
-			});
-			choices.add(new AbstractDTCard(DTModMain.CHOICE_ID_DRAGON, -2, AbstractCard.CardType.SKILL, CardColorEnum.DT_ORANGE, AbstractCard.CardRarity.SPECIAL, AbstractCard.CardTarget.SELF, AbstractDTCard.DTCardTarget.DEFAULT) {
-				{
-					rawDescription = dragonify(convertPotionText(potion));
-					initializeDescription();
-				}
+					CardCrawlGame.sound.play("POTION_1");// 287
+					AbstractDungeon.topPanel.destroyPotion(___slot);
+					BaseMod.publishPostPotionUse(___potion);
 
-				@Override
-				public void upgrade() {
+					__instance.targetMode = false;
+					targetModeHijack = false;
+					GameCursor.hidden = false;
 				}
+			}
 
-				@Override
-				public void use(AbstractPlayer p, AbstractMonster m) {
-				}
+			return SpireReturn.Return(null);
+		}
+	}
 
-				@Override
-				public void onChoseThisOption() {
-					AbstractPlayer prev = AbstractDungeon.player;
-					AbstractDungeon.player = DragonTamer.getDragon();
-					potion.use(null);
-					AbstractDungeon.player = prev;
-				}
-			});
-			AbstractDungeon.actionManager.addToBottom(new ChooseOneAction(choices));
+	@SpirePatch(clz = PotionPopUp.class, method = "renderTargetingUi")
+	public static class PotionTargetRenderPatch {
+		@SpirePrefixPatch
+		public static void Prefix(PotionPopUp __instance, SpriteBatch sb) {
+			if (targetModeHijack && hoveredPlayer != null) {
+				hoveredPlayer.renderReticle(sb);
+			}
 		}
 	}
 }

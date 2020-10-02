@@ -17,6 +17,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
+import com.megacrit.cardcrawl.helpers.controller.CInputActionSet;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.screens.CombatRewardScreen;
 
@@ -29,9 +30,9 @@ public class DragonStatusScreen {
 	public DragonGrowthCard[][] dragonGrowthCards;
 	public DragonStatusScrollButton[] dragonStatusScrollButtons;
 
-	private float yOffset;
+	public float yOffset;
 	private float ySpeed;
-	private float targetOffset;
+	public float targetOffset;
 
 	Dragon dragon;
 	int curTier;
@@ -68,7 +69,10 @@ public class DragonStatusScreen {
 		AbstractDungeon.overlayMenu.proceedButton.hide();
 		AbstractDungeon.overlayMenu.cancelButton.show(TEXT[20]);
 		resetPositions();
-		yOffset = targetOffset = (curTier - 1) * Settings.HEIGHT;
+		if (targetOffset < (curTier - 1) * Settings.HEIGHT) {
+			targetOffset = (curTier - 1) * Settings.HEIGHT;
+		}
+		yOffset = targetOffset;
 		ySpeed = 0;
 		reopen();
 	}
@@ -189,6 +193,47 @@ public class DragonStatusScreen {
 			for (int i = curTier == 2 ? 2 : curTier == 3 ? dragonStatusScrollButtons.length : 0; i < dragonStatusScrollButtons.length; i++) {
 				dragonStatusScrollButtons[i].setYOffset(yOffset);
 				dragonStatusScrollButtons[i].update();
+			}
+		} else {
+			if (Settings.isControllerMode && !AbstractDungeon.topPanel.selectPotionMode && AbstractDungeon.topPanel.potionUi.isHidden && !AbstractDungeon.player.viewingRelics) {
+				int index = 0;
+				boolean anyHovered = false;
+
+				for (; index < dragonGrowthCards[curTier + 1].length; index++) {
+					if (dragonGrowthCards[curTier + 1][index].hovered) {
+						anyHovered = true;
+						break;
+					}
+				}
+
+				if (!anyHovered) {
+					index = 0;
+					Gdx.input.setCursorPosition(Settings.WIDTH * 14 / 100, Settings.HEIGHT / 2);
+				} else if (CInputActionSet.right.isJustPressed() || CInputActionSet.altRight.isJustPressed()) {
+					do {
+						++index;
+						if (index >= dragonGrowthCards[curTier + 1].length) {
+							index = 0;
+							break;
+						}
+					} while (!dragonGrowthCards[curTier + 1][index].isClickable());
+
+					Gdx.input.setCursorPosition(Settings.WIDTH * (14 + 18 * index) / 100, Settings.HEIGHT / 2);
+				} else if (CInputActionSet.left.isJustPressed() || CInputActionSet.altLeft.isJustPressed()) {
+					do {
+						++index;
+						if (index < 0) {
+							index = dragonGrowthCards[curTier + 1].length - 1;
+						}
+					} while (!dragonGrowthCards[curTier + 1][index].isClickable());
+
+					Gdx.input.setCursorPosition(Settings.WIDTH * (14 + 18 * index) / 100, Settings.HEIGHT / 2);
+				}
+
+				if (CInputActionSet.select.isJustPressed()) {
+					CInputActionSet.select.unpress();
+					onClickCard(curTier + 1, index);
+				}
 			}
 		}
 	}

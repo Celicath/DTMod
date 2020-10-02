@@ -59,6 +59,10 @@ public class DragonDance extends AbstractDTCard {
 		if (!upgraded) {
 			upgradeName();
 			upgradeMagicNumber(UPGRADE_BONUS);
+			if (UPGRADE_DESCRIPTION != null) {
+				rawDescription = UPGRADE_DESCRIPTION;
+				initializeDescription();
+			}
 		}
 	}
 }

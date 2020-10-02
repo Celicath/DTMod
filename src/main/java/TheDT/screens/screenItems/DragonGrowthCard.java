@@ -11,7 +11,6 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.MathHelper;
 import com.megacrit.cardcrawl.helpers.TipHelper;
 import com.megacrit.cardcrawl.helpers.input.InputHelper;
-import javafx.util.Pair;
 
 import java.util.function.BiConsumer;
 
@@ -40,6 +39,8 @@ public class DragonGrowthCard extends ClickableUIElement {
 	boolean curTier;
 	int current = 0, goal = 0;
 	BiConsumer<Integer, Integer> callback;
+
+	public boolean hovered = false;
 
 	public static final Color uiColorHover = Color.WHITE.cpy();
 	public static final Color uiColorUnhover = new Color(0.8f, 0.8f, 0.8f, 0.9f);
@@ -72,6 +73,7 @@ public class DragonGrowthCard extends ClickableUIElement {
 		if (isClickable()) {
 			uiScale = MathHelper.fadeLerpSnap(uiScale, 1.025F);
 			uiColor = uiColorHover;
+			hovered = true;
 		}
 	}
 
@@ -79,6 +81,7 @@ public class DragonGrowthCard extends ClickableUIElement {
 	protected void onUnhover() {
 		uiScale = MathHelper.cardScaleLerpSnap(uiScale, 1.0F);
 		uiColor = uiColorUnhover;
+		hovered = false;
 	}
 
 	public void setProgress(int current, int goal) {

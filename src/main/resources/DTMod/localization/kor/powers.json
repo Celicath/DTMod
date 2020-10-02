@@ -38,13 +38,12 @@
   "DTMod:TauntPower": {
     "NAME": "도발당함",
     "DESCRIPTIONS": [
-      "이번 턴에, ",
-      "#b",
-      " 턴 동안, ",
-      "이 적은 #y전위를 무시하고",
+      "이번 턴에, 이 적은 #y전위 [REMOVE_SPACE]를 무시하고 ",
       "[#60D0D0]당신[]을",
       "[#60D0D0]드래곤[]을",
-      " 공격합니다."
+      " 공격합니다.",
+      " [REMOVE_SPACE]을",
+      " [REMOVE_SPACE]를"
     ]
   },
   "DTMod:LastStandPower": {
@@ -90,8 +89,8 @@
   "DTMod:MagiciansMarkPower": {
     "NAME": "마술사의 징표",
     "DESCRIPTIONS": [
-      "[#60D0D0]드래곤[]이 이 적을 공격하면, #y결속 [REMOVE_SPACE]을 #b",
-      " 얻습니다."
+      "다음 #b",
+      "번 동안 [#60D0D0]드래곤[]이 이 적을 공격할 때마다, #y결속 [REMOVE_SPACE]을 #b1 얻습니다."
     ]
   },
   "DTMod:StunTrapPower": {
@@ -110,7 +109,7 @@
       "턴 시작 시 #y후위 [REMOVE_SPACE]의 방어도가 사라지지 않습니다."
     ]
   },
-  "DTMod:BattleHarmonyPower": {
+  "DTMod:HarmonizePower": {
     "NAME": "조화로운 전투",
     "DESCRIPTIONS": [
       "한 턴에 [#60D0D0]당신[]과 [#60D0D0]드래곤[]이 모두 공격하면, #y결속 [REMOVE_SPACE]을 #b",

@@ -27,8 +27,8 @@
     "NAME": "Odd Armor",
     "FLAVOR": "Because it looks odd, people don't want to wear it even though it's powerful.",
     "DESCRIPTIONS": [
-      "On odd-numbered turns, [#60D0D0]You[] take #b",
-      " less damage from attacks. NL On even-numbered turns, [#60D0D0]Dragon[] takes #b",
+      "On odd-numbered turns, [#60D0D0]Dragon[] takes #b",
+      " less damage from attacks. NL On even-numbered turns, [#60D0D0]You[] take #b",
       " less damage from attacks."
     ]
   },
@@ -70,7 +70,7 @@
   },
   "DTMod:SwitchButton": {
     "NAME": "Switch Button",
-    "FLAVOR": "Do NOT press this button!",
+    "FLAVOR": "Do NOT touch this button!",
     "DESCRIPTIONS": [
       "[#2aecd7]Once [#2aecd7]per [#2aecd7]combat, [#2aecd7]right [#2aecd7]click [#2aecd7]to [#2aecd7]activate.[] [#60D0D0]You[] and [#60D0D0]Dragon[] swaps #yragontaer:Aggro."
     ]
@@ -96,6 +96,15 @@
     "FLAVOR": "This comfortable chair makes you energized, but switching from rest mode becomes harder. Unless you're talented.",
     "DESCRIPTIONS": [
       "Gain [E] at the start of your turn. On turn #b1, you only draw #yInnate cards and cards in Bottle relics."
+    ]
+  },
+  "DTMod:MindBender": {
+    "NAME": "Mind Bender",
+    "FLAVOR": "Banned outside of spire.",
+    "DESCRIPTIONS": [
+      "When you play a card that let you choose the attacker, you may pick any enemy as the attacker.",
+      "'Choose the Attacker' cards",
+      "- Reckless Flurry NL - Taunting Strike NL - Tri Attack"
     ]
   }
 }

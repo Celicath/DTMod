@@ -2,14 +2,12 @@ package TheDT.patches;
 
 import TheDT.characters.Dragon;
 import TheDT.characters.DragonTamer;
-import com.evacipated.cardcrawl.mod.stslib.patches.core.AbstractCreature.TempHPField;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.BarricadePower;
 import com.megacrit.cardcrawl.powers.BlurPower;
-import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import javassist.CtBehavior;
 
 public class DragonCombatPatch {

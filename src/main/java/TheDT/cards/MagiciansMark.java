@@ -13,16 +13,17 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public class MagiciansMark extends AbstractDTCard {
 	public static final String RAW_ID = "MagiciansMark";
-	private static final int COST = 2;
+	private static final int COST = 1;
 	private static final AbstractCard.CardType TYPE = CardType.ATTACK;
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.DT_ORANGE;
 	private static final AbstractCard.CardRarity RARITY = CardRarity.UNCOMMON;
 	private static final AbstractCard.CardTarget TARGET = CardTarget.ENEMY;
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DEFAULT;
 
-	private static final int POWER = 12;
-	private static final int UPGRADE_BONUS = 8;
-	private static final int MAGIC = 1;
+	private static final int POWER = 10;
+	private static final int UPGRADE_BONUS = 3;
+	private static final int MAGIC = 4;
+	private static final int UPGRADE_MAGIC = 3;
 
 	public MagiciansMark() {
 		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
@@ -46,6 +47,7 @@ public class MagiciansMark extends AbstractDTCard {
 		if (!upgraded) {
 			upgradeName();
 			upgradeDamage(UPGRADE_BONUS);
+			upgradeMagicNumber(UPGRADE_MAGIC);
 		}
 	}
 }

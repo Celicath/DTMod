@@ -4,7 +4,7 @@
     "NAMES": [
       "bonding"
     ],
-    "DESCRIPTION": "Whenever your team gains #b5 #yBonding, choose #b1 of #b3 random bonuses. The bonuses are stronger variations of potion effects."
+    "DESCRIPTION": "Whenever your team gains #b5 #yBonding, choose #b1 of #b3 random bonuses. NL Only works while [#60D0D0]Dragon[] is alive."
   },
   {
     "PROPER_NAME": "Aggro",
@@ -25,7 +25,7 @@
     "NAMES": [
       "rear"
     ],
-    "DESCRIPTION": "The Rear is not normally attacked by enemies."
+    "DESCRIPTION": "The character not marked with Front Marker."
   },
   {
     "PROPER_NAME": "Switch",
@@ -41,7 +41,7 @@
       "taunt",
       "taunts"
     ],
-    "DESCRIPTION": "When an enemy is Taunted, it will always attack the Taunter, not the Front."
+    "DESCRIPTION": "When an enemy is Taunted, it will always attack the Taunter, not the Front. NL Taunt lasts for 1 turn."
   },
   {
     "PROPER_NAME": "Channeling",

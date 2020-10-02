@@ -24,9 +24,8 @@ public class MaximumCharge extends AbstractDTCard {
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DRAGON_ONLY;
 
 	private static final int DAMAGE = 30;
-	private static final int UPGRADE_DAMAGE = 5;
-	private static final int VULNERABLE = 3;
-	private static final int VULNERABLE_UPGRADE = -1;
+	private static final int UPGRADE_DAMAGE = 10;
+	private static final int VULNERABLE = 2;
 
 	public MaximumCharge() {
 		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
@@ -64,7 +63,6 @@ public class MaximumCharge extends AbstractDTCard {
 		if (!upgraded) {
 			upgradeName();
 			upgradeDTDragonDamage(UPGRADE_DAMAGE);
-			upgradeMagicNumber(VULNERABLE_UPGRADE);
 		}
 	}
 }

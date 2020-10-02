@@ -83,13 +83,6 @@ public class DragonTamerSkillbook extends SkillbookRelic {
 						AbstractDungeon.srcRareCardPool.removeCard(c);
 						AbstractDungeon.rareCardPool.addToTop(c);
 						AbstractDungeon.srcRareCardPool.addToBottom(c);
-						continue;
-					}
-					case CURSE: {
-						AbstractDungeon.curseCardPool.removeCard(c);
-						AbstractDungeon.srcCurseCardPool.removeCard(c);
-						AbstractDungeon.curseCardPool.addToTop(c);
-						AbstractDungeon.srcCurseCardPool.addToBottom(c);
 					}
 				}
 			}

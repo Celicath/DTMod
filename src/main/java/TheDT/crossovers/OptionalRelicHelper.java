@@ -6,6 +6,7 @@ import basemod.helpers.RelicType;
 
 public class OptionalRelicHelper {
 	public static void registerAspirationRelic() {
-		BaseMod.addRelic(new DragonTamerSkillbook(), RelicType.SHARED);
+		// Commented out for now
+		// BaseMod.addRelic(new DragonTamerSkillbook(), RelicType.SHARED);
 	}
 }

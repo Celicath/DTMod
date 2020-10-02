@@ -1,15 +1,17 @@
 package TheDT.cards;
 
 import TheDT.patches.CardColorEnum;
+import TheDT.vfx.UpgradeAllCardEffect;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-public class ForbiddenStrike extends AbstractDTCard {
-	public static final String RAW_ID = "ForbiddenStrike";
+public class SealedStrike extends AbstractDTCard {
+	public static final String RAW_ID = "SealedStrike";
 	private static final int COST = 1;
 	private static final AbstractCard.CardType TYPE = CardType.ATTACK;
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.DT_ORANGE;
@@ -17,10 +19,9 @@ public class ForbiddenStrike extends AbstractDTCard {
 	private static final AbstractCard.CardTarget TARGET = CardTarget.ENEMY;
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DEFAULT;
 
-	private static final int DAMAGE = 19;
-	private static final int UPGRADE_BONUS = 2;
+	private static final int DAMAGE = 10;
 
-	public ForbiddenStrike() {
+	public SealedStrike() {
 		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
 		baseDamage = DAMAGE;
 
@@ -34,20 +35,26 @@ public class ForbiddenStrike extends AbstractDTCard {
 
 	@Override
 	public AbstractCard makeCopy() {
-		return new ForbiddenStrike();
+		return new SealedStrike();
 	}
 
 	@Override
 	public boolean canUpgrade() {
-		return true;
+		return timesUpgraded < 5;
 	}
 
 	@Override
 	public void upgrade() {
-		upgradeDamage(UPGRADE_BONUS);
-		timesUpgraded++;
-		upgraded = true;
-		name = cardStrings.NAME + "+" + this.timesUpgraded;
-		initializeTitle();
+		if (timesUpgraded < 5) {
+			timesUpgraded++;
+			upgraded = true;
+			upgradeDamage(timesUpgraded);
+			name = cardStrings.NAME + "+" + this.timesUpgraded;
+			initializeTitle();
+
+			if (timesUpgraded == 5 && (AbstractDungeon.player != null && AbstractDungeon.player.masterDeck.contains(this))) {
+				AbstractDungeon.topLevelEffectsQueue.add(new UpgradeAllCardEffect());
+			}
+		}
 	}
 }

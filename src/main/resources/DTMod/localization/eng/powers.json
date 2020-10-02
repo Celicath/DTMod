@@ -38,10 +38,7 @@
   "DTMod:TauntPower": {
     "NAME": "Taunted",
     "DESCRIPTIONS": [
-      "For this turn, ",
-      "For #b",
-      " turns, ",
-      "this enemy will target ",
+      "For this turn, this enemy will always target ",
       "[#60D0D0]You[]",
       "[#60D0D0]Dragon[]",
       ", ignoring the #yFront [REMOVE_SPACE]."
@@ -90,8 +87,8 @@
   "DTMod:MagiciansMarkPower": {
     "NAME": "Magician's Mark",
     "DESCRIPTIONS": [
-      "Whenever [#60D0D0]Dragon[] attacks this enemy, gain #b",
-      " #yBonding."
+      "The next #b",
+      " times [#60D0D0]Dragon[] attacks this enemy, gain #b1 #yBonding."
     ]
   },
   "DTMod:StunTrapPower": {
@@ -110,7 +107,7 @@
       "The #yRear no longer loses #yBlock at the start of your turn."
     ]
   },
-  "DTMod:BattleHarmonyPower": {
+  "DTMod:HarmonizePower": {
     "NAME": "Battle Harmony",
     "DESCRIPTIONS": [
       "Whenever both [#60D0D0]You[] and [#60D0D0]Dragon[] attacks in a single turn, gain #b",

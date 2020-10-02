@@ -4,14 +4,14 @@ import TheDT.characters.Dragon;
 import TheDT.characters.DragonTamer;
 import TheDT.patches.CardColorEnum;
 import TheDT.patches.CustomTags;
-import TheDT.powers.BattleHarmonyPower;
+import TheDT.powers.HarmonizePower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-public class BattleHarmony extends AbstractDTCard {
-	public static final String RAW_ID = "BattleHarmony";
+public class Harmonize extends AbstractDTCard {
+	public static final String RAW_ID = "Harmonize";
 	private static final int COST = 1;
 	private static final AbstractCard.CardType TYPE = CardType.POWER;
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.DT_ORANGE;
@@ -21,7 +21,7 @@ public class BattleHarmony extends AbstractDTCard {
 
 	private static final int MAGIC = 1;
 
-	public BattleHarmony() {
+	public Harmonize() {
 		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
 		baseMagicNumber = magicNumber = MAGIC;
 		tags.add(CustomTags.DT_BONDING);
@@ -29,15 +29,15 @@ public class BattleHarmony extends AbstractDTCard {
 
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		addToBot(new ApplyPowerAction(p, p, new BattleHarmonyPower(p, magicNumber)));
+		addToBot(new ApplyPowerAction(p, p, new HarmonizePower(p, magicNumber)));
 		Dragon d = DragonTamer.getLivingDragon();
 		if (d != null) {
-			addToBot(new ApplyPowerAction(d, d, new BattleHarmonyPower(d, magicNumber)));
+			addToBot(new ApplyPowerAction(d, d, new HarmonizePower(d, magicNumber)));
 		}
 	}
 
 	public AbstractCard makeCopy() {
-		return new BattleHarmony();
+		return new Harmonize();
 	}
 
 	public void upgrade() {

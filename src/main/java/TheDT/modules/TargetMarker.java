@@ -21,7 +21,7 @@ import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import com.megacrit.cardcrawl.localization.UIStrings;
 
 public class TargetMarker {
-	private Hitbox hb;
+	public Hitbox hb;
 	private static UIStrings uiStrings = null;
 	private static Texture targetTexture = null;
 	private static Texture aggroCounterBgTexture = null;

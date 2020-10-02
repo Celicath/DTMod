@@ -51,11 +51,6 @@
     "NAME": "균형의 타격",
     "DESCRIPTION": "선천성. NL 방어도를 !B! 얻습니다. NL 피해를 !D! 줍니다. NL 소멸."
   },
-  "DTMod:BattleHarmony": {
-    "NAME": "조화로운 전투",
-    "DESCRIPTION": "한 턴에 당신과 드래곤이 모두 공격하면, ragontaer:결속을 !M! 얻습니다.",
-    "UPGRADE_DESCRIPTION": "선천성. NL 한 턴에 당신과 드래곤이 모두 공격하면, ragontaer:결속을 !M! 얻습니다."
-  },
   "DTMod:BizarreTactic": {
     "NAME": "이상한 전술",
     "DESCRIPTION": "당신은 방어도를 NL !B! 얻습니다. NL 드래곤이 이번 턴에 공격을 받을 때마다 공격한 대상에게 피해를 !M! 줍니다."
@@ -116,22 +111,18 @@
     "NAME": "계산된 방어",
     "DESCRIPTION": "약화 에 걸린 적들이 우리 팀에 주는 공격 피해가 !M! 감소합니다."
   },
-  "DTMod:ChooseOptionDragon": {
-    "NAME": "사용: 드래곤",
-    "DESCRIPTION": ""
-  },
-  "DTMod:ChooseOptionYou": {
-    "NAME": "사용: 당신",
-    "DESCRIPTION": ""
-  },
   "DTMod:CleansingStrike": {
     "NAME": "정화 타격",
-    "DESCRIPTION": "피해를 !D! 줍니다. NL 무작위 위치의 상태이상 또는 저주 카드를 !M! 장 소멸시킵니다.",
-    "UPGRADE_DESCRIPTION": "피해를 !D! 줍니다. NL 무작위 위치의 상태이상 또는 저주 카드를 !M! 장 소멸시킵니다."
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 모든 위치의 상태이상, 저주 카드 중 무작위 !M! 장을 소멸시킵니다.",
+    "UPGRADE_DESCRIPTION": "피해를 !D! 줍니다. NL 모든 위치의 상태이상, 저주 카드 중 무작위 !M! 장을 소멸시킵니다."
   },
   "DTMod:ComboAttack": {
     "NAME": "콤보 어택",
     "DESCRIPTION": "피해를 !D! 줍니다. NL 드래곤이 피해를 NL !DT:THD! 줍니다. NL ragontaer:결속을 1 얻습니다."
+  },
+  "DTMod:Conduct": {
+    "NAME": "지휘",
+    "DESCRIPTION": "ragontaer:어그로가 5 이상 차이 나면, 카드를 !M! 장 뽑습니다."
   },
   "DTMod:Coolant": {
     "NAME": "냉각제",
@@ -163,7 +154,8 @@
   },
   "DTMod:DragonDance": {
     "NAME": "용의 춤",
-    "DESCRIPTION": "드래곤이 힘 !M! 과 민첩 2 를 얻습니다."
+    "DESCRIPTION": "드래곤이 힘 !M! 와 민첩 2 를 얻습니다.",
+    "UPGRADE_DESCRIPTION": "드래곤이 힘 !M! 과 민첩 2 를 얻습니다."
   },
   "DTMod:EchoTactic": {
     "NAME": "메아리 전술",
@@ -185,10 +177,6 @@
     "NAME": "화염 베기",
     "DESCRIPTION": "드래곤이 적 전체에게 피해를 !DT:THD! 줍니다."
   },
-  "DTMod:ForbiddenStrike": {
-    "NAME": "금지된 타격",
-    "DESCRIPTION": "피해를 !D! 줍니다. NL 강화 횟수에 제한이 없습니다. NL 휴식 장소에서 다른 카드를 강화할 수 없습니다."
-  },
   "DTMod:ForkedFire": {
     "NAME": "갈래 불꽃",
     "DESCRIPTION": "X번 반복: 드래곤이 무작위 적 둘에게 피해를 !DT:THD! 줍니다."
@@ -200,17 +188,31 @@
   },
   "DTMod:GhostSkin": {
     "NAME": "유령 피부",
-    "DESCRIPTION": "드래곤이 불가침을 !M! 얻습니다. NL 드래곤이 ragontaer:전위이면, 드래곤이 민첩을 5 잃습니다. NL 소멸."
+    "DESCRIPTION": "드래곤이 불가침을 1 얻습니다. NL 드래곤이 민첩을 !M! 잃습니다. NL 소멸."
+  },
+  "DTMod:Harmonize": {
+    "NAME": "조화력",
+    "DESCRIPTION": "한 턴에 당신과 드래곤이 모두 공격하면, ragontaer:결속을 !M! 얻습니다.",
+    "UPGRADE_DESCRIPTION": "선천성. NL 한 턴에 당신과 드래곤이 모두 공격하면, ragontaer:결속을 !M! 얻습니다."
   },
   "DTMod:Haste": {
     "NAME": "급속",
-    "DESCRIPTION": "손에 있는 무작위 파워 카드를 사용합니다. NL 소멸.",
+    "DESCRIPTION": "손에 있는 파워 카드 1장을 사용합니다. NL 소멸.",
     "UPGRADE_DESCRIPTION": "손에 있는 모든 파워 카드를 사용합니다. NL 소멸."
   },
   "DTMod:HeadStart": {
     "NAME": "상쾌한 출발",
     "DESCRIPTION": "선천성. NL 선택: [E] [E] 를 얻거나, 카드를 !M! 장 뽑습니다. NL 소멸.",
     "UPGRADE_DESCRIPTION": "선천성. NL 선택: [E] [E] [E] 를 얻거나, 카드를 !M! 장 뽑습니다. NL 소멸."
+  },
+  "DTMod:HeadStartDraw": {
+    "NAME": "드로우",
+    "DESCRIPTION": "카드를 !M! 장 뽑습니다."
+  },
+  "DTMod:HeadStartEnergy": {
+    "NAME": "에너지",
+    "DESCRIPTION": "[E] [E] 를 얻습니다.",
+    "UPGRADE_DESCRIPTION": "[E] [E] [E] 를 얻습니다."
   },
   "DTMod:HeatWave": {
     "NAME": "열풍",
@@ -237,7 +239,7 @@
   },
   "DTMod:LightShield": {
     "NAME": "빛의 보호막",
-    "DESCRIPTION": "당신은 !B! , 드래곤은 !DT:THB! 의 방어도를 얻습니다. NL 이번 전투에서 얻은 ragontaer:결속 만큼 추가 방어도를 얻습니다.",
+    "DESCRIPTION": "당신은 !B! , 드래곤은 !DT:THB! 의 방어도를 얻습니다. NL 이번 전투에서 얻은 ragontaer:결속의 !M! 배 만큼 추가 방어도를 얻습니다.",
     "UPGRADE_DESCRIPTION": "당신은 !B! , 드래곤은 !DT:THB! 의 방어도를 얻습니다. NL 이번 전투에서 얻은 ragontaer:결속의 !M! 배 만큼 추가 방어도를 얻습니다."
   },
   "DTMod:LowKick": {
@@ -254,7 +256,7 @@
   },
   "DTMod:MagiciansMark": {
     "NAME": "마술사의 징표",
-    "DESCRIPTION": "피해를 !D! 줍니다. NL 드래곤이 해당 적을 공격할 때마다, ragontaer:결속을 1 얻습니다. NL 소멸."
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 다음 !M! 번 동안 드래곤이 해당 적을 공격할 때마다, ragontaer:결속을 1 얻습니다. NL 소멸."
   },
   "DTMod:MasterPlan": {
     "NAME": "완벽한 계획",
@@ -308,14 +310,6 @@
     "NAME": "무모한 난동",
     "DESCRIPTION": "공격자를 선택합니다. NL 공격자는 방어도를 전부 소모하여 그 2배만큼 모든 적에게 피해를 줍니다."
   },
-  "DTMod:RecklessFlurryDragon": {
-    "NAME": "공격자: 드래곤",
-    "DESCRIPTION": "드래곤이 모든 적에게 피해를 !DT:THD! 줍니다."
-  },
-  "DTMod:RecklessFlurryYou": {
-    "NAME": "공격자: 당신",
-    "DESCRIPTION": "모든 적에게 피해를 !D! 줍니다."
-  },
   "DTMod:RepeatStrike": {
     "NAME": "반복 타격",
     "DESCRIPTION": "드래곤이 피해를 NL !DT:THD! 줍니다. NL 매 턴 시작 시 버린 카드 더미에서 손으로 가져옵니다.",
@@ -335,26 +329,22 @@
     "DESCRIPTION": "턴 시작 시 ragontaer:후위의 방어도가 사라지지 않습니다.",
     "UPGRADE_DESCRIPTION": "선천성. NL 턴 시작 시 ragontaer:후위의 방어도가 사라지지 않습니다."
   },
+  "DTMod:SealedStrike": {
+    "NAME": "봉인된 타격",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 5번 강화할 수 있으며, 최대 강화 시 덱에 있는 모든 카드가 강화됩니다."
+  },
   "DTMod:ShadowImage": {
     "NAME": "그림자 잔상",
     "DESCRIPTION": "당신과 드래곤이 공격할 때, 공격자가 방어도를 !M! 얻습니다."
   },
   "DTMod:ShieldDrain": {
-    "NAME": "방패 흡수",
+    "NAME": "보호막 흡수",
     "DESCRIPTION": "적의 모든 방어도를 훔칩니다. NL 피해를 !D! 줍니다."
   },
   "DTMod:Shift": {
     "NAME": "시프트",
     "DESCRIPTION": "보존. NL ragontaer:후위가 ragontaer:어그로를 !M! 얻습니다. NL 소멸.",
     "UPGRADE_DESCRIPTION": "보존. NL 선택: NL 당신 또는 드래곤이 ragontaer:어그로를 !M! 얻습니다. NL 소멸."
-  },
-  "DTMod:ShiftDragon": {
-    "NAME": "시프트: 드래곤",
-    "DESCRIPTION": "드래곤이 ragontaer:어그로를 !M! 얻습니다."
-  },
-  "DTMod:ShiftYou": {
-    "NAME": "시프트: 당신",
-    "DESCRIPTION": "당신은 ragontaer:어그로를 !M! 얻습니다."
   },
   "DTMod:SneakAttack": {
     "NAME": "기습 공격",
@@ -373,22 +363,17 @@
   },
   "DTMod:TagTeam": {
     "NAME": "태그 팀",
-    "DESCRIPTION": "ragontaer:전위가 방어도를 NL !B! 얻습니다. NL ragontaer:결속을 !M! 얻습니다. NL 이번 턴에 ragontaer:교대 했다면, 효과를 2배로 받습니다.",
+    "DESCRIPTION": "ragontaer:전위가 방어도를 NL !B! 얻습니다. NL ragontaer:결속을 !M! 얻습니다. NL 이번 턴에 ragontaer:교대 했다면, 모든 효과를 2배로 받습니다.",
     "EXTENDED_DESCRIPTION": [
-      "ragontaer:전위가 방어도를 NL !DT:THB! 얻습니다. NL ragontaer:결속을 !M! 얻습니다. NL 이번 턴에 ragontaer:교대 했다면, 효과를 2배로 받습니다."
+      "ragontaer:전위가 방어도를 NL !DT:THB! 얻습니다. NL ragontaer:결속을 !M! 얻습니다. NL 이번 턴에 ragontaer:교대 했다면, 모든 효과를 2배로 받습니다."
     ]
   },
   "DTMod:TauntingStrike": {
     "NAME": "도발 타격",
-    "DESCRIPTION": "선택: 당신이 피해를 NL !D! 주거나, 드래곤이 피해를 !DT:THD! 줍니다. NL 공격자는 그 적을 1턴간 ragontaer:도발 합니다."
-  },
-  "DTMod:TauntingStrikeDragon": {
-    "NAME": "공격자: 드래곤",
-    "DESCRIPTION": "드래곤이 피해를 NL !DT:THD! 주고 ragontaer:도발 합니다."
-  },
-  "DTMod:TauntingStrikeYou": {
-    "NAME": "공격자: 당신",
-    "DESCRIPTION": "당신이 피해를 !D! 주고 ragontaer:도발 합니다."
+    "DESCRIPTION": "선택: 당신이 피해를 NL !D! 주거나, 드래곤이 피해를 !DT:THD! 줍니다. NL 공격자는 그 적을 ragontaer:도발 합니다.",
+    "EXTENDED_DESCRIPTION": [
+      "(자신을 도발할 수는 없음)"
+    ]
   },
   "DTMod:Threaten": {
     "NAME": "위협",
@@ -401,18 +386,6 @@
   "DTMod:TriAttack": {
     "NAME": "트라이어택",
     "DESCRIPTION": "!M! 번 선택: NL 당신이 피해를 !D! 주거나 드래곤이 피해를 !DT:THD! 줍니다."
-  },
-  "DTMod:TriAttackDragon": {
-    "NAME": "공격자: 드래곤",
-    "DESCRIPTION": "드래곤이 피해를 NL !DT:THD! 줍니다."
-  },
-  "DTMod:TriAttackYou": {
-    "NAME": "공격자: 당신",
-    "DESCRIPTION": "피해를 !D! 줍니다."
-  },
-  "DTMod:TurnBack": {
-    "NAME": "뒤돌기",
-    "DESCRIPTION": "ragontaer:어그로가 5 이상 차이 나면, 카드를 !M! 장 뽑습니다."
   },
   "DTMod:WarmUp": {
     "NAME": "준비운동",

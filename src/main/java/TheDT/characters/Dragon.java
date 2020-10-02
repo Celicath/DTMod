@@ -11,7 +11,6 @@ import TheDT.powers.FiercePower;
 import TheDT.powers.GreedyPower;
 import TheDT.relics.DragonFood;
 import TheDT.utils.GrayscaleShader;
-import TheDT.utils.TutorialHelper;
 import basemod.BaseMod;
 import basemod.abstracts.CustomPlayer;
 import basemod.abstracts.CustomSavable;
@@ -290,6 +289,9 @@ public class Dragon extends CustomPlayer implements CustomSavable<ArrayList<Inte
 		setImage(1, 0);
 		this.currentHealth = STARTING_HP;
 		this.maxHealth = MAX_HP;
+
+		DTModMain.slayTheRelicsHitboxes.clear();
+		DTModMain.slayTheRelicsHitboxes.add(hb);
 	}
 
 	@Override
@@ -373,8 +375,6 @@ public class Dragon extends CustomPlayer implements CustomSavable<ArrayList<Inte
 				if (!isDead) {
 					isDead = true;
 					AbstractDungeon.actionManager.addToBottom(new DragonFaintAction(master));
-
-					TutorialHelper.showTutorial();
 				}
 
 				currentHealth = 0;
@@ -444,20 +444,12 @@ public class Dragon extends CustomPlayer implements CustomSavable<ArrayList<Inte
 
 	@Override
 	protected void updateEscapeAnimation() {
-		if (this.escapeTimer != 0.0F) {
-			this.escapeTimer -= Gdx.graphics.getDeltaTime();
+		if (master.escapeTimer != 0.0F) {
 			if (this.flipHorizontal) {
 				this.drawX -= Gdx.graphics.getDeltaTime() * 400.0F * Settings.scale;
 			} else {
 				this.drawX += Gdx.graphics.getDeltaTime() * 500.0F * Settings.scale;
 			}
-		}
-
-		if (this.escapeTimer < 0.0F) {
-			AbstractDungeon.getCurrRoom().endBattle();
-			this.flipHorizontal = false;
-			this.isEscaping = false;
-			this.escapeTimer = 0.0F;
 		}
 	}
 
@@ -465,7 +457,9 @@ public class Dragon extends CustomPlayer implements CustomSavable<ArrayList<Inte
 	public void render(SpriteBatch sb) {
 		stance.render(sb);
 		if ((AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT || AbstractDungeon.getCurrRoom() instanceof MonsterRoom) && !this.isDead) {
-			this.renderHealth(sb);
+			if (!master.isDead) {
+				renderHealth(sb);
+			}
 		}
 
 		if (!(AbstractDungeon.getCurrRoom() instanceof RestRoom)) {
@@ -486,7 +480,9 @@ public class Dragon extends CustomPlayer implements CustomSavable<ArrayList<Inte
 
 			hb.render(sb);
 			healthHb.render(sb);
-			renderName(sb);
+			if (!master.isDead) {
+				renderName(sb);
+			}
 		}
 	}
 
@@ -572,7 +568,7 @@ public class Dragon extends CustomPlayer implements CustomSavable<ArrayList<Inte
 				break;
 			case 2:
 				AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(
-						this, this, new ArtifactPower(this, 3), 3));
+						this, this, new ArtifactPower(this, 4), 4));
 				break;
 			case 3:
 				AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(

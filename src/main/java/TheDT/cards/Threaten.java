@@ -19,7 +19,7 @@ public class Threaten extends AbstractDTCard {
 	private static final AbstractCard.CardTarget TARGET = CardTarget.SELF_AND_ENEMY;
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DRAGON_ONLY;
 
-	private static final int POWER = 3;
+	private static final int POWER = 4;
 	private static final int UPGRADE_BONUS = 2;
 	private static final int WEAK = 1;
 	private static final int WEAK_BONUS = 1;

@@ -2,6 +2,7 @@ package TheDT.patches;
 
 import TheDT.DTModMain;
 import TheDT.cards.AbstractDTCard;
+import TheDT.characters.Dragon;
 import TheDT.characters.DragonTamer;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -25,7 +26,7 @@ public class DragonIntentPatch {
 
 		@SpirePrefixPatch
 		public static SpireReturn<Void> Prefix(AbstractMonster __instance, PowerTip ___intentTip, boolean ___isMultiDmg, int ___intentDmg, int ___intentMultiAmt) {
-			if (DragonTamer.isCurrentTargetDragon(__instance)) {
+			if (DragonTamer.getCurrentTarget(__instance) instanceof Dragon) {
 				switch (__instance.intent) {
 					case ATTACK:
 						___intentTip.header = TEXT[0];
@@ -154,7 +155,7 @@ public class DragonIntentPatch {
 	public static class RenderIntentPatch {
 		@SpireInsertPatch(locator = DrawIntentLocator.class)
 		public static void Insert(AbstractMonster __instance, SpriteBatch sb) {
-			if (DragonTamer.isCurrentTargetDragon(__instance)) {
+			if (DragonTamer.getCurrentTarget(__instance) instanceof Dragon) {
 				//sb.setColor(new Color(1.0F, 0.6F, 0.2F, __instance.intentAlpha));
 			}
 		}
@@ -170,7 +171,7 @@ public class DragonIntentPatch {
 
 		@SpirePostfixPatch
 		public static void Postfix(AbstractMonster __instance, SpriteBatch sb, BobEffect ___bobEffect) {
-			if (DragonTamer.isCurrentTargetDragon(__instance)) {
+			if (DragonTamer.getCurrentTarget(__instance) instanceof Dragon) {
 				Color c = Color.WHITE.cpy();
 				c.a = __instance.intentAlpha * 0.95f;
 				sb.setColor(c);

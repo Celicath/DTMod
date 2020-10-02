@@ -8,6 +8,7 @@ import basemod.abstracts.CustomCard;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -372,6 +373,105 @@ public abstract class AbstractDTCard extends CustomCard {
 				if (dtBaseDragonDamage != dtDragonDamage) {
 					isDTDragonDamageModified = true;
 				}
+			}
+		}
+	}
+
+	public int calculateCardDamageAsMonster(AbstractCreature attacker, int[] baseDamage, AbstractMonster mo, int[] enemyMultiDamage) {
+		if (!isMultiDamage && mo != null) {
+			float tmp = baseDamage[0];
+
+			for (AbstractRelic r : AbstractDungeon.player.relics) {
+				if (relicApplyToDragon.contains(r.relicId)) {
+					tmp = r.atDamageModify(tmp, this);
+				}
+			}
+
+			for (AbstractPower p : attacker.powers) {
+				tmp = p.atDamageGive(tmp, damageTypeForTurn);
+			}
+			for (AbstractPower p : AbstractDungeon.player.powers) {
+				if (playerPowerApplyToDragon.contains(p.ID)) {
+					tmp = p.atDamageGive(tmp, damageTypeForTurn);
+				}
+			}
+
+			for (AbstractPower p : mo.powers) {
+				tmp = p.atDamageReceive(tmp, damageTypeForTurn, this);
+			}
+
+			for (AbstractPower p : attacker.powers) {
+				tmp = p.atDamageFinalGive(tmp, damageTypeForTurn);
+			}
+			for (AbstractPower p : AbstractDungeon.player.powers) {
+				if (playerPowerApplyToDragon.contains(p.ID)) {
+					tmp = p.atDamageFinalGive(tmp, damageTypeForTurn);
+				}
+			}
+			for (AbstractPower p : mo.powers) {
+				tmp = p.atDamageFinalReceive(tmp, damageTypeForTurn, this);
+			}
+			if (tmp < 0.0F) {
+				tmp = 0.0F;
+			}
+
+			return MathUtils.floor(tmp);
+		} else {
+			ArrayList<AbstractMonster> m = AbstractDungeon.getCurrRoom().monsters.monsters;
+			float[] tmp = new float[m.size()];
+
+			int i;
+			for (i = 0; i < tmp.length; ++i) {
+				tmp[i] = baseDamage[0];
+			}
+
+			for (i = 0; i < tmp.length; ++i) {
+				for (AbstractRelic r : AbstractDungeon.player.relics) {
+					if (relicApplyToDragon.contains(r.relicId)) {
+						tmp[i] = r.atDamageModify(tmp[i], this);
+					}
+				}
+
+				for (AbstractPower p : attacker.powers) {
+					tmp[i] = p.atDamageGive(tmp[i], damageTypeForTurn);
+				}
+				for (AbstractPower p : AbstractDungeon.player.powers) {
+					if (playerPowerApplyToDragon.contains(p.ID)) {
+						tmp[i] = p.atDamageGive(tmp[i], damageTypeForTurn);
+					}
+				}
+				for (AbstractPower p : m.get(i).powers) {
+					tmp[i] = p.atDamageReceive(tmp[i], damageTypeForTurn, this);
+				}
+
+				for (AbstractPower p : attacker.powers) {
+					tmp[i] = p.atDamageFinalGive(tmp[i], damageTypeForTurn);
+				}
+				for (AbstractPower p : AbstractDungeon.player.powers) {
+					if (playerPowerApplyToDragon.contains(p.ID)) {
+						tmp[i] = p.atDamageFinalGive(tmp[i], damageTypeForTurn);
+					}
+				}
+				for (AbstractPower p : m.get(i).powers) {
+					tmp[i] = p.atDamageFinalReceive(tmp[i], damageTypeForTurn, this);
+				}
+			}
+
+			for (i = 0; i < tmp.length; ++i) {
+				if (tmp[i] < 0.0F) {
+					tmp[i] = 0.0F;
+				}
+			}
+
+			if (enemyMultiDamage != null && enemyMultiDamage.length > 0) {
+
+				for (i = 0; i < tmp.length && i < enemyMultiDamage.length; ++i) {
+					enemyMultiDamage[i] = MathUtils.floor(tmp[i]);
+				}
+
+				return enemyMultiDamage[0];
+			} else {
+				return (int) tmp[0];
 			}
 		}
 	}

@@ -8,8 +8,8 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-public class TurnBack extends AbstractDTCard {
-	public static final String RAW_ID = "TurnBack";
+public class Conduct extends AbstractDTCard {
+	public static final String RAW_ID = "Conduct";
 	private static final int COST = 0;
 	private static final AbstractCard.CardType TYPE = CardType.SKILL;
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.DT_ORANGE;
@@ -21,7 +21,7 @@ public class TurnBack extends AbstractDTCard {
 	private static final int UPGRADE_BONUS = 1;
 	private static final int COND = 5;
 
-	public TurnBack() {
+	public Conduct() {
 		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
 
 		magicNumber = baseMagicNumber = DRAW;
@@ -52,7 +52,7 @@ public class TurnBack extends AbstractDTCard {
 	}
 
 	public AbstractCard makeCopy() {
-		return new TurnBack();
+		return new Conduct();
 	}
 
 	public void upgrade() {

@@ -14,8 +14,8 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class BattleHarmonyPower extends AbstractPower implements RecoloredPower {
-	public static final String RAW_ID = "BattleHarmonyPower";
+public class HarmonizePower extends AbstractPower implements RecoloredPower {
+	public static final String RAW_ID = "HarmonizePower";
 	public static final String POWER_ID = DTModMain.makeID(RAW_ID);
 	private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
 	public static final String NAME = powerStrings.NAME;
@@ -24,7 +24,7 @@ public class BattleHarmonyPower extends AbstractPower implements RecoloredPower 
 	public static boolean youAttacked = false;
 	public static boolean dragonAttacked = false;
 
-	public BattleHarmonyPower(AbstractCreature owner, int amount) {
+	public HarmonizePower(AbstractCreature owner, int amount) {
 		this.name = NAME;
 		this.ID = POWER_ID;
 		this.owner = owner;

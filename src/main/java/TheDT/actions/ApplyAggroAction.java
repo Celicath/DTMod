@@ -21,6 +21,10 @@ public class ApplyAggroAction extends AbstractGameAction {
 		duration = Settings.ACTION_DUR_FASTER;
 	}
 
+	public static String getAggroText(int amount) {
+		return TEXT[0] + amount + TEXT[1];
+	}
+
 	public void update() {
 		if (AbstractDungeon.getMonsters().areMonstersBasicallyDead() || !(AbstractDungeon.player instanceof DragonTamer) || (DTModMain.yourAggro == 0 && DTModMain.dragonAggro == 0)) {
 			this.isDone = true;
@@ -40,11 +44,11 @@ public class ApplyAggroAction extends AbstractGameAction {
 		}
 		DTModMain.dragonAggro = 0;
 		DTModMain.yourAggro = 0;
-		tickDuration();
+		isDone = true;
 	}
 
 	void addAggroChangeEffect(AbstractCreature target, int amount) {
-		PowerBuffEffect effect = new PowerBuffEffect(target.hb.cX - target.animX, target.hb.cY + target.hb.height / 2.0F, TEXT[0] + amount + TEXT[1]);
+		PowerBuffEffect effect = new PowerBuffEffect(target.hb.cX - target.animX, target.hb.cY + target.hb.height / 2.0F, getAggroText(amount));
 		ReflectionHacks.setPrivate(effect, PowerBuffEffect.class, "targetColor", new Color(0.7f, 0.75f, 0.7f, 1.0f));
 		AbstractDungeon.effectList.add(effect);
 	}

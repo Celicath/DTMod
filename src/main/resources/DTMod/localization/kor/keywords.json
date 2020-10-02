@@ -6,7 +6,7 @@
       "결속을",
       "결속의"
     ],
-    "DESCRIPTION": "팀이 #y결속 [REMOVE_SPACE]을 #b5 얻을 때마다 무작위 보너스 #b3 [REMOVE_SPACE]개 중 #b1 [REMOVE_SPACE]개를 선택합니다. 이 보너스는 포션 효과의 강화판입니다."
+    "DESCRIPTION": "#y결속 [REMOVE_SPACE]을 #b5 얻을 때마다 무작위 보너스 #b3 [REMOVE_SPACE]개 중 #b1 [REMOVE_SPACE]개를 선택합니다. [#60D0D0]드래곤[]이 살아있을 때에만 얻을 수 있습니다."
   },
   {
     "PROPER_NAME": "어그로",
@@ -35,7 +35,7 @@
       "후위의",
       "후위는"
     ],
-    "DESCRIPTION": "후위는 기본적으로 적의 공격을 받지 않습니다."
+    "DESCRIPTION": "전위 표시가 없는 캐릭터입니다."
   },
   {
     "PROPER_NAME": "교대",
@@ -50,7 +50,7 @@
     "NAMES": [
       "도발"
     ],
-    "DESCRIPTION": "도발 당한 적은 #y전위 [REMOVE_SPACE]를 공격하는 것이 아니라 자신을 도발한 캐릭터를 공격합니다."
+    "DESCRIPTION": "도발 당한 적은 #y전위 [REMOVE_SPACE]를 공격하는 것이 아니라 자신을 도발한 캐릭터를 공격합니다. NL 도발은 1턴만 지속됩니다."
   },
   {
     "PROPER_NAME": "채널링",

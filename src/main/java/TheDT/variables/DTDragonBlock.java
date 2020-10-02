@@ -8,10 +8,6 @@ import com.megacrit.cardcrawl.core.Settings;
 public class DTDragonBlock extends DynamicVariable {
 	@Override
 	public String key() {
-		if (Settings.language == Settings.GameLanguage.ZHS) {
-			// Hopefully this hack will be gone with the base game update
-			return "T:THC";
-		}
 		return "DT:THB";
 	}
 

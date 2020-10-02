@@ -47,8 +47,6 @@ public class DragonStatusScrollButton extends ClickableUIElement {
 	public void moveX(float cX) {
 		this.cX = cX;
 		x = hitbox.x = cX - hb_w / 2.0f;
-
-
 	}
 
 	public void resetX() {

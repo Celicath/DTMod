@@ -13,7 +13,6 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
-import com.megacrit.cardcrawl.powers.WeakPower;
 import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 
 public class DarkBreath extends AbstractDTCard {
@@ -21,13 +20,14 @@ public class DarkBreath extends AbstractDTCard {
 	private static final int COST = 1;
 	private static final AbstractCard.CardType TYPE = CardType.ATTACK;
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.DT_ORANGE;
-	private static final AbstractCard.CardRarity RARITY = CardRarity.COMMON;
+	private static final AbstractCard.CardRarity RARITY = CardRarity.UNCOMMON;
 	private static final AbstractCard.CardTarget TARGET = CardTarget.ENEMY;
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DRAGON_ONLY;
 
 	private static final int DAMAGE = 4;
-	private static final int UPGRADE_BONUS = 2;
+	private static final int UPGRADE_BONUS = 1;
 	private static final int VULN = 1;
+	private static final int UPGRADE_VULN = 1;
 	private static final int HIT = 2;
 
 	public DarkBreath() {
@@ -80,6 +80,7 @@ public class DarkBreath extends AbstractDTCard {
 		if (!upgraded) {
 			upgradeName();
 			upgradeDTDragonDamage(UPGRADE_BONUS);
+			upgradeMagicNumber(UPGRADE_VULN);
 		}
 	}
 }

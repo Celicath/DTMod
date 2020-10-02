@@ -51,11 +51,6 @@
     "NAME": "Balanced Strike",
     "DESCRIPTION": "Innate. NL Gain !B! Block. NL Deal !D! damage. NL Exhaust."
   },
-  "DTMod:BattleHarmony": {
-    "NAME": "Battle Harmony",
-    "DESCRIPTION": "Whenever both You and Dragon attack in a single turn, gain !M! ragontaer:Bonding.",
-    "UPGRADE_DESCRIPTION": "Innate. NL Whenever both You and Dragon attack in a single turn, gain !M! ragontaer:Bonding."
-  },
   "DTMod:BizarreTactic": {
     "NAME": "Bizarre Tactic",
     "DESCRIPTION": "You gain !B! Block. NL Whenever Dragon is attacked this turn, deal !M! damage back."
@@ -116,14 +111,6 @@
     "NAME": "Calculated Defense",
     "DESCRIPTION": "Weakened enemies deal !M! less damage to your team."
   },
-  "DTMod:ChooseOptionDragon": {
-    "NAME": "Use: Dragon",
-    "DESCRIPTION": ""
-  },
-  "DTMod:ChooseOptionYou": {
-    "NAME": "Use: You",
-    "DESCRIPTION": ""
-  },
   "DTMod:CleansingStrike": {
     "NAME": "Cleansing Strike",
     "DESCRIPTION": "Deal !D! damage. NL Exhaust !M! random Status or Curse card from anywhere.",
@@ -132,6 +119,10 @@
   "DTMod:ComboAttack": {
     "NAME": "Combo Attack",
     "DESCRIPTION": "Deal !D! damage. NL Dragon deals !DT:THD! damage. NL Gain 1 ragontaer:Bonding."
+  },
+  "DTMod:Conduct": {
+    "NAME": "Conduct",
+    "DESCRIPTION": "If the ragontaer:Aggro difference is 5 or higher, draw !M! cards."
   },
   "DTMod:Coolant": {
     "NAME": "Coolant",
@@ -185,10 +176,6 @@
     "NAME": "Flame Slash",
     "DESCRIPTION": "Dragon deals NL !DT:THD! damage to ALL enemies."
   },
-  "DTMod:ForbiddenStrike": {
-    "NAME": "Forbidden Strike",
-    "DESCRIPTION": "Deal !D! damage. NL Can be Upgraded any number of times. NL []You cannot Smith other cards at Rest Sites."
-  },
   "DTMod:ForkedFire": {
     "NAME": "Forked Fire",
     "DESCRIPTION": "Repeat X times: Dragon deals !DT:THD! damage to two random enemies."
@@ -200,11 +187,16 @@
   },
   "DTMod:GhostSkin": {
     "NAME": "Ghost Skin",
-    "DESCRIPTION": "Dragon gains NL !M! Intangible. NL If Dragon is the ragontaer:Front, it loses 5 Dexterity. NL Exhaust."
+    "DESCRIPTION": "Dragon gains NL 1 Intangible. NL Dragon loses !M! Dexterity. NL Exhaust."
+  },
+  "DTMod:Harmonize": {
+    "NAME": "Harmonize",
+    "DESCRIPTION": "Whenever both You and Dragon attack in a single turn, gain !M! ragontaer:Bonding.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Whenever both You and Dragon attack in a single turn, gain !M! ragontaer:Bonding."
   },
   "DTMod:Haste": {
     "NAME": "Haste",
-    "DESCRIPTION": "Play a random Power card from your hand. NL Exhaust.",
+    "DESCRIPTION": "Play a Power card from your hand. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Play all Power cards from your hand. NL Exhaust."
   },
   "DTMod:HeadStart": {
@@ -263,7 +255,7 @@
   },
   "DTMod:MagiciansMark": {
     "NAME": "Magician's Mark",
-    "DESCRIPTION": "Deal !D! damage. NL Whenever Dragon attacks this enemy, gain 1 ragontaer:Bonding. Exhaust."
+    "DESCRIPTION": "Deal !D! damage. NL The next !M! times Dragon attacks this enemy, gain 1 ragontaer:Bonding. Exhaust."
   },
   "DTMod:MasterPlan": {
     "NAME": "Master Plan",
@@ -315,15 +307,7 @@
   },
   "DTMod:RecklessFlurry": {
     "NAME": "Reckless Flurry",
-    "DESCRIPTION": "Choose the attacker. NL The attacker loses all Block and deal twice that much to ALL enemies."
-  },
-  "DTMod:RecklessFlurryDragon": {
-    "NAME": "Attacker: Dragon",
-    "DESCRIPTION": "Dragon deals NL !DT:THD! damage to ALL enemies."
-  },
-  "DTMod:RecklessFlurryYou": {
-    "NAME": "Attacker: You",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies."
+    "DESCRIPTION": "Choose the attacker. NL The attacker loses all Block and deals twice that much to ALL enemies."
   },
   "DTMod:RepeatStrike": {
     "NAME": "Repeat Strike",
@@ -344,6 +328,10 @@
     "DESCRIPTION": "The ragontaer:Rear no longer loses Block at the start of your turn.",
     "UPGRADE_DESCRIPTION": "Innate. NL The ragontaer:Rear no longer loses Block at the start of your turn."
   },
+  "DTMod:SealedStrike": {
+    "NAME": "Sealed Strike",
+    "DESCRIPTION": "Deal !D! damage. NL Can be Upgraded 5 times. On 5th upgrade, Upgrade ALL cards in your deck."
+  },
   "DTMod:ShadowImage": {
     "NAME": "Shadow Image",
     "DESCRIPTION": "Whenever You or Dragon attacks, the attacker gains !M! Block."
@@ -356,14 +344,6 @@
     "NAME": "Shift",
     "DESCRIPTION": "Retain. NL The ragontaer:Rear gains NL !M! ragontaer:Aggro. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Retain. NL Choose one: NL You or Dragon gains NL !M! ragontaer:Aggro. NL Exhaust."
-  },
-  "DTMod:ShiftDragon": {
-    "NAME": "Shift: Dragon",
-    "DESCRIPTION": "Dragon gains !M! ragontaer:Aggro."
-  },
-  "DTMod:ShiftYou": {
-    "NAME": "Shift: You",
-    "DESCRIPTION": "You gain !M! ragontaer:Aggro."
   },
   "DTMod:SneakAttack": {
     "NAME": "Sneak Attack",
@@ -382,22 +362,17 @@
   },
   "DTMod:TagTeam": {
     "NAME": "Tag Team",
-    "DESCRIPTION": "The ragontaer:Front gains NL !B! Block. NL Gain !M! ragontaer:Bonding. NL If your team ragontaer:Switched this turn, effects are doubled.",
+    "DESCRIPTION": "The ragontaer:Front gains NL !B! Block. NL Gain !M! ragontaer:Bonding. NL If your team ragontaer:Switched this turn, all effects are doubled.",
     "EXTENDED_DESCRIPTION": [
-      "The ragontaer:Front gains NL !DT:THB! Block. NL Gain !M! ragontaer:Bonding. NL If your team ragontaer:Switched this turn, effects are doubled."
+      "The ragontaer:Front gains NL !DT:THB! Block. NL Gain !M! ragontaer:Bonding. NL If your team ragontaer:Switched this turn, all effects are doubled."
     ]
   },
   "DTMod:TauntingStrike": {
     "NAME": "Taunting Strike",
-    "DESCRIPTION": "Choose one: Deal !D! damage, or Dragon deals !DT:THD! damage. NL The attacker ragontaer:Taunts that enemy for 1 turn."
-  },
-  "DTMod:TauntingStrikeDragon": {
-    "NAME": "Attacker: Dragon",
-    "DESCRIPTION": "Dragon deals NL !DT:THD! damage and NL ragontaer:Taunt it."
-  },
-  "DTMod:TauntingStrikeYou": {
-    "NAME": "Attacker: You",
-    "DESCRIPTION": "You deal !D! damage and ragontaer:Taunt it."
+    "DESCRIPTION": "Choose one: Deal !D! damage, or Dragon deals !DT:THD! damage. NL The attacker ragontaer:Taunts that enemy.",
+    "EXTENDED_DESCRIPTION": [
+      "(Cannot Taunt itself)"
+    ]
   },
   "DTMod:Threaten": {
     "NAME": "Threaten",
@@ -410,18 +385,6 @@
   "DTMod:TriAttack": {
     "NAME": "Tri Attack",
     "DESCRIPTION": "Choose !M! times: NL You deal !D! damage or Dragon deals !DT:THD! damage."
-  },
-  "DTMod:TriAttackDragon": {
-    "NAME": "Attacker: Dragon",
-    "DESCRIPTION": "Dragon deals !DT:THD! damage."
-  },
-  "DTMod:TriAttackYou": {
-    "NAME": "Attacker: You",
-    "DESCRIPTION": "You deal !D! damage."
-  },
-  "DTMod:TurnBack": {
-    "NAME": "Turn Back",
-    "DESCRIPTION": "If the ragontaer:Aggro difference is 5 or higher, draw !M! cards."
   },
   "DTMod:WarmUp": {
     "NAME": "Warm-Up",

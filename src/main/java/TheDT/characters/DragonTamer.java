@@ -3,13 +3,15 @@ package TheDT.characters;
 import TheDT.DTModMain;
 import TheDT.Interfaces.SwitchPower;
 import TheDT.actions.ApplyAggroAction;
+import TheDT.actions.ChooseAttackerAction;
 import TheDT.cards.*;
 import TheDT.patches.CardColorEnum;
 import TheDT.patches.RecoloredPowerPatch;
-import TheDT.powers.BattleHarmonyPower;
+import TheDT.powers.HarmonizePower;
 import TheDT.powers.TauntPower;
 import TheDT.relics.BindingString;
 import TheDT.relics.PactStone;
+import TheDT.vfx.FlashTargetArrowEffect;
 import basemod.ReflectionHacks;
 import basemod.abstracts.CustomPlayer;
 import com.badlogic.gdx.graphics.Color;
@@ -29,6 +31,7 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
@@ -257,6 +260,15 @@ public class DragonTamer extends CustomPlayer {
 		}
 	}
 
+	public void renderOnlyDT(SpriteBatch sb) {
+		renderHealth(sb);
+
+		sb.setColor(Color.WHITE);
+		sb.draw(img, drawX - img.getWidth() * Settings.scale / 2.0F + animX, drawY, img.getWidth() * Settings.scale, img.getHeight() * Settings.scale, 0, 0, img.getWidth(), img.getHeight(), flipHorizontal, flipVertical);
+		hb.render(sb);
+		healthHb.render(sb);
+	}
+
 	@Override
 	public void renderReticle(SpriteBatch sb) {
 		if (isReticleAttackIcon) {
@@ -283,8 +295,14 @@ public class DragonTamer extends CustomPlayer {
 					renderReticle(sb);
 				}
 			} else {
+				isReticleAttackIcon = false;
 				dtTargetMode = AbstractDTCard.DTCardTarget.DEFAULT;
 			}
+		} else {
+			isReticleAttackIcon = false;
+		}
+		if (ChooseAttackerAction.activeThis != null) {
+			isReticleAttackIcon = true;
 		}
 	}
 
@@ -306,8 +324,8 @@ public class DragonTamer extends CustomPlayer {
 		addAggro(dragon.getTier());
 
 		frontChangedThisTurn = false;
-		BattleHarmonyPower.youAttacked = false;
-		BattleHarmonyPower.dragonAttacked = false;
+		HarmonizePower.youAttacked = false;
+		HarmonizePower.dragonAttacked = false;
 	}
 
 	public void setFront(AbstractCreature newTarget) {
@@ -317,6 +335,15 @@ public class DragonTamer extends CustomPlayer {
 					ApplyAggroAction.TEXT[front == this ? 2 : 3]);
 			ReflectionHacks.setPrivate(effect, PowerBuffEffect.class, "targetColor", new Color(0.7f, 0.75f, 0.7f, 1.0f));
 			AbstractDungeon.effectsQueue.add(effect);
+			MonsterGroup group = AbstractDungeon.getMonsters();
+			if (group != null && DTModMain.enemyTargetDisplayConfig[0]) {
+				for (AbstractMonster m : group.monsters) {
+					if (!m.isDeadOrEscaped()) {
+						AbstractDungeon.effectsQueue.add(new FlashTargetArrowEffect(m, getCurrentTarget(m)));
+					}
+				}
+			}
+
 			updateIntents();
 			DTModMain.targetMarker.move(newTarget);
 			DTModMain.targetMarker.flash();
@@ -441,6 +468,7 @@ public class DragonTamer extends CustomPlayer {
 	public void onVictory() {
 		super.onVictory();
 		dragon.onVictory();
+		ChooseAttackerAction.activeThis = null;
 	}
 
 	public Texture getAttackIcon() {
@@ -484,18 +512,15 @@ public class DragonTamer extends CustomPlayer {
 		return true;
 	}
 
-	public static boolean isCurrentTargetDragon(AbstractCreature monster) {
+	public static AbstractCreature getCurrentTarget(AbstractCreature monster) {
+		if (monster.hasPower(TauntPower.POWER_ID)) {
+			return ((TauntPower) monster.getPower(TauntPower.POWER_ID)).tauntTarget;
+		}
+
 		if (AbstractDungeon.player instanceof DragonTamer && !((DragonTamer) AbstractDungeon.player).dragon.isDead) {
-			if (monster.hasPower(TauntPower.POWER_ID)) {
-				return ((TauntPower) monster.getPower(TauntPower.POWER_ID)).targetIsDragon;
-			} else {
-				return ((DragonTamer) AbstractDungeon.player).front == ((DragonTamer) AbstractDungeon.player).dragon;
-			}
-		} else if (AbstractDungeon.player instanceof Dragon) {
-			// inside monster intent
-			return true;
+			return ((DragonTamer) AbstractDungeon.player).front;
 		} else {
-			return false;
+			return AbstractDungeon.player;
 		}
 	}
 

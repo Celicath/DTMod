@@ -5,16 +5,24 @@ import TheDT.characters.DragonTamer;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePrefixPatch;
+import com.evacipated.cardcrawl.modthespire.lib.SpireReturn;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
+import com.megacrit.cardcrawl.actions.common.SuicideAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.powers.BeatOfDeathPower;
-import com.megacrit.cardcrawl.powers.ExplosivePower;
-import com.megacrit.cardcrawl.powers.SharpHidePower;
-import com.megacrit.cardcrawl.powers.SporeCloudPower;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.*;
 import com.megacrit.cardcrawl.powers.watcher.BlockReturnPower;
+import com.megacrit.cardcrawl.vfx.combat.ExplosionSmallEffect;
 
 public class MonsterPowerPatch {
 	static AbstractPlayer prevPlayer = null;
@@ -50,10 +58,19 @@ public class MonsterPowerPatch {
 	@SpirePatch(clz = SporeCloudPower.class, method = "onDeath")
 	public static class SporeCloudPatch {
 		@SpirePrefixPatch
-		public static void Prefix(SporeCloudPower __instance) {
-			if (DragonTamer.isCurrentTargetDragon(__instance.owner)) {
-				changePlayer(DragonTamer.getDragon());
+		public static SpireReturn<Void> Prefix(SporeCloudPower __instance) {
+			AbstractCreature c = DragonTamer.getCurrentTarget(__instance.owner);
+			if (c instanceof AbstractMonster) {
+				if (!AbstractDungeon.getCurrRoom().isBattleEnding()) {
+					CardCrawlGame.sound.play("SPORE_CLOUD_RELEASE");
+					__instance.flashWithoutSound();
+					AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(c, null, new VulnerablePower(c, __instance.amount, true), __instance.amount));
+				}
+				return SpireReturn.Return(null);
+			} else if (c instanceof Dragon) {
+				changePlayer((Dragon) c);
 			}
+			return SpireReturn.Continue();
 		}
 
 		@SpirePostfixPatch
@@ -66,7 +83,7 @@ public class MonsterPowerPatch {
 	public static class SharpHidePatch {
 		@SpirePrefixPatch
 		public static void Prefix(SharpHidePower __instance, AbstractCard card, UseCardAction action) {
-			if (DragonTamer.isCurrentTargetDragon(__instance.owner)) {
+			if (DragonTamer.getCurrentTarget(__instance.owner) instanceof Dragon) {
 				changePlayer(DragonTamer.getDragon());
 			}
 		}
@@ -81,7 +98,7 @@ public class MonsterPowerPatch {
 	public static class BeatOfDeathPatch {
 		@SpirePrefixPatch
 		public static void Prefix(BeatOfDeathPower __instance, AbstractCard card, UseCardAction action) {
-			if (DragonTamer.isCurrentTargetDragon(__instance.owner)) {
+			if (DragonTamer.getCurrentTarget(__instance.owner) instanceof Dragon) {
 				changePlayer(DragonTamer.getDragon());
 			}
 		}
@@ -95,15 +112,21 @@ public class MonsterPowerPatch {
 	@SpirePatch(clz = ExplosivePower.class, method = "duringTurn")
 	public static class ExplosivePatch {
 		@SpirePrefixPatch
-		public static void Prefix(ExplosivePower __instance) {
-			if (DragonTamer.isCurrentTargetDragon(__instance.owner)) {
-				changePlayer(DragonTamer.getDragon());
+		public static SpireReturn<Void> Prefix(ExplosivePower __instance) {
+			AbstractCreature c = DragonTamer.getCurrentTarget(__instance.owner);
+			if (c instanceof AbstractMonster) {
+				if (__instance.amount == 1 && !__instance.owner.isDying) {
+					AbstractDungeon.actionManager.addToBottom(new VFXAction(new ExplosionSmallEffect(__instance.owner.hb.cX, __instance.owner.hb.cY), 0.1F));
+					AbstractDungeon.actionManager.addToBottom(new SuicideAction((AbstractMonster) __instance.owner));
+					DamageInfo damageInfo = new DamageInfo(__instance.owner, 30, DamageInfo.DamageType.THORNS);
+					AbstractDungeon.actionManager.addToBottom(new DamageAction(c, damageInfo, AbstractGameAction.AttackEffect.FIRE, true));
+				} else {
+					AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(__instance.owner, __instance.owner, ExplosivePower.POWER_ID, 1));
+					__instance.updateDescription();
+				}
+				return SpireReturn.Return(null);
 			}
-		}
-
-		@SpirePostfixPatch
-		public static void Postfix(ExplosivePower __instance) {
-			RestorePlayer();
+			return SpireReturn.Continue();
 		}
 	}
 }

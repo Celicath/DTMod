@@ -24,6 +24,8 @@ public class MasterPlan extends AbstractDTCard {
 	private static final int NEXT_TURN_BLOCK = 9;
 	private static final int UPGRADE_NEXT = 3;
 
+	private boolean flipped = false;
+
 	public MasterPlan() {
 		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
 
@@ -34,16 +36,25 @@ public class MasterPlan extends AbstractDTCard {
 	@Override
 	public void applyPowers() {
 		if (DragonTamer.isFrontDragon()) {
-			baseBlock = NEXT_TURN_BLOCK;
-			dtBaseDragonBlock = POWER;
-			rawDescription = EXTENDED_DESCRIPTION[0];
+			if (!flipped) {
+				int tmp = dtBaseDragonBlock;
+				dtBaseDragonBlock = baseBlock;
+				baseBlock = tmp;
+				rawDescription = EXTENDED_DESCRIPTION[0];
+				initializeDescription();
+				flipped = true;
+			}
 		} else {
-			baseBlock = POWER;
-			dtBaseDragonBlock = NEXT_TURN_BLOCK;
-			rawDescription = DESCRIPTION;
+			if (flipped) {
+				int tmp = dtBaseDragonBlock;
+				dtBaseDragonBlock = baseBlock;
+				baseBlock = tmp;
+				rawDescription = DESCRIPTION;
+				initializeDescription();
+				flipped = false;
+			}
 		}
 		super.applyPowers();
-		initializeDescription();
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
@@ -61,11 +72,25 @@ public class MasterPlan extends AbstractDTCard {
 		return new MasterPlan();
 	}
 
+	@Override
+	public AbstractCard makeStatEquivalentCopy() {
+		MasterPlan card = (MasterPlan) super.makeStatEquivalentCopy();
+		card.flipped = this.flipped;
+		card.rawDescription = this.rawDescription;
+		card.initializeDescription();
+		return card;
+	}
+
 	public void upgrade() {
 		if (!upgraded) {
 			upgradeName();
-			upgradeBlock(UPGRADE_NEXT);
-			upgradeDTDragonBlock(UPGRADE_BONUS);
+			if (flipped) {
+				upgradeBlock(UPGRADE_NEXT);
+				upgradeDTDragonBlock(UPGRADE_BONUS);
+			} else {
+				upgradeBlock(UPGRADE_BONUS);
+				upgradeDTDragonBlock(UPGRADE_NEXT);
+			}
 		}
 	}
 }

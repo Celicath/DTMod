@@ -8,10 +8,6 @@ import com.megacrit.cardcrawl.core.Settings;
 public class DTDragonDamage extends DynamicVariable {
 	@Override
 	public String key() {
-		if (Settings.language == Settings.GameLanguage.ZHS) {
-			// Hopefully this hack will be gone with the base game update
-			return "T:THE";
-		}
 		return "DT:THD";
 	}
 

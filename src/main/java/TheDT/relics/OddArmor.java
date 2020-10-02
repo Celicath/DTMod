@@ -30,7 +30,7 @@ public class OddArmor extends CustomRelic {
 	@Override
 	public void atTurnStart() {
 		counter++;
-		if (counter % 2 == 0) {
+		if (counter % 2 == 1) {
 			Dragon d = DragonTamer.getLivingDragon();
 			if (d != null) {
 				this.flash();
