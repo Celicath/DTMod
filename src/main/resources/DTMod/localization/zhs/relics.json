@@ -1,0 +1,110 @@
+{
+  "DTMod:PactStone": {
+    "NAME": "密石",
+    "FLAVOR": "友谊之证",
+    "DESCRIPTIONS": [
+      "每场战斗开始时， [#60D0D0]你[] 和 [#60D0D0]龙[] 各获得 #b",
+      " 点 #y临时生命 。"
+    ]
+  },
+  "DTMod:DragonTamerSkillbook": {
+    "NAME": "驯龙手册",
+    "FLAVOR": "现在龙有能力帮助主人以外的人。",
+    "DESCRIPTIONS": [
+      "每当你打出能同时对你和其他角色起效的牌时，获得 #b1 点 #yragontaer:齐心 。",
+      " NL NL #y多职业 驯龙高手"
+    ]
+  },
+  "DTMod:BasicTextbook": {
+    "NAME": "基础教科书",
+    "FLAVOR": "夯实基础是所有学习之根",
+    "DESCRIPTIONS": [
+      "提高打击的伤害和 #y目标防御 牌的格挡 #b",
+      " 点 [REMOVE_SPACE] 。"
+    ]
+  },
+  "DTMod:OddArmor": {
+    "NAME": "奇怪的铠甲",
+    "FLAVOR": "外观实在过于奇怪以至于即使十分强大也没有多少人愿意穿。",
+    "DESCRIPTIONS": [
+      "在奇数回合， [#60D0D0]龙[] 受到的攻击伤害减少 #b",
+      " 点。 NL 在偶数回合， [#60D0D0]你[] 受到的攻击伤害减少 #b",
+      " 点。"
+    ]
+  },
+  "DTMod:MagicStone": {
+    "NAME": "魔法石",
+    "FLAVOR": "这块魔法石蕴含了奇怪的魔法。",
+    "DESCRIPTIONS": [
+      "替换 #y密石 。 每场战斗开始时， [#60D0D0]你[] 和 [#60D0D0]龙[] 回复 #b",
+      " 点生命。 NL 战斗中超过上限的生命回复转变为 #y临时生命 。"
+    ]
+  },
+  "DTMod:DragonFood": {
+    "NAME": "龙粮",
+    "FLAVOR": "人吃着也很美味。",
+    "DESCRIPTIONS": [
+      "每场战斗结束时， [#60D0D0]龙[] 回复 #b",
+      " 点生命。"
+    ]
+  },
+  "DTMod:AncientBone": {
+    "NAME": "古骨",
+    "FLAVOR": "原始技术的精髓。",
+    "DESCRIPTIONS": [
+      "每场战斗开始时，将一张 #y坚硬皮肤 加入你的手牌。"
+    ]
+  },
+  "DTMod:TacticalNote": {
+    "NAME": "战术笔记",
+    "FLAVOR": "里面满是实用的建议",
+    "DESCRIPTIONS": [
+      "“战术”牌将有额外效果",
+      "额外效果",
+      "#b转换战术 - 敌人额外失去2点力量。",
+      "#b诡骗战术 - 额外获得2点格挡，多造成2点伤害。",
+      "#b跑动战术 - 额外抽1张牌。",
+      "#b回声战术 - 0费。",
+      "#b抢先战术 - 额外获得1点敏捷。"
+    ]
+  },
+  "DTMod:SwitchButton": {
+    "NAME": "按钮",
+    "FLAVOR": "别动！",
+    "DESCRIPTIONS": [
+      "[#2aecd7]每场战斗一次，右键使用。[] [#60D0D0]你[] 和 [#60D0D0]龙[] 交换 #yragontaer:仇恨 。"
+    ]
+  },
+  "DTMod:SolidMemories": {
+    "NAME": "固体记忆",
+    "FLAVOR": "液态记忆的原料。",
+    "DESCRIPTIONS": [
+      "回合开始时， #b",
+      " [REMOVE_SPACE], #y检索 你弃牌堆中的一张牌。它的耗能本回合变为 #b0 。"
+    ]
+  },
+  "DTMod:BindingString": {
+    "NAME": "羁绊",
+    "FLAVOR": "当两者的距离比以往更加接近的时候，羁绊会变强。",
+    "DESCRIPTIONS": [
+      "你的回合开始时，如果 [#60D0D0]你[] 与 [#60D0D0]龙[] 的 #yragontaer:仇恨 相同，获得 #b",
+      " 点 #yragontaer:齐心 。"
+    ]
+  },
+  "DTMod:TheChair": {
+    "NAME": "椅子",
+    "FLAVOR": "这张舒适的椅子让你精力充沛。单如果想要真的在这上面休息，需要点天分。",
+    "DESCRIPTIONS": [
+      "每回合开始时获得 [E] 。在第一回合，你只能抽到固有或者瓶装牌。"
+    ]
+  },
+  "DTMod:MindBender": {
+    "NAME": "精神混乱",
+    "FLAVOR": "塔外禁用",
+    "DESCRIPTIONS": [
+      "需要选择攻击者的牌将能选择敌人。",
+      "“选择攻击者” 牌",
+      "- 慌乱 NL - 嘲讽打击 NL - 三角攻击"
+    ]
+  }
+}

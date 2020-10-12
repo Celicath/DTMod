@@ -1,0 +1,58 @@
+[
+  {
+    "PROPER_NAME": "齐心",
+    "NAMES": [
+      "齐心"
+    ],
+    "DESCRIPTION": "每当你的队伍获得 #b5 点 #y齐心 ，从 #b3 种奖励效果中选择 #b1 种。 NL 只有当 [#60D0D0]龙[] 存活时才能触发。"
+  },
+  {
+    "PROPER_NAME": "仇恨",
+    "NAMES": [
+      "仇恨"
+    ],
+    "DESCRIPTION": "每当 [#60D0D0]你[] 或者 [#60D0D0]龙[] 攻击时，攻击者获得 #b1 层仇恨。仇恨层数最多的角色将在 #y前方 ，受到所有伤害。"
+  },
+  {
+    "PROPER_NAME": "前方",
+    "NAMES": [
+      "前方"
+    ],
+    "DESCRIPTION": "所有敌人攻击在前方的角色。"
+  },
+  {
+    "PROPER_NAME": "后方",
+    "NAMES": [
+      "后方"
+    ],
+    "DESCRIPTION": "不在前方的角色。"
+  },
+  {
+    "PROPER_NAME": "交换",
+    "NAMES": [
+      "交换"
+    ],
+    "DESCRIPTION": "当 #y后方 的仇恨超过 #y前方 时将自动交换 #y后方 和 #y前方 。"
+  },
+  {
+    "PROPER_NAME": "嘲讽",
+    "NAMES": [
+      "嘲讽"
+    ],
+    "DESCRIPTION": "敌人受到嘲讽时，将只会攻击嘲讽者。 NL 嘲讽只维持一回合。"
+  },
+  {
+    "PROPER_NAME": "打断",
+    "NAMES": [
+      "打断"
+    ],
+    "DESCRIPTION": "如果效果生效之前单位受到了攻击，将会被打断效果。"
+  },
+  {
+    "PROPER_NAME": "爆裂药水",
+    "NAMES": [
+      "爆裂药水",
+    ],
+    "DESCRIPTION": "造成 #b30 点伤害的药水。"
+  }
+]

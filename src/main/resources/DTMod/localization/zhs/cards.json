@@ -1,0 +1,398 @@
+{
+  "DTMod:AbstractDTCard": {
+    "NAME": "AbstractDTCard",
+    "DESCRIPTION": "Common texts",
+    "EXTENDED_DESCRIPTION": [
+      "I don't have Dragon on my side.",
+      "Dragon is fainted."
+    ]
+  },
+  "DTMod:Strike": {
+    "NAME": "打击",
+    "DESCRIPTION": "造成 !D! 点伤害。"
+  },
+  "DTMod:TargetDefense": {
+    "NAME": "目标防御",
+    "DESCRIPTION": "ragontaer:前方 的单位获得 NL !DT:THB! 点 格挡 。",
+    "EXTENDED_DESCRIPTION": [
+      "ragontaer:前方 获得 NL !DT:THB! 点 格挡 。"
+    ]
+  },
+  "DTMod:DoubleHit": {
+    "NAME": "双重攻击",
+    "DESCRIPTION": "龙造成 NL !DT:THD! 点伤害两次。"
+  },
+  "DTMod:SwitchingTactic": {
+    "NAME": "转换战术",
+    "DESCRIPTION": "翻转 ragontaer:仇恨 。 NL 本回合所有敌人失去 ragontaer:仇恨 差值 的 力量 。",
+    "UPGRADE_DESCRIPTION": "保留 。 NL 翻转 ragontaer:仇恨 。 NL 本回合所有敌人失去 ragontaer:仇恨 差值 的 力量 。",
+    "EXTENDED_DESCRIPTION": [
+      " NL （失去 !M! 点 力量 ）"
+    ]
+  },
+  "DTMod:HardSkin": {
+    "NAME": "坚硬皮肤",
+    "DESCRIPTION": "保留 。 NL 龙获得 !DT:THB! 点 格挡 。 NL 消耗 。"
+  },
+  "DTMod:Adaptation": {
+    "NAME": "适应",
+    "DESCRIPTION": "每当你洗牌时，将所有 固有 牌加入你的手牌。",
+    "UPGRADE_DESCRIPTION": "固有 。 NL 每当你洗牌时，将所有 固有 牌加入你的手牌。"
+  },
+  "DTMod:Astonish": {
+    "NAME": "惊讶",
+    "DESCRIPTION": "ragontaer:前方 造成 ragontaer:仇恨 差值 !M! 倍的伤害。",
+    "EXTENDED_DESCRIPTION": [
+      " NL （造成 !D! 点伤害）",
+      " NL （龙造成 !D! 点伤害）"
+    ]
+  },
+  "DTMod:BalancedStrike": {
+    "NAME": "均衡打击",
+    "DESCRIPTION": "固有 。 NL 获得 !B! 点 格挡 。 NL 造成 !D! 点伤害。 NL 消耗 。"
+  },
+  "DTMod:BizarreTactic": {
+    "NAME": "诡骗战术",
+    "DESCRIPTION": "你获得 !B! 点 格挡 。 NL 本回合每当龙受到攻击时，造成 !M! 点反伤。"
+  },
+  "DTMod:BlazingStrike": {
+    "NAME": "炽热打击",
+    "DESCRIPTION": "龙造成 !DT:THD! 点伤害。 NL 将一张 *灼伤 加入手牌。"
+  },
+  "DTMod:BlueScale": {
+    "NAME": "蓝量",
+    "DESCRIPTION": "龙获得 !DT:THB! 点 格挡 。 NL 将一张 *坚硬皮肤 加入手牌。",
+    "UPGRADE_DESCRIPTION": "龙获得 !DT:THB! 点 格挡 。 NL 将一张 *坚硬皮肤+ 加入手牌。"
+  },
+  "DTMod:BondingBonus": {
+    "NAME": "齐心协力",
+    "DESCRIPTION": "在你获得5点 ragontaer:齐心 时获得以下效果之一。",
+    "EXTENDED_DESCRIPTION": [
+      "人工制品",
+      "你和龙获得2层 人工制品 。",
+      "千刀",
+      "对所有敌人造成20点伤害。",
+      "格挡",
+      "你和龙获得20点 格挡 。",
+      "力量",
+      "你和龙获得4点 力量 。",
+      "敏捷",
+      "你和龙获得3点敏捷 。",
+      "能量",
+      "获得 [E] [E] [E] [E] 。",
+      "抽牌",
+      "抽牌直到将手牌抽满。",
+      "虚弱",
+      "给予所有敌人4层 虚弱 。",
+      "易伤",
+      "给予所有敌人4层 易伤 。",
+      "混沌",
+      "打出抽牌堆顶部的3张牌。"
+    ]
+  },
+  "DTMod:BreakAttack": {
+    "NAME": "击破",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 给予 !M! 层 易伤 。 NL 消耗 。"
+  },
+  "DTMod:BuildUp": {
+    "NAME": "先攻",
+    "DESCRIPTION": "造成 !D! 点伤害。 下一张攻击牌额外造成 !M! 点伤害。"
+  },
+  "DTMod:BurningEnergy": {
+    "NAME": "热能",
+    "DESCRIPTION": "获得 [E] [E] 。 NL 将一张 *灼伤 加入你的弃牌堆。",
+    "UPGRADE_DESCRIPTION": "获得 [E] [E] [E] 。 NL 将一张 *灼伤 加入你的弃牌堆。"
+  },
+  "DTMod:BurningForce": {
+    "NAME": "热力",
+    "DESCRIPTION": "龙造成 !DT:THD! 点伤害。 NL 本场战斗每生成一张 *灼伤 ，其伤害提高 !M! 点。"
+  },
+  "DTMod:CalculatedDefense": {
+    "NAME": "精巧防御",
+    "DESCRIPTION": "被 虚弱 的敌人对你的队伍造成的伤害减少 !M! 点。"
+  },
+  "DTMod:CleansingStrike": {
+    "NAME": "净化打击",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 随机 消耗 !M! 张牌堆或手牌中的状态或诅咒牌。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 随机 消耗 !M! 张牌堆或手牌中的状态或诅咒牌。"
+  },
+  "DTMod:ComboAttack": {
+    "NAME": "组合攻击",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 龙造成 !DT:THD! 点伤害。 NL 获得1点 ragontaer:齐心 。"
+  },
+  "DTMod:Conduct": {
+    "NAME": "误导",
+    "DESCRIPTION": "如果 ragontaer:仇恨 的差值不少于5，抽 !M! 张牌。"
+  },
+  "DTMod:Coolant": {
+    "NAME": "冷静",
+    "DESCRIPTION": "预见 !M! 。 NL 消耗 其中的状态和诅咒牌。"
+  },
+  "DTMod:Cover": {
+    "NAME": "掩护",
+    "DESCRIPTION": "ragontaer:后方 获得 NL !B! 点 格挡 。 NL 抽 !M! 张牌。",
+    "EXTENDED_DESCRIPTION": [
+      "ragontaer:后方 获得 NL !DT:THB! 点 格挡 。 NL 抽 !M! 张牌。"
+    ]
+  },
+  "DTMod:CrossStep": {
+    "NAME": "交错",
+    "DESCRIPTION": "每当你的队伍 ragontaer:交换 时，获得 [E] 。",
+    "UPGRADE_DESCRIPTION": "固有 。 NL 每当你的队伍 ragontaer:交换 时，获得 [E] 。"
+  },
+  "DTMod:DarkBreath": {
+    "NAME": "黑暗吐息",
+    "DESCRIPTION": "龙造成 !DT:THD! 点伤害两次并给予 !M! 层 易伤 。"
+  },
+  "DTMod:DeepFocus": {
+    "NAME": "禅定",
+    "DESCRIPTION": "2回合后，获得 NL 获得 !M! 点 力量 。 NL ragontaer:打断 。"
+  },
+  "DTMod:Dissolve": {
+    "NAME": "溶解",
+    "DESCRIPTION": "将2张 *灼伤 加入手牌。 NL 每回合结束时，龙获得 NL !M! 点 格挡 。"
+  },
+  "DTMod:DragonDance": {
+    "NAME": "龙舞",
+    "DESCRIPTION": "龙获得 NL !M! 点 力量 和 NL 2 点 敏捷 。"
+  },
+  "DTMod:EchoTactic": {
+    "NAME": "回声战术",
+    "DESCRIPTION": "复制一张非同名手牌。 NL 它的耗能减少 !M! 。 NL 消耗 。"
+  },
+  "DTMod:ExcessFootwork": {
+    "NAME": "凌乱步伐",
+    "DESCRIPTION": "获得 !M! 点 敏捷 。 NL 每回合结束时，失去1点 敏捷 。"
+  },
+  "DTMod:Feint": {
+    "NAME": "佯攻",
+    "DESCRIPTION": "随机你造成 !D! 点伤害或龙造成 !DT:THD! 点伤害。"
+  },
+  "DTMod:FierySynthesis": {
+    "NAME": "融合",
+    "DESCRIPTION": "龙对所有敌人造成 NL !DT:THD! 点伤害。 NL 将所有药水变为 ragontaer:爆裂药水 。"
+  },
+  "DTMod:FlameSlash": {
+    "NAME": "烈焰斩",
+    "DESCRIPTION": "龙对所有敌人造成 NL !DT:THD! 点伤害。"
+  },
+  "DTMod:ForkedFire": {
+    "NAME": "歧火",
+    "DESCRIPTION": "龙对随机两名敌人造成 !DT:THD! 点伤害X次。"
+  },
+  "DTMod:GearUp": {
+    "NAME": "未雨绸缪",
+    "DESCRIPTION": "将 !M! 张 *平安 和 *坚硬皮肤 加入手牌。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "将 !M! 张 *平安+ 和 *坚硬皮肤+ 加入手牌。 NL 消耗 。"
+  },
+  "DTMod:GhostSkin": {
+    "NAME": "幽魂皮肤",
+    "DESCRIPTION": "龙获得 NL 1 层 无实体 。 NL 龙失去 !M! 点 敏捷 。 NL 消耗 。"
+  },
+  "DTMod:Harmonize": {
+    "NAME": "协调",
+    "DESCRIPTION": "每当你和龙在一回合内攻击，获得 !M! 点 ragontaer:齐心 。",
+    "UPGRADE_DESCRIPTION": "固有 。 NL 每当你和龙在一回合内攻击，获得 !M! 点 ragontaer:齐心 。"
+  },
+  "DTMod:Haste": {
+    "NAME": "应激",
+    "DESCRIPTION": "打出手牌中的一张能力牌。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "打出手牌中的能力牌。 NL 消耗 。"
+  },
+  "DTMod:HeadStart": {
+    "NAME": "先声夺人",
+    "DESCRIPTION": "固有 。 NL 选择获得 [E] [E] NL 或抽 !M! 张牌。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "固有 。 NL 选择获得 [E] [E] NL 或抽 !M! 张牌。 NL 消耗 。"
+  },
+  "DTMod:HeadStartDraw": {
+    "NAME": "抽牌",
+    "DESCRIPTION": "抽 !M! 张牌。"
+  },
+  "DTMod:HeadStartEnergy": {
+    "NAME": "能量",
+    "DESCRIPTION": "获得 [E] [E] 。",
+    "UPGRADE_DESCRIPTION": "获得 [E] [E] [E] 。"
+  },
+  "DTMod:HeatWave": {
+    "NAME": "热焰",
+    "DESCRIPTION": "龙对所有敌人造成 !DT:THD! 点伤害并给予 !M! 层 虚弱 。"
+  },
+  "DTMod:Hide": {
+    "NAME": "隐匿",
+    "DESCRIPTION": "ragontaer:前方 获得 NL !B! 点 格挡 。 NL 下回合获得 [E] 。",
+    "EXTENDED_DESCRIPTION": [
+      "ragontaer:前方 获得 NL !DT:THB! 点 格挡 。 NL 下回合获得 [E] 。"
+    ]
+  },
+  "DTMod:Inferno": {
+    "NAME": "地狱火",
+    "DESCRIPTION": "龙对所有敌人 NL !DT:THD! 点伤害。每有一名敌人，将一张 *灼伤 洗入你的抽牌堆。"
+  },
+  "DTMod:InvisibleFlame": {
+    "NAME": "暗火",
+    "DESCRIPTION": "每当 ragontaer:前方 攻击时，对所有敌人造成 !M! 点 伤害。"
+  },
+  "DTMod:LastStand": {
+    "NAME": "决战",
+    "DESCRIPTION": "你获得 !B! 点 格挡 。 NL 本回合，你受到的伤害减半。 NL 消耗 。"
+  },
+  "DTMod:LightShield": {
+    "NAME": "光之盾",
+    "DESCRIPTION": "你获得 !B! 点 格挡 。 NL 龙获得 !DT:THB! 点 格挡 。 NL 本场战斗每获得一点 ragontaer:齐心，其 格挡 获得提高 !M! 点。",
+    "UPGRADE_DESCRIPTION": "你获得 !B! 点 格挡 。 NL 龙获得 !DT:THB! 点 格挡 。 NL 本场战斗每获得一点 ragontaer:齐心，其 格挡 获得提高 !M! 点。"
+  },
+  "DTMod:LowKick": {
+    "NAME": "勾腿",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 敌人每有一层 虚弱 ，抽一张牌。"
+  },
+  "DTMod:MagicField": {
+    "NAME": "魔法阵",
+    "DESCRIPTION": "所有单位获得 NL !M! 点 格挡 。",
+    "EXTENDED_DESCRIPTION": [
+      " NL （你获得 !B! 点 格挡 ）",
+      " NL （龙获得 !DT:THB! 点 格挡 ）"
+    ]
+  },
+  "DTMod:MagiciansMark": {
+    "NAME": "魔印",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 龙的下 !M! 次攻击将获得 1 点 ragontaer:齐心 。 NL 消耗 。"
+  },
+  "DTMod:MasterPlan": {
+    "NAME": "瞻前顾后",
+    "DESCRIPTION": "ragontaer:前方 获得 NL !B! 点 格挡 。 NL 下回合 ragontaer:后方 获得 NL !DT:THB! 点 格挡 。",
+    "EXTENDED_DESCRIPTION": [
+      "ragontaer:前方 获得 NL !DT:THB! 点 格挡 。 NL 下回合 ragontaer:后方 获得 NL !DT:THB! 点 格挡 。"
+    ]
+  },
+  "DTMod:MaximumCharge": {
+    "NAME": "全力冲锋",
+    "DESCRIPTION": "龙造成 NL !DT:THD! 点伤害。 NL 龙获得 NL !M! 层 易伤 。"
+  },
+  "DTMod:Multitask": {
+    "NAME": "万能",
+    "DESCRIPTION": "每当你达成： NL 生成 *灼伤 NL 给予 虚弱 NL ragontaer:交换 NL 中的2个时，抽 !M! 张牌。"
+  },
+  "DTMod:Observe": {
+    "NAME": "探查",
+    "DESCRIPTION": "固有 。 NL 抽牌堆每有 !M! 张牌，获得 [E] 。"
+  },
+  "DTMod:OpeningTactic": {
+    "NAME": "抢先战术",
+    "DESCRIPTION": "固有 。 NL 如果敌人是满血，获得 !M! 点 敏捷 。 NL 造成 !D! 点伤害。"
+  },
+  "DTMod:Outburst": {
+    "NAME": "迸发",
+    "DESCRIPTION": "龙进入 愤怒 。2回合后退出。",
+    "UPGRADE_DESCRIPTION": "获得 [E] 。 NL 龙进入 愤怒 。2回合后退出。"
+  },
+  "DTMod:Overwhelm": {
+    "NAME": "溃败",
+    "DESCRIPTION": "给予 2 层 虚弱 。 NL 所有敌人失去自身 虚弱 !M! 倍的生命。"
+  },
+  "DTMod:Prediction": {
+    "NAME": "预言",
+    "DESCRIPTION": "将抽牌堆的一张牌置于顶部并将其耗能在打出前变为0。"
+  },
+  "DTMod:Punisher": {
+    "NAME": "惩罚",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 如果敌人有 虚弱 ，再造成 !D! 点伤害。"
+  },
+  "DTMod:PurifyingFlame": {
+    "NAME": "净化火焰",
+    "DESCRIPTION": "龙造成 NL !DT:THD! 点伤害。 NL 龙清除所有负面效果。 NL 消耗 。"
+  },
+  "DTMod:QuickFly": {
+    "NAME": "迅捷飞斩",
+    "DESCRIPTION": "固有 。 NL 龙造成 NL !DT:THD! 点伤害。 NL 抽1张牌。"
+  },
+  "DTMod:RecklessFlurry": {
+    "NAME": "慌乱",
+    "DESCRIPTION": "选择攻击者。 NL 攻击者失去所有 格挡 并对所有敌人造成失去 格挡 数量双倍的伤害。"
+  },
+  "DTMod:RepeatStrike": {
+    "NAME": "往复打击",
+    "DESCRIPTION": "龙造成 !DT:THD! 点伤害。每回合开始时，将这张牌从弃牌堆加入你的手牌。",
+    "UPGRADE_DESCRIPTION": "固有 。 NL 龙造成 !DT:THD! 点伤害。每回合开始时，将这张牌从弃牌堆加入你的手牌。"
+  },
+  "DTMod:ResonanceForm": {
+    "NAME": "共鸣形态",
+    "DESCRIPTION": "虚无 。 NL 获得 力量 、 敏捷 或 格挡 的牌将同时触发。",
+    "UPGRADE_DESCRIPTION": "获得 力量 、 敏捷 或 格挡 的牌将同时触发。"
+  },
+  "DTMod:RunningTactic": {
+    "NAME": "跑动战术",
+    "DESCRIPTION": "抽 !M! 张牌。 NL 你获得2点 ragontaer:仇恨 。"
+  },
+  "DTMod:Safeguard": {
+    "NAME": "掩体",
+    "DESCRIPTION": "ragontaer:后方 将不会在你的回合开始时失去 格挡 。",
+    "UPGRADE_DESCRIPTION": "固有 。 NL ragontaer:后方 将不会在你的回合开始时失去 格挡 。"
+  },
+  "DTMod:SealedStrike": {
+    "NAME": "围困打击",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 最多 升级 5次。第5次 升级 时将升级你的牌组。"
+  },
+  "DTMod:ShadowImage": {
+    "NAME": "暗影",
+    "DESCRIPTION": "每当你或龙攻击时，攻击者获得 !M! 点 格挡 。"
+  },
+  "DTMod:ShieldDrain": {
+    "NAME": "卸甲",
+    "DESCRIPTION": "窃取敌人的格挡。 NL 造成 !D! 点伤害。"
+  },
+  "DTMod:Shift": {
+    "NAME": "切换",
+    "DESCRIPTION": "保留 。 NL ragontaer:后方 获得 NL !M! 点 ragontaer:仇恨 。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "保留 。 NL 你或龙获得 NL !M! 点 ragontaer:仇恨 。 NL 消耗 。"
+  },
+  "DTMod:SneakAttack": {
+    "NAME": "偷袭",
+    "DESCRIPTION": "只能你在 ragontaer:后方 时才能打出。 NL 造成 !D! 点伤害4次。",
+    "EXTENDED_DESCRIPTION": [
+      "我不在后方！"
+    ]
+  },
+  "DTMod:StarRain": {
+    "NAME": "星雨",
+    "DESCRIPTION": "造成 !D! 点伤害X+1次。不会增加 ragontaer:仇恨 。"
+  },
+  "DTMod:StunTrap": {
+    "NAME": "陷阱",
+    "DESCRIPTION": "2回合后， 击晕 敌人并抽 !M! 张牌。 NL ragontaer:打断 。 NL 消耗 。"
+  },
+  "DTMod:TagTeam": {
+    "NAME": "组队",
+    "DESCRIPTION": "ragontaer:前方 获得 NL !B! 点 格挡 。 NL 获得 !M! 点 ragontaer:齐心 。 NL 如果你的队伍本回合 ragontaer:交换 过，本效果翻倍。",
+    "EXTENDED_DESCRIPTION": [
+      "ragontaer:前方 获得 NL !DT:THB! 点 格挡 。 NL 获得 !M! 点 ragontaer:齐心 。 NL 如果你的队伍本回合 ragontaer:交换 过，本效果翻倍。"
+    ]
+  },
+  "DTMod:TauntingStrike": {
+    "NAME": "嘲讽打击",
+    "DESCRIPTION": "你造成 !D! 点伤害或龙造成 !DT:THD! 点伤害。 NL 攻击者给予 ragontaer:嘲讽 。",
+    "EXTENDED_DESCRIPTION": [
+      "（不能嘲讽自己）"
+    ]
+  },
+  "DTMod:Threaten": {
+    "NAME": "恐吓",
+    "DESCRIPTION": "固有 。 NL 龙获得 !DT:THB! 点 格挡 并给予 !M! 层 虚弱 。"
+  },
+  "DTMod:Training": {
+    "NAME": "训练",
+    "DESCRIPTION": "你和龙获得 !M! 点 力量 。 NL 获得1点 ragontaer:齐心 。"
+  },
+  "DTMod:TriAttack": {
+    "NAME": "三角攻击",
+    "DESCRIPTION": "选择 !M! 次： NL 你造成 !D! 点伤害或龙造成 !DT:THD! 点伤害。"
+  },
+  "DTMod:WarmUp": {
+    "NAME": "热身",
+    "DESCRIPTION": "每回合开始时，抽 !M! 张牌。",
+    "UPGRADE_DESCRIPTION": "固有 。 NL 每回合开始时，抽 !M! 张牌。"
+  },
+  "DTMod:Weaken": {
+    "NAME": "虚弱",
+    "DESCRIPTION": "给予 !M! 层 虚弱 。 NL 消耗 。"
+  }
+}

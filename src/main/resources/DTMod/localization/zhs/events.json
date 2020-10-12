@@ -1,0 +1,30 @@
+{
+  "DTMod:SpireHeart": {
+    "NAME": "Spire Heart",
+    "DESCRIPTIONS": [
+      "NL 你感觉到了和你的龙的联系……"
+    ],
+    "OPTIONS": [
+    ]
+  },
+  "DTMod:Vampires": {
+    "NAME": "Vampires(?)",
+    "DESCRIPTIONS": [
+      "在一条昏暗的街上，你遇见几个戴着兜帽的人在进行某种黑暗的仪式。当你靠近时，他们全都同时转身面对你，让你觉得十分诡异。 其中个子最高的一个微微一笑，露出了长长的尖牙，向你伸出了一只苍白而瘦长的手： NL ~“加入我们，勇敢的人啊。一起来感受高塔的温暖吧。”~"
+    ],
+    "OPTIONS": [
+    ]
+  },
+  "DTMod:BookOnTheFloor": {
+    "NAME": "Book on the Floor",
+    "DESCRIPTIONS": [
+      "You enter an eerie room with wall of books. NL Looking around, you find an impressive looking book on the ground. NL You NEED TO pick up this book.",
+      "Your mind overflows with mythical energy. You decide to make bond with others.",
+      "(This event is deprecated)"
+    ],
+    "OPTIONS": [
+      "[获得书] #g获得一件特别的遗物。",
+      "[离开]"
+    ]
+  }
+}

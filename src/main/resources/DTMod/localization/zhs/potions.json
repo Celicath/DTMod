@@ -1,0 +1,16 @@
+{
+  "DTMod:BlazePotion": {
+    "NAME": "爆裂药水",
+    "DESCRIPTIONS": [
+      "造成 #b",
+      " 点伤害。"
+    ]
+  },
+  "DTMod:LesserBlazePotion": {
+    "NAME": "次级爆裂药水",
+    "DESCRIPTIONS": [
+      "造成 #b",
+      " 点伤害。"
+    ]
+  }
+}

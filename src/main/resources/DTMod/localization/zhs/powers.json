@@ -1,0 +1,160 @@
+{
+  "DTMod:BondingPower": {
+    "NAME": "齐心",
+    "DESCRIPTIONS": [
+      "每当你获得 #b",
+      " 点 #y齐心 ，从 #b3 种随机效果中选择 #b1种。"
+    ]
+  },
+  "DTMod:CalculatedDefensePower": {
+    "NAME": "精巧防御",
+    "DESCRIPTIONS": [
+      "被 #y虚弱 的敌人伤害降低 #b",
+      " 点。"
+    ]
+  },
+  "DTMod:DragonLoseStancePower": {
+    "NAME": "迸发",
+    "DESCRIPTIONS": [
+      "下回合， ",
+      " #b",
+      " 个回合后， ",
+      "退出愤怒。"
+    ]
+  },
+  "DTMod:OddArmorPower": {
+    "NAME": "奇怪的铠甲",
+    "DESCRIPTIONS": [
+      "降低 #b",
+      "点受到的攻击伤害。"
+    ]
+  },
+  "DTMod:AdaptationPower": {
+    "NAME": "适应",
+    "DESCRIPTIONS": [
+      "每当你洗牌时，将所有 #y固有 牌加入你的手牌。"
+    ]
+  },
+  "DTMod:TauntPower": {
+    "NAME": "嘲讽",
+    "DESCRIPTIONS": [
+      "本回合，所有敌人将只会瞄准 ",
+      "[#60D0D0]你[]",
+      "[#60D0D0]龙[]",
+      "，而无视 #y前方 [REMOVE_SPACE] 。"
+    ]
+  },
+  "DTMod:LastStandPower": {
+    "NAME": "决战",
+    "DESCRIPTIONS": [
+      "本回合，",
+      "在 #b",
+      " 个回合内，",
+      " 受到的攻击伤害减半。"
+    ]
+  },
+  "DTMod:DeepFocusPower": {
+    "NAME": "禅定",
+    "DESCRIPTIONS": [
+      "下回合， ",
+      " #b",
+      " 个回合后， ",
+      "获得 #b",
+      " 点力量。 #y打断 。"
+    ]
+  },
+  "DTMod:CrossStepPower": {
+    "NAME": "交错",
+    "DESCRIPTIONS": [
+      "每当你的队伍 #y交换 时，获得",
+      " [REMOVE_SPACE] 。"
+    ]
+  },
+  "DTMod:ShadowImagePower": {
+    "NAME": "暗影",
+    "DESCRIPTIONS": [
+      "每当这名角色攻击时，获得 #b",
+      " 点 #y格挡 。"
+    ]
+  },
+  "DTMod:InvisibleFlamePower": {
+    "NAME": "暗火",
+    "DESCRIPTIONS": [
+      "每当 #y前方 攻击时，对所有敌人造成 #b",
+      " 点伤害。"
+    ]
+  },
+  "DTMod:MagiciansMarkPower": {
+    "NAME": "魔印",
+    "DESCRIPTIONS": [
+      "下 #b",
+      " 次 [#60D0D0]龙[] 攻击这名敌人，获得 #b1 点 #y齐心 。"
+    ]
+  },
+  "DTMod:StunTrapPower": {
+    "NAME": "陷阱",
+    "DESCRIPTIONS": [
+      "下回合， ",
+      "在 #b",
+      " 个回合后， ",
+      " 将被击晕，而你抽 #b",
+      " 张牌。 #y打断 。"
+    ]
+  },
+  "DTMod:SafeguardPower": {
+    "NAME": "掩体",
+    "DESCRIPTIONS": [
+      " #y后方 将不会在你的回合开始时失去 #y格挡 。"
+    ]
+  },
+  "DTMod:HarmonizePower": {
+    "NAME": "协调",
+    "DESCRIPTIONS": [
+      "每当 [#60D0D0]你[] 和 [#60D0D0]龙[] 在一回合内攻击，获得 #b",
+      " 点 #y齐心 [REMOVE_SPACE] 。"
+    ]
+  },
+  "DTMod:MultitaskPower": {
+    "NAME": "万能",
+    "DESCRIPTIONS": [
+      "当你打成以下其中2项时，抽 #b",
+      " 张牌：",
+      "- 生成灼伤",
+      "- 给予虚弱",
+      "- 交换"
+    ]
+  },
+  "DTMod:ResonanceFormPower": {
+    "NAME": "共鸣形态",
+    "DESCRIPTIONS": [
+      "获得 #y力量 、 #y敏捷 或 #y格挡 的牌将同时触发。"
+    ]
+  },
+  "DTMod:AggroFixPower": {
+    "NAME": "仇恨修正",
+    "DESCRIPTIONS": [
+      " #y仇恨 本回合不会改变。"
+    ]
+  },
+  "DTMod:FiercePower": {
+    "NAME": "凶猛",
+    "DESCRIPTIONS": [
+      "每当生成灼伤时，获得 #b",
+      " [E] [REMOVE_SPACE]."
+    ]
+  },
+  "DTMod:BirdFacePower": {
+    "NAME": "鸟面",
+    "DESCRIPTIONS": [
+      "每当你打出一张能力牌，龙回复 #b",
+      " 点生命。"
+    ]
+  },
+  "DTMod:GreedyPower": {
+    "NAME": "贪婪",
+    "DESCRIPTIONS": [
+      "每场战斗结束时，额外获得 #b",
+      " 金币。"
+    ]
+  }
+}
