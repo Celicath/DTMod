@@ -24,6 +24,9 @@ public class MonsterIntentPatch {
 		@SpirePrefixPatch
 		public static void Prefix(AbstractMonster __instance) {
 			if (AbstractDungeon.player instanceof DragonTamer && DragonTamer.getCurrentTarget(__instance) instanceof Dragon) {
+				if (prevPlayer != null) {
+					System.out.println("BUG - MonsterIntentPatch!");
+				}
 				prevPlayer = AbstractDungeon.player;
 				AbstractDungeon.player = ((DragonTamer) AbstractDungeon.player).dragon;
 			}

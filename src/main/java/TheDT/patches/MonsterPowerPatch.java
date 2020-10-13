@@ -25,10 +25,13 @@ import com.megacrit.cardcrawl.powers.watcher.BlockReturnPower;
 import com.megacrit.cardcrawl.vfx.combat.ExplosionSmallEffect;
 
 public class MonsterPowerPatch {
-	static AbstractPlayer prevPlayer = null;
+	public static AbstractPlayer prevPlayer = null;
 
 	static void changePlayer(AbstractPlayer player) {
 		if (player != null) {
+			if (prevPlayer != null) {
+				System.out.println("BUG - MonsterPowerPatch!");
+			}
 			prevPlayer = AbstractDungeon.player;
 			AbstractDungeon.player = player;
 		}
@@ -37,6 +40,7 @@ public class MonsterPowerPatch {
 	static void RestorePlayer() {
 		if (prevPlayer != null) {
 			AbstractDungeon.player = prevPlayer;
+			prevPlayer = null;
 		}
 	}
 

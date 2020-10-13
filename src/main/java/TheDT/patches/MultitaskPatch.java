@@ -11,8 +11,6 @@ import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 import javassist.CtBehavior;
 
 public class MultitaskPatch {
-	public static AbstractPlayer prevPlayer = null;
-
 	@SpirePatch(clz = ApplyPowerAction.class, method = "update")
 	public static class DragonWeakPatch {
 		@SpireInsertPatch(locator = Locator.class)

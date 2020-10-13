@@ -10,10 +10,7 @@ import TheDT.characters.Dragon;
 import TheDT.characters.DragonTamer;
 import TheDT.crossovers.OptionalRelicHelper;
 import TheDT.modules.TargetMarker;
-import TheDT.patches.CardColorEnum;
-import TheDT.patches.MonsterTargetPatch;
-import TheDT.patches.SkillbookGameState;
-import TheDT.patches.TheDTEnum;
+import TheDT.patches.*;
 import TheDT.potions.BlazePotion;
 import TheDT.powers.ResonanceFormPower;
 import TheDT.relics.*;
@@ -386,6 +383,10 @@ public class DTModMain
 	@Override
 	public void receiveOnBattleStart(AbstractRoom room) {
 		SkillbookGameState.reset();
+		StanceChangeParticlePatch.ParticleGeneratorRenderPatch.prevPlayer = null;
+		StanceChangeParticlePatch.WrathParticleRenderPatch.prevPlayer = null;
+		MonsterIntentPatch.prevPlayer = null;
+		MonsterPowerPatch.prevPlayer = null;
 		MonsterTargetPatch.prevPlayer = null;
 
 		DTModMain.dragonAggro = 0;

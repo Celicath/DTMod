@@ -34,6 +34,9 @@ public class MonsterTargetPatch {
 			if (target instanceof AbstractMonster) {
 				redirectTarget = target;
 			} else if (AbstractDungeon.player instanceof DragonTamer && target instanceof Dragon) {
+				if (prevPlayer != null) {
+					System.out.println("BUG - MonsterTargetPatch!");
+				}
 				prevPlayer = AbstractDungeon.player;
 				AbstractDungeon.player = ((DragonTamer) AbstractDungeon.player).dragon;
 			}

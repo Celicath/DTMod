@@ -125,7 +125,7 @@ public class DragonPotionPatch {
 			if (AbstractDungeon.player instanceof DragonTamer) {
 				if (___potion instanceof FairyPotion) {
 					Dragon d = DragonTamer.getDragon();
-					if (d != null) {
+					if (d != null && d.isDead) {
 						d.isDead = false;
 						boolean modified = false;
 						Iterator<AbstractPower> it = d.powers.iterator();
@@ -140,10 +140,21 @@ public class DragonPotionPatch {
 						if (modified) {
 							AbstractDungeon.onModifyPower();
 						}
+						d.potions = AbstractDungeon.player.potions;
 						AbstractPlayer prevPlayer = AbstractDungeon.player;
 						AbstractDungeon.player = d;
 						___potion.use(null);
 						AbstractDungeon.player = prevPlayer;
+
+						for (AbstractRelic r : AbstractDungeon.player.relics) {
+							r.onUsePotion();
+						}
+						CardCrawlGame.sound.play("POTION_1");
+						BaseMod.publishPostPotionUse(___potion);
+						CardCrawlGame.metricData.potions_floor_usage.add(AbstractDungeon.floorNum);
+						__instance.close();
+
+						return SpireReturn.Return(null);
 					}
 					return SpireReturn.Continue();
 				}
@@ -269,6 +280,7 @@ public class DragonPotionPatch {
 
 					BaseMod.publishPrePotionUse(___potion);
 					if (hoveredPlayer == d) {
+						d.potions = AbstractDungeon.player.potions;
 						AbstractPlayer prev = AbstractDungeon.player;
 						AbstractDungeon.player = DragonTamer.getDragon();
 						___potion.use(null);

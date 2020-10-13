@@ -38,6 +38,9 @@ public class StanceChangeParticlePatch {
 		@SpirePrefixPatch
 		public static void Prefix(StanceChangeParticleGenerator __instance) {
 			if (DragonField.isDragon.get(__instance)) {
+				if (prevPlayer != null) {
+					System.out.println("BUG - ParticleGeneratorRenderPatch!");
+				}
 				prevPlayer = AbstractDungeon.player;
 				AbstractDungeon.player = ((DragonTamer) AbstractDungeon.player).dragon;
 			}
@@ -78,6 +81,9 @@ public class StanceChangeParticlePatch {
 		@SpirePrefixPatch
 		public static void Prefix(WrathStanceChangeParticle __instance, SpriteBatch sb) {
 			if (WrathDragonField.isDragon.get(__instance)) {
+				if (prevPlayer != null) {
+					System.out.println("BUG - WrathStanceChangeParticle!");
+				}
 				prevPlayer = AbstractDungeon.player;
 				AbstractDungeon.player = ((DragonTamer) AbstractDungeon.player).dragon;
 			}

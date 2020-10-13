@@ -13,15 +13,15 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public class LightShield extends AbstractDTCard {
 	public static final String RAW_ID = "LightShield";
-	private static final int COST = 2;
+	private static final int COST = 1;
 	private static final AbstractCard.CardType TYPE = AbstractCard.CardType.SKILL;
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.DT_ORANGE;
 	private static final AbstractCard.CardRarity RARITY = CardRarity.RARE;
 	private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.BOTH;
 
-	private static final int POWER = 14;
-	private static final int RATIO = 2;
+	private static final int POWER = 8;
+	private static final int RATIO = 1;
 	private static final int UPGRADE_RATIO = 1;
 
 	public LightShield() {

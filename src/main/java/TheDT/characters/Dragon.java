@@ -102,6 +102,8 @@ public class Dragon extends CustomPlayer implements CustomSavable<ArrayList<Inte
 		this.nameColor = new Color();
 		this.nameBgColor = new Color(0.0F, 0.0F, 0.0F, 0.0F);
 
+		this.potions = master.potions;
+
 		if (imgs == null) {
 			imgs = new Texture[4][];
 			imgs[1] = new Texture[]{

@@ -2,6 +2,7 @@ package TheDT.patches;
 
 import TheDT.DTModMain;
 import TheDT.cards.AbstractDTCard;
+import TheDT.relics.SwitchButton;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
@@ -12,7 +13,9 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DescriptionLine;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.helpers.FontHelper;
+import com.megacrit.cardcrawl.helpers.RelicLibrary;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 import javassist.CtBehavior;
 
 public class SecondKeywordPatch {
@@ -132,7 +135,14 @@ public class SecondKeywordPatch {
 	public static class SmartTextZHSPatch {
 		@SpireInsertPatch(locator = Locator.class)
 		public static void Insert(SpriteBatch sb, BitmapFont font, String msg, float x, float y, Color c, float widthMax, float lineSpacing, @ByRef float[] ___curWidth, @ByRef int[] ___currentLine, String ___word) {
-			if (___word.startsWith("[#60D0D0]") || ___word.startsWith("[#60d0d0]")) {
+			boolean needFix = ___word.startsWith("[#60D0D0]") || ___word.startsWith("[#60d0d0]");
+			if (___word.startsWith("[#2aecd7]") || ___word.startsWith("[#2AECD7]")) {
+				AbstractRelic r = RelicLibrary.getRelic(SwitchButton.ID);
+				if (r != null) {
+					needFix = r.DESCRIPTIONS[0].contains(___word);
+				}
+			}
+			if (needFix) {
 				boolean fix = false;
 				for (String t : charStrings.NAMES) {
 					if (msg.contains(t)) {
