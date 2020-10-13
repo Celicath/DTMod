@@ -26,7 +26,7 @@
     "NAME": "奇怪的铠甲",
     "DESCRIPTIONS": [
       "降低 #b",
-      "点受到的攻击伤害。"
+      " 点受到的攻击伤害。"
     ]
   },
   "DTMod:AdaptationPower": {
@@ -41,7 +41,7 @@
       "本回合，所有敌人将只会瞄准 ",
       "[#60D0D0]你[]",
       "[#60D0D0]龙[]",
-      "，而无视 #y前方 [REMOVE_SPACE] 。"
+      " ，而无视 #y前方 [REMOVE_SPACE] 。"
     ]
   },
   "DTMod:LastStandPower": {

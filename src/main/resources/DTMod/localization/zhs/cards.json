@@ -20,7 +20,7 @@
   },
   "DTMod:DoubleHit": {
     "NAME": "双重攻击",
-    "DESCRIPTION": "龙造成 NL !DT:THD! 点伤害两次。"
+    "DESCRIPTION": "龙 造成 NL !DT:THD! 点伤害两次。"
   },
   "DTMod:SwitchingTactic": {
     "NAME": "转换战术",
@@ -32,11 +32,11 @@
   },
   "DTMod:HardSkin": {
     "NAME": "坚硬皮肤",
-    "DESCRIPTION": "保留 。 NL 龙获得 !DT:THB! 点 格挡 。 NL 消耗 。"
+    "DESCRIPTION": "保留 。 NL 龙 获得 !DT:THB! 点 格挡 。 NL 消耗 。"
   },
   "DTMod:Adaptation": {
     "NAME": "适应",
-    "DESCRIPTION": "每当你洗牌时，将所有 固有 牌加入你的手牌。",
+    "DESCRIPTION": "每当 龙洗牌时，将所有 固有 牌加入你的手牌。",
     "UPGRADE_DESCRIPTION": "固有 。 NL 每当你洗牌时，将所有 固有 牌加入你的手牌。"
   },
   "DTMod:Astonish": {
@@ -44,7 +44,7 @@
     "DESCRIPTION": "ragontaer:前方 造成 ragontaer:仇恨 差值 !M! 倍的伤害。",
     "EXTENDED_DESCRIPTION": [
       " NL （造成 !D! 点伤害）",
-      " NL （龙造成 !D! 点伤害）"
+      " NL （ 龙 造成 !D! 点伤害）"
     ]
   },
   "DTMod:BalancedStrike": {
@@ -53,31 +53,31 @@
   },
   "DTMod:BizarreTactic": {
     "NAME": "诡骗战术",
-    "DESCRIPTION": "你获得 !B! 点 格挡 。 NL 本回合每当龙受到攻击时，造成 !M! 点反伤。"
+    "DESCRIPTION": "你 获得 !B! 点 格挡 。 NL 本回合每当 龙 受到攻击时，造成 !M! 点反伤。"
   },
   "DTMod:BlazingStrike": {
     "NAME": "炽热打击",
-    "DESCRIPTION": "龙造成 !DT:THD! 点伤害。 NL 将一张 *灼伤 加入手牌。"
+    "DESCRIPTION": "龙 造成 !DT:THD! 点伤害。 NL 将一张 *灼伤 加入手牌。"
   },
   "DTMod:BlueScale": {
     "NAME": "蓝量",
-    "DESCRIPTION": "龙获得 !DT:THB! 点 格挡 。 NL 将一张 *坚硬皮肤 加入手牌。",
-    "UPGRADE_DESCRIPTION": "龙获得 !DT:THB! 点 格挡 。 NL 将一张 *坚硬皮肤+ 加入手牌。"
+    "DESCRIPTION": "龙 获得 !DT:THB! 点 格挡 。 NL 将一张 *坚硬皮肤 加入手牌。",
+    "UPGRADE_DESCRIPTION": "龙 获得 !DT:THB! 点 格挡 。 NL 将一张 *坚硬皮肤+ 加入手牌。"
   },
   "DTMod:BondingBonus": {
     "NAME": "齐心协力",
-    "DESCRIPTION": "在你获得5点 ragontaer:齐心 时获得以下效果之一。",
+    "DESCRIPTION": "在 你 获得5点 ragontaer:齐心 时获得以下效果之一。",
     "EXTENDED_DESCRIPTION": [
       "人工制品",
-      "你和龙获得2层 人工制品 。",
+      "你 和 龙 获得2层 人工制品 。",
       "千刀",
       "对所有敌人造成20点伤害。",
       "格挡",
-      "你和龙获得20点 格挡 。",
+      "你 和 龙 获得20点 格挡 。",
       "力量",
-      "你和龙获得4点 力量 。",
+      "你 和 龙 获得4点 力量 。",
       "敏捷",
-      "你和龙获得3点敏捷 。",
+      "你 和 龙 获得3点敏捷 。",
       "能量",
       "获得 [E] [E] [E] [E] 。",
       "抽牌",
@@ -105,7 +105,7 @@
   },
   "DTMod:BurningForce": {
     "NAME": "热力",
-    "DESCRIPTION": "龙造成 !DT:THD! 点伤害。 NL 本场战斗每生成一张 *灼伤 ，其伤害提高 !M! 点。"
+    "DESCRIPTION": "龙 造成 !DT:THD! 点伤害。 NL 本场战斗每生成一张 *灼伤 ，其伤害提高 !M! 点。"
   },
   "DTMod:CalculatedDefense": {
     "NAME": "精巧防御",
@@ -118,7 +118,7 @@
   },
   "DTMod:ComboAttack": {
     "NAME": "组合攻击",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 龙造成 !DT:THD! 点伤害。 NL 获得1点 ragontaer:齐心 。"
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 龙 造成 !DT:THD! 点伤害。 NL 获得1点 ragontaer:齐心 。"
   },
   "DTMod:Conduct": {
     "NAME": "误导",
@@ -142,7 +142,7 @@
   },
   "DTMod:DarkBreath": {
     "NAME": "黑暗吐息",
-    "DESCRIPTION": "龙造成 !DT:THD! 点伤害两次并给予 !M! 层 易伤 。"
+    "DESCRIPTION": "龙 造成 !DT:THD! 点伤害两次并给予 !M! 层 易伤 。"
   },
   "DTMod:DeepFocus": {
     "NAME": "禅定",
@@ -150,11 +150,11 @@
   },
   "DTMod:Dissolve": {
     "NAME": "溶解",
-    "DESCRIPTION": "将2张 *灼伤 加入手牌。 NL 每回合结束时，龙获得 NL !M! 点 格挡 。"
+    "DESCRIPTION": "将2张 *灼伤 加入手牌。 NL 每回合结束时， 龙 获得 NL !M! 点 格挡 。"
   },
   "DTMod:DragonDance": {
-    "NAME": "龙舞",
-    "DESCRIPTION": "龙获得 NL !M! 点 力量 和 NL 2 点 敏捷 。"
+    "NAME": "龙 舞",
+    "DESCRIPTION": "龙 获得 NL !M! 点 力量 和 NL 2 点 敏捷 。"
   },
   "DTMod:EchoTactic": {
     "NAME": "回声战术",
@@ -166,19 +166,19 @@
   },
   "DTMod:Feint": {
     "NAME": "佯攻",
-    "DESCRIPTION": "随机你造成 !D! 点伤害或龙造成 !DT:THD! 点伤害。"
+    "DESCRIPTION": "随机 你 造成 !D! 点伤害或 龙 造成 !DT:THD! 点伤害。"
   },
   "DTMod:FierySynthesis": {
     "NAME": "融合",
-    "DESCRIPTION": "龙对所有敌人造成 NL !DT:THD! 点伤害。 NL 将所有药水变为 ragontaer:爆裂药水 。"
+    "DESCRIPTION": "龙 对所有敌人造成 NL !DT:THD! 点伤害。 NL 将所有药水变为 ragontaer:爆裂药水 。"
   },
   "DTMod:FlameSlash": {
     "NAME": "烈焰斩",
-    "DESCRIPTION": "龙对所有敌人造成 NL !DT:THD! 点伤害。"
+    "DESCRIPTION": "龙 对所有敌人造成 NL !DT:THD! 点伤害。"
   },
   "DTMod:ForkedFire": {
     "NAME": "歧火",
-    "DESCRIPTION": "龙对随机两名敌人造成 !DT:THD! 点伤害X次。"
+    "DESCRIPTION": "龙 对随机两名敌人造成 !DT:THD! 点伤害X次。"
   },
   "DTMod:GearUp": {
     "NAME": "未雨绸缪",
@@ -187,12 +187,12 @@
   },
   "DTMod:GhostSkin": {
     "NAME": "幽魂皮肤",
-    "DESCRIPTION": "龙获得 NL 1 层 无实体 。 NL 龙失去 !M! 点 敏捷 。 NL 消耗 。"
+    "DESCRIPTION": "龙 获得 NL 1 层 无实体 。 NL 龙 失去 !M! 点 敏捷 。 NL 消耗 。"
   },
   "DTMod:Harmonize": {
     "NAME": "协调",
-    "DESCRIPTION": "每当你和龙在一回合内攻击，获得 !M! 点 ragontaer:齐心 。",
-    "UPGRADE_DESCRIPTION": "固有 。 NL 每当你和龙在一回合内攻击，获得 !M! 点 ragontaer:齐心 。"
+    "DESCRIPTION": "每当 你 和 龙 在一回合内攻击，获得 !M! 点 ragontaer:齐心 。",
+    "UPGRADE_DESCRIPTION": "固有 。 NL 每当 你 和 龙 在一回合内攻击，获得 !M! 点 ragontaer:齐心 。"
   },
   "DTMod:Haste": {
     "NAME": "应激",
@@ -202,7 +202,7 @@
   "DTMod:HeadStart": {
     "NAME": "先声夺人",
     "DESCRIPTION": "固有 。 NL 选择获得 [E] [E] NL 或抽 !M! 张牌。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "固有 。 NL 选择获得 [E] [E] NL 或抽 !M! 张牌。 NL 消耗 。"
+    "UPGRADE_DESCRIPTION": "固有 。 NL 选择获得 [E] [E] [E] NL 或抽 !M! 张牌。 NL 消耗 。"
   },
   "DTMod:HeadStartDraw": {
     "NAME": "抽牌",
@@ -215,7 +215,7 @@
   },
   "DTMod:HeatWave": {
     "NAME": "热焰",
-    "DESCRIPTION": "龙对所有敌人 NL 造成 !DT:THD! 点伤害并给予 !M! 层 虚弱 。"
+    "DESCRIPTION": "龙 对所有敌人 NL 造成 !DT:THD! 点伤害并给予 !M! 层 虚弱 。"
   },
   "DTMod:Hide": {
     "NAME": "隐匿",
@@ -226,7 +226,7 @@
   },
   "DTMod:Inferno": {
     "NAME": "地狱火",
-    "DESCRIPTION": "龙对所有敌人 NL !DT:THD! 点伤害。每有一名敌人，将一张 *灼伤 洗入你的抽牌堆。"
+    "DESCRIPTION": "龙 对所有敌人 NL !DT:THD! 点伤害。每有一名敌人，将一张 *灼伤 洗入你的抽牌堆。"
   },
   "DTMod:InvisibleFlame": {
     "NAME": "暗火",
@@ -234,12 +234,12 @@
   },
   "DTMod:LastStand": {
     "NAME": "决战",
-    "DESCRIPTION": "你获得 !B! 点 格挡 。 NL 本回合，你受到的伤害减半。 NL 消耗 。"
+    "DESCRIPTION": "你 获得 !B! 点 格挡 。 NL 本回合， 你 受到的伤害减半。 NL 消耗 。"
   },
   "DTMod:LightShield": {
     "NAME": "光之盾",
-    "DESCRIPTION": "你获得 !B! 点 格挡 。 NL 龙获得 !DT:THB! 点 格挡 。 NL 本场战斗每获得一点 ragontaer:齐心 ，其 格挡 获得提高 !M! 点。",
-    "UPGRADE_DESCRIPTION": "你获得 !B! 点 格挡 。 NL 龙获得 !DT:THB! 点 格挡 。 NL 本场战斗每获得一点 ragontaer:齐心 ，其 格挡 获得提高 !M! 点。"
+    "DESCRIPTION": "你 获得 !B! 点 格挡 。 NL 龙 获得 !DT:THB! 点 格挡 。 NL 本场战斗每获得一点 ragontaer:齐心 ，其 格挡 获得提高 !M! 点。",
+    "UPGRADE_DESCRIPTION": "你 获得 !B! 点 格挡 。 NL 龙 获得 !DT:THB! 点 格挡 。 NL 本场战斗每获得一点 ragontaer:齐心 ，其 格挡 获得提高 !M! 点。"
   },
   "DTMod:LowKick": {
     "NAME": "勾腿",
@@ -255,7 +255,7 @@
   },
   "DTMod:MagiciansMark": {
     "NAME": "魔印",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 龙的下 !M! 次攻击将获得 1 点 ragontaer:齐心 。 NL 消耗 。"
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 龙 的下 !M! 次攻击将获得 1 点 ragontaer:齐心 。 NL 消耗 。"
   },
   "DTMod:MasterPlan": {
     "NAME": "瞻前顾后",
@@ -266,7 +266,7 @@
   },
   "DTMod:MaximumCharge": {
     "NAME": "全力冲锋",
-    "DESCRIPTION": "龙造成 NL !DT:THD! 点伤害。 NL 龙获得 NL !M! 层 易伤 。"
+    "DESCRIPTION": "龙 造成 NL !DT:THD! 点伤害。 NL 龙 获得 NL !M! 层 易伤 。"
   },
   "DTMod:Multitask": {
     "NAME": "左右开弓",
@@ -282,8 +282,8 @@
   },
   "DTMod:Outburst": {
     "NAME": "迸发",
-    "DESCRIPTION": "龙进入 愤怒 。2回合后退出。",
-    "UPGRADE_DESCRIPTION": "获得 [E] 。 NL 龙进入 愤怒 。2回合后退出。"
+    "DESCRIPTION": "龙 进入 愤怒 。2回合后退出。",
+    "UPGRADE_DESCRIPTION": "获得 [E] 。 NL 龙 进入 愤怒 。2回合后退出。"
   },
   "DTMod:Overwhelm": {
     "NAME": "溃败",
@@ -299,11 +299,11 @@
   },
   "DTMod:PurifyingFlame": {
     "NAME": "净化火焰",
-    "DESCRIPTION": "龙造成 NL !DT:THD! 点伤害。 NL 龙清除所有负面效果。 NL 消耗 。"
+    "DESCRIPTION": "龙 造成 NL !DT:THD! 点伤害。 NL 龙 清除所有负面效果。 NL 消耗 。"
   },
   "DTMod:QuickFly": {
     "NAME": "迅捷飞斩",
-    "DESCRIPTION": "固有 。 NL 龙造成 NL !DT:THD! 点伤害。 NL 抽1张牌。"
+    "DESCRIPTION": "固有 。 NL 龙 造成 NL !DT:THD! 点伤害。 NL 抽1张牌。"
   },
   "DTMod:RecklessFlurry": {
     "NAME": "慌乱",
@@ -311,8 +311,8 @@
   },
   "DTMod:RepeatStrike": {
     "NAME": "往复打击",
-    "DESCRIPTION": "龙造成 !DT:THD! 点伤害。每回合开始时，将这张牌从弃牌堆加入你的手牌。",
-    "UPGRADE_DESCRIPTION": "固有 。 NL 龙造成 !DT:THD! 点伤害。每回合开始时，将这张牌从弃牌堆加入你的手牌。"
+    "DESCRIPTION": "龙 造成 !DT:THD! 点伤害。每回合开始时，将这张牌从弃牌堆加入你的手牌。",
+    "UPGRADE_DESCRIPTION": "固有 。 NL 龙 造成 !DT:THD! 点伤害。每回合开始时，将这张牌从弃牌堆加入你的手牌。"
   },
   "DTMod:ResonanceForm": {
     "NAME": "共鸣形态",
@@ -321,7 +321,7 @@
   },
   "DTMod:RunningTactic": {
     "NAME": "跑动战术",
-    "DESCRIPTION": "抽 !M! 张牌。 NL 你获得2点 ragontaer:仇恨 。"
+    "DESCRIPTION": "抽 !M! 张牌。 NL 你 获得2点 ragontaer:仇恨 。"
   },
   "DTMod:Safeguard": {
     "NAME": "掩体",
@@ -334,7 +334,7 @@
   },
   "DTMod:ShadowImage": {
     "NAME": "暗影",
-    "DESCRIPTION": "每当你或龙攻击时，攻击者获得 !M! 点 格挡 。"
+    "DESCRIPTION": "每当 你 或 龙 攻击时，攻击者获得 !M! 点 格挡 。"
   },
   "DTMod:ShieldDrain": {
     "NAME": "卸甲",
@@ -343,11 +343,11 @@
   "DTMod:Shift": {
     "NAME": "切换",
     "DESCRIPTION": "保留 。 NL ragontaer:后方 获得 NL !M! 点 ragontaer:仇恨 。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "保留 。 NL 你或龙获得 NL !M! 点 ragontaer:仇恨 。 NL 消耗 。"
+    "UPGRADE_DESCRIPTION": "保留 。 NL 你 或 龙 获得 NL !M! 点 ragontaer:仇恨 。 NL 消耗 。"
   },
   "DTMod:SneakAttack": {
     "NAME": "偷袭",
-    "DESCRIPTION": "只能你在 ragontaer:后方 时才能打出。 NL 造成 !D! 点伤害4次。",
+    "DESCRIPTION": "只能 你 在 ragontaer:后方 时才能打出。 NL 造成 !D! 点伤害4次。",
     "EXTENDED_DESCRIPTION": [
       "我不在后方！"
     ]
@@ -369,22 +369,22 @@
   },
   "DTMod:TauntingStrike": {
     "NAME": "嘲讽打击",
-    "DESCRIPTION": "你造成 !D! 点伤害或龙造成 !DT:THD! 点伤害。 NL 攻击者给予 ragontaer:嘲讽 。",
+    "DESCRIPTION": "你 造成 !D! 点伤害或 龙 造成 !DT:THD! 点伤害。 NL 攻击者给予 ragontaer:嘲讽 。",
     "EXTENDED_DESCRIPTION": [
       "（不能嘲讽自己）"
     ]
   },
   "DTMod:Threaten": {
     "NAME": "恐吓",
-    "DESCRIPTION": "固有 。 NL 龙获得 !DT:THB! 点 格挡 并给予 !M! 层 虚弱 。"
+    "DESCRIPTION": "固有 。 NL 龙 获得 !DT:THB! 点 格挡 并给予 !M! 层 虚弱 。"
   },
   "DTMod:Training": {
     "NAME": "训练",
-    "DESCRIPTION": "你和龙获得 !M! 点 力量 。 NL 获得1点 ragontaer:齐心 。"
+    "DESCRIPTION": "你 和 龙 获得 !M! 点 力量 。 NL 获得1点 ragontaer:齐心 。"
   },
   "DTMod:TriAttack": {
     "NAME": "三角攻击",
-    "DESCRIPTION": "选择 !M! 次： NL 你造成 !D! 点伤害或龙造成 !DT:THD! 点伤害。"
+    "DESCRIPTION": "选择 !M! 次： NL 你 造成 !D! 点伤害或 龙 造成 !DT:THD! 点伤害。"
   },
   "DTMod:WarmUp": {
     "NAME": "热身",
