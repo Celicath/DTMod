@@ -19,7 +19,7 @@ public class ChooseAttackerScreenPatch {
 		public static SpireReturn<Void> Prefix(CardRewardScreen __instance, ArrayList<AbstractCard> choices) {
 			if (ChooseAttackerAction.activeThis != null && choices == ChooseAttackerAction.dummyChoice) {
 				__instance.rewardGroup = choices;
-				ChooseAttackerScreen.open();
+				ChooseAttackerScreen.open(__instance);
 				return SpireReturn.Return(null);
 			} else {
 				ChooseAttackerAction.activeThis = null;

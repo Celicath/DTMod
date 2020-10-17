@@ -21,6 +21,10 @@ import com.megacrit.cardcrawl.helpers.Hitbox;
 import com.megacrit.cardcrawl.helpers.controller.CInputActionSet;
 import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.screens.CardRewardScreen;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class ChooseAttackerScreen {
 	private static final String[] TEXT = CardCrawlGame.languagePack.getUIString(DTModMain.makeID("ChooseAttackerScreen")).TEXT;
@@ -28,9 +32,11 @@ public class ChooseAttackerScreen {
 	private static AbstractCreature hoveredCreature;
 	private static AbstractCreature firstHoveredCreature;
 	private static float arrowTime;
-	private static Hitbox tmpHitbox = new Hitbox(0, 0);
+	private static final Hitbox tmpHitbox = new Hitbox(0, 0);
+	private static List<AbstractMonster> livingMonsters;
 
-	public static void open() {
+	public static void open(CardRewardScreen screen) {
+		screen.rItem = null;
 		hoveredCreature = null;
 		arrowTime = 0.0f;
 		AbstractDungeon.isScreenUp = true;
@@ -39,6 +45,8 @@ public class ChooseAttackerScreen {
 		AbstractDungeon.overlayMenu.showBlackScreen(0.5f);
 
 		firstHoveredCreature = AbstractDungeon.getMonsters().hoveredMonster;
+
+		livingMonsters = AbstractDungeon.getCurrRoom().monsters.monsters.stream().filter(m -> !m.isDying && !m.isEscaping).collect(Collectors.toList());
 	}
 
 	public static void update() {
@@ -198,9 +206,13 @@ public class ChooseAttackerScreen {
 			} else {
 				if (ChooseAttackerAction.activeThis.isAttack) {
 					int index = 0;
-					float offset = -0.5f - AbstractDungeon.getCurrRoom().monsters.monsters.size() * 0.5f;
+					int size = livingMonsters.size();
+					float offset = -0.5f - size * 0.5f;
+					if (size >= 5) {
+						offset = -2.5f;
+					}
 					ChooseAttackerAction.activeThis.dtCard.calculateCardDamage(ChooseAttackerAction.activeThis.m);
-					for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
+					for (AbstractMonster m : livingMonsters) {
 						if (!m.isDeadOrEscaped()) {
 							renderCreature(sb, m);
 							TargetArrow.drawTargetArrow(
@@ -262,5 +274,6 @@ public class ChooseAttackerScreen {
 		AbstractDungeon.isScreenUp = true;
 		AbstractDungeon.dynamicBanner.appear(TEXT[0]);
 		AbstractDungeon.overlayMenu.showBlackScreen(0.5f);
+		AbstractDungeon.overlayMenu.proceedButton.hide();
 	}
 }
