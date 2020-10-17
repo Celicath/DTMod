@@ -3,8 +3,8 @@
     "NAME": "AbstractDTCard",
     "DESCRIPTION": "Common texts",
     "EXTENDED_DESCRIPTION": [
-      "I don't have Dragon on my side.",
-      "Dragon is fainted."
+      "我身边没有龙",
+      "龙已经晕倒"
     ]
   },
   "DTMod:Strike": {
@@ -215,7 +215,7 @@
   },
   "DTMod:HeatWave": {
     "NAME": "热焰",
-    "DESCRIPTION": "龙对所有敌人造成 !DT:THD! 点伤害并给予 !M! 层 虚弱 。"
+    "DESCRIPTION": "龙对所有敌人 NL 造成 !DT:THD! 点伤害并给予 !M! 层 虚弱 。"
   },
   "DTMod:Hide": {
     "NAME": "隐匿",
@@ -238,8 +238,8 @@
   },
   "DTMod:LightShield": {
     "NAME": "光之盾",
-    "DESCRIPTION": "你获得 !B! 点 格挡 。 NL 龙获得 !DT:THB! 点 格挡 。 NL 本场战斗每获得一点 ragontaer:齐心，其 格挡 获得提高 !M! 点。",
-    "UPGRADE_DESCRIPTION": "你获得 !B! 点 格挡 。 NL 龙获得 !DT:THB! 点 格挡 。 NL 本场战斗每获得一点 ragontaer:齐心，其 格挡 获得提高 !M! 点。"
+    "DESCRIPTION": "你获得 !B! 点 格挡 。 NL 龙获得 !DT:THB! 点 格挡 。 NL 本场战斗每获得一点 ragontaer:齐心 ，其 格挡 获得提高 !M! 点。",
+    "UPGRADE_DESCRIPTION": "你获得 !B! 点 格挡 。 NL 龙获得 !DT:THB! 点 格挡 。 NL 本场战斗每获得一点 ragontaer:齐心 ，其 格挡 获得提高 !M! 点。"
   },
   "DTMod:LowKick": {
     "NAME": "勾腿",
@@ -269,8 +269,8 @@
     "DESCRIPTION": "龙造成 NL !DT:THD! 点伤害。 NL 龙获得 NL !M! 层 易伤 。"
   },
   "DTMod:Multitask": {
-    "NAME": "万能",
-    "DESCRIPTION": "每当你达成： NL 生成 *灼伤 NL 给予 虚弱 NL ragontaer:交换 NL 中的2个时，抽 !M! 张牌。"
+    "NAME": "左右开弓",
+    "DESCRIPTION": "每当你达成： NL 生成 *灼伤 NL 或给予 虚弱 NL 或 ragontaer:交换 NL 中的2个时，抽 !M! 张牌。"
   },
   "DTMod:Observe": {
     "NAME": "探查",
