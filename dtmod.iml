@@ -29,7 +29,7 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
-      <library name="Maven: com.evacipated.cardcrawl:BaseMod:5.0.0">
+      <library name="Maven: com.evacipated.cardcrawl:BaseMod:5.24.0">
         <CLASSES>
           <root url="jar://$MODULE_DIR$/../lib/BaseMod.jar!/" />
         </CLASSES>

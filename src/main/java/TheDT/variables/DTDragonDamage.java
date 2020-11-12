@@ -3,7 +3,6 @@ package TheDT.variables;
 import TheDT.cards.AbstractDTCard;
 import basemod.abstracts.DynamicVariable;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.core.Settings;
 
 public class DTDragonDamage extends DynamicVariable {
 	@Override

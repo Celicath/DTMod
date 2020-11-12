@@ -4,9 +4,9 @@
   "author_list": [
     "Celicath"
   ],
-  "credits": "",
+  "credits": "Rita-B - ZHS translation",
   "description": "Adds a character called The Dragon Tamer, who fights together with his faithful dragon.\n\n- Adds 75 cards and 12 relics.",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "sts_version": "07-30-2020",
   "mts_version": "3.16.0",
   "dependencies": [

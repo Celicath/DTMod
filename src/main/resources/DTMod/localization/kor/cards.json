@@ -191,7 +191,7 @@
     "DESCRIPTION": "드래곤이 불가침을 1 얻습니다. NL 드래곤이 민첩을 !M! 잃습니다. NL 소멸."
   },
   "DTMod:Harmonize": {
-    "NAME": "조화력",
+    "NAME": "조화로운 전투",
     "DESCRIPTION": "한 턴에 당신과 드래곤이 모두 공격하면, ragontaer:결속을 !M! 얻습니다.",
     "UPGRADE_DESCRIPTION": "선천성. NL 한 턴에 당신과 드래곤이 모두 공격하면, ragontaer:결속을 !M! 얻습니다."
   },

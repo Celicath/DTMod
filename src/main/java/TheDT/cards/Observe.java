@@ -15,7 +15,7 @@ public class Observe extends AbstractDTCard {
 	private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DEFAULT;
 
-	private static final int PER = 7;
+	private static final int PER = 6;
 	private static final int NEW_COST = 0;
 
 	public Observe() {
