@@ -2,6 +2,7 @@
   {
     "PROPER_NAME": "齐心",
     "NAMES": [
+      "bonding",
       "齐心"
     ],
     "DESCRIPTION": "每当你的队伍获得 #b5 点 #y齐心 ，从 #b3 种奖励效果中选择 #b1 种。 NL 只有当 [#60D0D0]龙[] 存活时才能触发。"

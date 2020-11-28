@@ -271,7 +271,7 @@
   },
   "DTMod:Multitask": {
     "NAME": "멀티태스킹",
-    "DESCRIPTION": "화상 생성, 약화 부여, ragontaer:교대 중 둘을 달성할 때마다 카드를 !M! 장 뽑습니다."
+    "DESCRIPTION": "*화상 생성, 약화 부여, ragontaer:교대 중 둘을 달성할 때마다 카드를 !M! 장 뽑습니다."
   },
   "DTMod:Observe": {
     "NAME": "관측",

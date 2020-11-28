@@ -9,12 +9,13 @@ Dragon is a separate character with its own HP, Block and buffs. You control bot
 
 Dragon will attack when you play a card saying `Dragon deals X damage`. Dragon will gain Block with a card `Dragon gains X Block`, and similar for other buffs.
 
-Dragon faints (instead of die) when its HP becomes 0. It will revive with 1 HP at the end of combat.
+Dragon faints (instead of dies) when its HP becomes 0. It will revive with 1 HP at the end of combat.
 
 Things affecting you may or may not affect Dragon: 
 - Dragon heals when you rest or clear an Act.
 - Events don't affect Dragon's HP.
-- Some enemy powers don't affect Dragon.
+- Most enemy powers affecting the player affects the Front. (Sharp Hide, Explosive, Beat of Death, etc.)
+  - Thorns only affect the attacker.
 - You can make Dragon to drink some potions.
 - Most base game relics only affects you. Exceptions include Ginger, Turnip and Odd Mushroom.
 
@@ -50,14 +51,6 @@ You may find other ways to use the Rear's Block.
 * Channeling: Powerful effects activate after 2 turns, but cancelled if You attack or an enemy attack You.
 * Synergies with Base game mechanics: Burn, Weak, Innate
 * Cards with while-in-your-deck effects.
-
-# Cross-mod Content
-
-### [Aspiration](https://github.com/erasels/Aspiration-StS)
-
-* Dragon Tamer's Skillbook - Boss Relic
-  * Whenever you play a card that affects both you and another character, gain 1 Bonding.
-    * Only available to characters other than Dragon Tamer. Since they don't have Dragon on their side, all bonuses affecting Dragon will have no effect.
 
 # Contacts
 

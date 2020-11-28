@@ -156,9 +156,9 @@ public class DragonStatusScreen {
 		dragonGrowthCards[2][2].setProgress(countDeck(c -> c.type == AbstractCard.CardType.SKILL), 8);
 		dragonGrowthCards[2][3].setProgress(countDeck(c -> c.tags.contains(CustomTags.DT_BONDING)), 3);
 		dragonGrowthCards[2][4].setProgress(countDeck((c) -> c.tags.contains(CustomTags.DT_TACTIC)), 3);
-		dragonGrowthCards[3][1].setProgress(countDeck((c) -> c.cardsToPreview instanceof Burn), 5);
-		dragonGrowthCards[3][2].setProgress(countDeck((c) -> c.color != CardColorEnum.DT_ORANGE), 4);
-		dragonGrowthCards[3][3].setProgress(countDeck((c) -> c.type == AbstractCard.CardType.POWER), 6);
+		dragonGrowthCards[3][1].setProgress(countDeck((c) -> c.cardsToPreview instanceof Burn), 4);
+		dragonGrowthCards[3][2].setProgress(countDeck((c) -> c.color != CardColorEnum.DT_ORANGE), 3);
+		dragonGrowthCards[3][3].setProgress(countDeck((c) -> c.type == AbstractCard.CardType.POWER), 5);
 		dragonGrowthCards[3][4].setProgress(AbstractDungeon.player.masterDeck.size(), 30);
 		dragonGrowthCards[curTier][curIndex].setProgress(0, 0);
 		updateButtons();

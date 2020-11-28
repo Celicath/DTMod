@@ -20,6 +20,7 @@ public class SealedStrike extends AbstractDTCard {
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DEFAULT;
 
 	private static final int DAMAGE = 10;
+	private static final int UPGRADE_BONUS = 2;
 
 	public SealedStrike() {
 		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
@@ -48,8 +49,8 @@ public class SealedStrike extends AbstractDTCard {
 		if (timesUpgraded < 5) {
 			timesUpgraded++;
 			upgraded = true;
-			upgradeDamage(timesUpgraded);
-			name = cardStrings.NAME + "+" + this.timesUpgraded;
+			upgradeDamage(UPGRADE_BONUS);
+			name = cardStrings.NAME + "+" + timesUpgraded;
 			initializeTitle();
 
 			if (timesUpgraded == 5 && (AbstractDungeon.player != null && AbstractDungeon.player.masterDeck.contains(this))) {

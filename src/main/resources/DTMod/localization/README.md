@@ -48,4 +48,6 @@ automatically. So you need to write as `[#60D0D0]You[]` or `[#60D0D0]Dragon[]`.
 
 ## Other
 
-Maybe I forgot to explain some things. If you have any questions, contact me via discord (celicath#3192).
+- When you translate bonding keyword, you need to add english "bonding" to "NAMES".
+- The word "Tactic" is important similar to "Strike" used in Perfected Strike.
+- Maybe I forgot to explain some things. If you have any questions, contact me via discord (celicath#3192).

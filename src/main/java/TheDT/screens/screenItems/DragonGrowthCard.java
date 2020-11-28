@@ -2,16 +2,17 @@ package TheDT.screens.screenItems;
 
 import TheDT.DTModMain;
 import TheDT.characters.Dragon;
+import TheDT.powers.BondingPower;
+import basemod.BaseMod;
 import basemod.ClickableUIElement;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.helpers.FontHelper;
-import com.megacrit.cardcrawl.helpers.MathHelper;
-import com.megacrit.cardcrawl.helpers.TipHelper;
+import com.megacrit.cardcrawl.helpers.*;
 import com.megacrit.cardcrawl.helpers.input.InputHelper;
 
+import java.util.ArrayList;
 import java.util.function.BiConsumer;
 
 public class DragonGrowthCard extends ClickableUIElement {
@@ -38,6 +39,8 @@ public class DragonGrowthCard extends ClickableUIElement {
 	int dragonIndex;
 	boolean curTier;
 	int current = 0, goal = 0;
+	int index;
+	ArrayList<PowerTip> powerTips = new ArrayList<>();
 	BiConsumer<Integer, Integer> callback;
 
 	public boolean hovered = false;
@@ -66,6 +69,28 @@ public class DragonGrowthCard extends ClickableUIElement {
 		uiScale = 1.0f;
 		uiColor = uiColorUnhover;
 		this.callback = callback;
+
+		index = dragonTier == 1 ? 0 : dragonTier * 5 + dragonIndex - 9;
+
+		switch (index) {
+			case 4:
+				powerTips.add(new PowerTip(Dragon.dragonGrowthStrings.TEXT[22], Dragon.dragonGrowthStrings.TEXT[23]));
+				String bondingKeyword = GameDictionary.parentWord.get("ragontaer:bonding");
+				if (bondingKeyword != null) {
+					String bondingDescription = GameDictionary.keywords.get(bondingKeyword);
+					String bondingProper = BaseMod.getKeywordProper(bondingKeyword);
+					if (bondingDescription != null && bondingProper != null) {
+						powerTips.add(new PowerTip(bondingProper, bondingDescription, BondingPower.IMG48));
+					}
+				}
+				break;
+			case 5:
+				powerTips.add(new PowerTip(Dragon.dragonGrowthStrings.TEXT[24], Dragon.dragonGrowthStrings.TEXT[25]));
+				break;
+			case 7:
+				powerTips.add(new PowerTip(Dragon.dragonGrowthStrings.TEXT[26], Dragon.dragonGrowthStrings.TEXT[27]));
+				break;
+		}
 	}
 
 	@Override
@@ -146,8 +171,6 @@ public class DragonGrowthCard extends ClickableUIElement {
 				DRAGON_HEIGHT * 0.25f,
 				DRAGON_WIDTH, DRAGON_HEIGHT, dragonScale, dragonScale, 0.0F, 0, 0, DRAGON_WIDTH, DRAGON_HEIGHT, false, false);
 
-		int index = dragonTier == 1 ? 0 : dragonTier * 5 + dragonIndex - 9;
-
 		FontHelper.cardTitleFont.getData().setScale(1.0F);
 		FontHelper.renderFontCentered(sb, FontHelper.cardTitleFont, Dragon.dragonGrowthStrings.NAMES[index],
 				cX, cY + CARD_HEIGHT * 0.4f * scale, Color.YELLOW);
@@ -168,19 +191,8 @@ public class DragonGrowthCard extends ClickableUIElement {
 		}
 
 		if (hitbox.hovered) {
-			switch (index) {
-				case 4:
-					TipHelper.renderGenericTip(InputHelper.mX + 50.0F * Settings.scale, InputHelper.mY,
-							Dragon.dragonGrowthStrings.TEXT[22], Dragon.dragonGrowthStrings.TEXT[23]);
-					break;
-				case 5:
-					TipHelper.renderGenericTip(InputHelper.mX + 50.0F * Settings.scale, InputHelper.mY,
-							Dragon.dragonGrowthStrings.TEXT[24], Dragon.dragonGrowthStrings.TEXT[25]);
-					break;
-				case 7:
-					TipHelper.renderGenericTip(InputHelper.mX + 50.0F * Settings.scale, InputHelper.mY,
-							Dragon.dragonGrowthStrings.TEXT[26], Dragon.dragonGrowthStrings.TEXT[27]);
-					break;
+			if (!powerTips.isEmpty()) {
+				TipHelper.queuePowerTips(InputHelper.mX + 50.0F * Settings.scale, InputHelper.mY, powerTips);
 			}
 		}
 

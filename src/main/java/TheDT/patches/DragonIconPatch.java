@@ -13,6 +13,7 @@ import static TheDT.cards.AbstractDTCard.DRAGON_ICON_HEIGHT;
 import static TheDT.cards.AbstractDTCard.DRAGON_ICON_WIDTH;
 
 public class DragonIconPatch {
+	/* Disabling for now...
 	@SpirePatch(clz = AbstractCard.class, method = "renderImage")
 	public static class AbstractCardPatch {
 		@SpirePostfixPatch
@@ -62,4 +63,5 @@ public class DragonIconPatch {
 			}
 		}
 	}
+*/
 }
