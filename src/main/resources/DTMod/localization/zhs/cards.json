@@ -261,7 +261,7 @@
     "NAME": "瞻前顾后",
     "DESCRIPTION": "ragontaer:前方 获得 NL !B! 点 格挡 。 NL 下回合 ragontaer:后方 获得 NL !DT:THB! 点 格挡 。",
     "EXTENDED_DESCRIPTION": [
-      "ragontaer:前方 获得 NL !DT:THB! 点 格挡 。 NL 下回合 ragontaer:后方 获得 NL !DT:THB! 点 格挡 。"
+      "ragontaer:前方 获得 NL !DT:THB! 点 格挡 。 NL 下回合 ragontaer:后方 获得 NL !B! 点 格挡 。"
     ]
   },
   "DTMod:MaximumCharge": {

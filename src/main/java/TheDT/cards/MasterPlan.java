@@ -54,7 +54,39 @@ public class MasterPlan extends AbstractDTCard {
 				flipped = false;
 			}
 		}
-		super.applyPowers();
+
+		if (DragonTamer.isSolo()) {
+			int currentBlock = baseBlock;
+			baseBlock = dtBaseDragonBlock;
+			super.applyPowers();
+
+			int nextBlock = block;
+			baseBlock = currentBlock;
+			super.applyPowers();
+
+			dtDragonBlock = nextBlock;
+			isDTDragonBlockModified = dtDragonBlock != dtBaseDragonBlock;
+		} else {
+			super.applyPowers();
+		}
+	}
+
+	@Override
+	public void calculateCardDamage(AbstractMonster mo) {
+		if (DragonTamer.isSolo()) {
+			int currentBlock = baseBlock;
+			baseBlock = dtBaseDragonBlock;
+			super.calculateCardDamage(mo);
+
+			int nextBlock = block;
+			baseBlock = currentBlock;
+			super.calculateCardDamage(mo);
+
+			dtDragonBlock = nextBlock;
+			isDTDragonBlockModified = dtDragonBlock != dtBaseDragonBlock;
+		} else {
+			super.calculateCardDamage(mo);
+		}
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
@@ -64,7 +96,11 @@ public class MasterPlan extends AbstractDTCard {
 			addToBot(new ApplyPowerAction(p, p, new NextTurnBlockPower(p, block), block));
 		} else {
 			addToBot(new GainBlockAction(p, p, block));
-			addToBot(new ApplyPowerAction(dragon, dragon, new NextTurnBlockPower(dragon, dtDragonBlock), dtDragonBlock));
+			if (DragonTamer.isSolo()) {
+				addToBot(new ApplyPowerAction(p, p, new NextTurnBlockPower(p, dtDragonBlock), dtDragonBlock));
+			} else {
+				addToBot(new ApplyPowerAction(dragon, dragon, new NextTurnBlockPower(dragon, dtDragonBlock), dtDragonBlock));
+			}
 		}
 	}
 
