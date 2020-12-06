@@ -35,13 +35,16 @@ public class ChooseAttackerScreen {
 	private static final Hitbox tmpHitbox = new Hitbox(0, 0);
 	private static List<AbstractMonster> livingMonsters;
 
+	private static int bannerIndex;
+
 	public static void open(CardRewardScreen screen) {
 		screen.rItem = null;
 		hoveredCreature = null;
 		arrowTime = 0.0f;
 		AbstractDungeon.isScreenUp = true;
 		AbstractDungeon.screen = AbstractDungeon.CurrentScreen.CARD_REWARD;
-		AbstractDungeon.dynamicBanner.appear(TEXT[0]);
+		bannerIndex = ChooseAttackerAction.activeThis.isAttack ? 0 : 1;
+		AbstractDungeon.dynamicBanner.appear(TEXT[bannerIndex]);
 		AbstractDungeon.overlayMenu.showBlackScreen(0.5f);
 
 		firstHoveredCreature = AbstractDungeon.getMonsters().hoveredMonster;
@@ -272,7 +275,7 @@ public class ChooseAttackerScreen {
 
 		AbstractDungeon.topPanel.unhoverHitboxes();
 		AbstractDungeon.isScreenUp = true;
-		AbstractDungeon.dynamicBanner.appear(TEXT[0]);
+		AbstractDungeon.dynamicBanner.appear(TEXT[bannerIndex]);
 		AbstractDungeon.overlayMenu.showBlackScreen(0.5f);
 		AbstractDungeon.overlayMenu.proceedButton.hide();
 	}

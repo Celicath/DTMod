@@ -25,8 +25,8 @@ public class BizarreTactic extends AbstractDTCard {
 
 	private static final int POWER = 10;
 	private static final int UPGRADE_BONUS = 4;
-	private static final int REFLECT = 4;
-	private static final int REFLECT_BONUS = 2;
+	private static final int REFLECT = 5;
+	private static final int REFLECT_BONUS = 3;
 
 	public BizarreTactic() {
 		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);

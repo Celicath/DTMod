@@ -17,8 +17,8 @@ public class LastStand extends AbstractDTCard {
 	private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DEFAULT;
 
-	private static final int BLOCK = 4;
-	private static final int UPGRADE_BONUS = 4;
+	private static final int BLOCK = 5;
+	private static final int UPGRADE_BONUS = 5;
 
 	public LastStand() {
 		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);

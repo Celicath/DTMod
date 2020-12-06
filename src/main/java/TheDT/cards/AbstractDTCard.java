@@ -21,7 +21,11 @@ import com.megacrit.cardcrawl.relics.StrikeDummy;
 import com.megacrit.cardcrawl.relics.WristBlade;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
+import java.util.List;
+
+import static TheDT.patches.CustomTags.DT_TACTIC;
 
 public abstract class AbstractDTCard extends CustomCard {
 	public enum DTCardTarget {
@@ -506,6 +510,14 @@ public abstract class AbstractDTCard extends CustomCard {
 		dtDragonDamage = dtBaseDragonDamage;
 	}
 
+	@Override
+	public List<String> getCardDescriptors() {
+		if (DT_CARD_EXTRA_TEXT.length > 2 && tags.contains(DT_TACTIC)) {
+			return Collections.singletonList(DT_CARD_EXTRA_TEXT[2]);
+		} else {
+			return super.getCardDescriptors();
+		}
+	}
 
 	public String dragonNotAvailableMessage() {
 		if (AbstractDungeon.player instanceof DragonTamer) {

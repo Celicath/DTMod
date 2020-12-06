@@ -51,6 +51,6 @@ public class LesserBlazePotion extends SackPotion {
 
 	@Override
 	public int getBasePotency() {
-		return 15;
+		return 20;
 	}
 }

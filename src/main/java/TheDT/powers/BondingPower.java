@@ -1,11 +1,13 @@
 package TheDT.powers;
 
 import TheDT.DTModMain;
+import TheDT.Interfaces.OnBondingActivateCard;
 import TheDT.optionCards.BondingBonus;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.watcher.ChooseOneAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -43,8 +45,6 @@ public class BondingPower extends AbstractPower {
 		this.region128 = IMG128;
 		this.region48 = IMG48;
 		this.source = source;
-
-		DTModMain.bondingGained += amount;
 	}
 
 	@Override
@@ -83,6 +83,15 @@ public class BondingPower extends AbstractPower {
 						AbstractDungeon.topPanel.unhoverHitboxes();
 						AbstractDungeon.actionManager.cleanCardQueue();
 						AbstractDungeon.player.releaseCard();
+						DTModMain.bondingBonuses++;
+						CardGroup[] groups = new CardGroup[]{AbstractDungeon.player.hand, AbstractDungeon.player.discardPile, AbstractDungeon.player.drawPile};
+						for (CardGroup g : groups) {
+							for (AbstractCard c : g.group) {
+								if (c instanceof OnBondingActivateCard) {
+									((OnBondingActivateCard) c).onBondingActivate();
+								}
+							}
+						}
 					}
 					super.update();
 				}

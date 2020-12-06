@@ -42,7 +42,7 @@ public class BlazePotion extends CustomPotion {
 
 	@Override
 	public int getPotency(int ascensionLevel) {
-		return 30;
+		return 40;
 	}
 
 	@Override

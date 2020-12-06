@@ -4,7 +4,8 @@
     "DESCRIPTION": "Common texts",
     "EXTENDED_DESCRIPTION": [
       "나에게는 드래곤이 없다.",
-      "드래곤이 기절했어."
+      "드래곤이 기절했어.",
+      "전술"
     ]
   },
   "DTMod:Strike": {
@@ -239,8 +240,7 @@
   },
   "DTMod:LightShield": {
     "NAME": "빛의 보호막",
-    "DESCRIPTION": "당신은 !B! , 드래곤은 !DT:THB! 의 방어도를 얻습니다. NL 이번 전투에서 얻은 ragontaer:결속의 !M! 배 만큼 추가 방어도를 얻습니다.",
-    "UPGRADE_DESCRIPTION": "당신은 !B! , 드래곤은 !DT:THB! 의 방어도를 얻습니다. NL 이번 전투에서 얻은 ragontaer:결속의 !M! 배 만큼 추가 방어도를 얻습니다."
+    "DESCRIPTION": "당신은 !B! , 드래곤은 !DT:THB! 의 방어도를 얻습니다. NL 이번 전투에서 ragontaer:결속 보너스를 받을 때마다 비용이 [E] 감소합니다."
   },
   "DTMod:LowKick": {
     "NAME": "로우 킥",

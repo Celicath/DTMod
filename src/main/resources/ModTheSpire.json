@@ -5,13 +5,13 @@
     "Celicath"
   ],
   "credits": "Rita-B - ZHS translation",
-  "description": "Adds a character called The Dragon Tamer, who fights together with his faithful dragon.\n\n- Adds 75 cards and 12 relics.\n\nv1.0.1 (2020-11-30)\n- Update for Slay the Spire v2.2\n- Fix Master Plan bugs",
-  "version": "1.0.1",
-  "sts_version": "11-29-2020",
+  "description": "Adds a character called The Dragon Tamer, who fights together with his faithful dragon.\n\n- Adds 75 cards and 12 relics.\n\nv1.1.0 (2020-12-06)\nCard changes\n- Light Shield rework: You gain 14(18) Block. Dragon gains 14(18) Block. Costs 1 less energy for each Bonding bonus you received this combat.\n- Bizarre Tactic: Damage 4(6) -> 5(8)\n- Deep Focus: Strength 5(7) -> 6(8)\n- Fiery Synthesis: Damage 6(9) -> 5(8), Blaze Potion damage 30 -> 40\n- Ghost Skin: Cost 1 -> 0\n- Last Stand: Block 4(8) -> 5(10)\n- Reckless Flurry: Cost 2(1) -> 1(0)\n- Stun Trap: Cost 1(0) -> 0(0), Card draw 3(3) -> 2(4)\n\nDragon changes\nAll requirements for Tier 3 Dragons are reduced.\n- Fierce Dragon: 4 -> 3 Burn cards\n- Ancient Dragon: 3 -> 2 cards from other color (no longer counts Curses)\n- Bird-Faced Dragon: 5 -> 4 Power cards\n- Greedy Dragon: 30 -> 28 cards\n\nBug Fixes\n- Fix macOS crash with Cleansing Strike or Adaptation. (Hopefully)\n\nUI change\n- Tactic cards now have 'Tactic' written next to their type",
+  "version": "1.1.0",
+  "sts_version": "11-30-2020",
   "mts_version": "3.16.0",
   "dependencies": [
     "basemod",
     "stslib"
   ],
-  "update_json": "https://api.github.com/repos/Celicath/DTMod/releases/latest"
+  "update_json": ""
 }

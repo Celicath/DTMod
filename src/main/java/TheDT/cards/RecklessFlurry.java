@@ -22,7 +22,7 @@ import com.megacrit.cardcrawl.vfx.combat.WhirlwindEffect;
 
 public class RecklessFlurry extends AbstractDTCard implements ChooseAttackerCard {
 	public static final String RAW_ID = "RecklessFlurry";
-	private static final int COST = 2;
+	private static final int COST = 1;
 	private static final AbstractCard.CardType TYPE = CardType.ATTACK;
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.DT_ORANGE;
 	private static final AbstractCard.CardRarity RARITY = CardRarity.UNCOMMON;
@@ -30,7 +30,7 @@ public class RecklessFlurry extends AbstractDTCard implements ChooseAttackerCard
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.BOTH;
 
 	private static final int RATIO = 2;
-	private static final int NEW_COST = 1;
+	private static final int NEW_COST = 0;
 
 	public RecklessFlurry() {
 		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);

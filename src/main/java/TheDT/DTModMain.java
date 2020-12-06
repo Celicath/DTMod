@@ -116,7 +116,7 @@ public class DTModMain
 	public static int yourAggro = 0;
 	public static int dragonAggro = 0;
 	public static int burnGen = 0;
-	public static int bondingGained = 0;
+	public static int bondingBonuses = 0;
 
 	// Screens
 	public static DragonStatusScreen dragonStatusScreen;
@@ -394,7 +394,7 @@ public class DTModMain
 
 		FreezeAggroAction.frozen = false;
 		burnGen = 0;
-		bondingGained = 0;
+		bondingBonuses = 0;
 		ResonanceFormPower.disabledViaSelf = false;
 		ResonanceFormPower.disabledViaCard = false;
 

@@ -1,6 +1,7 @@
 package TheDT.cards;
 
 import TheDT.DTModMain;
+import TheDT.Interfaces.OnBondingActivateCard;
 import TheDT.actions.DisableResonanceFormAction;
 import TheDT.characters.Dragon;
 import TheDT.characters.DragonTamer;
@@ -9,9 +10,11 @@ import TheDT.patches.CustomTags;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-public class LightShield extends AbstractDTCard {
+public class LightShield extends AbstractDTCard implements OnBondingActivateCard {
 	public static final String RAW_ID = "LightShield";
 	private static final int COST = 2;
 	private static final AbstractCard.CardType TYPE = AbstractCard.CardType.SKILL;
@@ -21,44 +24,27 @@ public class LightShield extends AbstractDTCard {
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.BOTH;
 
 	private static final int POWER = 14;
-	private static final int RATIO = 2;
-	private static final int UPGRADE_RATIO = 1;
+	private static final int UPGRADE_BONUS = 4;
 
 	public LightShield() {
 		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
 
-		magicNumber = baseMagicNumber = RATIO;
 		baseBlock = POWER;
 		dtBaseDragonBlock = POWER;
 		tags.add(CustomTags.DT_BONDING);
-	}
 
-	@Override
-	public void applyPowers() {
-		int bonus = magicNumber * DTModMain.bondingGained;
-		baseBlock += bonus;
-		dtBaseDragonBlock += bonus;
-		super.applyPowers();
-		if (bonus != 0) {
-			baseBlock -= bonus;
-			dtBaseDragonBlock -= bonus;
-			isBlockModified = true;
-			isDTDragonBlockModified = true;
+		if (CardCrawlGame.dungeon != null && AbstractDungeon.currMapNode != null) {
+			configureCostsOnNewCard();
 		}
 	}
 
 	@Override
-	public void calculateCardDamage(AbstractMonster mo) {
-		int bonus = magicNumber * DTModMain.bondingGained;
-		baseBlock += bonus;
-		dtBaseDragonBlock += bonus;
-		super.calculateCardDamage(mo);
-		if (bonus != 0) {
-			baseBlock -= bonus;
-			dtBaseDragonBlock -= bonus;
-			isBlockModified = true;
-			isDTDragonBlockModified = true;
-		}
+	public void onBondingActivate() {
+		updateCost(-1);
+	}
+
+	void configureCostsOnNewCard() {
+		updateCost(-DTModMain.bondingBonuses);
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
@@ -79,9 +65,8 @@ public class LightShield extends AbstractDTCard {
 	public void upgrade() {
 		if (!upgraded) {
 			upgradeName();
-			upgradeMagicNumber(UPGRADE_RATIO);
-			rawDescription = UPGRADE_DESCRIPTION;
-			initializeDescription();
+			upgradeBlock(UPGRADE_BONUS);
+			upgradeDTDragonBlock(UPGRADE_BONUS);
 		}
 	}
 }
