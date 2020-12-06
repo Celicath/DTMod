@@ -239,8 +239,7 @@
   },
   "DTMod:LightShield": {
     "NAME": "光之盾",
-    "DESCRIPTION": "你 获得 !B! 点 格挡 。 NL 龙 获得 !DT:THB! 点 格挡 。 NL 本场战斗每获得一点 ragontaer:齐心 ，其 格挡 获得提高 !M! 点。",
-    "UPGRADE_DESCRIPTION": "你 获得 !B! 点 格挡 。 NL 龙 获得 !DT:THB! 点 格挡 。 NL 本场战斗每获得一点 ragontaer:齐心 ，其 格挡 获得提高 !M! 点。"
+    "DESCRIPTION": "你 获得 !B! 点 格挡 。 NL 龙 获得 !DT:THB! 点 格挡 。 NL 本场战斗每获得一次 ragontaer:齐心 奖励，这张牌的耗能降低 [E] 。"
   },
   "DTMod:LowKick": {
     "NAME": "勾腿",
