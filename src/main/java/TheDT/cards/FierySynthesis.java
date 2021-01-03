@@ -22,7 +22,7 @@ public class FierySynthesis extends AbstractDTCard {
 	private static final AbstractCard.CardTarget TARGET = CardTarget.ALL_ENEMY;
 	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DRAGON_ONLY;
 
-	private static final int DAMAGE = 5;
+	private static final int DAMAGE = 6;
 	private static final int UPGRADE_BONUS = 3;
 
 	public FierySynthesis() {

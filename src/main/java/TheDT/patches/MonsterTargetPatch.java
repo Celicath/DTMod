@@ -3,6 +3,7 @@ package TheDT.patches;
 import TheDT.characters.Dragon;
 import TheDT.characters.DragonTamer;
 import TheDT.powers.TauntPower;
+import basemod.ReflectionHacks;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.GameActionManager;
@@ -12,7 +13,9 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.PoisonPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
+import com.megacrit.cardcrawl.powers.WeakPower;
 import javassist.CtBehavior;
 
 public class MonsterTargetPatch {
@@ -70,7 +73,15 @@ public class MonsterTargetPatch {
 					action[0].target = redirectTarget;
 
 					if (action[0] instanceof ApplyPowerAction) {
-						action[0] = new ApplyPowerAction(redirectTarget, action[0].source, new VulnerablePower(redirectTarget, 1, true), 1);
+						AbstractPower p = ReflectionHacks.getPrivate(action[0], ApplyPowerAction.class, "powerToApply");
+						int amount = p.amount > 0 ? p.amount : 1;
+						if (p instanceof WeakPower) {
+							action[0] = new ApplyPowerAction(redirectTarget, action[0].source, new WeakPower(redirectTarget, amount, true), amount);
+						} else if (p instanceof PoisonPower) {
+							action[0] = new ApplyPowerAction(redirectTarget, action[0].source, new PoisonPower(redirectTarget, action[0].source, amount), amount);
+						} else {
+							action[0] = new ApplyPowerAction(redirectTarget, action[0].source, new VulnerablePower(redirectTarget, amount, true), amount);
+						}
 					}
 				}
 			}

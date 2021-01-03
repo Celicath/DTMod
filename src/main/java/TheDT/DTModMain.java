@@ -388,6 +388,7 @@ public class DTModMain
 		MonsterIntentPatch.prevPlayer = null;
 		MonsterPowerPatch.prevPlayer = null;
 		MonsterTargetPatch.prevPlayer = null;
+		ResonanceFormPower.blackList.clear();
 
 		DTModMain.dragonAggro = 0;
 		DTModMain.yourAggro = 0;

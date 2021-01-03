@@ -4,6 +4,7 @@ import TheDT.DTModMain;
 import TheDT.characters.Dragon;
 import TheDT.characters.DragonTamer;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -28,7 +29,7 @@ public class ResonanceFormPower extends AbstractPower {
 	public static final TextureAtlas.AtlasRegion IMG48 = new TextureAtlas.AtlasRegion(
 			ImageMaster.loadImage(DTModMain.GetPowerPath(RAW_ID, 48)), 0, 0, 32, 32);
 
-	public static ArrayList<AbstractPower> blackList = new ArrayList<>();
+	public static ArrayList<Class<? extends AbstractPower>> blackList = new ArrayList<>();
 	public static boolean disabledViaSelf = false;
 	public static boolean disabledViaCard = false;
 
@@ -58,11 +59,9 @@ public class ResonanceFormPower extends AbstractPower {
 		if (dragon == null || target != p && target != dragon || power.type == PowerType.DEBUFF) {
 			return;
 		}
-		AbstractCreature otherTarget = target == p ? dragon : p;
+		AbstractPlayer otherTarget = target == p ? dragon : p;
 
-		if (blackList.contains(power)) {
-			blackList.remove(power);
-		} else {
+		if (!blackList.contains(power.getClass())) {
 			AbstractPower newPower = null;
 			switch (power.ID) {
 				case StrengthPower.POWER_ID:
@@ -72,9 +71,17 @@ public class ResonanceFormPower extends AbstractPower {
 					newPower = new DexterityPower(otherTarget, power.amount);
 			}
 			if (newPower != null) {
-				blackList.add(newPower);
+				Class<? extends AbstractPower> cls = newPower.getClass();
+				blackList.add(cls);
 				flash();
 				addToTop(new ApplyPowerAction(otherTarget, otherTarget, newPower, newPower.amount));
+				addToBot(new AbstractGameAction() {
+					@Override
+					public void update() {
+						blackList.remove(cls);
+						isDone = true;
+					}
+				});
 			}
 		}
 	}
