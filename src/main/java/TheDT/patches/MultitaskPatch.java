@@ -14,7 +14,7 @@ public class MultitaskPatch {
 	public static class DragonWeakPatch {
 		@SpireInsertPatch(locator = Locator.class)
 		public static void Insert(ApplyPowerAction __instance, AbstractPower ___powerToApply) {
-			if (___powerToApply.ID.equals(WeakPower.POWER_ID) && __instance.source.isPlayer) {
+			if (___powerToApply != null && ___powerToApply.ID.equals(WeakPower.POWER_ID) && __instance.source != null && __instance.source.isPlayer) {
 				for (AbstractPower p : AbstractDungeon.player.powers) {
 					if (p instanceof OnApplyWeakPower) {
 						((OnApplyWeakPower) p).onApplyWeak(___powerToApply.amount);
