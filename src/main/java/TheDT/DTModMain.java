@@ -193,7 +193,7 @@ public class DTModMain
 				c >>= 1;
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			//e.printStackTrace();
 			enemyTargetDisplayConfig = new boolean[]{true, true, true, true};
 		}
 		logger.debug("loadConfig finished.");

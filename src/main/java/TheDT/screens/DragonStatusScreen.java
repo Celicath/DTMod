@@ -221,7 +221,7 @@ public class DragonStatusScreen {
 					Gdx.input.setCursorPosition(Settings.WIDTH * (14 + 18 * index) / 100, Settings.HEIGHT / 2);
 				} else if (CInputActionSet.left.isJustPressed() || CInputActionSet.altLeft.isJustPressed()) {
 					do {
-						++index;
+						--index;
 						if (index < 0) {
 							index = dragonGrowthCards[curTier + 1].length - 1;
 						}
