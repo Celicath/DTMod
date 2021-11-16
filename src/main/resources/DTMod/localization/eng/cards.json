@@ -37,8 +37,8 @@
   },
   "DTMod:Adaptation": {
     "NAME": "Adaptation",
-    "DESCRIPTION": "Whenever you shuffle your deck, put ALL Innate cards into your hand.",
-    "UPGRADE_DESCRIPTION": "Innate. NL Whenever you shuffle your deck, put ALL Innate cards into your hand."
+    "DESCRIPTION": "Whenever you shuffle your draw pile, put ALL Innate cards into your hand.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Whenever you shuffle your draw pile, put ALL Innate cards into your hand."
   },
   "DTMod:Astonish": {
     "NAME": "Astonish",

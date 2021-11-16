@@ -1,0 +1,398 @@
+{
+  "DTMod:AbstractDTCard": {
+    "NAME": "AbstractDTCard",
+    "DESCRIPTION": "Common texts",
+    "EXTENDED_DESCRIPTION": [
+      "Дракон не на моей стороне.",
+      "Дракон упал.",
+      "Тактика"
+    ]
+  },
+  "DTMod:Strike": {
+    "NAME": "Удар",
+    "DESCRIPTION": "Наносит !D! урона."
+  },
+  "DTMod:TargetDefense": {
+    "NAME": "Оборона цели",
+    "DESCRIPTION": "Даёт !B! Защиты ragontaer:Передовой.",
+    "EXTENDED_DESCRIPTION": [
+      "Даёт !DT:THB! Защиты ragontaer:Передовой."
+    ]
+  },
+  "DTMod:DoubleHit": {
+    "NAME": "Двойное попадание",
+    "DESCRIPTION": "Дракон наносит !DT:THD! урона дважды."
+  },
+  "DTMod:SwitchingTactic": {
+    "NAME": "Тактика смены",
+    "DESCRIPTION": "Меняет ragontaer:Агрессию на противоположную. NL Враги теряют Силу равную разнице ragontaer:Агрессии.",
+    "UPGRADE_DESCRIPTION": "Оставляется. NL Меняет ragontaer:Агрессию на противоположную. NL Враги теряют Силу равную разнице ragontaer:Агрессии.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Отнимает !M! Силы)"
+    ]
+  },
+  "DTMod:HardSkin": {
+    "NAME": "Твёрдая кожа",
+    "DESCRIPTION": "Оставляется. NL Даёт !DT:THB! Защиты Дракону. NL Сжигается."
+  },
+  "DTMod:Adaptation": {
+    "NAME": "Адаптация",
+    "DESCRIPTION": "Кладёт Начальные карты в руку, когда вы перетасовываете колоду.",
+    "UPGRADE_DESCRIPTION": "Начальная. NL Кладёт Начальные карты в руку, когда вы перетасовываете колоду."
+  },
+  "DTMod:Astonish": {
+    "NAME": "Изумление",
+    "DESCRIPTION": "Персонаж в ragontaer:Тылу наносит урон равный разнице ragontaer:Агрессии умноженный на !M! .",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Наносит !D! урона.)",
+      " NL (Дракон наносит !DT:THD! урона.)"
+    ]
+  },
+  "DTMod:BalancedStrike": {
+    "NAME": "Балансный удар",
+    "DESCRIPTION": "Начальная. NL Даёт !B! Защиты. NL Наносит !D! урона. NL Сжигается."
+  },
+  "DTMod:BizarreTactic": {
+    "NAME": "Странная тактика",
+    "DESCRIPTION": "Даёт вам !B! Защиты. NL Наносит !M! урона в ответ на каждую атаку по Дракону."
+  },
+  "DTMod:BlazingStrike": {
+    "NAME": "Пылающий удар",
+    "DESCRIPTION": "Дракон наносит !DT:THD! урона. NL Добавляет *Ожог в руку."
+  },
+  "DTMod:BlueScale": {
+    "NAME": "Синяя чешуйка",
+    "DESCRIPTION": "Даёт !DT:THB! Защиты Дракону. NL Добавляет *Твёрдую *кожу в руку.",
+    "UPGRADE_DESCRIPTION": "Даёт !DT:THB! Защиты Дракону. NL Добавляет *Твёрдую *кожу в руку."
+  },
+  "DTMod:BondingBonus": {
+    "NAME": "Bonding Bonus",
+    "DESCRIPTION": "You get one of these effects when you даёт 5 Bonding.",
+    "EXTENDED_DESCRIPTION": [
+      "Артефакт",
+      "Вы и Дракон получаете 2 Артефакта.",
+      "Тысяча лезвий",
+      "Наносит 20 урона ВСЕМ врагам.",
+      "Защита",
+      "Вы и Дракон получаете 20 Защиты.",
+      "Сила",
+      "Вы и Дракон получаете 4 Силы.",
+      "Ловкость",
+      "Вы и Дракон получаете 3 Ловкости.",
+      "Энергия",
+      "Даёт [E] [E] [E] [E].",
+      "Добор",
+      "Вы берёте карты пока не наберёте полную руку.",
+      "Слабость",
+      "Накладывает 4 Слабости на ВСЕХ врагов.",
+      "Уязвимость",
+      "Накладывает 4 Уязвимости на ВСЕХ врагов.",
+      "Хаос",
+      "Разыгрывает 3 карты с верха стопки добора."
+    ]
+  },
+  "DTMod:BreakAttack": {
+    "NAME": "Атака на пролом",
+    "DESCRIPTION": "Наносит !D! урона. NL Накладывает !M! Уязвимости. NL Сжигается."
+  },
+  "DTMod:BuildUp": {
+    "NAME": "Накопление",
+    "DESCRIPTION": "Наносит !D! урона. Ваша след. Атака нанесёт !M! доп. урона."
+  },
+  "DTMod:BurningEnergy": {
+    "NAME": "Горящая энергия",
+    "DESCRIPTION": "Даёт [E] [E]. NL Добавляет *Ожог в стопку сброса.",
+    "UPGRADE_DESCRIPTION": "Даёт [E] [E] [E]. NL Добавляет *Ожог в стопку сброса."
+  },
+  "DTMod:BurningForce": {
+    "NAME": "Сила огня",
+    "DESCRIPTION": "Дракон наносит NL !DT:THD! урона. NL Наносит !M! доп. урона за каждый *Ожог созданный в бою."
+  },
+  "DTMod:CalculatedDefense": {
+    "NAME": "Подсчитанная оборона",
+    "DESCRIPTION": "Враги со Слабостью наносят на !M! меньше урона вашей команде."
+  },
+  "DTMod:CleansingStrike": {
+    "NAME": "Очищающий удар",
+    "DESCRIPTION": "Наносит !D! урона. NL Сжигает !M! случ. Статус или Проклятие в колоде.",
+    "UPGRADE_DESCRIPTION": "Наносит !D! урона. NL Сжигает !M! случ. Статуса или Проклятия в колоде."
+  },
+  "DTMod:ComboAttack": {
+    "NAME": "Комбо атака",
+    "DESCRIPTION": "Наносит !D! урона. NL Дракон наносит !DT:THD! урона. NL Даёт 1 ragontaer:Привязанности."
+  },
+  "DTMod:Conduct": {
+    "NAME": "Руководить",
+    "DESCRIPTION": "Вы берёте !M! карты, если разница в ragontaer:Агрессии 5 или выше."
+  },
+  "DTMod:Coolant": {
+    "NAME": "Охладитель",
+    "DESCRIPTION": "Вы предсказываете !M!. NL Сжигает любой увиденный Статус или Проклятие."
+  },
+  "DTMod:Cover": {
+    "NAME": "Прикрыть",
+    "DESCRIPTION": "Даёт !B! Защиты ragontaer:Тылу. NL Вы берёте !M! карты.",
+    "EXTENDED_DESCRIPTION": [
+      "Даёт !DT:THB! Защиты ragontaer:Тылу. NL Вы берёте !M! карты."
+    ]
+  },
+  "DTMod:CrossStep": {
+    "NAME": "Перекрёстный шаг",
+    "DESCRIPTION": "Даёт [E] , когда вы ragontaer:Сменяетесь.",
+    "UPGRADE_DESCRIPTION": "Начальная. NL Даёт [E] , когда вы ragontaer:Сменяетесь."
+  },
+  "DTMod:DarkBreath": {
+    "NAME": "Дыхание тьмы",
+    "DESCRIPTION": "Дракон наносит !DT:THD! урона дважды и накладывает !M! Уязвимости."
+  },
+  "DTMod:DeepFocus": {
+    "NAME": "Глубокий фокус",
+    "DESCRIPTION": "Даёт !M! Силы через 2 хода. NL ragontaer:Заряжаемая."
+  },
+  "DTMod:Dissolve": {
+    "NAME": "Растворить",
+    "DESCRIPTION": "Добавляет 2 *Ожога в руку. NL В конце каждого вашего хода даёт Дракону !M! Защиты."
+  },
+  "DTMod:DragonDance": {
+    "NAME": "Танец дракончика",
+    "DESCRIPTION": "Дракон получает !M! Силы и 2 Ловкости."
+  },
+  "DTMod:EchoTactic": {
+    "NAME": "Тактика эхо",
+    "DESCRIPTION": "Копирует отличную от этой карту в руке. NL Она стоит на !M! меньше. NL Сжигается."
+  },
+  "DTMod:ExcessFootwork": {
+    "NAME": "Избыток движения",
+    "DESCRIPTION": "Даёт !M! Ловкости. NL В конце каждого вашего хода отнимает 1 Ловкости."
+  },
+  "DTMod:Feint": {
+    "NAME": "Финт",
+    "DESCRIPTION": "Выбирает случайно NL Вы наносите !D! урона или Дракон наносит !DT:THD! урона."
+  },
+  "DTMod:FierySynthesis": {
+    "NAME": "Синтез огня",
+    "DESCRIPTION": "Дракон наносит !DT:THD! урона ВСЕМ врагам. NL Заменяет все зелья на ragontaer:Пылающие_зелья."
+  },
+  "DTMod:FlameSlash": {
+    "NAME": "Пламенный порез",
+    "DESCRIPTION": "Дракон наносит !DT:THD! урона ВСЕМ врагам."
+  },
+  "DTMod:ForkedFire": {
+    "NAME": "Ветлявый огонь",
+    "DESCRIPTION": "Дракон наносит !DT:THD! урона двум случ. врагам X раз."
+  },
+  "DTMod:GearUp": {
+    "NAME": "Подготовиться",
+    "DESCRIPTION": "Добавляет !M! *Пристанище и *Твёрдую *кожу в руку. NL Сжигается.",
+    "UPGRADE_DESCRIPTION": "Добавляет !M! *Пристанище+ и *Твёрдую *кожу+ в руку. NL Сжигается."
+  },
+  "DTMod:GhostSkin": {
+    "NAME": "Кожа призрака",
+    "DESCRIPTION": "Дракон получает 1 Неосязаемость. NL Дракон теряет !M! Ловкости. NL Сжигается."
+  },
+  "DTMod:Harmonize": {
+    "NAME": "Гармония",
+    "DESCRIPTION": "Даёт !M! ragontaer:Привязанности, когда Вы с Драконом атаковали в одном ходу.",
+    "UPGRADE_DESCRIPTION": "Начальная. NL Даёт !M! ragontaer:Привязанности, когда Вы с Драконом атаковали в одном ходу."
+  },
+  "DTMod:Haste": {
+    "NAME": "Спешка",
+    "DESCRIPTION": "Разыгрывает Талант в руке. NL Сжигается.",
+    "UPGRADE_DESCRIPTION": "Разыгрывает ВСЕ Таланты в руке. NL Сжигается."
+  },
+  "DTMod:HeadStart": {
+    "NAME": "Подготовленный старт",
+    "DESCRIPTION": "Начальная. NL Выберите одно: NL Вы получаете [E] [E] или NL берёте !M! карты. NL Сжигается.",
+    "UPGRADE_DESCRIPTION": "Начальная. NL Выберите одно: NL Вы получаете [E] [E] [E] или NL берёте !M! карты. NL Сжигается."
+  },
+  "DTMod:HeadStartDraw": {
+    "NAME": "Добор",
+    "DESCRIPTION": "Вы берёте !M! карты."
+  },
+  "DTMod:HeadStartEnergy": {
+    "NAME": "Энергия",
+    "DESCRIPTION": "Даёт [E] [E].",
+    "UPGRADE_DESCRIPTION": "Даёт [E] [E] [E]."
+  },
+  "DTMod:HeatWave": {
+    "NAME": "Волна тепла",
+    "DESCRIPTION": "Дракон наносит !DT:THD! урона и накладывает !M! Слабости на ВСЕХ врагов."
+  },
+  "DTMod:Hide": {
+    "NAME": "Спрятаться",
+    "DESCRIPTION": "Даёт !B! Защиты ragontaer:Передовой. NL Даёт [E] на след. ход.",
+    "EXTENDED_DESCRIPTION": [
+      "Даёт !DT:THB! Защиты ragontaer:Передовой. NL Даёт [E] на след. ход."
+    ]
+  },
+  "DTMod:Inferno": {
+    "NAME": "Инферно",
+    "DESCRIPTION": "Дракон наносит !DT:THD! урона ВСЕМ врагам. Добавляет *Ожог в стопку добора за каждого врага."
+  },
+  "DTMod:InvisibleFlame": {
+    "NAME": "Невидимое пламя",
+    "DESCRIPTION": "Наносит !M! урона ВСЕМ врагам, когда ragontaer:Передовая атакует."
+  },
+  "DTMod:LastStand": {
+    "NAME": "Стоять до конца",
+    "DESCRIPTION": "Даёт !B! Защиты вам. NL Снижает урон по вам в 2р на этот ход. NL Сжигается."
+  },
+  "DTMod:LightShield": {
+    "NAME": "Лёгкий щит",
+    "DESCRIPTION": "Даёт !B! Защиты вам и !DT:THB! Защиты Дракону. NL Стоит на 1 [E] меньше за каждый полученный бонус ragontaer:Привязанности в бою."
+  },
+  "DTMod:LowKick": {
+    "NAME": "Пинок снизу",
+    "DESCRIPTION": "Наносит !D! урона. NL Вы берёте количество карт равное Слабости на враге."
+  },
+  "DTMod:MagicField": {
+    "NAME": "Магическое поле",
+    "DESCRIPTION": "Даёт !M! Защиты существу.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Вам: !B! Защиты)",
+      " NL (Дракону: !DT:THB! Защиты)"
+    ]
+  },
+  "DTMod:MagiciansMark": {
+    "NAME": "Метка мага",
+    "DESCRIPTION": "Наносит !D! урона. NL Даёт 1 ragontaer:Привязанности, когда Дракон атакует этого врага, след. !M! раза. Сжигается."
+  },
+  "DTMod:MasterPlan": {
+    "NAME": "Мастерский план",
+    "DESCRIPTION": "Даёт !B! Защиты ragontaer:Передовой. NL Даёт !DT:THB! Защиты ragontaer:Тылу на след. ход.",
+    "EXTENDED_DESCRIPTION": [
+      "Даёт !DT:THB! Защиты ragontaer:Передовой. NL Даёт !B! Защиты ragontaer:Тылу на след. ход."
+    ]
+  },
+  "DTMod:MaximumCharge": {
+    "NAME": "Максимальный заряд",
+    "DESCRIPTION": "Дракон наносит !DT:THD! урона и получает !M! Уязвимости."
+  },
+  "DTMod:Multitask": {
+    "NAME": "Многозадачность",
+    "DESCRIPTION": "Вы берёте !M! карты, когда выполняете 2 действия из списка ниже. NL Создаёте *Ожог, накладываете Слабость или ragontaer:Сменяетесь."
+  },
+  "DTMod:Observe": {
+    "NAME": "Обнаружить",
+    "DESCRIPTION": "Начальная. NL Даёт [E] за каждые !M! карты в стопке добора."
+  },
+  "DTMod:OpeningTactic": {
+    "NAME": "Открывающая тактика",
+    "DESCRIPTION": "Начальная. NL Даёт !M! Ловкости, если у врага полные ОЗ. NL Наносит !D! урона."
+  },
+  "DTMod:Outburst": {
+    "NAME": "Вспышка",
+    "DESCRIPTION": "Дракон переходит в Гнев на 2 хода.",
+    "UPGRADE_DESCRIPTION": "Даёт [E]. NL Дракон переходит в Гнев на 2 хода."
+  },
+  "DTMod:Overwhelm": {
+    "NAME": "Сразить",
+    "DESCRIPTION": "Накладывает 2 Слабости. NL Отнимает !M! ОЗ у ВСЕХ врагов за каждую Слабость на них."
+  },
+  "DTMod:Prediction": {
+    "NAME": "Прогноз",
+    "DESCRIPTION": "Выберите карту из стопки добора и положите её наверх. NL Она стоит 0 пока не разыграна."
+  },
+  "DTMod:Punisher": {
+    "NAME": "Каратель",
+    "DESCRIPTION": "Наносит !D! урона. Наносит ещё !D! урона если у врага есть Слабость."
+  },
+  "DTMod:PurifyingFlame": {
+    "NAME": "Очищающее пламя",// очищающее пламя?
+    "DESCRIPTION": "Дракон наносит !DT:THD! урона. NL Снимает отриц. эффекты с Дракона. NL Сжигается."
+  },
+  "DTMod:QuickFly": {
+    "NAME": "Быстрый полёт",
+    "DESCRIPTION": "Начальная. NL Дракон наносит !DT:THD! урона. NL Вы берёте карту."
+  },
+  "DTMod:RecklessFlurry": {
+    "NAME": "Беспечный шквал",
+    "DESCRIPTION": "Выберите атакующего. NL Атакующий наносит урон равный удвоенной Защите и теряет её."
+  },
+  "DTMod:RepeatStrike": {
+    "NAME": "Удар с повтором",
+    "DESCRIPTION": "Дракон наносит !DT:THD! урона. В начале каждого вашего хода возвращается в руку из стопки сброса.",
+    "UPGRADE_DESCRIPTION": "Начальная. NL Дракон наносит !DT:THD! урона. В начале каждого вашего хода возвращается в руку из стопки сброса."
+  },
+  "DTMod:ResonanceForm": {
+    "NAME": "Облик резонанса",
+    "DESCRIPTION": "Эфирная. NL Сила, Ловкость или Защита даваемая только одному теперь даётся обоим.",
+    "UPGRADE_DESCRIPTION": "Сила, Ловкость или Защита даваемая только одному теперь даётся обоим."
+  },
+  "DTMod:RunningTactic": {
+    "NAME": "Тактика бега",
+    "DESCRIPTION": "Вы берёте !M! карты. NL Даёт вам 2 ragontaer:Агрессии."
+  },
+  "DTMod:Safeguard": {
+    "NAME": "Пердосторожность",
+    "DESCRIPTION": "ragontaer:Тыл больше не теряет Защиту в начале хода.",
+    "UPGRADE_DESCRIPTION": "Начальная. NL ragontaer:Тыл больше не теряет Защиту в начале хода."
+  },
+  "DTMod:SealedStrike": {
+    "NAME": "Запечатанный удар",
+    "DESCRIPTION": "Наносит !D! урона. NL Может быть Улучшен 5 раз. На 5 улучшении улучшает ВСЕ карты в колоде."
+  },
+  "DTMod:ShadowImage": {
+    "NAME": "Призрачный след",
+    "DESCRIPTION": "Даёт !M! Защиты атакующему, когда он атакует."
+  },
+  "DTMod:ShieldDrain": {
+    "NAME": "Вытягивание защиты",
+    "DESCRIPTION": "Крадёт Защиту врага. NL Наносит !D! урона."
+  },
+  "DTMod:Shift": {
+    "NAME": "Смещение",
+    "DESCRIPTION": "Оставляется. NL Даёт !M! ragontaer:Агрессии ragontaer:Тылу. NL Сжигается.",
+    "UPGRADE_DESCRIPTION": "Оставляется. NL Выберите одно: NL Даёт !M! ragontaer:Агрессии Вам или Дракону. NL Сжигается."
+  },
+  "DTMod:SneakAttack": {
+    "NAME": "Скрытная атака",
+    "DESCRIPTION": "Можно разыграть только если Вы в ragontaer:Тылу. NL Наносит !D! урона 4 раза.",
+    "EXTENDED_DESCRIPTION": [
+      "Я не в Тылу!"
+    ]
+  },
+  "DTMod:StarRain": {
+    "NAME": "Звездопад",
+    "DESCRIPTION": "Наносит !D! урона X+1 раз. Эта атака не даёт ragontaer:Агрессии."
+  },
+  "DTMod:StunTrap": {
+    "NAME": "Оглушающая ловушка",
+    "DESCRIPTION": "Вы берёте !M! карты и оглушаете врага спустя 2 хода. NL ragontaer:Заряжаемая. NL Сжигается."
+  },
+  "DTMod:TagTeam": {
+    "NAME": "Кооперация",
+    "DESCRIPTION": "Даёт !B! Защиты ragontaer:Передовой. NL Даёт !M! ragontaer:Привязанности. NL Эффекты удваиваются, если вы ragontaer:Сменялись в этом ходу.",
+    "EXTENDED_DESCRIPTION": [
+      "Даёт !DT:THB! Защиты ragontaer:Передовой. NL Даёт !M! ragontaer:Привязанности. NL Эффекты удваиваются, если вы ragontaer:Сменялись в этом ходу."
+    ]
+  },
+  "DTMod:TauntingStrike": {
+    "NAME": "Удар с провокацией",
+    "DESCRIPTION": "Выберите одно: NL Наносит !D! урона или Дракон наносит !DT:THD! урона. NL Атакующий ragontaer:Провоцирует врага.",
+    "EXTENDED_DESCRIPTION": [
+      "(Нельзя спровоцировать себя)"
+    ]
+  },
+  "DTMod:Threaten": {
+    "NAME": "Пригрозить",
+    "DESCRIPTION": "Начальная. NL Даёт !DT:THB! Защиты Дракону и накладывает !M! Слабости."
+  },
+  "DTMod:Training": {
+    "NAME": "Тренировка",
+    "DESCRIPTION": "Даёт Вам и Дракону !M! Силы. NL Даёт 1 ragontaer:Привязанности."
+  },
+  "DTMod:TriAttack": {
+    "NAME": "Тритака",
+    "DESCRIPTION": "Выберите !M! раза: NL Наносит !D! урона или Дракон наносит !DT:THD! урона."
+  },
+  "DTMod:WarmUp": {
+    "NAME": "Разогреть",
+    "DESCRIPTION": "Вы берёте !M! доп. карту в начале каждого вашего хода.",
+    "UPGRADE_DESCRIPTION": "Начальная. NL Вы берёте !M! доп. карту в начале каждого вашего хода."
+  },
+  "DTMod:Weaken": {
+    "NAME": "Ослабить",
+    "DESCRIPTION": "Накладывает !M! Слабости. NL Сжигается."
+  }
+}

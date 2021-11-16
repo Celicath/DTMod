@@ -4,9 +4,9 @@
   "author_list": [
     "Celicath"
   ],
-  "credits": "Rita-B - ZHS translation",
-  "description": "Adds a character called The Dragon Tamer, who fights together with his faithful dragon.\n\n- Adds 75 cards and 12 relics.\n\n\nv1.1.1 (2021-01-03)\nCompatibility update\n- The following modded enemies now correctly target the Front.\n  - Daughter of Heaven (from Gensokyo)\n  - Grand Snecko (from Hubris)\n- Fixed softlock with Resonance Form when you have Gungeon Mod (and possibly others) enabled.\n\nCard changes\n- Low Kick: Damage 8(11) -> 9(12)\n- Overwhelm: Lose HP equal to 3(4) -> 3(5) times the enemy's Weak.\n- Fiery Synthesis: Damage 5(8) -> 6(9)\n- Excess Footwork: Dexterity 6(7) -> 7(9)\n\nOther changes\n- When an enemy is taunted by another enemy (via Mind Bender), it now applies Weak or Poison if it intends to apply those, and Vulnerable otherwise. The amount of debuff is now equal to their intended amount. (Instead of always applying 1 Vulnerable)\n\n\nv1.1.2 (2021-01-09)\n- Fix crash with Menagerie mod.\n\n\nv1.1.3 (2021-02-21)\n- Fix bug where pressing the left button on the controller makes you move right in the Dragon evolution screen and eventually crash.\n\n\nFor older patch notes, see: https://steamcommunity.com/sharedfiles/filedetails/changelog/2301555870",
-  "version": "1.1.3",
+  "credits": "Rita-B - ZHS translation\nRucodeby - RUS translation",
+  "description": "Adds a character called The Dragon Tamer, who fights together with his faithful dragon.\n\n- Adds 75 cards and 12 relics.\n\n\nv1.1.4 (2021-11-16)\n- Added RUS translation (Rucodeby)\n- Fix wording and coloring for some ENG text\n\n\nFor older patch notes, see: https://steamcommunity.com/sharedfiles/filedetails/changelog/2301555870",
+  "version": "1.1.4",
   "sts_version": "12-22-2020",
   "mts_version": "3.16.0",
   "dependencies": [

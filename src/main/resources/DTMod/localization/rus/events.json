@@ -1,0 +1,30 @@
+{
+  "DTMod:SpireHeart": {
+    "NAME": "Сердце шпиля",
+    "DESCRIPTIONS": [
+      "NL Вы чувствуете узы с вашим драконом..."
+    ],
+    "OPTIONS": [
+    ]
+  },
+  "DTMod:Vampires": {
+    "NAME": "Вампиры(?)",
+    "DESCRIPTIONS": [
+      "Пробираясь по тёмной улице, вы застаёте несколько таинственных фигур в процессе какого-то тёмного ритуала. Вы подходите ближе, и все они одновременно поворачиваются к вам. Самый высокий из них оголяет клыки и протягивает к вам длинную бледную руку. NL ~«Станьте~ ~одними~ ~из~ ~нас,~ ~могучие~ ~и~ ~храбрейшие,~ ~да~ ~ощутите~ ~тепло~ ~Шпиля».~"
+    ],
+    "OPTIONS": [
+    ]
+  },
+  "DTMod:BookOnTheFloor": {
+    "NAME": "Book on the Floor",
+    "DESCRIPTIONS": [
+      "You enter an eerie room with wall of books. NL Looking around, you find an impressive looking book on the ground. NL You NEED TO pick up this book.",
+      "Your mind overflows with mythical energy. You decide to make bond with others.",
+      "(This event is deprecated)"
+    ],
+    "OPTIONS": [
+      "[Obtain Book] #gObtain #ga #gspecial #gRelic.",
+      "[Leave]"
+    ]
+  }
+}

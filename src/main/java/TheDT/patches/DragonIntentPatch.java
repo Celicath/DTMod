@@ -22,7 +22,7 @@ public class DragonIntentPatch {
 		private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(DTModMain.makeID("MonsterIntent"));
 		public static final String[] TEXT = uiStrings == null ?
 				AbstractMonster.TEXT :
-				CardCrawlGame.languagePack.getUIString(DTModMain.makeID("MonsterIntent")).TEXT;
+				uiStrings.TEXT;
 
 		@SpirePrefixPatch
 		public static SpireReturn<Void> Prefix(AbstractMonster __instance, PowerTip ___intentTip, boolean ___isMultiDmg, int ___intentDmg, int ___intentMultiAmt) {

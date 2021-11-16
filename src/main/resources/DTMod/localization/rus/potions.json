@@ -1,0 +1,16 @@
+{
+  "DTMod:BlazePotion": {
+    "NAME": "Пылающее зелье",
+    "DESCRIPTIONS": [
+      "Наносит #b",
+      "урона."
+    ]
+  },
+  "DTMod:LesserBlazePotion": {
+    "NAME": "Малое пылающее зелье",
+    "DESCRIPTIONS": [
+      "Наносит #b",
+      " урона."
+    ]
+  }
+}

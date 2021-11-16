@@ -9,7 +9,7 @@
   "DTMod:CalculatedDefensePower": {
     "NAME": "Calculated Defense",
     "DESCRIPTIONS": [
-      "Reduce the attack damage from Weakened enemies by #b",
+      "Reduce the attack damage from #yWeakened enemies by #b",
       "."
     ]
   },
@@ -19,7 +19,7 @@
       "Next turn, ",
       "After #b",
       " turns, ",
-      "exit from Wrath."
+      "exit from #yWrath."
     ]
   },
   "DTMod:OddArmorPower": {
@@ -32,7 +32,7 @@
   "DTMod:AdaptationPower": {
     "NAME": "Adaptation",
     "DESCRIPTIONS": [
-      "Whenever you shuffle your deck, put ALL Innate cards into your hand."
+      "Whenever you shuffle your draw pile, put ALL #yInnate cards into your hand."
     ]
   },
   "DTMod:TauntPower": {
@@ -60,7 +60,7 @@
       "After #b",
       " turns, ",
       "gain #b",
-      " Strength. #yChanneling."
+      " #yStrength. #yChanneling."
     ]
   },
   "DTMod:CrossStepPower": {
@@ -118,16 +118,16 @@
     "NAME": "Multitask",
     "DESCRIPTIONS": [
       "Draw #b",
-      " cards whenever you do 2 of these:",
+      " cards whenever you do #b2 of these:",
       "- Create a Burn",
-      "- Apply Weak",
-      "- Switch"
+      "- Apply #yWeak",
+      "- #ySwitch"
     ]
   },
   "DTMod:ResonanceFormPower": {
     "NAME": "Resonance Form",
     "DESCRIPTIONS": [
-      "Effects that give only one of your team Strength, Dexterity or Block now affect both."
+      "Effects that give only one of your team #yStrength, #yDexterity or #yBlock now affect both."
     ]
   },
   "DTMod:AggroFixPower": {
@@ -146,7 +146,7 @@
   "DTMod:BirdFacePower": {
     "NAME": "Bird Faced",
     "DESCRIPTIONS": [
-      "Whenever you play a Power, Dragon heals #b",
+      "Whenever you play a Power, heal #b",
       " HP."
     ]
   },

@@ -1,0 +1,160 @@
+{
+  "DTMod:BondingPower": {
+    "NAME": "Привязанность",
+    "DESCRIPTIONS": [
+      "Когда вы достигаете #b",
+      " #yПривязанности выберите #b1 из #b3 случайных бонусов, которые являются более сильной вариацией зелий."
+    ]
+  },
+  "DTMod:CalculatedDefensePower": {
+    "NAME": "Подсчитанная оборона",
+    "DESCRIPTIONS": [
+      "Уменьшает урон от врагов со #yСлабостью на #b",
+      "."
+    ]
+  },
+  "DTMod:DragonLoseStancePower": {
+    "NAME": "Вспышка",
+    "DESCRIPTIONS": [
+      "Выходит из #yГнева в след. ходу",
+      "Выходит из #yГнева через #b",
+      " хода",
+      "."
+    ]
+  },
+  "DTMod:OddArmorPower": {
+    "NAME": "Нечёткая броня",
+    "DESCRIPTIONS": [
+      "Уменьшает получаемый урон от атак на #b",
+      "."
+    ]
+  },
+  "DTMod:AdaptationPower": {
+    "NAME": "Адаптация",
+    "DESCRIPTIONS": [
+      "Кладёт #yНачальные карты в руку, когды вы перетасовываете колоду."
+    ]
+  },
+  "DTMod:TauntPower": {
+    "NAME": "Провокация",
+    "DESCRIPTIONS": [
+      "Данный враг в этом ходу будет атаковать ",
+      "[#60D0D0]Вас[]",
+      "[#60D0D0]Дракона[]",
+      " [REMOVE_SPACE]."
+    ]
+  },
+  "DTMod:LastStandPower": {
+    "NAME": "Стоять до конца",
+    "DESCRIPTIONS": [
+      "Вы получаете в 2р меньше урона от атак в этом ходу",
+      "Вы получаете в 2р меньше урона от атак след. #b",
+      " хода",
+      "."
+    ]
+  },
+  "DTMod:DeepFocusPower": {
+    "NAME": "Глубокий фокус",
+    "DESCRIPTIONS": [
+      "В след. ходу ",
+      "Через #b",
+      " хода ",
+      "даёт #b",
+      " Силы. #yЗаряжаемое."
+    ]
+  },
+  "DTMod:CrossStepPower": {
+    "NAME": "Перекрёстный шаг",
+    "DESCRIPTIONS": [
+      "Даёт ",
+      " , когда вы #yСменяетесь [REMOVE_SPACE]."
+    ]
+  },
+  "DTMod:ShadowImagePower": {
+    "NAME": "Призрачный след",
+    "DESCRIPTIONS": [
+      "Даёт #b",
+      " #yЗащиты, когда данный персонаж атакует."
+    ]
+  },
+  "DTMod:InvisibleFlamePower": {
+    "NAME": "Невидимое пламя",
+    "DESCRIPTIONS": [
+      "Наносит #b",
+      " урона ВСЕМ врагам, когда #yПередовая атакует."
+    ]
+  },
+  "DTMod:MagiciansMarkPower": {
+    "NAME": "Метка мага",
+    "DESCRIPTIONS": [
+      "The next #b",
+      " times [#60D0D0]Dragon[] attacks this enemy, gain #b1 #yBonding."
+    ]
+  },
+  "DTMod:StunTrapPower": {
+    "NAME": "Оглушающая ловушка",
+    "DESCRIPTIONS": [
+      "На след. ход вы оглушаете ",
+      "Через #b",
+      " хода вы оглушаете ",
+      " и берёте #b",
+      " карты. #yЗаряжаемое."
+    ]
+  },
+  "DTMod:SafeguardPower": {
+    "NAME": "Предосторожность",
+    "DESCRIPTIONS": [
+      "#yТыл больше не теряет #yЗащиту в начале хода."
+    ]
+  },
+  "DTMod:HarmonizePower": {
+    "NAME": "Гармония в бою",
+    "DESCRIPTIONS": [
+      "Даёт #b",
+      " #yПривязанности, когда [#60D0D0]Вы[] с [#60D0D0]Драконом[] атаковали в одном ходу [REMOVE_SPACE]."
+    ]
+  },
+  "DTMod:MultitaskPower": {
+    "NAME": "Многозадачность",
+    "DESCRIPTIONS": [
+      "Вы берёте #b",
+      " карты, когда выполняете 2 действия из списка ниже",
+      "- Создаёте #yОжог",
+      "- Накладываете #yСлабость",
+      "- #yСменяетесь"
+    ]
+  },
+  "DTMod:ResonanceFormPower": {
+    "NAME": "Облик резонанса",
+    "DESCRIPTIONS": [
+      "#yСила, #gЛовкость или #bЗащита даваемая только одному теперь даётся обоим."
+    ]
+  },
+  "DTMod:AggroFixPower": {
+    "NAME": "Фиксация агрессии",
+    "DESCRIPTIONS": [
+      "#yАгрессия не будет меняться до конца хода."
+    ]
+  },
+  "DTMod:FiercePower": {
+    "NAME": "Свирепый",
+    "DESCRIPTIONS": [
+      "Даёт #b",
+      " [E] , когда вы создаёте *Ожог [REMOVE_SPACE]."
+    ]
+  },
+  "DTMod:BirdFacePower": {
+    "NAME": "Птицевидный",
+    "DESCRIPTIONS": [
+      "Восполняет #b",
+      " ОЗ Дракону, когда вы разыгрываете #yТалант."
+    ]
+  },
+  "DTMod:GreedyPower": {
+    "NAME": "Жадный",
+    "DESCRIPTIONS": [
+      "Даёт #b",
+      " #yЗолота в конце боя."
+    ]
+  }
+}

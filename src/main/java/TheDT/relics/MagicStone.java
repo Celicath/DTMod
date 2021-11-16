@@ -23,16 +23,13 @@ public class MagicStone extends CustomRelic {
 
 	@Override
 	public void obtain() {
-		if (AbstractDungeon.player.hasRelic(PactStone.ID)) {
-			for (int i = 0; i < AbstractDungeon.player.relics.size(); ++i) {
-				if (AbstractDungeon.player.relics.get(i).relicId.equals(PactStone.ID)) {
-					instantObtain(AbstractDungeon.player, i, true);
-					break;
-				}
+		for (int i = 0; i < AbstractDungeon.player.relics.size(); ++i) {
+			if (AbstractDungeon.player.relics.get(i).relicId.equals(PactStone.ID)) {
+				instantObtain(AbstractDungeon.player, i, true);
+				return;
 			}
-		} else {
-			super.obtain();
 		}
+		super.obtain();
 	}
 
 	@Override

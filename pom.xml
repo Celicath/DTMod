@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>dtmod</groupId>
     <artifactId>dtmod</artifactId>
-    <version>1.1.2</version>
+    <version>1.1.4</version>
     <packaging>jar</packaging>
 
     <name>DTMod</name>
@@ -93,7 +93,7 @@
                         <phase>package</phase>
                         <configuration>
                             <target>
-                                <copy file="target/DTMod.jar" tofile="D:\Steam\steamapps\common\SlayTheSpire\mods\DTMod.jar"/>
+                                <copy file="target/DTMod.jar" tofile="C:\Program Files (x86)\Steam\steamapps\common\SlayTheSpire\mods\DTMod.jar"/>
                             </target>
                         </configuration>
                         <goals>
