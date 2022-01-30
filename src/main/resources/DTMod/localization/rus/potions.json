@@ -3,7 +3,7 @@
     "NAME": "Пылающее зелье",
     "DESCRIPTIONS": [
       "Наносит #b",
-      "урона."
+      " урона."
     ]
   },
   "DTMod:LesserBlazePotion": {

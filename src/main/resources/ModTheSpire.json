@@ -5,8 +5,8 @@
     "Celicath"
   ],
   "credits": "Rita-B - ZHS translation\nRucodeby - RUS translation",
-  "description": "Adds a character called The Dragon Tamer, who fights together with his faithful dragon.\n\n- Adds 75 cards and 12 relics.\n\n\nv1.1.4 (2021-11-16)\n- Added RUS translation (Rucodeby)\n- Fix wording and coloring for some ENG text\n\n\nFor older patch notes, see: https://steamcommunity.com/sharedfiles/filedetails/changelog/2301555870",
-  "version": "1.1.4",
+  "description": "Adds a character called The Dragon Tamer, who fights together with his faithful dragon.\n\n- Adds 75 cards and 12 relics.\n\n\nv1.1.5 (2022-01-30)\n- Updated RUS translation (Rucodeby)\n- Ancient Bone relic now shows Hard Skin card as a tooltip.\n\n\nFor older patch notes, see: https://steamcommunity.com/sharedfiles/filedetails/changelog/2301555870",
+  "version": "1.1.5",
   "sts_version": "12-22-2020",
   "mts_version": "3.16.0",
   "dependencies": [

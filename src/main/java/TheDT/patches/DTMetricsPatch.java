@@ -17,7 +17,10 @@ import javassist.ClassPool;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.stream.Collectors;
 
 public class DTMetricsPatch {
 	@SpirePatch(clz = Metrics.class, method = "sendPost", paramtypez = {String.class, String.class})
@@ -65,6 +68,7 @@ public class DTMetricsPatch {
 			if (AbstractDungeon.player instanceof DragonTamer) {
 				___params.put("dtmod_dragon_data", ((DragonTamer) AbstractDungeon.player).dragon.onSave());
 				___params.put("metric_token", Loader.MODINFOS.length * 64 + Settings.language.ordinal() + 19);
+				___params.put("mods", Arrays.stream(Loader.MODINFOS).map(info -> info.Name).sorted().collect(Collectors.toCollection(ArrayList::new)));
 			}
 		}
 	}

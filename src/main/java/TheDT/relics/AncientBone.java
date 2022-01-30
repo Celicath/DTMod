@@ -4,6 +4,7 @@ import TheDT.DTModMain;
 import TheDT.cards.HardSkin;
 import TheDT.characters.DragonTamer;
 import basemod.abstracts.CustomRelic;
+import basemod.helpers.CardPowerTip;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
@@ -20,6 +21,7 @@ public class AncientBone extends CustomRelic {
 
 	public AncientBone() {
 		super(ID, new Texture(IMG), new Texture(OUTLINE), RelicTier.UNCOMMON, LandingSound.HEAVY);
+		tips.add(new CardPowerTip(new HardSkin()));
 	}
 
 	@Override
