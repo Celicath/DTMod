@@ -21,7 +21,7 @@ public class TriAttack extends AbstractDTCard implements ChooseAttackerCard {
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.DT_ORANGE;
 	private static final AbstractCard.CardRarity RARITY = CardRarity.RARE;
 	private static final AbstractCard.CardTarget TARGET = CardTarget.ENEMY;
-	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.BOTH;
+	private static final DTCardUser DT_CARD_TARGET = DTCardUser.BOTH;
 
 	private static final int DAMAGE = 6;
 	private static final int UPGRADE_DAMAGE = 3;

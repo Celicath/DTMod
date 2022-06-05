@@ -203,8 +203,8 @@ public class ChooseAttackerScreen {
 				if (ChooseAttackerAction.activeThis.isAttack) {
 					ChooseAttackerAction.activeThis.dtCard.calculateCardDamage(ChooseAttackerAction.activeThis.m);
 					TargetArrow.drawTargetArrow(
-							sb, hoveredCreature.hb, ChooseAttackerAction.activeThis.m.hb, TargetArrow.CONTROL_HEIGHT * Settings.scale, arrowTime, 1.0f,
-							damageString(ChooseAttackerAction.activeThis.dtCard, hoveredCreature, ChooseAttackerAction.activeThis.m, -1));
+						sb, hoveredCreature.hb, ChooseAttackerAction.activeThis.m.hb, TargetArrow.CONTROL_HEIGHT * Settings.scale, arrowTime, 1.0f,
+						damageString(ChooseAttackerAction.activeThis.dtCard, hoveredCreature, ChooseAttackerAction.activeThis.m, -1));
 				}
 			} else {
 				if (ChooseAttackerAction.activeThis.isAttack) {
@@ -219,8 +219,8 @@ public class ChooseAttackerScreen {
 						if (!m.isDeadOrEscaped()) {
 							renderCreature(sb, m);
 							TargetArrow.drawTargetArrow(
-									sb, hoveredCreature.hb, m.hb, -TargetArrow.CONTROL_HEIGHT * Settings.scale * (index + offset), arrowTime, 1.0f,
-									damageString(ChooseAttackerAction.activeThis.dtCard, hoveredCreature, m, index));
+								sb, hoveredCreature.hb, m.hb, -TargetArrow.CONTROL_HEIGHT * Settings.scale * (index + offset), arrowTime, 1.0f,
+								damageString(ChooseAttackerAction.activeThis.dtCard, hoveredCreature, m, index));
 						}
 						index++;
 					}
@@ -229,12 +229,12 @@ public class ChooseAttackerScreen {
 
 			if (text != null) {
 				FontHelper.renderFontCentered(
-						sb,
-						FontHelper.panelNameFont,
-						text,
-						hoveredCreature.hb.cX,
-						hoveredCreature.hb.cY,
-						Color.WHITE.cpy());
+					sb,
+					FontHelper.panelNameFont,
+					text,
+					hoveredCreature.hb.cX,
+					hoveredCreature.hb.cY,
+					Color.WHITE.cpy());
 			}
 		} else {
 			if (AbstractDungeon.player.cardInUse != null) {

@@ -1,12 +1,13 @@
 package TheDT.cards;
 
+import TheDT.characters.Dragon;
+import TheDT.characters.DragonTamer;
 import TheDT.patches.CardColorEnum;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.DexterityPower;
-import com.megacrit.cardcrawl.powers.WraithFormPower;
 
 public class ExcessFootwork extends AbstractDTCard {
 	public static final String RAW_ID = "ExcessFootwork";
@@ -15,9 +16,9 @@ public class ExcessFootwork extends AbstractDTCard {
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.DT_ORANGE;
 	private static final AbstractCard.CardRarity RARITY = CardRarity.RARE;
 	private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;
-	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DEFAULT;
+	private static final DTCardUser DT_CARD_TARGET = DTCardUser.REAR;
 
-	private static final int POWER = 7;
+	private static final int POWER = 4;
 	private static final int UPGRADE_BONUS = 2;
 
 	public ExcessFootwork() {
@@ -27,10 +28,12 @@ public class ExcessFootwork extends AbstractDTCard {
 
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		addToBot(new ApplyPowerAction(p, p, new DexterityPower(p, magicNumber), magicNumber));
-		WraithFormPower power = new WraithFormPower(p, -1);
-		power.name = name;
-		addToBot(new ApplyPowerAction(p, p, power, -1));
+		Dragon dragon = DragonTamer.getLivingDragon();
+		if (DragonTamer.isRearYou()) {
+			addToBot(new ApplyPowerAction(p, p, new DexterityPower(p, magicNumber), magicNumber));
+		} else {
+			addToBot(new ApplyPowerAction(dragon, dragon, new DexterityPower(dragon, magicNumber), magicNumber));
+		}
 	}
 
 	public AbstractCard makeCopy() {

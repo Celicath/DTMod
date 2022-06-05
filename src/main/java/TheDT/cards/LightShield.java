@@ -21,7 +21,7 @@ public class LightShield extends AbstractDTCard implements OnBondingActivateCard
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.DT_ORANGE;
 	private static final AbstractCard.CardRarity RARITY = CardRarity.RARE;
 	private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;
-	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.BOTH;
+	private static final DTCardUser DT_CARD_TARGET = DTCardUser.BOTH;
 
 	private static final int POWER = 14;
 	private static final int UPGRADE_BONUS = 4;
@@ -32,10 +32,6 @@ public class LightShield extends AbstractDTCard implements OnBondingActivateCard
 		baseBlock = POWER;
 		dtBaseDragonBlock = POWER;
 		tags.add(CustomTags.DT_BONDING);
-
-		if (CardCrawlGame.dungeon != null && AbstractDungeon.currMapNode != null) {
-			configureCostsOnNewCard();
-		}
 	}
 
 	@Override
@@ -59,7 +55,12 @@ public class LightShield extends AbstractDTCard implements OnBondingActivateCard
 	}
 
 	public AbstractCard makeCopy() {
-		return new LightShield();
+		LightShield temp = new LightShield();
+
+		if (CardCrawlGame.dungeon != null && AbstractDungeon.currMapNode != null) {
+			temp.configureCostsOnNewCard();
+		}
+		return temp;
 	}
 
 	public void upgrade() {

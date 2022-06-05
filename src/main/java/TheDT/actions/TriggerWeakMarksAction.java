@@ -15,7 +15,7 @@ public class TriggerWeakMarksAction extends AbstractGameAction {
 
 	public void update() {
 		for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
-			if (mo.hasPower(WeakPower.POWER_ID)) {
+			if (!mo.isDeadOrEscaped() && mo.hasPower(WeakPower.POWER_ID)) {
 				addToBot(new LoseHPAction(mo, null, mo.getPower(WeakPower.POWER_ID).amount * ratio, AttackEffect.POISON));
 			}
 		}

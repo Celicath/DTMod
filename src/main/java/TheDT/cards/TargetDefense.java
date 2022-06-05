@@ -1,5 +1,6 @@
 package TheDT.cards;
 
+import TheDT.characters.Dragon;
 import TheDT.characters.DragonTamer;
 import TheDT.patches.CardColorEnum;
 import TheDT.relics.BasicTextbook;
@@ -17,7 +18,7 @@ public class TargetDefense extends AbstractDTCard {
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.DT_ORANGE;
 	private static final AbstractCard.CardRarity RARITY = CardRarity.BASIC;
 	private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;
-	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.BOTH;
+	private static final DTCardUser DT_CARD_TARGET = DTCardUser.FRONT;
 
 	private static final int POWER = 5;
 	private static final int UPGRADE_BONUS = 3;
@@ -73,7 +74,8 @@ public class TargetDefense extends AbstractDTCard {
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		if (DragonTamer.isFrontDragon()) {
-			addToBot(new GainBlockAction(((DragonTamer) AbstractDungeon.player).dragon, ((DragonTamer) AbstractDungeon.player).dragon, dtDragonBlock));
+			Dragon dragon = DragonTamer.getLivingDragon();
+			addToBot(new GainBlockAction(dragon, dragon, dtDragonBlock));
 		} else {
 			addToBot(new GainBlockAction(p, p, block));
 		}

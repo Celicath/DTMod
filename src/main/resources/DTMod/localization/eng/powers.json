@@ -60,7 +60,7 @@
       "After #b",
       " turns, ",
       "gain #b",
-      " #yStrength. #yChanneling."
+      " #yStrength."
     ]
   },
   "DTMod:CrossStepPower": {
@@ -98,7 +98,7 @@
       "After #b",
       " turns, ",
       " is Stunned and you draw #b",
-      " cards. #yChanneling."
+      " cards."
     ]
   },
   "DTMod:SafeguardPower": {

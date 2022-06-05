@@ -21,7 +21,7 @@ public class Training extends AbstractDTCard {
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.DT_ORANGE;
 	private static final AbstractCard.CardRarity RARITY = CardRarity.COMMON;
 	private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;
-	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.BOTH;
+	private static final DTCardUser DT_CARD_TARGET = DTCardUser.BOTH;
 
 	private static final int NEW_COST = 0;
 	private static final int POWER = 1;

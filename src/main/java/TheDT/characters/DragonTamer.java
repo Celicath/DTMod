@@ -58,7 +58,7 @@ public class DragonTamer extends CustomPlayer {
 
 	public Dragon dragon;
 	public AbstractCreature front = this;
-	public AbstractDTCard.DTCardTarget dtTargetMode;
+	public AbstractDTCard.DTCardUser dtTargetMode;
 
 	public static boolean frontChangedThisTurn = false;
 
@@ -68,33 +68,34 @@ public class DragonTamer extends CustomPlayer {
 	public boolean isReticleAttackIcon;
 	public Color attackIconColor = CardHelper.getColor(255, 160, 48);
 	public static Texture attackerIcon = null;
+	public boolean disableRenderReticle = false;
 
 	public boolean dragonAttackAnimation;
 	public boolean attackAnimation;
 
 	public static final String[] orbTextures = {
-			"DTMod/images/char/TheDT/orb/layer1.png",
-			"DTMod/images/char/TheDT/orb/layer2.png",
-			"DTMod/images/char/TheDT/orb/layer3.png",
-			"DTMod/images/char/TheDT/orb/layer4.png",
-			"DTMod/images/char/TheDT/orb/layer5.png",
-			"DTMod/images/char/TheDT/orb/layer6.png",
-			"DTMod/images/char/TheDT/orb/layer1d.png",
-			"DTMod/images/char/TheDT/orb/layer2d.png",
-			"DTMod/images/char/TheDT/orb/layer3d.png",
-			"DTMod/images/char/TheDT/orb/layer4d.png",
-			"DTMod/images/char/TheDT/orb/layer5d.png",};
+		"DTMod/images/char/TheDT/orb/layer1.png",
+		"DTMod/images/char/TheDT/orb/layer2.png",
+		"DTMod/images/char/TheDT/orb/layer3.png",
+		"DTMod/images/char/TheDT/orb/layer4.png",
+		"DTMod/images/char/TheDT/orb/layer5.png",
+		"DTMod/images/char/TheDT/orb/layer6.png",
+		"DTMod/images/char/TheDT/orb/layer1d.png",
+		"DTMod/images/char/TheDT/orb/layer2d.png",
+		"DTMod/images/char/TheDT/orb/layer3d.png",
+		"DTMod/images/char/TheDT/orb/layer4d.png",
+		"DTMod/images/char/TheDT/orb/layer5d.png",};
 
 	public DragonTamer(String name, PlayerClass setClass) {
 		super(name, setClass, orbTextures,
-				"DTMod/images/char/TheDT/orb/vfx.png", null, null, null);
+			"DTMod/images/char/TheDT/orb/vfx.png", null, null, null);
 
 		CharSelectInfo loadout = getLoadout();
 		initializeClass(DTModMain.makePath("char/TheDT/idle.png"),
-				DTModMain.makePath(DTModMain.THE_DT_SHOULDER_1),
-				DTModMain.makePath(DTModMain.THE_DT_SHOULDER_2),
-				DTModMain.makePath(DTModMain.THE_DT_CORPSE),
-				loadout, 0.0F, 0.0F, 220.0F, 290.0F, new EnergyManager(ENERGY_PER_TURN));
+			DTModMain.makePath(DTModMain.THE_DT_SHOULDER_1),
+			DTModMain.makePath(DTModMain.THE_DT_SHOULDER_2),
+			DTModMain.makePath(DTModMain.THE_DT_CORPSE),
+			loadout, 0.0F, 0.0F, 220.0F, 290.0F, new EnergyManager(ENERGY_PER_TURN));
 
 		this.dialogX = (this.drawX + 0.0F * Settings.scale);
 		this.dialogY = (this.drawY + 220.0F * Settings.scale);
@@ -106,10 +107,10 @@ public class DragonTamer extends CustomPlayer {
 	@Override
 	public CharSelectInfo getLoadout() {
 		return new CharSelectInfo(
-				getLocalizedCharacterName(),
-				charStrings.TEXT[0],
-				STARTING_HP, MAX_HP, ORB_SLOTS, STARTING_GOLD, CARD_DRAW, this, getStartingRelics(),
-				getStartingDeck(), false);
+			getLocalizedCharacterName(),
+			charStrings.TEXT[0],
+			STARTING_HP, MAX_HP, ORB_SLOTS, STARTING_GOLD, CARD_DRAW, this, getStartingRelics(),
+			getStartingDeck(), false);
 	}
 
 	@Override
@@ -144,7 +145,7 @@ public class DragonTamer extends CustomPlayer {
 	public void doCharSelectScreenSelectEffect() {
 		CardCrawlGame.sound.playA("ATTACK_FIRE", 0.75f); // Sound Effect
 		CardCrawlGame.screenShake.shake(ScreenShake.ShakeIntensity.LOW, ScreenShake.ShakeDur.SHORT,
-				false); // Screen Effect
+			false); // Screen Effect
 	}
 
 	@Override
@@ -205,13 +206,13 @@ public class DragonTamer extends CustomPlayer {
 	@Override
 	public AbstractGameAction.AttackEffect[] getSpireHeartSlashEffect() {
 		return new AbstractGameAction.AttackEffect[]{
-				AbstractGameAction.AttackEffect.FIRE,
-				AbstractGameAction.AttackEffect.FIRE,
-				AbstractGameAction.AttackEffect.FIRE,
-				AbstractGameAction.AttackEffect.SLASH_DIAGONAL,
-				AbstractGameAction.AttackEffect.SLASH_HEAVY,
-				AbstractGameAction.AttackEffect.BLUNT_LIGHT,
-				AbstractGameAction.AttackEffect.SLASH_HEAVY};
+			AbstractGameAction.AttackEffect.FIRE,
+			AbstractGameAction.AttackEffect.FIRE,
+			AbstractGameAction.AttackEffect.FIRE,
+			AbstractGameAction.AttackEffect.SLASH_DIAGONAL,
+			AbstractGameAction.AttackEffect.SLASH_HEAVY,
+			AbstractGameAction.AttackEffect.BLUNT_LIGHT,
+			AbstractGameAction.AttackEffect.SLASH_HEAVY};
 	}
 
 	@Override
@@ -271,32 +272,43 @@ public class DragonTamer extends CustomPlayer {
 
 	@Override
 	public void renderReticle(SpriteBatch sb) {
+		if (disableRenderReticle) return;
 		if (isReticleAttackIcon) {
 			this.reticleRendered = true;
 			attackIconColor.a = this.reticleAlpha;
 			sb.setColor(attackIconColor);
 			sb.draw(getAttackIcon(), this.hb.cX - 64, this.hb.cY - 64, 64.0F, 64.0F, 128.0F, 128.0F, Settings.scale, Settings.scale, 0.0F, 0, 0, 128, 128, false, false);
-		} else if (dtTargetMode != AbstractDTCard.DTCardTarget.DRAGON_ONLY) {
+		} else {
 			super.renderReticle(sb);
 		}
 	}
 
 	@Override
 	public void renderHand(SpriteBatch sb) {
+		disableRenderReticle = true;
 		super.renderHand(sb);
+		disableRenderReticle = false;
 		if (this.hoveredCard != null && (this.isDraggingCard || this.inSingleTargetMode) && this.isHoveringDropZone) {
-			if (hoveredCard instanceof AbstractDTCard) {
-				dtTargetMode = ((AbstractDTCard) hoveredCard).dtCardTarget;
-				isReticleAttackIcon = hoveredCard.type == AbstractCard.CardType.ATTACK;
-				if (dtTargetMode == AbstractDTCard.DTCardTarget.DRAGON_ONLY || dtTargetMode == AbstractDTCard.DTCardTarget.BOTH) {
+			isReticleAttackIcon = hoveredCard.type == AbstractCard.CardType.ATTACK;
+			dtTargetMode = hoveredCard instanceof AbstractDTCard ? ((AbstractDTCard) hoveredCard).dtCardUser : AbstractDTCard.DTCardUser.YOU;
+			if (!dragon.isDead) {
+				if (dtTargetMode == AbstractDTCard.DTCardUser.DRAGON ||
+					dtTargetMode == AbstractDTCard.DTCardUser.BOTH ||
+					dtTargetMode == AbstractDTCard.DTCardUser.FRONT && isFrontDragon() ||
+					dtTargetMode == AbstractDTCard.DTCardUser.REAR && !isFrontDragon()
+				) {
 					dragon.renderReticle(sb);
 				}
-				if (isReticleAttackIcon && (dtTargetMode == AbstractDTCard.DTCardTarget.DEFAULT || dtTargetMode == AbstractDTCard.DTCardTarget.BOTH)) {
-					renderReticle(sb);
-				}
-			} else {
-				isReticleAttackIcon = false;
-				dtTargetMode = AbstractDTCard.DTCardTarget.DEFAULT;
+			}
+			if ((hoveredCard.target == AbstractCard.CardTarget.SELF ||
+				hoveredCard.target == AbstractCard.CardTarget.SELF_AND_ENEMY ||
+				hoveredCard.target == AbstractCard.CardTarget.ALL) && (
+					dtTargetMode == AbstractDTCard.DTCardUser.YOU ||
+					dtTargetMode == AbstractDTCard.DTCardUser.BOTH ||
+					dtTargetMode == AbstractDTCard.DTCardUser.FRONT && !isFrontDragon() ||
+					dtTargetMode == AbstractDTCard.DTCardUser.REAR && isRearYou()
+			)) {
+				renderReticle(sb);
 			}
 		} else {
 			isReticleAttackIcon = false;
@@ -332,7 +344,7 @@ public class DragonTamer extends CustomPlayer {
 		if (front != newTarget) {
 			front = newTarget;
 			PowerBuffEffect effect = new PowerBuffEffect(front.hb.cX - front.animX, front.hb.cY + front.hb.height / 2.0F + 60.0f * Settings.scale,
-					ApplyAggroAction.TEXT[front == this ? 2 : 3]);
+				ApplyAggroAction.TEXT[front == this ? 2 : 3]);
 			ReflectionHacks.setPrivate(effect, PowerBuffEffect.class, "targetColor", new Color(0.7f, 0.75f, 0.7f, 1.0f));
 			AbstractDungeon.effectsQueue.add(effect);
 			MonsterGroup group = AbstractDungeon.getMonsters();
@@ -396,10 +408,10 @@ public class DragonTamer extends CustomPlayer {
 		attackAnimation = true;
 		dragonAttackAnimation = false;
 		if (c instanceof AbstractDTCard) {
-			if (((AbstractDTCard) c).dtCardTarget == AbstractDTCard.DTCardTarget.DRAGON_ONLY) {
+			if (((AbstractDTCard) c).dtCardUser == AbstractDTCard.DTCardUser.DRAGON) {
 				attackAnimation = false;
 				dragonAttackAnimation = true;
-			} else if (((AbstractDTCard) c).dtCardTarget == AbstractDTCard.DTCardTarget.BOTH) {
+			} else if (((AbstractDTCard) c).dtCardUser == AbstractDTCard.DTCardUser.BOTH) {
 				attackAnimation = false;
 			}
 		}

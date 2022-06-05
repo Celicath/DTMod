@@ -51,10 +51,10 @@ import java.util.Properties;
 
 @SpireInitializer
 public class DTModMain
-		implements EditCardsSubscriber, EditRelicsSubscriber, EditStringsSubscriber, EditKeywordsSubscriber,
-		EditCharactersSubscriber, PostInitializeSubscriber, OnStartBattleSubscriber,
-		PostEnergyRechargeSubscriber, StartGameSubscriber, PostDungeonInitializeSubscriber, PreStartGameSubscriber,
-		OnPowersModifiedSubscriber, PostUpdateSubscriber {
+	implements EditCardsSubscriber, EditRelicsSubscriber, EditStringsSubscriber, EditKeywordsSubscriber,
+	EditCharactersSubscriber, PostInitializeSubscriber, OnStartBattleSubscriber, PostBattleSubscriber,
+	PostEnergyRechargeSubscriber, StartGameSubscriber, PostDungeonInitializeSubscriber, PreStartGameSubscriber,
+	OnPowersModifiedSubscriber, PostUpdateSubscriber {
 	public static final Logger logger = LogManager.getLogger(DTModMain.class.getName());
 
 	private static final String MODNAME = "The DT";
@@ -137,11 +137,11 @@ public class DTModMain
 		logger.info("Creating the color " + CardColorEnum.DT_ORANGE.toString());
 
 		BaseMod.addColor(CardColorEnum.DT_ORANGE, DT_ORANGE, DT_ORANGE, DT_ORANGE,
-				DT_ORANGE, DT_ORANGE, DT_ORANGE, DT_ORANGE, makePath(ATTACK_DT_GRAY),
-				makePath(SKILL_DT_GRAY), makePath(POWER_DT_GRAY),
-				makePath(ENERGY_ORB_DT_GRAY), makePath(ATTACK_DT_GRAY_PORTRAIT),
-				makePath(SKILL_DT_GRAY_PORTRAIT), makePath(POWER_DT_GRAY_PORTRAIT),
-				makePath(ENERGY_ORB_DT_GRAY_PORTRAIT), makePath(CARD_ENERGY_ORB));
+			DT_ORANGE, DT_ORANGE, DT_ORANGE, DT_ORANGE, makePath(ATTACK_DT_GRAY),
+			makePath(SKILL_DT_GRAY), makePath(POWER_DT_GRAY),
+			makePath(ENERGY_ORB_DT_GRAY), makePath(ATTACK_DT_GRAY_PORTRAIT),
+			makePath(SKILL_DT_GRAY_PORTRAIT), makePath(POWER_DT_GRAY_PORTRAIT),
+			makePath(ENERGY_ORB_DT_GRAY_PORTRAIT), makePath(CARD_ENERGY_ORB));
 
 		logger.info("Done Creating the color");
 
@@ -163,7 +163,7 @@ public class DTModMain
 		logger.info("begin editing characters. " + "Add " + TheDTEnum.THE_DT.toString());
 
 		BaseMod.addCharacter(new DragonTamer(DragonTamer.charStrings.NAMES[1], TheDTEnum.THE_DT),
-				makePath(THE_DT_BUTTON), makePath(THE_DT_PORTRAIT), TheDTEnum.THE_DT);
+			makePath(THE_DT_BUTTON), makePath(THE_DT_PORTRAIT), TheDTEnum.THE_DT);
 
 		receiveEditPotions();
 		logger.info("done editing characters");
@@ -239,11 +239,11 @@ public class DTModMain
 		logger.info("begin editing potions");
 
 		BaseMod.addPotion(
-				BlazePotion.class,
-				Color.ORANGE.cpy(),
-				Color.ORANGE.cpy(),
-				null,
-				BlazePotion.POTION_ID, TheDTEnum.THE_DT);
+			BlazePotion.class,
+			Color.ORANGE.cpy(),
+			Color.ORANGE.cpy(),
+			null,
+			BlazePotion.POTION_ID, TheDTEnum.THE_DT);
 
 		logger.info("end editing potions");
 	}
@@ -281,9 +281,9 @@ public class DTModMain
 		BaseMod.addDynamicVariable(new DTDragonBlock());
 
 		new AutoAdd("DTMod")
-				.packageFilter(AbstractDTCard.class)
-				.setDefaultSeen(true)
-				.cards();
+			.packageFilter(AbstractDTCard.class)
+			.setDefaultSeen(true)
+			.cards();
 	}
 
 	@Override
@@ -404,6 +404,12 @@ public class DTModMain
 	}
 
 	@Override
+	public void receivePostBattle(AbstractRoom abstractRoom) {
+		burnGen = 0;
+		bondingBonuses = 0;
+	}
+
+	@Override
 	public void receivePostEnergyRecharge() {
 		for (AbstractCard c : AbstractDungeon.player.discardPile.group) {
 			if (c instanceof RepeatStrike) {
@@ -425,8 +431,8 @@ public class DTModMain
 	public void receivePowersModified() {
 		slayTheRelicsPowerTips.clear();
 		if (AbstractDungeon.currMapNode != null &&
-				AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT &&
-				AbstractDungeon.player instanceof DragonTamer
+			AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT &&
+			AbstractDungeon.player instanceof DragonTamer
 		) {
 			ArrayList<PowerTip> tips = new ArrayList<>();
 			Dragon d = ((DragonTamer) AbstractDungeon.player).dragon;
@@ -482,6 +488,6 @@ public class DTModMain
 
 	private static String GetLocString(String locCode, String name) {
 		return Gdx.files.internal("DTMod/localization/" + locCode + "/" + name + ".json").readString(
-				String.valueOf(StandardCharsets.UTF_8));
+			String.valueOf(StandardCharsets.UTF_8));
 	}
 }

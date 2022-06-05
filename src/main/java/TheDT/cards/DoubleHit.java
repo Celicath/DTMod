@@ -17,7 +17,7 @@ public class DoubleHit extends AbstractDTCard {
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.DT_ORANGE;
 	private static final AbstractCard.CardRarity RARITY = CardRarity.BASIC;
 	private static final AbstractCard.CardTarget TARGET = CardTarget.ENEMY;
-	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DRAGON_ONLY;
+	private static final DTCardUser DT_CARD_TARGET = DTCardUser.DRAGON;
 
 	private static final int DAMAGE = 8;
 	private static final int UPGRADE_DAMAGE = 3;

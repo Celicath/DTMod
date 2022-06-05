@@ -25,7 +25,7 @@
     "NAMES": [
       "rear"
     ],
-    "DESCRIPTION": "The character not marked with Front Marker."
+    "DESCRIPTION": "The character in your team without the Front Marker."
   },
   {
     "PROPER_NAME": "Switch",
@@ -42,13 +42,6 @@
       "taunts"
     ],
     "DESCRIPTION": "When an enemy is Taunted, it will always attack the Taunter, not the Front. NL Taunt lasts for 1 turn."
-  },
-  {
-    "PROPER_NAME": "Channeling",
-    "NAMES": [
-      "channeling"
-    ],
-    "DESCRIPTION": "If [#60D0D0]You[] attack or an enemy attacks [#60D0D0]You[] before the effect kicks in, it is cancelled."
   },
   {
     "PROPER_NAME": "Blaze Potion",

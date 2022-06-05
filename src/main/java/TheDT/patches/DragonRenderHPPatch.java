@@ -23,21 +23,21 @@ public class DragonRenderHPPatch {
 				float offset = 16.0f * Settings.scale;
 				float scale = ___hpHb.hovered ? Settings.scale * 1.2F : Settings.scale;
 				sb.draw(
-						ImageMaster.TP_HP,
-						___hpIconX - 32.0F + 32.0F * Settings.scale,
-						___ICON_Y - 32.0F + 32.0F * Settings.scale,
-						32.0F, 32.0F, 64.0F, 64.0F,
-						scale, scale, 0.0F, 0, 0, 64, 64, false, false);
+					ImageMaster.TP_HP,
+					___hpIconX - 32.0F + 32.0F * Settings.scale,
+					___ICON_Y - 32.0F + 32.0F * Settings.scale,
+					32.0F, 32.0F, 64.0F, 64.0F,
+					scale, scale, 0.0F, 0, 0, 64, 64, false, false);
 
 				FontHelper.renderFontLeftTopAligned(
-						sb, FontHelper.topPanelInfoFont,
-						AbstractDungeon.player.currentHealth + "/" + AbstractDungeon.player.maxHealth,
-						___hpIconX + ___HP_NUM_OFFSET_X, ___INFO_TEXT_Y + offset, Color.SALMON);
+					sb, FontHelper.topPanelInfoFont,
+					AbstractDungeon.player.currentHealth + "/" + AbstractDungeon.player.maxHealth,
+					___hpIconX + ___HP_NUM_OFFSET_X, ___INFO_TEXT_Y + offset, Color.SALMON);
 
 				FontHelper.renderFontLeftTopAligned(
-						sb, FontHelper.topPanelInfoFont,
-						((DragonTamer) AbstractDungeon.player).dragon.currentHealth + "/" + ((DragonTamer) AbstractDungeon.player).dragon.maxHealth,
-						___hpIconX + ___HP_NUM_OFFSET_X, ___INFO_TEXT_Y - offset, Color.ORANGE);
+					sb, FontHelper.topPanelInfoFont,
+					((DragonTamer) AbstractDungeon.player).dragon.currentHealth + "/" + ((DragonTamer) AbstractDungeon.player).dragon.maxHealth,
+					___hpIconX + ___HP_NUM_OFFSET_X, ___INFO_TEXT_Y - offset, Color.ORANGE);
 
 				___hpHb.render(sb);
 				return SpireReturn.Return(null);

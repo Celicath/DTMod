@@ -16,7 +16,7 @@ public class CleansingStrike extends AbstractDTCard {
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.DT_ORANGE;
 	private static final AbstractCard.CardRarity RARITY = CardRarity.COMMON;
 	private static final AbstractCard.CardTarget TARGET = CardTarget.ENEMY;
-	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DEFAULT;
+	private static final DTCardUser DT_CARD_TARGET = DTCardUser.YOU;
 
 	private static final int POWER = 9;
 	private static final int UPGRADE_BONUS = 3;
@@ -33,8 +33,8 @@ public class CleansingStrike extends AbstractDTCard {
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		addToBot(new DamageAction(m,
-				new DamageInfo(p, damage, damageTypeForTurn),
-				AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
+			new DamageInfo(p, damage, damageTypeForTurn),
+			AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
 		addToBot(new ExhaustRandomStatusAction(magicNumber));
 	}
 

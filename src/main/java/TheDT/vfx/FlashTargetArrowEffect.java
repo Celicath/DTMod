@@ -43,7 +43,7 @@ public class FlashTargetArrowEffect extends AbstractGameEffect {
 
 	public void render(SpriteBatch sb) {
 		TargetArrow.drawTargetArrow(
-				sb, from.hb, to.hb, to instanceof DragonTamer ? TargetArrow.CONTROL_HEIGHT * 0.5f * Settings.scale : TargetArrow.CONTROL_HEIGHT * Settings.scale, arrowTime, alpha, null);
+			sb, from.hb, to.hb, to instanceof DragonTamer ? TargetArrow.CONTROL_HEIGHT * 0.5f * Settings.scale : TargetArrow.CONTROL_HEIGHT * Settings.scale, arrowTime, alpha, null);
 	}
 
 	public void dispose() {

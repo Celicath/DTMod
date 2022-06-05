@@ -17,7 +17,7 @@ public class HeadStart extends AbstractDTCard {
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.DT_ORANGE;
 	private static final AbstractCard.CardRarity RARITY = CardRarity.RARE;
 	private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;
-	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DEFAULT;
+	private static final DTCardUser DT_CARD_TARGET = DTCardUser.YOU;
 
 	private static final int MAGIC = 2;
 	private static final int UPGRADE_BONUS = 1;
@@ -36,7 +36,7 @@ public class HeadStart extends AbstractDTCard {
 		int magic = magicNumber;
 
 		ArrayList<AbstractCard> choices = new ArrayList<>();
-		choices.add(new AbstractDTCard(RAW_ID_ENERGY, -2, TYPE, COLOR, CardRarity.SPECIAL, TARGET, RAW_ID, DTCardTarget.DEFAULT) {
+		choices.add(new AbstractDTCard(RAW_ID_ENERGY, -2, TYPE, COLOR, CardRarity.SPECIAL, TARGET, RAW_ID, DTCardUser.YOU) {
 			{
 				baseMagicNumber = magicNumber = magic;
 			}
@@ -56,7 +56,7 @@ public class HeadStart extends AbstractDTCard {
 				this.addToBot(new GainEnergyAction(magicNumber));
 			}
 		});
-		choices.add(new AbstractDTCard(RAW_ID_DRAW, -2, TYPE, COLOR, CardRarity.SPECIAL, TARGET, RAW_ID, DTCardTarget.DEFAULT) {
+		choices.add(new AbstractDTCard(RAW_ID_DRAW, -2, TYPE, COLOR, CardRarity.SPECIAL, TARGET, RAW_ID, DTCardUser.YOU) {
 			{
 				baseMagicNumber = magicNumber = magic;
 			}

@@ -1,12 +1,12 @@
 package TheDT.cards;
 
+import TheDT.characters.Dragon;
 import TheDT.characters.DragonTamer;
 import TheDT.patches.CardColorEnum;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.EnergizedBluePower;
 
@@ -17,7 +17,7 @@ public class Hide extends AbstractDTCard {
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.DT_ORANGE;
 	private static final AbstractCard.CardRarity RARITY = CardRarity.COMMON;
 	private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;
-	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DEFAULT;
+	private static final DTCardUser DT_CARD_TARGET = DTCardUser.YOU;
 
 	private static final int POWER = 12;
 	private static final int UPGRADE_BONUS = 4;
@@ -45,7 +45,8 @@ public class Hide extends AbstractDTCard {
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		if (DragonTamer.isFrontDragon()) {
-			addToBot(new GainBlockAction(((DragonTamer) AbstractDungeon.player).dragon, ((DragonTamer) AbstractDungeon.player).dragon, dtDragonBlock));
+			Dragon dragon = DragonTamer.getLivingDragon();
+			addToBot(new GainBlockAction(dragon, dragon, dtDragonBlock));
 		} else {
 			addToBot(new GainBlockAction(p, p, block));
 		}

@@ -29,10 +29,10 @@ public class TargetArrow {
 		} else {
 			x = 1 - (1 - x) * (1 - x);
 			return new Color(
-					MathUtils.lerp(white.r, pink.r, x),
-					MathUtils.lerp(white.g, pink.g, x),
-					MathUtils.lerp(white.b, pink.b, x),
-					MathUtils.lerp(white.a, pink.a, x) * alpha);
+				MathUtils.lerp(white.r, pink.r, x),
+				MathUtils.lerp(white.g, pink.g, x),
+				MathUtils.lerp(white.b, pink.b, x),
+				MathUtils.lerp(white.a, pink.a, x) * alpha);
 		}
 	}
 
@@ -40,12 +40,12 @@ public class TargetArrow {
 		if (h1.cX == h2.cX && h1.cY == h2.cY) {
 			if (text != null) {
 				FontHelper.renderFontCentered(
-						sb,
-						FontHelper.panelNameFont,
-						text,
-						h1.cX,
-						h1.cY + 30.0f * Settings.scale,
-						Color.WHITE.cpy());
+					sb,
+					FontHelper.panelNameFont,
+					text,
+					h1.cX,
+					h1.cY + 30.0f * Settings.scale,
+					Color.WHITE.cpy());
 			}
 			return;
 		}
@@ -86,18 +86,18 @@ public class TargetArrow {
 
 			if (i == 0) {
 				renderer.triangle(
-						v1.x - n1.x, v1.y - n1.y, v2.x - tmp.x, v2.y - tmp.y, v2.x, v2.y,
-						c1, c2, c2);
+					v1.x - n1.x, v1.y - n1.y, v2.x - tmp.x, v2.y - tmp.y, v2.x, v2.y,
+					c1, c2, c2);
 				renderer.triangle(
-						v1.x + n1.x, v1.y + n1.y, v2.x, v2.y, v2.x + tmp.x, v2.y + tmp.y,
-						c1, c2, c2);
+					v1.x + n1.x, v1.y + n1.y, v2.x, v2.y, v2.x + tmp.x, v2.y + tmp.y,
+					c1, c2, c2);
 			} else {
 				renderer.triangle(
-						v1.x - n1.x, v1.y - n1.y, v2.x - tmp.x, v2.y - tmp.y, v1.x + n1.x, v1.y + n1.y,
-						c1, c2, c1);
+					v1.x - n1.x, v1.y - n1.y, v2.x - tmp.x, v2.y - tmp.y, v1.x + n1.x, v1.y + n1.y,
+					c1, c2, c1);
 				renderer.triangle(
-						v2.x - tmp.x, v2.y - tmp.y, v2.x + tmp.x, v2.y + tmp.y, v1.x + n1.x, v1.y + n1.y,
-						c2, c2, c1);
+					v2.x - tmp.x, v2.y - tmp.y, v2.x + tmp.x, v2.y + tmp.y, v1.x + n1.x, v1.y + n1.y,
+					c2, c2, c1);
 			}
 			c1.set(c2);
 			n1.set(tmp);
@@ -105,8 +105,8 @@ public class TargetArrow {
 		}
 
 		renderer.triangle(
-				v2.x - n1.x, v2.y - n1.y, end.x, end.y, v2.x + n1.x, v2.y + n1.y,
-				c1, getColor(1.0f, timer, alpha), c1);
+			v2.x - n1.x, v2.y - n1.y, end.x, end.y, v2.x + n1.x, v2.y + n1.y,
+			c1, getColor(1.0f, timer, alpha), c1);
 
 		renderer.end();
 		if (blendDisabled) {
@@ -118,12 +118,12 @@ public class TargetArrow {
 		sb.begin();
 		if (text != null) {
 			FontHelper.renderFontCentered(
-					sb,
-					FontHelper.panelNameFont,
-					text,
-					v2.x,
-					v2.y + 30.0f * Settings.scale,
-					Color.WHITE.cpy());
+				sb,
+				FontHelper.panelNameFont,
+				text,
+				v2.x,
+				v2.y + 30.0f * Settings.scale,
+				Color.WHITE.cpy());
 		}
 	}
 }

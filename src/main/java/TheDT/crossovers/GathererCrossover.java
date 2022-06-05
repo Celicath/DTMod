@@ -22,7 +22,7 @@ public class GathererCrossover {
 	public static void convertSackPotions(SackPotion potion) {
 		for (int i = 0; i < GathererMod.potionSack.potions.size(); i++) {
 			if (!(AbstractDungeon.player != null && AbstractDungeon.player.hasPower(BomberFormPower.POWER_ID)) &&
-					!(GathererMod.potionSack.potions.get(i) instanceof PotionSlot)) {
+				!(GathererMod.potionSack.potions.get(i) instanceof PotionSlot)) {
 				SackPotion sp = (SackPotion) potion.makeCopy();
 				GathererMod.potionSack.setPotion(i, sp);
 				sp.flash();

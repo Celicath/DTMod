@@ -147,7 +147,7 @@
   },
   "DTMod:DeepFocus": {
     "NAME": "Deep Focus",
-    "DESCRIPTION": "After 2 turns, NL gain !M! Strength. NL ragontaer:Channeling."
+    "DESCRIPTION": "After 2 turns, NL You gain !M! Strength."
   },
   "DTMod:Dissolve": {
     "NAME": "Dissolve",
@@ -163,7 +163,7 @@
   },
   "DTMod:ExcessFootwork": {
     "NAME": "Excess Footwork",
-    "DESCRIPTION": "Gain !M! Dexterity. NL At the end of each turn, lose 1 Dexterity."
+    "DESCRIPTION": "The ragontaer:Rear gains !M! Dexterity."
   },
   "DTMod:Feint": {
     "NAME": "Feint",
@@ -358,7 +358,7 @@
   },
   "DTMod:StunTrap": {
     "NAME": "Stun Trap",
-    "DESCRIPTION": "After 2 turns, Stun the enemy and draw !M! cards. NL ragontaer:Channeling. NL Exhaust."
+    "DESCRIPTION": "After 2 turns, Stun the enemy and draw !M! cards. NL Exhaust."
   },
   "DTMod:TagTeam": {
     "NAME": "Tag Team",

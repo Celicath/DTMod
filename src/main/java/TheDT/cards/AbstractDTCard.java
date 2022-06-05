@@ -28,8 +28,8 @@ import java.util.List;
 import static TheDT.patches.CustomTags.DT_TACTIC;
 
 public abstract class AbstractDTCard extends CustomCard {
-	public enum DTCardTarget {
-		DEFAULT, DRAGON_ONLY, BOTH
+	public enum DTCardUser {
+		YOU, DRAGON, FRONT, REAR, BOTH
 	}
 
 	private static final String DT_RAW_ID = "AbstractDTCard";
@@ -71,7 +71,7 @@ public abstract class AbstractDTCard extends CustomCard {
 	public boolean upgradedDTDragonBlock = false;
 	public boolean isDTDragonBlockModified = false;
 
-	public DTCardTarget dtCardTarget;
+	public DTCardUser dtCardUser;
 
 	public AbstractDTCard(String rawId,
 	                      int cost,
@@ -79,8 +79,8 @@ public abstract class AbstractDTCard extends CustomCard {
 	                      CardColor color,
 	                      CardRarity rarity,
 	                      CardTarget target,
-	                      DTCardTarget dtCardTarget) {
-		this(rawId, cost, type, color, rarity, target, rawId, dtCardTarget);
+	                      DTCardUser dtCardUser) {
+		this(rawId, cost, type, color, rarity, target, rawId, dtCardUser);
 	}
 
 	public AbstractDTCard(String rawId,
@@ -90,10 +90,10 @@ public abstract class AbstractDTCard extends CustomCard {
 	                      CardRarity rarity,
 	                      CardTarget target,
 	                      String imgID,
-	                      DTCardTarget dtCardTarget) {
+	                      DTCardUser dtCardUser) {
 		super(DTModMain.makeID(rawId), "NAME", DTModMain.GetCardPath(imgID), cost, "DESCRIPTION", type, color, rarity, target);
 
-		this.dtCardTarget = dtCardTarget;
+		this.dtCardUser = dtCardUser;
 
 		cardStrings = CardCrawlGame.languagePack.getCardStrings(DTModMain.makeID(rawId));
 		name = NAME = cardStrings.NAME;
@@ -114,10 +114,10 @@ public abstract class AbstractDTCard extends CustomCard {
 	                      CardColor color,
 	                      CardRarity rarity,
 	                      CardTarget target,
-	                      DTCardTarget dtCardTarget) {
+	                      DTCardUser dtCardUser) {
 		super(DTModMain.makeID(rawId), name, img, cost, rawDescription, type, color, rarity, target);
 
-		this.dtCardTarget = dtCardTarget;
+		this.dtCardUser = dtCardUser;
 		NAME = name;
 
 		cardStrings = CardCrawlGame.languagePack.getCardStrings(DTModMain.makeID(rawId));

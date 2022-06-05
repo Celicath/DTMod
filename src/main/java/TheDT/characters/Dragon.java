@@ -76,7 +76,7 @@ public class Dragon extends CustomPlayer implements CustomSavable<ArrayList<Inte
 
 	public Dragon(String name, float hb_x, float hb_y, float hb_w, float hb_h, DragonTamer master) {
 		super(name, master.chosenClass, null,
-				null, null, null, null);
+			null, null, null, null);
 		logger.info("Dragon constructor called");
 
 		this.name = name;
@@ -107,21 +107,21 @@ public class Dragon extends CustomPlayer implements CustomSavable<ArrayList<Inte
 		if (imgs == null) {
 			imgs = new Texture[4][];
 			imgs[1] = new Texture[]{
-					ImageMaster.loadImage(DTModMain.makePath("char/Dragon/baby.png")),
+				ImageMaster.loadImage(DTModMain.makePath("char/Dragon/baby.png")),
 			};
 			imgs[2] = new Texture[]{
-					ImageMaster.loadImage(DTModMain.makePath("char/Dragon/growing1.png")),
-					ImageMaster.loadImage(DTModMain.makePath("char/Dragon/growing2.png")),
-					ImageMaster.loadImage(DTModMain.makePath("char/Dragon/growing3.png")),
-					ImageMaster.loadImage(DTModMain.makePath("char/Dragon/growing4.png")),
-					ImageMaster.loadImage(DTModMain.makePath("char/Dragon/growing5.png"))
+				ImageMaster.loadImage(DTModMain.makePath("char/Dragon/growing1.png")),
+				ImageMaster.loadImage(DTModMain.makePath("char/Dragon/growing2.png")),
+				ImageMaster.loadImage(DTModMain.makePath("char/Dragon/growing3.png")),
+				ImageMaster.loadImage(DTModMain.makePath("char/Dragon/growing4.png")),
+				ImageMaster.loadImage(DTModMain.makePath("char/Dragon/growing5.png"))
 			};
 			imgs[3] = new Texture[]{
-					ImageMaster.loadImage(DTModMain.makePath("char/Dragon/mature1.png")),
-					ImageMaster.loadImage(DTModMain.makePath("char/Dragon/mature2.png")),
-					ImageMaster.loadImage(DTModMain.makePath("char/Dragon/mature3.png")),
-					ImageMaster.loadImage(DTModMain.makePath("char/Dragon/mature4.png")),
-					ImageMaster.loadImage(DTModMain.makePath("char/Dragon/mature5.png")),
+				ImageMaster.loadImage(DTModMain.makePath("char/Dragon/mature1.png")),
+				ImageMaster.loadImage(DTModMain.makePath("char/Dragon/mature2.png")),
+				ImageMaster.loadImage(DTModMain.makePath("char/Dragon/mature3.png")),
+				ImageMaster.loadImage(DTModMain.makePath("char/Dragon/mature4.png")),
+				ImageMaster.loadImage(DTModMain.makePath("char/Dragon/mature5.png")),
 			};
 		}
 
@@ -548,37 +548,37 @@ public class Dragon extends CustomPlayer implements CustomSavable<ArrayList<Inte
 		switch (tier2Perk) {
 			case 1:
 				AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(
-						this, this, new StrengthPower(this, 1), 1));
+					this, this, new StrengthPower(this, 1), 1));
 				break;
 			case 2:
 				AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(
-						this, this, new DexterityPower(this, 1), 1));
+					this, this, new DexterityPower(this, 1), 1));
 				break;
 			case 3:
 				AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(
-						AbstractDungeon.player, AbstractDungeon.player, new BondingPower(AbstractDungeon.player, AbstractDungeon.player, 2), 2));
+					AbstractDungeon.player, AbstractDungeon.player, new BondingPower(AbstractDungeon.player, AbstractDungeon.player, 2), 2));
 				break;
 			case 4:
 				AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(
-						this, this, new DrawCardNextTurnPower(this, 4), 4));
+					this, this, new DrawCardNextTurnPower(this, 4), 4));
 				break;
 		}
 		switch (tier3Perk) {
 			case 1:
 				AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(
-						this, this, new FiercePower(this, 1), 1));
+					this, this, new FiercePower(this, 1), 1));
 				break;
 			case 2:
 				AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(
-						this, this, new ArtifactPower(this, 4), 4));
+					this, this, new ArtifactPower(this, 4), 4));
 				break;
 			case 3:
 				AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(
-						this, this, new BirdFacePower(this, 2), 2));
+					this, this, new BirdFacePower(this, 2), 2));
 				break;
 			case 4:
 				AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(
-						this, this, new GreedyPower(this, 75), 75));
+					this, this, new GreedyPower(this, 75), 75));
 				break;
 		}
 	}

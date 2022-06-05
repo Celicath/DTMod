@@ -80,32 +80,32 @@ public class TargetMarker {
 
 	public void render(SpriteBatch sb) {
 		sb.draw(
-				targetTexture,
-				hb.cX - WIDTH / 2.0f,
-				hb.cY - HEIGHT / 2.0f,
-				WIDTH / 2.0f,
-				HEIGHT / 2.0f,
-				WIDTH,
-				HEIGHT,
-				Settings.scale * 0.75f, Settings.scale * 0.75f, 0.0F, 0, 0, WIDTH, HEIGHT, false, false);
+			targetTexture,
+			hb.cX - WIDTH / 2.0f,
+			hb.cY - HEIGHT / 2.0f,
+			WIDTH / 2.0f,
+			HEIGHT / 2.0f,
+			WIDTH,
+			HEIGHT,
+			Settings.scale * 0.75f, Settings.scale * 0.75f, 0.0F, 0, 0, WIDTH, HEIGHT, false, false);
 
 		sb.draw(
-				aggroCounterBgTexture,
-				hb.cX - FONT_BG_WIDTH / 2.0f,
-				hb.cY - FONT_BG_HEIGHT / 2.0f + 70.0f * Settings.scale,
-				FONT_BG_WIDTH / 2.0f,
-				FONT_BG_HEIGHT / 2.0f,
-				FONT_BG_WIDTH,
-				FONT_BG_HEIGHT,
-				Settings.scale, Settings.scale, 0.0F, 0, 0, FONT_BG_WIDTH, FONT_BG_HEIGHT, false, false);
+			aggroCounterBgTexture,
+			hb.cX - FONT_BG_WIDTH / 2.0f,
+			hb.cY - FONT_BG_HEIGHT / 2.0f + 70.0f * Settings.scale,
+			FONT_BG_WIDTH / 2.0f,
+			FONT_BG_HEIGHT / 2.0f,
+			FONT_BG_WIDTH,
+			FONT_BG_HEIGHT,
+			Settings.scale, Settings.scale, 0.0F, 0, 0, FONT_BG_WIDTH, FONT_BG_HEIGHT, false, false);
 
 		FontHelper.renderFontCentered(
-				sb,
-				FontHelper.panelNameFont,
-				"+" + Math.abs(DragonTamer.getAggro()),
-				hb.cX,
-				hb.cY + 70.0f * Settings.scale,
-				color);
+			sb,
+			FontHelper.panelNameFont,
+			"+" + Math.abs(DragonTamer.getAggro()),
+			hb.cX,
+			hb.cY + 70.0f * Settings.scale,
+			color);
 
 		if (hb.hovered) {
 			renderTip(DragonTamer.isSolo(), DragonTamer.getAggro());
@@ -122,11 +122,11 @@ public class TargetMarker {
 		sb.setColor(this.flashColor);
 
 		sb.draw(targetTexture, hb.cX - WIDTH / 2.0f, hb.cY - HEIGHT / 2.0f, WIDTH / 2.0f, HEIGHT / 2.0f, WIDTH, HEIGHT,
-				Settings.scale * (0.75f + tmp), Settings.scale * (0.75f + tmp), 0, 0, 0, WIDTH, HEIGHT, false, false);
+			Settings.scale * (0.75f + tmp), Settings.scale * (0.75f + tmp), 0, 0, 0, WIDTH, HEIGHT, false, false);
 		sb.draw(targetTexture, hb.cX - WIDTH / 2.0f, hb.cY - HEIGHT / 2.0f, WIDTH / 2.0f, HEIGHT / 2.0f, WIDTH, HEIGHT,
-				Settings.scale * (0.75f + tmp * 0.66F), Settings.scale * (0.75f + tmp * 0.66F), 0, 0, 0, WIDTH, HEIGHT, false, false);
+			Settings.scale * (0.75f + tmp * 0.66F), Settings.scale * (0.75f + tmp * 0.66F), 0, 0, 0, WIDTH, HEIGHT, false, false);
 		sb.draw(targetTexture, hb.cX - WIDTH / 2.0f, hb.cY - HEIGHT / 2.0f, WIDTH / 2.0f, HEIGHT / 2.0f, WIDTH, HEIGHT,
-				Settings.scale * (0.75f + tmp / 3.0F), Settings.scale * (0.75f + tmp / 3.0F), 0, 0, 0, WIDTH, HEIGHT, false, false);
+			Settings.scale * (0.75f + tmp / 3.0F), Settings.scale * (0.75f + tmp / 3.0F), 0, 0, 0, WIDTH, HEIGHT, false, false);
 		sb.setBlendFunction(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
 	}
 

@@ -17,7 +17,7 @@ public class SealedStrike extends AbstractDTCard {
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.DT_ORANGE;
 	private static final AbstractCard.CardRarity RARITY = CardRarity.RARE;
 	private static final AbstractCard.CardTarget TARGET = CardTarget.ENEMY;
-	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DEFAULT;
+	private static final DTCardUser DT_CARD_TARGET = DTCardUser.YOU;
 
 	private static final int DAMAGE = 10;
 	private static final int UPGRADE_BONUS = 2;

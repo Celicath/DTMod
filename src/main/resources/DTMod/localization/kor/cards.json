@@ -147,7 +147,7 @@
   },
   "DTMod:DeepFocus": {
     "NAME": "정신 집중",
-    "DESCRIPTION": "2턴 후, 힘을 !M! 얻습니다. NL ragontaer:채널링."
+    "DESCRIPTION": "2턴 후, 당신이 힘을 !M! 얻습니다."
   },
   "DTMod:Dissolve": {
     "NAME": "초고온",
@@ -164,7 +164,7 @@
   },
   "DTMod:ExcessFootwork": {
     "NAME": "현란한 발놀림",
-    "DESCRIPTION": "민첩을 !M! 얻습니다. NL 매 턴 종료 시 민첩을 1 잃습니다."
+    "DESCRIPTION": "ragontaer:후위가 민첩을 !M! 얻습니다."
   },
   "DTMod:Feint": {
     "NAME": "페인트",
@@ -359,7 +359,7 @@
   },
   "DTMod:StunTrap": {
     "NAME": "기절의 덫",
-    "DESCRIPTION": "2턴 후, 적을 기절시키고 카드를 NL !M! 장 뽑습니다. NL ragontaer:채널링. NL 소멸."
+    "DESCRIPTION": "2턴 후, 적을 기절시키고 카드를 NL !M! 장 뽑습니다. NL 소멸."
   },
   "DTMod:TagTeam": {
     "NAME": "태그 팀",

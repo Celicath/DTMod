@@ -24,7 +24,7 @@ public class TauntingStrike extends AbstractDTCard implements ChooseAttackerCard
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.DT_ORANGE;
 	private static final AbstractCard.CardRarity RARITY = CardRarity.UNCOMMON;
 	private static final AbstractCard.CardTarget TARGET = CardTarget.ENEMY;
-	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.BOTH;
+	private static final DTCardUser DT_CARD_TARGET = DTCardUser.BOTH;
 
 	private static final int DAMAGE = 10;
 	private static final int UPGRADE_DAMAGE = 4;

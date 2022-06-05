@@ -62,7 +62,7 @@ public class DragonTamerSkillbook extends SkillbookRelic {
 	@Override
 	protected void mixCardpools(ArrayList<AbstractCard> cardList) {
 		for (AbstractCard c : cardList) {
-			if (c instanceof AbstractDTCard && c.rarity != AbstractCard.CardRarity.BASIC && ((AbstractDTCard) c).dtCardTarget == AbstractDTCard.DTCardTarget.DEFAULT) {
+			if (c instanceof AbstractDTCard && c.rarity != AbstractCard.CardRarity.BASIC && ((AbstractDTCard) c).dtCardUser == AbstractDTCard.DTCardUser.YOU) {
 				switch (c.rarity) {
 					case COMMON: {
 						AbstractDungeon.commonCardPool.removeCard(c);

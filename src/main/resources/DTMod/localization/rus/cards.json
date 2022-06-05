@@ -147,7 +147,7 @@
   },
   "DTMod:DeepFocus": {
     "NAME": "Глубокий фокус",
-    "DESCRIPTION": "Даёт !M! Силы через 2 хода. NL ragontaer:Заряжаемая."
+    "DESCRIPTION": "Даёт !M! Силы через 2 хода."
   },
   "DTMod:Dissolve": {
     "NAME": "Растворить",
@@ -163,7 +163,7 @@
   },
   "DTMod:ExcessFootwork": {
     "NAME": "Избыток движения",
-    "DESCRIPTION": "Даёт !M! Ловкости. NL В конце каждого вашего хода отнимает 1 Ловкости."
+    "DESCRIPTION": "Даёт !M! Ловкости ragontaer:Тылу."
   },
   "DTMod:Feint": {
     "NAME": "Финт",
@@ -358,7 +358,7 @@
   },
   "DTMod:StunTrap": {
     "NAME": "Оглушающая ловушка",
-    "DESCRIPTION": "[]Вы берёте !M! карты и оглушаете врага спустя 2 хода. NL ragontaer:Заряжаемая. NL Сжигается."
+    "DESCRIPTION": "[]Вы берёте !M! карты и оглушаете врага спустя 2 хода. NL Сжигается."
   },
   "DTMod:TagTeam": {
     "NAME": "Кооперация",

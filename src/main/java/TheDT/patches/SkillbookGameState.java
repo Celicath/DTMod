@@ -45,8 +45,8 @@ public class SkillbookGameState {
 					return true;
 			}
 			return hp != creature.currentHealth ||
-					block != creature.currentBlock ||
-					tempHp != TempHPField.tempHp.get(creature);
+				block != creature.currentBlock ||
+				tempHp != TempHPField.tempHp.get(creature);
 		}
 	}
 

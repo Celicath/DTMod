@@ -87,14 +87,14 @@ public class EnemyTargetArrowPatch {
 						if (!m.isDeadOrEscaped()) {
 							AbstractCreature target = DragonTamer.getCurrentTarget(m);
 							TargetArrow.drawTargetArrow(
-									sb, m.hb, target.hb, target instanceof DragonTamer ? TargetArrow.CONTROL_HEIGHT * 0.5f * Settings.scale : TargetArrow.CONTROL_HEIGHT * Settings.scale, arrowTime, alpha, null);
+								sb, m.hb, target.hb, target instanceof DragonTamer ? TargetArrow.CONTROL_HEIGHT * 0.5f * Settings.scale : TargetArrow.CONTROL_HEIGHT * Settings.scale, arrowTime, alpha, null);
 						}
 					}
 				} else if (hoveredMonster != null) {
 					if (alpha > 0.2f) {
 						AbstractCreature target = DragonTamer.getCurrentTarget(hoveredMonster);
 						TargetArrow.drawTargetArrow(
-								sb, hoveredMonster.hb, target.hb, target instanceof DragonTamer ? TargetArrow.CONTROL_HEIGHT * 0.5f * Settings.scale : TargetArrow.CONTROL_HEIGHT * Settings.scale, arrowTime, alpha - 0.2f, null);
+							sb, hoveredMonster.hb, target.hb, target instanceof DragonTamer ? TargetArrow.CONTROL_HEIGHT * 0.5f * Settings.scale : TargetArrow.CONTROL_HEIGHT * Settings.scale, arrowTime, alpha - 0.2f, null);
 					}
 				}
 				arrowTime += Gdx.graphics.getDeltaTime();

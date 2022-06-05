@@ -147,7 +147,7 @@
   },
   "DTMod:DeepFocus": {
     "NAME": "禅定",
-    "DESCRIPTION": "2回合后，获得 NL 获得 !M! 点 力量 。 NL ragontaer:打断 。"
+    "DESCRIPTION": "2回合后，获得 NL 获得 !M! 点 力量 。"
   },
   "DTMod:Dissolve": {
     "NAME": "溶解",
@@ -163,7 +163,7 @@
   },
   "DTMod:ExcessFootwork": {
     "NAME": "凌乱步伐",
-    "DESCRIPTION": "获得 !M! 点 敏捷 。 NL 每回合结束时，失去1点 敏捷 。"
+    "DESCRIPTION": "ragontaer:后方 获得 !M! 点 敏捷 。"
   },
   "DTMod:Feint": {
     "NAME": "佯攻",
@@ -358,7 +358,7 @@
   },
   "DTMod:StunTrap": {
     "NAME": "陷阱",
-    "DESCRIPTION": "2回合后， 击晕 敌人并抽 !M! 张牌。 NL ragontaer:打断 。 NL 消耗 。"
+    "DESCRIPTION": "2回合后， 击晕 敌人并抽 !M! 张牌。 NL 消耗 。"
   },
   "DTMod:TagTeam": {
     "NAME": "组队",

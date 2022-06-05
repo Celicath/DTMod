@@ -27,7 +27,7 @@ public class BondingBonus extends AbstractDTCard {
 	private static final CardColor COLOR = CardColorEnum.DT_ORANGE;
 	private static final CardRarity RARITY = CardRarity.SPECIAL;
 	private static final CardTarget TARGET = CardTarget.SELF;
-	private static final DTCardTarget DT_CARD_TARGET = DTCardTarget.DEFAULT;
+	private static final DTCardUser DT_CARD_TARGET = DTCardUser.YOU;
 
 	private static final String[] BONDING_BONUS = CardCrawlGame.languagePack.getCardStrings(DTModMain.makeID(RAW_ID)).EXTENDED_DESCRIPTION;
 	private static final CustomCard.RegionName[] REGIONS;
@@ -110,28 +110,28 @@ public class BondingBonus extends AbstractDTCard {
 
 	static {
 		REGIONS = new CustomCard.RegionName[]{
-				new CustomCard.RegionName("colorless/skill/panacea"),
-				new CustomCard.RegionName("green/attack/die_die_die"),
-				new CustomCard.RegionName("red/skill/impervious"),
-				new CustomCard.RegionName("red/power/inflame"),
-				new CustomCard.RegionName("green/power/footwork"),
-				new CustomCard.RegionName("blue/skill/double_energy"),
-				new CustomCard.RegionName("purple/skill/scrawl"),
-				new CustomCard.RegionName("colorless/skill/blind"),
-				new CustomCard.RegionName("colorless/skill/trip"),
-				new CustomCard.RegionName("blue/skill/chaos")
+			new CustomCard.RegionName("colorless/skill/panacea"),
+			new CustomCard.RegionName("green/attack/die_die_die"),
+			new CustomCard.RegionName("red/skill/impervious"),
+			new CustomCard.RegionName("red/power/inflame"),
+			new CustomCard.RegionName("green/power/footwork"),
+			new CustomCard.RegionName("blue/skill/double_energy"),
+			new CustomCard.RegionName("purple/skill/scrawl"),
+			new CustomCard.RegionName("colorless/skill/blind"),
+			new CustomCard.RegionName("colorless/skill/trip"),
+			new CustomCard.RegionName("blue/skill/chaos")
 		};
 		TYPES = new CardType[]{
-				CardType.SKILL,
-				CardType.ATTACK,
-				CardType.SKILL,
-				CardType.POWER,
-				CardType.POWER,
-				CardType.SKILL,
-				CardType.SKILL,
-				CardType.SKILL,
-				CardType.SKILL,
-				CardType.SKILL
+			CardType.SKILL,
+			CardType.ATTACK,
+			CardType.SKILL,
+			CardType.POWER,
+			CardType.POWER,
+			CardType.SKILL,
+			CardType.SKILL,
+			CardType.SKILL,
+			CardType.SKILL,
+			CardType.SKILL
 		};
 	}
 }

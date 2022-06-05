@@ -1,12 +1,12 @@
 package TheDT.cards;
 
+import TheDT.characters.Dragon;
 import TheDT.characters.DragonTamer;
 import TheDT.patches.CardColorEnum;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public class Cover extends AbstractDTCard {
@@ -16,7 +16,7 @@ public class Cover extends AbstractDTCard {
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.DT_ORANGE;
 	private static final AbstractCard.CardRarity RARITY = CardRarity.COMMON;
 	private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;
-	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.BOTH;
+	private static final DTCardUser DT_CARD_TARGET = DTCardUser.REAR;
 
 	private static final int POWER = 9;
 	private static final int UPGRADE_BONUS = 4;
@@ -46,7 +46,8 @@ public class Cover extends AbstractDTCard {
 		if (DragonTamer.isRearYou()) {
 			addToBot(new GainBlockAction(p, p, block));
 		} else {
-			addToBot(new GainBlockAction(((DragonTamer) AbstractDungeon.player).dragon, ((DragonTamer) AbstractDungeon.player).dragon, dtDragonBlock));
+			Dragon dragon = DragonTamer.getLivingDragon();
+			addToBot(new GainBlockAction(dragon, dragon, dtDragonBlock));
 		}
 		addToBot(new DrawCardAction(magicNumber));
 	}

@@ -87,10 +87,10 @@ public class DragonTamerSkillbookPatch {
 						DTModMain.logger.info("Current card [" + c.name + "] IS a Bonding card.");
 						AbstractDungeon.player.getRelic(DTModMain.MythicalSkillbookID).flash();
 						AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(
-								AbstractDungeon.player,
-								AbstractDungeon.player,
-								new BondingPower(AbstractDungeon.player, AbstractDungeon.player, 1),
-								1
+							AbstractDungeon.player,
+							AbstractDungeon.player,
+							new BondingPower(AbstractDungeon.player, AbstractDungeon.player, 1),
+							1
 						));
 					}
 				}

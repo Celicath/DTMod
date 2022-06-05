@@ -107,15 +107,15 @@ public class ForkedFireEffect extends AbstractGameEffect {
 	private void renderImg(SpriteBatch sb, Texture img, float rotation, int loc) {
 		Vector2 v = curPos.get(loc);
 		sb.draw(img,
-				v.x - img.getWidth() * scale / 4.0f,
-				v.y - img.getHeight() * scale / 4.0f,
-				img.getWidth() * scale / 2.0f,
-				img.getHeight() * scale / 2.0f,
-				0,
-				0,
-				img.getWidth(),
-				img.getHeight(),
-				false, false);
+			v.x - img.getWidth() * scale / 4.0f,
+			v.y - img.getHeight() * scale / 4.0f,
+			img.getWidth() * scale / 2.0f,
+			img.getHeight() * scale / 2.0f,
+			0,
+			0,
+			img.getWidth(),
+			img.getHeight(),
+			false, false);
 	}
 
 	@Override

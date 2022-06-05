@@ -27,7 +27,7 @@ public class RecklessFlurry extends AbstractDTCard implements ChooseAttackerCard
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.DT_ORANGE;
 	private static final AbstractCard.CardRarity RARITY = CardRarity.UNCOMMON;
 	private static final AbstractCard.CardTarget TARGET = CardTarget.ALL_ENEMY;
-	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.BOTH;
+	private static final DTCardUser DT_CARD_TARGET = DTCardUser.BOTH;
 
 	private static final int RATIO = 2;
 	private static final int NEW_COST = 0;

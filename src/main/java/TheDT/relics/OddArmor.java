@@ -39,7 +39,7 @@ public class OddArmor extends CustomRelic {
 		} else {
 			this.flash();
 			addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,
-					new OddArmorPower(AbstractDungeon.player, AbstractDungeon.player, AMOUNT), AMOUNT));
+				new OddArmorPower(AbstractDungeon.player, AbstractDungeon.player, AMOUNT), AMOUNT));
 		}
 	}
 

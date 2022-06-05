@@ -31,8 +31,8 @@ public class DTModPanel extends ModPanel {
 		for (int i = 0; i < 4; i++) {
 			int finalI = i;
 			enemyTargetButton[i] = new ModLabeledToggleButton(configTexts[i + 1],
-					400.0f, 580.0f - 60.0f * i, Settings.CREAM_COLOR, FontHelper.charDescFont,
-					DTModMain.enemyTargetDisplayConfig[i], this, (label) -> {
+				400.0f, 580.0f - 60.0f * i, Settings.CREAM_COLOR, FontHelper.charDescFont,
+				DTModMain.enemyTargetDisplayConfig[i], this, (label) -> {
 			}, (button) -> {
 				DTModMain.enemyTargetDisplayConfig[finalI] = button.enabled;
 				DTModMain.saveConfig();
@@ -43,8 +43,8 @@ public class DTModPanel extends ModPanel {
 		}
 
 		ModLabeledButton allButton = new ModLabeledButton(configTexts[5],
-				750.0f, 670.0f, Settings.CREAM_COLOR.cpy(), Color.YELLOW.cpy(), FontHelper.buttonLabelFont,
-				this, (button) -> {
+			750.0f, 670.0f, Settings.CREAM_COLOR.cpy(), Color.YELLOW.cpy(), FontHelper.buttonLabelFont,
+			this, (button) -> {
 			Arrays.fill(DTModMain.enemyTargetDisplayConfig, true);
 			for (int i = 0; i < 4; i++) {
 				enemyTargetButton[i].toggle.enabled = true;
@@ -54,8 +54,8 @@ public class DTModPanel extends ModPanel {
 
 		float w = (float) ReflectionHacks.getPrivate(allButton, ModLabeledButton.class, "w");
 		ModLabeledButton noneButton = new ModLabeledButton(configTexts[6],
-				800.0f + w / Settings.scale, 670.0f, Settings.CREAM_COLOR.cpy(), Color.YELLOW.cpy(), FontHelper.buttonLabelFont,
-				this, (button) -> {
+			800.0f + w / Settings.scale, 670.0f, Settings.CREAM_COLOR.cpy(), Color.YELLOW.cpy(), FontHelper.buttonLabelFont,
+			this, (button) -> {
 			Arrays.fill(DTModMain.enemyTargetDisplayConfig, false);
 			for (int i = 0; i < 4; i++) {
 				enemyTargetButton[i].toggle.enabled = false;

@@ -9,15 +9,15 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public class StunTrap extends AbstractDTCard {
 	public static final String RAW_ID = "StunTrap";
-	private static final int COST = 0;
+	private static final int COST = 2;
 	private static final AbstractCard.CardType TYPE = CardType.SKILL;
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.DT_ORANGE;
 	private static final AbstractCard.CardRarity RARITY = CardRarity.RARE;
 	private static final AbstractCard.CardTarget TARGET = CardTarget.ENEMY;
-	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DEFAULT;
+	private static final DTCardUser DT_CARD_TARGET = DTCardUser.YOU;
 
-	private static final int DRAW = 2;
-	private static final int UPGRADE_BONUS = 2;
+	private static final int DRAW = 3;
+	private static final int NEW_COST = 1;
 
 	public StunTrap() {
 		super(RAW_ID, COST, TYPE, COLOR, RARITY, TARGET, DT_CARD_TARGET);
@@ -38,7 +38,7 @@ public class StunTrap extends AbstractDTCard {
 	public void upgrade() {
 		if (!upgraded) {
 			upgradeName();
-			upgradeMagicNumber(UPGRADE_BONUS);
+			upgradeBaseCost(NEW_COST);
 		}
 	}
 }

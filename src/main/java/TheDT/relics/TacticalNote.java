@@ -20,11 +20,11 @@ public class TacticalNote extends CustomRelic {
 	public static final String OUTLINE = DTModMain.GetRelicOutlinePath(RAW_ID);
 
 	public static String[] tacticCardsId = new String[]{
-			DTModMain.makeID(SwitchingTactic.RAW_ID),
-			DTModMain.makeID(BizarreTactic.RAW_ID),
-			DTModMain.makeID(RunningTactic.RAW_ID),
-			DTModMain.makeID(EchoTactic.RAW_ID),
-			DTModMain.makeID(OpeningTactic.RAW_ID)
+		DTModMain.makeID(SwitchingTactic.RAW_ID),
+		DTModMain.makeID(BizarreTactic.RAW_ID),
+		DTModMain.makeID(RunningTactic.RAW_ID),
+		DTModMain.makeID(EchoTactic.RAW_ID),
+		DTModMain.makeID(OpeningTactic.RAW_ID)
 	};
 
 	public TacticalNote() {

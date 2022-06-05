@@ -15,7 +15,7 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.combat.WeightyImpactEffect;
 
-public class StunTrapPower extends AbstractChannelingPower implements RecoloredPower {
+public class StunTrapPower extends AbstractDelayedPower implements RecoloredPower {
 	public static final String RAW_ID = "StunTrapPower";
 	public static final String POWER_ID = DTModMain.makeID(RAW_ID);
 	private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);

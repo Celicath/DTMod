@@ -19,7 +19,7 @@ public class Dissolve extends AbstractDTCard {
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.DT_ORANGE;
 	private static final AbstractCard.CardRarity RARITY = CardRarity.UNCOMMON;
 	private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;
-	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DRAGON_ONLY;
+	private static final DTCardUser DT_CARD_TARGET = DTCardUser.DRAGON;
 
 	private static final int POWER = 6;
 	private static final int UPGRADE_BONUS = 2;

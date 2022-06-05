@@ -20,9 +20,9 @@ import java.util.HashSet;
 public class DragonRelicPatch {
 	private static final String[] TEXT = CardCrawlGame.languagePack.getUIString(DTModMain.makeID("DragonRelicDescription")).TEXT;
 	public static final HashSet<String> relicPatchlist = new HashSet<>(Arrays.asList(
-			Ginger.ID,
-			Turnip.ID,
-			OddMushroom.ID
+		Ginger.ID,
+		Turnip.ID,
+		OddMushroom.ID
 	));
 
 	public static void addTipsToRelics(AbstractRelic relic) {

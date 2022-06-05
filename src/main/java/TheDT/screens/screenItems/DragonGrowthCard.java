@@ -152,42 +152,42 @@ public class DragonGrowthCard extends ClickableUIElement {
 		float dragonScale = frameScale * 224 / 256;
 		sb.setColor(uiColor);
 		sb.draw(isClickable() ? growthCardTexture : growthCardDisabledTexture,
-				cX - CARD_WIDTH / 2.0f,
-				cY - CARD_HEIGHT / 2.0f,
-				CARD_WIDTH / 2.0f,
-				CARD_HEIGHT / 2.0f,
-				CARD_WIDTH, CARD_HEIGHT, scale * uiScale, scale * uiScale, 0.0F, 0, 0, CARD_WIDTH, CARD_HEIGHT, false, false);
+			cX - CARD_WIDTH / 2.0f,
+			cY - CARD_HEIGHT / 2.0f,
+			CARD_WIDTH / 2.0f,
+			CARD_HEIGHT / 2.0f,
+			CARD_WIDTH, CARD_HEIGHT, scale * uiScale, scale * uiScale, 0.0F, 0, 0, CARD_WIDTH, CARD_HEIGHT, false, false);
 		sb.setColor(Color.WHITE);
 		sb.draw(growthCardFrameTexture,
-				cX - FRAME_WIDTH / 2.0f,
-				cY - FRAME_HEIGHT / 2.0f + (curTier ? 0 : FRAME_OFFSET * frameScale),
-				FRAME_WIDTH / 2.0f,
-				FRAME_HEIGHT / 2.0f,
-				FRAME_WIDTH, FRAME_HEIGHT, frameScale, frameScale, 0.0F, 0, 0, FRAME_WIDTH, FRAME_HEIGHT, false, false);
+			cX - FRAME_WIDTH / 2.0f,
+			cY - FRAME_HEIGHT / 2.0f + (curTier ? 0 : FRAME_OFFSET * frameScale),
+			FRAME_WIDTH / 2.0f,
+			FRAME_HEIGHT / 2.0f,
+			FRAME_WIDTH, FRAME_HEIGHT, frameScale, frameScale, 0.0F, 0, 0, FRAME_WIDTH, FRAME_HEIGHT, false, false);
 		sb.draw(Dragon.imgs[dragonTier][dragonIndex],
-				cX - DRAGON_WIDTH / 2.0f,
-				cY - DRAGON_HEIGHT * 0.25f + (curTier ? 0 : FRAME_OFFSET * frameScale),
-				DRAGON_WIDTH / 2.0f,
-				DRAGON_HEIGHT * 0.25f,
-				DRAGON_WIDTH, DRAGON_HEIGHT, dragonScale, dragonScale, 0.0F, 0, 0, DRAGON_WIDTH, DRAGON_HEIGHT, false, false);
+			cX - DRAGON_WIDTH / 2.0f,
+			cY - DRAGON_HEIGHT * 0.25f + (curTier ? 0 : FRAME_OFFSET * frameScale),
+			DRAGON_WIDTH / 2.0f,
+			DRAGON_HEIGHT * 0.25f,
+			DRAGON_WIDTH, DRAGON_HEIGHT, dragonScale, dragonScale, 0.0F, 0, 0, DRAGON_WIDTH, DRAGON_HEIGHT, false, false);
 
 		FontHelper.cardTitleFont.getData().setScale(1.0F);
 		FontHelper.renderFontCentered(sb, FontHelper.cardTitleFont, Dragon.dragonGrowthStrings.NAMES[index],
-				cX, cY + CARD_HEIGHT * 0.4f * scale, Color.YELLOW);
+			cX, cY + CARD_HEIGHT * 0.4f * scale, Color.YELLOW);
 
 		if (!curTier) {
 			if (goal > 0) {
 				FontHelper.topPanelAmountFont.getData().setScale(1.0F);
 				FontHelper.renderFontCentered(sb, FontHelper.topPanelAmountFont,
-						Dragon.dragonGrowthStrings.TEXT[11] + goal + Dragon.dragonGrowthStrings.TEXT[index + 11],
-						cX, cY + CARD_HEIGHT * 0.3f * scale, Color.LIGHT_GRAY);
+					Dragon.dragonGrowthStrings.TEXT[11] + goal + Dragon.dragonGrowthStrings.TEXT[index + 11],
+					cX, cY + CARD_HEIGHT * 0.3f * scale, Color.LIGHT_GRAY);
 				FontHelper.renderFontCentered(sb, FontHelper.cardDescFont_L,
-						current + "/" + goal,
-						cX, cY + CARD_HEIGHT * 0.54f * scale, current < goal ? progressColor : completeColor);
+					current + "/" + goal,
+					cX, cY + CARD_HEIGHT * 0.54f * scale, current < goal ? progressColor : completeColor);
 			}
 			FontHelper.cardDescFont_L.getData().setScale(1.0F);
 			FontHelper.renderFontCentered(sb, FontHelper.cardDescFont_L, Dragon.dragonGrowthStrings.TEXT[index],
-					cX, cY - CARD_HEIGHT * 0.25f * scale, Color.WHITE);
+				cX, cY - CARD_HEIGHT * 0.25f * scale, Color.WHITE);
 		}
 
 		if (hitbox.hovered) {

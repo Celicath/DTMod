@@ -19,6 +19,7 @@ import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.helpers.controller.CInputActionSet;
 import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import com.megacrit.cardcrawl.metrics.MetricData;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.potions.*;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
@@ -33,20 +34,20 @@ import java.util.Iterator;
 public class DragonPotionPatch {
 	private static final String[] TEXT = CardCrawlGame.languagePack.getUIString(DTModMain.makeID("DragonPotionDescription")).TEXT;
 	public static final HashSet<String> potionPatchlist = new HashSet<>(Arrays.asList(
-			AncientPotion.POTION_ID,
-			BlockPotion.POTION_ID,
-			BloodPotion.POTION_ID,
-			DexterityPotion.POTION_ID,
-			EssenceOfSteel.POTION_ID,
-			FruitJuice.POTION_ID,
-			GhostInAJar.POTION_ID,
-			LiquidBronze.POTION_ID,
-			RegenPotion.POTION_ID,
-			SpeedPotion.POTION_ID,
-			SteroidPotion.POTION_ID,
-			StrengthPotion.POTION_ID,
-			HeartOfIron.POTION_ID,
-			CultistPotion.POTION_ID
+		AncientPotion.POTION_ID,
+		BlockPotion.POTION_ID,
+		BloodPotion.POTION_ID,
+		DexterityPotion.POTION_ID,
+		EssenceOfSteel.POTION_ID,
+		FruitJuice.POTION_ID,
+		GhostInAJar.POTION_ID,
+		LiquidBronze.POTION_ID,
+		RegenPotion.POTION_ID,
+		SpeedPotion.POTION_ID,
+		SteroidPotion.POTION_ID,
+		StrengthPotion.POTION_ID,
+		HeartOfIron.POTION_ID,
+		CultistPotion.POTION_ID
 	));
 
 	public static boolean targetModeHijack = false;
@@ -64,18 +65,18 @@ public class DragonPotionPatch {
 	}
 
 	@SpirePatch(
-			clz = AbstractPotion.class,
-			method = SpirePatch.CONSTRUCTOR,
-			paramtypez = {
-					String.class,
-					String.class,
-					AbstractPotion.PotionRarity.class,
-					AbstractPotion.PotionSize.class,
-					AbstractPotion.PotionEffect.class,
-					Color.class,
-					Color.class,
-					Color.class
-			}
+		clz = AbstractPotion.class,
+		method = SpirePatch.CONSTRUCTOR,
+		paramtypez = {
+			String.class,
+			String.class,
+			AbstractPotion.PotionRarity.class,
+			AbstractPotion.PotionSize.class,
+			AbstractPotion.PotionEffect.class,
+			Color.class,
+			Color.class,
+			Color.class
+		}
 	)
 	public static class PotionConstructorPatch1 {
 		@SpirePostfixPatch
@@ -85,15 +86,15 @@ public class DragonPotionPatch {
 	}
 
 	@SpirePatch(
-			clz = AbstractPotion.class,
-			method = SpirePatch.CONSTRUCTOR,
-			paramtypez = {
-					String.class,
-					String.class,
-					AbstractPotion.PotionRarity.class,
-					AbstractPotion.PotionSize.class,
-					AbstractPotion.PotionColor.class
-			}
+		clz = AbstractPotion.class,
+		method = SpirePatch.CONSTRUCTOR,
+		paramtypez = {
+			String.class,
+			String.class,
+			AbstractPotion.PotionRarity.class,
+			AbstractPotion.PotionSize.class,
+			AbstractPotion.PotionColor.class
+		}
 	)
 	public static class PotionConstructorPatch2 {
 		@SpirePostfixPatch
@@ -121,7 +122,7 @@ public class DragonPotionPatch {
 	@SpirePatch(clz = PotionPopUp.class, method = "updateInput")
 	public static class PotionDrinkPatch {
 		@SpireInsertPatch(locator = HijackLocator.class)
-		public static SpireReturn<Void> InsertHijack(PotionPopUp __instance, AbstractPotion ___potion) {
+		public static SpireReturn<Void> InsertHijack(PotionPopUp __instance, AbstractPotion ___potion, @ByRef AbstractMonster[] ___hoveredMonster) {
 			if (AbstractDungeon.player instanceof DragonTamer) {
 				if (___potion instanceof FairyPotion) {
 					Dragon d = DragonTamer.getDragon();
@@ -165,6 +166,7 @@ public class DragonPotionPatch {
 					targetModeHijack = true;
 					GameCursor.hidden = true;
 					autoTargetFirst = true;
+					___hoveredMonster[0] = null;
 					__instance.close();
 					return SpireReturn.Return(null);
 				}

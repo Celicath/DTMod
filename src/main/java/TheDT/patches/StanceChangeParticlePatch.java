@@ -14,8 +14,8 @@ import com.megacrit.cardcrawl.vfx.stance.WrathStanceChangeParticle;
 
 public class StanceChangeParticlePatch {
 	@SpirePatch(
-			clz = StanceChangeParticleGenerator.class,
-			method = SpirePatch.CLASS
+		clz = StanceChangeParticleGenerator.class,
+		method = SpirePatch.CLASS
 	)
 	public static class DragonField {
 		public static SpireField<Boolean> isDragon = new SpireField<>(() -> false);
@@ -57,8 +57,8 @@ public class StanceChangeParticlePatch {
 
 
 	@SpirePatch(
-			clz = WrathStanceChangeParticle.class,
-			method = SpirePatch.CLASS
+		clz = WrathStanceChangeParticle.class,
+		method = SpirePatch.CLASS
 	)
 	public static class WrathDragonField {
 		public static SpireField<Boolean> isDragon = new SpireField<>(() -> false);

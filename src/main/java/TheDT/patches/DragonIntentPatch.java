@@ -21,8 +21,8 @@ public class DragonIntentPatch {
 	public static class UpdateIntentTipPatch {
 		private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(DTModMain.makeID("MonsterIntent"));
 		public static final String[] TEXT = uiStrings == null ?
-				AbstractMonster.TEXT :
-				uiStrings.TEXT;
+			AbstractMonster.TEXT :
+			uiStrings.TEXT;
 
 		@SpirePrefixPatch
 		public static SpireReturn<Void> Prefix(AbstractMonster __instance, PowerTip ___intentTip, boolean ___isMultiDmg, int ___intentDmg, int ___intentMultiAmt) {
@@ -177,14 +177,14 @@ public class DragonIntentPatch {
 				sb.setColor(c);
 
 				sb.draw(AbstractDTCard.getDragonIconTexture(),
-						__instance.intentHb.cX - AbstractDTCard.DRAGON_ICON_WIDTH / 2.0f + 18.0f * Settings.scale,
-						__instance.intentHb.cY - AbstractDTCard.DRAGON_ICON_HEIGHT / 2.0f + ___bobEffect.y + 18.0f * Settings.scale,
-						AbstractDTCard.DRAGON_ICON_WIDTH / 2.0f,
-						AbstractDTCard.DRAGON_ICON_HEIGHT / 2.0f,
-						AbstractDTCard.DRAGON_ICON_WIDTH,
-						AbstractDTCard.DRAGON_ICON_HEIGHT,
-						Settings.scale * 0.5f, Settings.scale * 0.5f,
-						0, 0, 0, AbstractDTCard.DRAGON_ICON_WIDTH, AbstractDTCard.DRAGON_ICON_HEIGHT, false, false);
+					__instance.intentHb.cX - AbstractDTCard.DRAGON_ICON_WIDTH / 2.0f + 18.0f * Settings.scale,
+					__instance.intentHb.cY - AbstractDTCard.DRAGON_ICON_HEIGHT / 2.0f + ___bobEffect.y + 18.0f * Settings.scale,
+					AbstractDTCard.DRAGON_ICON_WIDTH / 2.0f,
+					AbstractDTCard.DRAGON_ICON_HEIGHT / 2.0f,
+					AbstractDTCard.DRAGON_ICON_WIDTH,
+					AbstractDTCard.DRAGON_ICON_HEIGHT,
+					Settings.scale * 0.5f, Settings.scale * 0.5f,
+					0, 0, 0, AbstractDTCard.DRAGON_ICON_WIDTH, AbstractDTCard.DRAGON_ICON_HEIGHT, false, false);
 			}
 		}
 	}

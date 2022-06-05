@@ -17,9 +17,9 @@ public class BuildUp extends AbstractDTCard {
 	private static final AbstractCard.CardColor COLOR = CardColorEnum.DT_ORANGE;
 	private static final AbstractCard.CardRarity RARITY = CardRarity.COMMON;
 	private static final AbstractCard.CardTarget TARGET = CardTarget.ENEMY;
-	private static final AbstractDTCard.DTCardTarget DT_CARD_TARGET = DTCardTarget.DEFAULT;
+	private static final DTCardUser DT_CARD_TARGET = DTCardUser.YOU;
 
-	private static final int DAMAGE = 7;
+	private static final int DAMAGE = 8;
 	private static final int UPGRADE_DAMAGE = 2;
 	private static final int MAGIC = 4;
 	private static final int UPGRADE_MAGIC = 2;
@@ -33,8 +33,8 @@ public class BuildUp extends AbstractDTCard {
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		addToBot(new DamageAction(m,
-				new DamageInfo(p, damage, damageTypeForTurn),
-				AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+			new DamageInfo(p, damage, damageTypeForTurn),
+			AbstractGameAction.AttackEffect.BLUNT_LIGHT));
 		addToBot(new ApplyPowerAction(p, p, new NewVigorPower(p, magicNumber), magicNumber));
 	}
 

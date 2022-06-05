@@ -44,20 +44,20 @@ public class DragonStatusScreen {
 	public DragonStatusScreen() {
 		dragonGrowthCards = new DragonGrowthCard[4][];
 		dragonGrowthCards[1] = new DragonGrowthCard[]{
-				new DragonGrowthCard(Settings.WIDTH / 2.0f, Settings.HEIGHT / 2.0f, 1, 0, this::onClickCard)
+			new DragonGrowthCard(Settings.WIDTH / 2.0f, Settings.HEIGHT / 2.0f, 1, 0, this::onClickCard)
 		};
 		for (int i = 2; i <= 3; i++) {
 			dragonGrowthCards[i] = new DragonGrowthCard[5];
 			for (int j = 0; j < 5; j++) {
 				dragonGrowthCards[i][j] = new DragonGrowthCard(
-						Settings.WIDTH * (14 + 18 * j) / 100.0f, Settings.HEIGHT * (i - 0.5f), i, j, this::onClickCard);
+					Settings.WIDTH * (14 + 18 * j) / 100.0f, Settings.HEIGHT * (i - 0.5f), i, j, this::onClickCard);
 			}
 		}
 		dragonStatusScrollButtons = new DragonStatusScrollButton[]{
-				new DragonStatusScrollButton(Settings.WIDTH / 2.0f, Settings.HEIGHT * 0.8f, true, () -> targetOffset = Settings.HEIGHT),
-				new DragonStatusScrollButton(Settings.WIDTH / 2.0f, Settings.HEIGHT * 1.2f, false, () -> targetOffset = 0),
-				new DragonStatusScrollButton(Settings.WIDTH / 2.0f, Settings.HEIGHT * 1.8f, true, () -> targetOffset = Settings.HEIGHT * 2),
-				new DragonStatusScrollButton(Settings.WIDTH / 2.0f, Settings.HEIGHT * 2.2f, false, () -> targetOffset = Settings.HEIGHT)
+			new DragonStatusScrollButton(Settings.WIDTH / 2.0f, Settings.HEIGHT * 0.8f, true, () -> targetOffset = Settings.HEIGHT),
+			new DragonStatusScrollButton(Settings.WIDTH / 2.0f, Settings.HEIGHT * 1.2f, false, () -> targetOffset = 0),
+			new DragonStatusScrollButton(Settings.WIDTH / 2.0f, Settings.HEIGHT * 1.8f, true, () -> targetOffset = Settings.HEIGHT * 2),
+			new DragonStatusScrollButton(Settings.WIDTH / 2.0f, Settings.HEIGHT * 2.2f, false, () -> targetOffset = Settings.HEIGHT)
 		};
 	}
 
@@ -286,14 +286,14 @@ public class DragonStatusScreen {
 		FontHelper.renderFontLeft(sb, FontHelper.cardDescFont_L, TEXT[18], x2, 500 * Settings.scale + offset, Color.WHITE);
 		if (curTier >= 2) {
 			FontHelper.renderFontLeft(sb, FontHelper.cardTitleFont, Dragon.dragonGrowthStrings.NAMES[dragon.tier2Perk + 1] + TEXT[19],
-					x1, 425 * Settings.scale + offset, Color.WHITE);
+				x1, 425 * Settings.scale + offset, Color.WHITE);
 			FontHelper.renderFontLeft(sb, FontHelper.cardDescFont_L, Dragon.dragonGrowthStrings.TEXT[dragon.tier2Perk + 1].replace('\n', ' '),
-					x2, 375 * Settings.scale + offset, Color.WHITE);
+				x2, 375 * Settings.scale + offset, Color.WHITE);
 			if (curTier >= 3) {
 				FontHelper.renderFontLeft(sb, FontHelper.cardTitleFont, Dragon.dragonGrowthStrings.NAMES[dragon.tier3Perk + 6] + TEXT[19],
-						x1, 300 * Settings.scale + offset, Color.WHITE);
+					x1, 300 * Settings.scale + offset, Color.WHITE);
 				FontHelper.renderFontLeft(sb, FontHelper.cardDescFont_L, Dragon.dragonGrowthStrings.TEXT[dragon.tier3Perk + 6].replace('\n', ' '),
-						x2, 250 * Settings.scale + offset, Color.WHITE);
+					x2, 250 * Settings.scale + offset, Color.WHITE);
 			}
 		}
 
