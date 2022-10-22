@@ -120,8 +120,8 @@
       "Draw #b",
       " cards whenever you do #b2 of these:",
       "- Create a Burn",
-      "- Apply #yWeak",
-      "- #ySwitch"
+      "- Apply Weak",
+      "- Switch"
     ]
   },
   "DTMod:ResonanceFormPower": {

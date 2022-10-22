@@ -1,0 +1,74 @@
+{
+  "DTMod:TheDT": {
+    "NAMES": [
+      "el Domador de Dragones",
+      "El Domador de Dragones"
+    ],
+    "TEXT": [
+      "El afortunado mago que hizo un pacto con Dragón. NL El dúo siempre luchará unido."
+    ]
+  },
+  "DTMod:Dragon": {
+    "NAMES": [
+      "Dragón"
+    ],
+    "TEXT": [
+      "Dragón está inconsciente y no puede moverse. Al final del combate, revivirá con #b1 PV."
+    ]
+  },
+  "DTMod:HighlightWords": {
+    "NAMES": [
+      "Tú",
+      "Dragón"
+    ],
+    "TEXT": [
+      "Tú.",
+      "Dragón."
+    ]
+  },
+  "DTMod:DragonGrowth": {
+    "NAMES": [
+      "Cría Dragón",
+      "Dragón Creciente",
+      "Dragón Rojo",
+      "Dragón Azul",
+      "Dragón Verde",
+      "Dragón Morado",
+      "Dragón Adulto",
+      "Dragón Fiero",
+      "Dragón Anciano",
+      "Dragón Cara-Ave",
+      "Dragón Avaricioso"
+    ],
+    "TEXT": [
+      "",
+      "Gana [#87ceeb]6[] PV máximos.",
+      "Empieza el combate con\n[#87ceeb]1[] Fuerza.",
+      "Empieza el combate con\n[#87ceeb]1[] Destreza.",
+      "Empieza el combate con\n[#87ceeb]2[] Vínculo.",
+      "Roba [#87ceeb]4[] cartas \nadicionales en turno [#87ceeb]2[].",
+      "Gana [#87ceeb]8[] PV máximos.",
+      "Gana [#87ceeb]1[] energía cuando \nse crea una Quemadura.",
+      "Empieza el combate con\n[#87ceeb]3[] Artefacto.",
+      "Cúrate [#87ceeb]2[] PV cuando\njuegues una carta de Poder.",
+      "Gana [#87ceeb]75[] de Oro adicional\ncada combate.",
+      "Requiere ",
+      "",
+      " Ataques",
+      " Habilidades",
+      " cartas de Vínculo",
+      " cartas de Táctica",
+      "",
+      " cartas de Quemadura",
+      " cartas\nde otro color",
+      " Poderes",
+      " cartass",
+      "Carta de Vínculo",
+      "Cartas que te dan Vínculo, o que interactúan con Vínculo.",
+      "Carta Tácticas",
+      "Cartas con \"Táctica\" en su nombre.",
+      "Carta de Quemadura",
+      "Cartas que muestran Quemadura al pasar."
+    ]
+  }
+}

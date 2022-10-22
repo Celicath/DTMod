@@ -1,0 +1,133 @@
+{
+  "DTMod:DiscardAnyNumberAction": {
+    "TEXT": [
+      "Descarta"
+    ]
+  },
+  "DTMod:PredictionAction": {
+    "TEXT": [
+      "Elige una carta que colocar al tope."
+    ]
+  },
+  "DTMod:HasteAction": {
+    "TEXT": [
+      "Juega"
+    ]
+  },
+  "DTMod:Aggro": {
+    "TEXT": [
+      "Aggro+",
+      "",
+      "Vanguardia cambiada a Ti",
+      "Vanguardia cambiada a Dragón"
+    ]
+  },
+  "DTMod:TargetMarker": {
+    "TEXT": [
+      "Marcador de Vanguardia",
+      "[#60D0D0]Tú[] eres la #yVanguardia. NL [#60D0D0]Tienes[] #b",
+      " #yAggro más que [#60D0D0]Dragón[].",
+      "[#60D0D0]Dragón[] es la #yVanguardia. NL [#60D0D0]Dragón[] tiene #b",
+      " #yAggro más que [#60D0D0]Tú[].",
+      "[#60D0D0]Tú[] estás luchando solo. NL [#60D0D0]Tú[] eres considerado tanto la #Vanguardia como la #yRetaguardia."
+    ]
+  },
+  "DTMod:RestOption": {
+    "TEXT": [
+      "Dragón se cura 30% PV ("
+    ]
+  },
+  "DTMod:DragonStatus": {
+    "TEXT": [
+      "Estado de Dragón",
+      "Ver información detallada sobre [#60D0D0]Dragón[].",
+      "Tier de Dragón [#87ceeb]",
+      "[] (Actual)",
+      "[] (Mejora tras completar el Acto [#87ceeb]",
+      "[])",
+      "Elige un Dragón de Tier [#87ceeb]",
+      "[] al que evolucionar.",
+      "Al final del Acto [#87ceeb]",
+      "[], [#60D0D0]Dragón[] evolucionará \na un dragón de Tier [#87ceeb]",
+      "[] .",
+      "\nMantendrá la ventaja del Tier [#87ceeb]2[].",
+      "Habilidades",
+      "Tier [#87ceeb]",
+      "[] Dragón",
+      "Empieza el combate con [#87ceeb]",
+      "[] Aggro.",
+      "Cuerpo Inmortal",
+      "Cuando los PV sean [#87ceeb]0[], revive con [#87ceeb]1[] PV al final del combate.",
+      " Ventaja",
+      "Cerca"
+    ]
+  },
+  "DTMod:MonsterIntent": {
+    "TEXT": [
+      "Agresivo",
+      "Este enemigo pretende NL #yAtacar a [#60D0D0]Dragón[] con #b",
+      " de daño #b",
+      " veces.",
+      "Este enemigo pretende NL #yAtacar a [#60D0D0]Dragón[] con #b",
+      " de daño.",
+      "Agresivo",
+      "Este enemigo pretende utilizar un #yPotenciador y #yAtacar a [#60D0D0]Dragón[] con #b",
+      " veces.",
+      "Este enemigo pretende utilizar un #yPotenciador y #yAtacar a [#60D0D0]Dragón[] con #b",
+      "Estratégico",
+      "Este enemigo pretende infligir un #yEfecto #yNegativo a [#60D0D0]Dragón[] y #yAtacar con #b",
+      "Este enemigo pretende #yBloquear y #yAtacar a [#60D0D0]Dragón[] con #b",
+      "Defensivo",
+      "Cobarde",
+      "Mágico",
+      "Durmiendo",
+      "Aturdido",
+      "Desconocido",
+      "Este enemigo pretende utilizar un #yPotenciador.",
+      "Este enemigo pretende infligir un #yEfecto #yNegativo a [#60D0D0]Dragón[].",
+      "Este enemigo pretende infligir un #yEfecto #yNegativo poderoso a [#60D0D0]Dragón[].",
+      "Este enemigo pretende #yBloquear en su turno.",
+      "Este enemigo pretende #yBloquear e infligir un #yEfecto #yNegativo a [#60D0D0]Dragón[].",
+      "Este enemigo pretende #yBloquear y utilizar un #yPotenciador.",
+      "Este enemigo pretende #yEscapar.",
+      "Este enemigo pretende utilizar #yMagia misteriosa en su turno.",
+      "Este enemigo está dormido.",
+      "Esté enemigo está #yAturdido durante su turno.",
+      "Las intenciones de este enemigo son #yDesconocidas (no atacará).",
+      "Bloquado"
+    ]
+  },
+  "DTMod:DragonPotionDescription": {
+    "TEXT": [
+      "Disponible para Dragón",
+      "[#60D0D0]Dragón[] puede beber esta poción. (Solo en combate)",
+      "Cuando los PV de [#60D0D0]Dragón[] sean 0, puedes usar esta poción para revivir a [#60D0D0]Dragón[] con #b",
+      "% PV."
+    ]
+  },
+  "DTMod:DragonRelicDescription": {
+    "TEXT": [
+      "Afecta a Dragón",
+      "Esta reliquia también afecta a [#60D0D0]Dragón[]."
+    ]
+  },
+  "DTMod:ChooseAttackerScreen": {
+    "TEXT": [
+      "Elige al atacante",
+      "Elige al personaje",
+      "",
+      " Daño"
+    ]
+  },
+  "DTMod:Config": {
+    "TEXT": [
+      "Muestra del objetivo Enemigo",
+      "Cambio de objetivo",
+      "Ataque de enemigo Provocado",
+      "Posarse (Enemigo)",
+      "Posarse (Marcador de Vanguardia)",
+      "Todos (Por Defecto)",
+      "Ninguno"
+    ]
+  }
+}

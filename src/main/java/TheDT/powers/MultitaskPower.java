@@ -14,7 +14,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-import static TheDT.utils.StringHelper.highlightedText;
+import static TheDT.utils.StringHelper.highlightedTextPurple;
 
 public class MultitaskPower extends AbstractPower implements CreateBurnPower, SwitchPower, OnApplyWeakPower, RecoloredPower {
 	public static final String RAW_ID = "MultitaskPower";
@@ -93,7 +93,7 @@ public class MultitaskPower extends AbstractPower implements CreateBurnPower, Sw
 	public void updateDescription() {
 		description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
 		for (int i = 2; i < DESCRIPTIONS.length; i++) {
-			description += " NL " + (i == 2 + taskCompleted ? highlightedText(DESCRIPTIONS[i]) : DESCRIPTIONS[i]);
+			description += " NL " + (i == 2 + taskCompleted ? highlightedTextPurple(DESCRIPTIONS[i]) : DESCRIPTIONS[i]);
 		}
 	}
 }

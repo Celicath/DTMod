@@ -12,7 +12,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-import static TheDT.utils.StringHelper.highlightedText;
+import static TheDT.utils.StringHelper.highlightedTextYellow;
 
 public class TauntPower extends AbstractPower {
 	public static final String RAW_ID = "TauntPower";
@@ -68,7 +68,7 @@ public class TauntPower extends AbstractPower {
 				description += DESCRIPTIONS[1];
 			}
 		} else {
-			description += highlightedText(tauntTarget.name);
+			description += highlightedTextYellow(tauntTarget.name);
 			if (DESCRIPTIONS.length >= 6 && tauntTarget.name.length() > 0) {
 				int code = tauntTarget.name.charAt(tauntTarget.name.length() - 1);
 				description += (code - 0xAC00) % 28 == 0 ? DESCRIPTIONS[5] : DESCRIPTIONS[4];

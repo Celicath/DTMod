@@ -13,7 +13,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import javassist.CtBehavior;
 
-public class ModdedEnemyPatch {
+public class CrossModPatch {
 	@SpirePatch(cls = "com.evacipated.cardcrawl.mod.hubris.actions.monsterOrbs.MonsterLightningOrbEvokeAction", method = "update", optional = true)
 	public static class HubrisSneckoLightningOrbPatch {
 		@SpireInsertPatch(locator = HubrisSneckoLightningOrbLocator.class)
@@ -86,6 +86,18 @@ public class ModdedEnemyPatch {
 				prevPlayer = null;
 			}
 			MonsterTargetPatch.redirectTarget = null;
+		}
+	}
+
+	@SpirePatch(cls = "patches.PatchStiletto", method = "Insert", optional = true)
+	public static class ReliquaryStilettoPatch {
+		@SpirePrefixPatch
+		public static SpireReturn<Void> Prefix(AbstractCreature _____instance) {
+			if (_____instance == DragonTamer.getLivingDragon()) {
+				return SpireReturn.Return();
+			} else {
+				return SpireReturn.Continue();
+			}
 		}
 	}
 }

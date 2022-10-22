@@ -1,0 +1,16 @@
+{
+  "DTMod:BlazePotion": {
+    "NAME": "Poción de Brasas",
+    "DESCRIPTIONS": [
+      "Haz #b",
+      " de daño."
+    ]
+  },
+  "DTMod:LesserBlazePotion": {
+    "NAME": "Poción de Brasas Menor",
+    "DESCRIPTIONS": [
+      "Haz #b",
+      " de daño."
+    ]
+  }
+}

@@ -1,0 +1,160 @@
+{
+  "DTMod:BondingPower": {
+    "NAME": "Vínculo",
+    "DESCRIPTIONS": [
+      "Cuando ganas #b",
+      " #yVínculo, elige #b1 entre #b3 bonificaciones aleatorias, que son variaciones más fuertes del efecto de las pociones."
+    ]
+  },
+  "DTMod:CalculatedDefensePower": {
+    "NAME": "Defensa Calculada",
+    "DESCRIPTIONS": [
+      "Reduce el daño de los ataques de los enemigos #yDébiles en #b",
+      "."
+    ]
+  },
+  "DTMod:DragonLoseStancePower": {
+    "NAME": "Estallido",
+    "DESCRIPTIONS": [
+      "El próximo turno, ",
+      "Después de #b",
+      " turnos, ",
+      "sal de #yCólera."
+    ]
+  },
+  "DTMod:OddArmorPower": {
+    "NAME": "Extraña Armadura",
+    "DESCRIPTIONS": [
+      "Reduce el daño de ataque sufrido en #b",
+      "."
+    ]
+  },
+  "DTMod:AdaptationPower": {
+    "NAME": "Adaptación",
+    "DESCRIPTIONS": [
+      "Cuando barajas tu pila de extracción, pon TODAS las cartas #yInnatas en tu mano."
+    ]
+  },
+  "DTMod:TauntPower": {
+    "NAME": "Provocado",
+    "DESCRIPTIONS": [
+      "Durante este turno, este enemigo siempre hará objetivo a ",
+      "[#60D0D0]Ti[]",
+      "[#60D0D0]Dragón[]",
+      ", ignorando a la #yVanguardia [REMOVE_SPACE]."
+    ]
+  },
+  "DTMod:LastStandPower": {
+    "NAME": "Última Defensa",
+    "DESCRIPTIONS": [
+      "Durante este turno,",
+      "Durante #b",
+      " turnos,",
+      " recibe la mitad de daño de los ataques."
+    ]
+  },
+  "DTMod:DeepFocusPower": {
+    "NAME": "Concentración Profunda",
+    "DESCRIPTIONS": [
+      "El próximo turno, ",
+      "Después de #b",
+      " turnos, ",
+      "gana #b",
+      " de #yFuerza."
+    ]
+  },
+  "DTMod:CrossStepPower": {
+    "NAME": "Paso Cruzado",
+    "DESCRIPTIONS": [
+      "Cuando tu equipo #yCambia, gana",
+      " [REMOVE_SPACE]."
+    ]
+  },
+  "DTMod:ShadowImagePower": {
+    "NAME": "Imagen Sombría",
+    "DESCRIPTIONS": [
+      "Cuando este personaje ataca, gana #b",
+      " de #yBloqueo."
+    ]
+  },
+  "DTMod:InvisibleFlamePower": {
+    "NAME": "Llama Invisible",
+    "DESCRIPTIONS": [
+      "Cuando la #yVanguardia ataca, haz #b",
+      " de daño a TODOS los enemigos."
+    ]
+  },
+  "DTMod:MagiciansMarkPower": {
+    "NAME": "Marca del Mago",
+    "DESCRIPTIONS": [
+      "Las próximas #b",
+      " veces que [#60D0D0]Dragón[] ataque a este enemigo, gana #b1 #yVínculo."
+    ]
+  },
+  "DTMod:StunTrapPower": {
+    "NAME": "Trampa Aturdidora",
+    "DESCRIPTIONS": [
+      "El próximo turno, ",
+      "Después de #b",
+      " turnos, ",
+      " es Aturdido y tu robas #b",
+      " cartas."
+    ]
+  },
+  "DTMod:SafeguardPower": {
+    "NAME": "Salvaguardia",
+    "DESCRIPTIONS": [
+      "La #yRetaguardia ya no pierde #yBloqueo al principio de tu turno."
+    ]
+  },
+  "DTMod:HarmonizePower": {
+    "NAME": "Armonía de Batalla",
+    "DESCRIPTIONS": [
+      "Cuando tanto [#60D0D0]Tú[] como [#60D0D0]Dragón[] atacáis en un turno, gana #b",
+      " #yVínculo [REMOVE_SPACE]."
+    ]
+  },
+  "DTMod:MultitaskPower": {
+    "NAME": "Multitarea",
+    "DESCRIPTIONS": [
+      "Roba #b",
+      " cartas cuando hagas #b2 de estas:",
+      "- Crear una Quemadura",
+      "- Aplicar Débil",
+      "- Cambiar"
+    ]
+  },
+  "DTMod:ResonanceFormPower": {
+    "NAME": "Forma Resonante",
+    "DESCRIPTIONS": [
+      "Los efectos que otorgan #yFuerza, #yDestreza o #yBloqueo a uno de tu equipo ahora afectan a ambos."
+    ]
+  },
+  "DTMod:AggroFixPower": {
+    "NAME": "Aggro Fijado",
+    "DESCRIPTIONS": [
+      "El #yAggro no cambia hasta el final de este turno."
+    ]
+  },
+  "DTMod:FiercePower": {
+    "NAME": "Fiero",
+    "DESCRIPTIONS": [
+      "Cuando se crea una Quemadura, gana #b",
+      " [E] [REMOVE_SPACE]."
+    ]
+  },
+  "DTMod:BirdFacePower": {
+    "NAME": "Cara Ave",
+    "DESCRIPTIONS": [
+      "Cuando juegas un Poder, cura #b",
+      " PV."
+    ]
+  },
+  "DTMod:GreedyPower": {
+    "NAME": "Avaricioso",
+    "DESCRIPTIONS": [
+      "Al final del combate, gana #b",
+      " de Oro adicional."
+    ]
+  }
+}

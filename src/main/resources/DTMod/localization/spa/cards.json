@@ -1,0 +1,398 @@
+{
+  "DTMod:AbstractDTCard": {
+    "NAME": "CartaDDAbstracta",
+    "DESCRIPTION": "Textos Comunes",
+    "EXTENDED_DESCRIPTION": [
+      "No tengo a Dragón junto a mí.",
+      "El Dragón está inconsciente.",
+      "Táctica"
+    ]
+  },
+  "DTMod:Strike": {
+    "NAME": "Golpe",
+    "DESCRIPTION": "Haz !D! de daño."
+  },
+  "DTMod:TargetDefense": {
+    "NAME": "Defender Objetivo",
+    "DESCRIPTION": "La ragontaer:Vanguardia gana NL !B! de Bloqueo.",
+    "EXTENDED_DESCRIPTION": [
+      "La ragontaer:Vanguardia gana NL !DT:THB! de Bloqueo."
+    ]
+  },
+  "DTMod:DoubleHit": {
+    "NAME": "Impacto Doble",
+    "DESCRIPTION": "Dragón hace NL !DT:THD! de daño dos veces."
+  },
+  "DTMod:SwitchingTactic": {
+    "NAME": "Cambio Táctico",
+    "DESCRIPTION": "Invierte el ragontaer:Aggro. NL Este turno, TODOS los enemigos pierden Fuerza igual a la diferencia de ragontaer:Aggro.",
+    "UPGRADE_DESCRIPTION": "Retiene. NL Invierte el ragontaer:Aggro. NL Este turno, TODOS los enemigos pierden Fuerza igual a la diferencia de ragontaer:Aggro.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Pierden !M! de Fuerza)"
+    ]
+  },
+  "DTMod:HardSkin": {
+    "NAME": "Piel Resistente",
+    "DESCRIPTION": "Retiene. NL Dragón gana !DT:THB! de Bloqueo. NL Agota."
+  },
+  "DTMod:Adaptation": {
+    "NAME": "Adaptación",
+    "DESCRIPTION": "Cuando barajas tu pila de extracción, coloca TODAS tus cartas Innatas en tu mano.",
+    "UPGRADE_DESCRIPTION": "Innata. NL Cuando barajas tu pila de extracción, coloca TODAS tus cartas Innatas en tu mano."
+  },
+  "DTMod:Astonish": {
+    "NAME": "Pasmar",
+    "DESCRIPTION": "La ragontaer:Retaguardia hace daño igual a !M! veces la diferencia de ragontaer:Aggro.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Hace !D! de daño.)",
+      " NL (Dragón hace !DT:THD! de daño.)"
+    ]
+  },
+  "DTMod:BalancedStrike": {
+    "NAME": "Golpe Equilibrado",
+    "DESCRIPTION": "Innata. NL Gana !B! de Bloqueo. NL Haz !D! de daño. NL Agota."
+  },
+  "DTMod:BizarreTactic": {
+    "NAME": "Táctica Bizarra",
+    "DESCRIPTION": "Ganas !B! de Bloqueo. NL Cada vez que ataquen a Dragón este turno, haz !M! de daño al atacante."
+  },
+  "DTMod:BlazingStrike": {
+    "NAME": "Golpe Abrasador",
+    "DESCRIPTION": "Dragón hace NL !DT:THD! de daño. NL Añade una *Quemadura a tu mano."
+  },
+  "DTMod:BlueScale": {
+    "NAME": "Escama Azul",
+    "DESCRIPTION": "Dragón gana !DT:THB! de Bloqueo. NL Añade una *Piel *Resistente a tu mano.",
+    "UPGRADE_DESCRIPTION": "Dragón gana !DT:THB! de Bloqueo. NL Añade una *Piel *Resistente+ a tu mano."
+  },
+  "DTMod:BondingBonus": {
+    "NAME": "Bono de Vínculo",
+    "DESCRIPTION": "Activas uno de estos efectos cuando ganas 5 Vínculo.",
+    "EXTENDED_DESCRIPTION": [
+      "Artefacto",
+      "Tú y Dragón ganáis 2 Artefacto.",
+      "Mil Hojas",
+      "Haz 20 de daño a TODOS los enemigos.",
+      "Bloqueo",
+      "Tú y Dragón ganáis 20 de Bloqueo.",
+      "Fuerza",
+      "Tú y Dragón ganáis 4 de Fuerza.",
+      "Destreza",
+      "Tú y Dragón ganáis 3 de Destreza.",
+      "Energía",
+      "Gana [E] [E] [E] [E].",
+      "Robo",
+      "Roba cartas hasta que tu mano esté llena.",
+      "Debilitar",
+      "Aplica 4 Débil a TODOS los enemigos.",
+      "Vulnerable",
+      "Aplica 4 Vulnerable a TODOS los enemigos.",
+      "Caos",
+      "Juega las siguientes 3 cartas al tope de tu pila de extracción."
+    ]
+  },
+  "DTMod:BreakAttack": {
+    "NAME": "Ataque Rompedor",
+    "DESCRIPTION": "Haz !D! de daño. NL Aplica !M! Vulnerable. NL Agota."
+  },
+  "DTMod:BuildUp": {
+    "NAME": "Acumular",
+    "DESCRIPTION": "Haz !D! de daño. La próxima carta de Ataque hace !M! de daño adicional."
+  },
+  "DTMod:BurningEnergy": {
+    "NAME": "Energía Ardiente",
+    "DESCRIPTION": "Gana [E] [E]. NL Añade una *Quemadura a tu pila de descartes.",
+    "UPGRADE_DESCRIPTION": "Gana [E] [E] [E]. NL Añade una *Quemadura a tu pila de descartes."
+  },
+  "DTMod:BurningForce": {
+    "NAME": "Fuerza Ardiente",
+    "DESCRIPTION": "Dragón hace NL !DT:THD! de daño. NL Hace !M! de daño adicional por cada *Quemadura creada este combate."
+  },
+  "DTMod:CalculatedDefense": {
+    "NAME": "Defensa Calculada",
+    "DESCRIPTION": "Los enemigos debilitados hacen !M! de daño menos a tu equipo."
+  },
+  "DTMod:CleansingStrike": {
+    "NAME": "Impacto Purificador",
+    "DESCRIPTION": "Haz !D! de daño. NL Agota !M! carta aleatoria de Estado o Maldición de cualquier parte.",
+    "UPGRADE_DESCRIPTION": "Haz !D! de daño. NL Agota !M! cartas aleatorias de Estado o Maldición de cualquier parte."
+  },
+  "DTMod:ComboAttack": {
+    "NAME": "Ataque Combo",
+    "DESCRIPTION": "Haz !D! de daño. NL Dragón hace !DT:THD! de daño. NL Gana 1 ragontaer:Vínculo."
+  },
+  "DTMod:Conduct": {
+    "NAME": "Dirigir",
+    "DESCRIPTION": "Si la diferencia de ragontaer:Aggro es 5 o más, roba !M! cartas."
+  },
+  "DTMod:Coolant": {
+    "NAME": "Refrigerante",
+    "DESCRIPTION": "Adivina !M!. NL Agota cualquier carta de Estado o Maldición revelada."
+  },
+  "DTMod:Cover": {
+    "NAME": "Cubrir",
+    "DESCRIPTION": "La ragontaer:Retaguardia gana NL !B! de Bloqueo. NL Roba !M! cartas.",
+    "EXTENDED_DESCRIPTION": [
+      "La ragontaer:Retaguardia gana NL !DT:THB! de Bloqueo. NL Roba !M! cartas."
+    ]
+  },
+  "DTMod:CrossStep": {
+    "NAME": "Cruzar Pasos",
+    "DESCRIPTION": "Cuando tu equipo ragontaer:Cambia, gana [E].",
+    "UPGRADE_DESCRIPTION": "Innata. NL Cuando tu equipo ragontaer:Cambia, gana [E]."
+  },
+  "DTMod:DarkBreath": {
+    "NAME": "Aliento Oscuro",
+    "DESCRIPTION": "Dragón hace !DT:THD! de daño dos veces y aplica !M! Vulnerable."
+  },
+  "DTMod:DeepFocus": {
+    "NAME": "Concentración Profunda",
+    "DESCRIPTION": "Después de dos turnos, NL ganas !M! de Fuerza."
+  },
+  "DTMod:Dissolve": {
+    "NAME": "Disolver",
+    "DESCRIPTION": "Añade 2 *Quemaduras NL a tu mano. NL Al final de cada turno, Dragón gana NL !M! de Bloqueo."
+  },
+  "DTMod:DragonDance": {
+    "NAME": "Danza Dracónica",
+    "DESCRIPTION": "Dragón gana NL !M! de Fuerza y NL 2 de Destreza."
+  },
+  "DTMod:EchoTactic": {
+    "NAME": "Táctica Eco",
+    "DESCRIPTION": "Copia una carta distinta de tu mano. NL Reduce su coste en !M!. NL Agota."
+  },
+  "DTMod:ExcessFootwork": {
+    "NAME": "Mucho Juego de Pies",
+    "DESCRIPTION": "La ragontaer:Retaguardia gana !M! de Destreza."
+  },
+  "DTMod:Feint": {
+    "NAME": "Finta",
+    "DESCRIPTION": "Elegido al azar: NL Haces !D! de daño o Dragón hace !DT:THD! de daño."
+  },
+  "DTMod:FierySynthesis": {
+    "NAME": "Síntesis Ígnea",
+    "DESCRIPTION": "Dragón hace NL !DT:THD! de daño a TODOS los enemigos. NL Convierte TODAS las pociones en ragontaer:Poción_Brasas."
+  },
+  "DTMod:FlameSlash": {
+    "NAME": "Corte Flamígero",
+    "DESCRIPTION": "Dragón hace NL !DT:THD! de daño a TODOS los enemigos."
+  },
+  "DTMod:ForkedFire": {
+    "NAME": "Fuego Bifurcado",
+    "DESCRIPTION": "Repite X veces: Dragón hace !DT:THD! de daño a dos enemigos aleatorios."
+  },
+  "DTMod:GearUp": {
+    "NAME": "Equípate",
+    "DESCRIPTION": "Añade !M! *Seguridad y *Piel *Resistente a tu mano. NL Agota.",
+    "UPGRADE_DESCRIPTION": "Añade !M! *Seguridad+ y *Piel *Resistente+ a tu mano. NL Agota."
+  },
+  "DTMod:GhostSkin": {
+    "NAME": "Piel Fantasma",
+    "DESCRIPTION": "Dragón gana NL 1 Intangible. NL Dragón pierde !M! de Destreza. NL Agota."
+  },
+  "DTMod:Harmonize": {
+    "NAME": "Harmonizar",
+    "DESCRIPTION": "Cuando tanto Tú como el Dragón ataquéis en un solo turno, gana !M! ragontaer:Vínculo.",
+    "UPGRADE_DESCRIPTION": "Innata. NL Cuando tanto Tú como el Dragón ataquéis en un solo turno, gana !M! ragontaer:Vínculo."
+  },
+  "DTMod:Haste": {
+    "NAME": "Prisa",
+    "DESCRIPTION": "Juega una carta de Poder de tu mano. NL Agota.",
+    "UPGRADE_DESCRIPTION": "Juega TODAS las cartas de Poder de tu mano. NL Agota."
+  },
+  "DTMod:HeadStart": {
+    "NAME": "En Cabeza",
+    "DESCRIPTION": "Innata. NL Elige una: NL Gana [E] [E] , o NL roba !M! cartas. NL Agota.",
+    "UPGRADE_DESCRIPTION": "Innata. NL Elige una: NL Gana [E] [E] [E] , o NL roba !M! cartas. NL Agota."
+  },
+  "DTMod:HeadStartDraw": {
+    "NAME": "Roba",
+    "DESCRIPTION": "Roba !M! cartas."
+  },
+  "DTMod:HeadStartEnergy": {
+    "NAME": "Energía",
+    "DESCRIPTION": "Gana [E] [E].",
+    "UPGRADE_DESCRIPTION": "Gana [E] [E] [E]."
+  },
+  "DTMod:HeatWave": {
+    "NAME": "Ola de Calor",
+    "DESCRIPTION": "Dragón hace !DT:THD! de daño y aplica !M! Débil a TODOS los enemigos."
+  },
+  "DTMod:Hide": {
+    "NAME": "Esconderse",
+    "DESCRIPTION": "La ragontaer:Vanguardia gana NL !B! de Bloqueo. NL El turno que viene, gana [E].",
+    "EXTENDED_DESCRIPTION": [
+      "La ragontaer:Vanguardia gana NL !B! de Bloqueo. NL El turno que viene, gana [E]."
+    ]
+  },
+  "DTMod:Inferno": {
+    "NAME": "Infierno",
+    "DESCRIPTION": "Dragón hace NL !DT:THD! de daño a TODOS los enemigos. Baraja una *Quemadura en tu pila de extracción por cada enemigo."
+  },
+  "DTMod:InvisibleFlame": {
+    "NAME": "Llama Invisible",
+    "DESCRIPTION": "Cuando la ragontaer:Vanguardia ataca, haz !M! de daño a TODOS los enemigos."
+  },
+  "DTMod:LastStand": {
+    "NAME": "Última Defensa",
+    "DESCRIPTION": "Ganas !B! de Bloqueo. NL Este turno, recibes la mitad de daño de los ataques. NL Agota."
+  },
+  "DTMod:LightShield": {
+    "NAME": "Escudo de Luz",
+    "DESCRIPTION": "Ganas !B! de Bloqueo. NL Dragón gana !DT:THB! de Bloqueo. NL Cuesta 1 [E] menos por cada bono de ragontaer:Vínculo que hayas recibido este combate."
+  },
+  "DTMod:LowKick": {
+    "NAME": "Golpe Bajo",
+    "DESCRIPTION": "Haz !D! de daño. NL Roba cartas igual a la cantidad de Débil del enemigo."
+  },
+  "DTMod:MagicField": {
+    "NAME": "Campo Mágico",
+    "DESCRIPTION": "TODAS las criaturas ganan NL !M! de Bloqueo.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Tú: !B! Bloqueo)",
+      " NL (Dragón: !DT:THB! Bloqueo)"
+    ]
+  },
+  "DTMod:MagiciansMark": {
+    "NAME": "Marca del Mago",
+    "DESCRIPTION": "Haz !D! de daño. NL Las próximas !M! veces que Dragón ataque a este enemigo, gana 1 ragontaer:Vínculo. Agota."
+  },
+  "DTMod:MasterPlan": {
+    "NAME": "Plan Maestro",
+    "DESCRIPTION": "La ragontaer:Vanguardia gana NL !B! de Bloqueo. NL La ragontaer:Retaguardia gana NL !DT:THB! de Bloqueo el próximo turno.",
+    "EXTENDED_DESCRIPTION": [
+      "La ragontaer:Vanguardia gana NL !DT:THB! La ragontaer:Retaguardia gana NL !B! de Bloqueo el próximo turno."
+    ]
+  },
+  "DTMod:MaximumCharge": {
+    "NAME": "Carga Máxima",
+    "DESCRIPTION": "Dragón hace NL !DT:THD! de daño. NL Dragón gana NL !M! Vulnerable."
+  },
+  "DTMod:Multitask": {
+    "NAME": "Multitarea",
+    "DESCRIPTION": "Roba !M! cartas cuando hagas NL 2 de estas: NL Crear una *Quemadura, aplicar Débil, o ragontaer:Cambiar."
+  },
+  "DTMod:Observe": {
+    "NAME": "Observar",
+    "DESCRIPTION": "Innata. NL Gana [E] por cada !M! cartas en tu pila de extracción."
+  },
+  "DTMod:OpeningTactic": {
+    "NAME": "Táctica de Apertura",
+    "DESCRIPTION": "Innata. NL Si el enemigo tiene todos sus PV, Gana !M! de Destreza. NL Hace !D! de daño."
+  },
+  "DTMod:Outburst": {
+    "NAME": "Estallido",
+    "DESCRIPTION": "Dragón entra en Cólera cada 2 turnos.",
+    "UPGRADE_DESCRIPTION": "Gana [E]. NL Dragón entra en Cólera cada 2 turnos."
+  },
+  "DTMod:Overwhelm": {
+    "NAME": "Abrumar",
+    "DESCRIPTION": "Aplica 2 Débil. NL TODOS los enemigos pierden PV igual a !M! veces su Débil."
+  },
+  "DTMod:Prediction": {
+    "NAME": "Predicción",
+    "DESCRIPTION": "Elige una carta de tu pila de extracción y colócala al tope. NL Su coste es 0 hasta ser jugada."
+  },
+  "DTMod:Punisher": {
+    "NAME": "Castigador",
+    "DESCRIPTION": "Haz !D! de daño. Si el enemigo tiene Débil, haz !D! de daño otra vez."
+  },
+  "DTMod:PurifyingFlame": {
+    "NAME": "Llama Purificadora",
+    "DESCRIPTION": "Dragón hace NL !DT:THD! de daño. NL Pierde todos los estados negativos de Dragón. NL Agota."
+  },
+  "DTMod:QuickFly": {
+    "NAME": "Vuelo Veloz",
+    "DESCRIPTION": "Innata. NL Dragón hace NL !DT:THD! de daño. NL Roba una carta."
+  },
+  "DTMod:RecklessFlurry": {
+    "NAME": "Ráfaga Temeraria",
+    "DESCRIPTION": "Elige el atacante. NL El atacante pierde TODO el Bloqueo y hace el doble de esa cantidad de daño a TODOS los enemigos."
+  },
+  "DTMod:RepeatStrike": {
+    "NAME": "Golpe Repetido",
+    "DESCRIPTION": "Dragón hace !DT:THD! de daño. Al principio de cada turno, devuelve esto de tu pila de descartes a tu mano.",
+    "UPGRADE_DESCRIPTION": "Innata. NL Dragón hace !DT:THD! de daño. Al principio de cada turno, devuelve esto de tu pila de descartes a tu mano."
+  },
+  "DTMod:ResonanceForm": {
+    "NAME": "Forma de Resonancia",
+    "DESCRIPTION": "Etérea. NL Los efectos que le den Fuerza, Destreza o Bloqueo a uno de tu equipo ahora afectan a ambos.",
+    "UPGRADE_DESCRIPTION": "Los efectos que le den Fuerza, Destreza o Bloqueo a uno de tu equipo ahora afectan a ambos."
+  },
+  "DTMod:RunningTactic": {
+    "NAME": "Táctica de Correr",
+    "DESCRIPTION": "Roba !M! cartas. NL Ganas 2 ragontaer:Aggro."
+  },
+  "DTMod:Safeguard": {
+    "NAME": "Salvaguardar",
+    "DESCRIPTION": "La ragontaer:Retaguardia no pierde Bloqueo al principio de tu turno.",
+    "UPGRADE_DESCRIPTION": "Innata. NL La ragontaer:Retaguardia no pierde Bloqueo al principio de tu turno."
+  },
+  "DTMod:SealedStrike": {
+    "NAME": "Impacto Sellado",
+    "DESCRIPTION": "Hace !D! de daño. NL Puede Mejorarse 5 veces. Tras la 5ª mejora, Mejora TODAS las cartas de tu baraja."
+  },
+  "DTMod:ShadowImage": {
+    "NAME": "Imagen Espectral",
+    "DESCRIPTION": "Cuando Tú o Dragón atacáis, el atacante gana !M! de Bloqueo."
+  },
+  "DTMod:ShieldDrain": {
+    "NAME": "Absorción de Escudo",
+    "DESCRIPTION": "Roba todo el Bloqueo del enemigo. NL Haz !D! de daño."
+  },
+  "DTMod:Shift": {
+    "NAME": "Cambiar",
+    "DESCRIPTION": "Retener. NL La ragontaer:Retaguardia gana NL !M! ragontaer:Aggro. NL Agotar.",
+    "UPGRADE_DESCRIPTION": "Retener. NL Elige una: NL Tú o Dragón ganáis NL !M! ragontaer:Aggro. NL Agotar."
+  },
+  "DTMod:SneakAttack": {
+    "NAME": "Ataque Furtivo",
+    "DESCRIPTION": "Solo se puede jugar si eres la ragontaer:Retaguardia. NL Haz !D! de daño 4 veces.",
+    "EXTENDED_DESCRIPTION": [
+      "¡No soy la Retaguardia!"
+    ]
+  },
+  "DTMod:StarRain": {
+    "NAME": "Lluvia de Estrellas",
+    "DESCRIPTION": "Haz !D! de daño X+1 veces. Este ataque no incrementa ragontaer:Aggro."
+  },
+  "DTMod:StunTrap": {
+    "NAME": "Trampa Aturdidora",
+    "DESCRIPTION": "Después de 2 turnos, Aturde al enemigo y roba !M! cartas. NL Agota."
+  },
+  "DTMod:TagTeam": {
+    "NAME": "Juego en Equipo",
+    "DESCRIPTION": "La ragontaer:Vanguardia gana NL !B! de Bloqueo. NL Gana !M! ragontaer:Vínculo. NL Si tu equipo ragontaer:Cambió este turno, todos los efectos se duplican.",
+    "EXTENDED_DESCRIPTION": [
+      "La ragontaer:Vanguardia gana NL !DT:THB! de Bloqueo. NL Gana !M! ragontaer:Vínculo. NL Si tu equipo ragontaer:Cambió este turno, todos los efectos se duplican."
+    ]
+  },
+  "DTMod:TauntingStrike": {
+    "NAME": "Golpe Provocador",
+    "DESCRIPTION": "Elige uno: Haz !D! de daño, o Dragón hace !DT:THD! de daño. NL El atacante ragontaer:Provoca al enemigo.",
+    "EXTENDED_DESCRIPTION": [
+      "(No puede Provocarse a sí mismo)"
+    ]
+  },
+  "DTMod:Threaten": {
+    "NAME": "Amenazar",
+    "DESCRIPTION": "Innata. NL Dragón gana !DT:THB! de Bloqueo y aplica !M! Débil."
+  },
+  "DTMod:Training": {
+    "NAME": "Entrenamiento",
+    "DESCRIPTION": "Tú y Dragón ganáis !M! de Fuerza cada uno. NL Gana 1 ragontaer:Vínculo."
+  },
+  "DTMod:TriAttack": {
+    "NAME": "Tri Ataque",
+    "DESCRIPTION": "Elige !M! veces: NL Tú haces !D! de daño o Dragón hace !DT:THD! de daño."
+  },
+  "DTMod:WarmUp": {
+    "NAME": "Calentamiento",
+    "DESCRIPTION": "Al principio de tu turno, roba !M! carta adicional.",
+    "UPGRADE_DESCRIPTION": "Innata. NL Al principio de tu turno, roba !M! carta adicional."
+  },
+  "DTMod:Weaken": {
+    "NAME": "Debilitar",
+    "DESCRIPTION": "Aplica !M! Débil. NL Agota."
+  }
+}

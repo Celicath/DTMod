@@ -91,5 +91,14 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Maven: Reliquary:Reliquary:4.0.0">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../lib/Reliquary.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>

@@ -1,0 +1,66 @@
+[
+  {
+    "PROPER_NAME": "Vínculo",
+    "NAMES": [
+      "vínculo"
+    ],
+    "DESCRIPTION": "Cuando tu equipo gana #b5 #yVínculo, escoge #b1 entre #b3 bonificaciones aleatorias. NL Solo funciona mientras [#60D0D0]Dragón[] está vivo."
+  },
+  {
+    "PROPER_NAME": "Aggro",
+    "NAMES": [
+      "aggro"
+    ],
+    "DESCRIPTION": "Cuando [#60D0D0]Tú[] o [#60D0D0]Dragón[] atacáis, el atacante gana #b1 Aggro. El personaje con más Aggro se convierte en la #yVanguardia, recibiendo todos los ataques."
+  },
+  {
+    "PROPER_NAME": "Vanguardia",
+    "NAMES": [
+      "vanguardia"
+    ],
+    "DESCRIPTION": "El personaje marcado con el Marcador de Vanguardia. NL TODOS los enemigos atacan a la Vanguardia."
+  },
+  {
+    "PROPER_NAME": "Retaguardia",
+    "NAMES": [
+      "retaguardia"
+    ],
+    "DESCRIPTION": "El personaje de tu equipo sin el Marcador de Vanguardia."
+  },
+  {
+    "PROPER_NAME": "Cambiar",
+    "NAMES": [
+      "cambiar",
+      "cambia", 
+      "cambió"
+    ],
+    "DESCRIPTION": "La #yVanguardia se convierte en la #yRetaguardia, y viceversa. NL Se Cambia cuando el #yAggro de la #yRetaguardia es más alto que el de la #yVanguardia."
+  },
+  {
+    "PROPER_NAME": "Provocar",
+    "NAMES": [
+      "provocar",
+      "provoca"
+    ],
+    "DESCRIPTION": "Cuando un enemigo está Provocado, siempre atacará al Provocador, no a la Vanguardia. NL Provocar dura 1 turno."
+  },
+  {
+    "PROPER_NAME": "Poción de Brasas",
+    "NAMES": [
+      "poción brasas",
+      "poción_brasas",
+      "pociones_brasas"
+    ],
+    "DESCRIPTION": "Una poción que hace #b40 de daño a un enemigo."
+  },
+  {
+    "PROPER_NAME": "PV Temporales",
+    "NAMES": [
+      "pv temporal",
+      "pv_temporal",
+      "pv temporales",
+      "pv_temporales"
+    ],
+    "DESCRIPTION": "Los PV Temporales desaparecen al final del combate."
+  }
+]

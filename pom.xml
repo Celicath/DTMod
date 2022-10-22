@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>dtmod</groupId>
     <artifactId>dtmod</artifactId>
-    <version>1.2.0</version>
+    <version>1.2.1</version>
     <packaging>jar</packaging>
 
     <name>DTMod</name>
@@ -73,6 +73,13 @@
             <version>4.0.0</version>
             <scope>system</scope>
             <systemPath>${basedir}/../lib/Gensokyo.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>Reliquary</groupId>
+            <artifactId>Reliquary</artifactId>
+            <version>4.0.0</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/../lib/Reliquary.jar</systemPath>
         </dependency>
     </dependencies>
 

@@ -1,0 +1,110 @@
+{
+  "DTMod:PactStone": {
+    "NAME": "Piedra del Pacto",
+    "FLAVOR": "La prueba de vuestra amistad.",
+    "DESCRIPTIONS": [
+      "Al principio de cada combate, [#60D0D0]Tú[] y [#60D0D0]Dragón[] ganáis #b",
+      " de #yragontaer:PV_Temporales cada uno."
+    ]
+  },
+  "DTMod:DragonTamerSkillbook": {
+    "NAME": "Libreto del Domador de Dragones",
+    "FLAVOR": "Ahora el dragón es capaz de ayudar a otros más allás de su maestro.",
+    "DESCRIPTIONS": [
+      "Cuando juegas una carta que te afecta tanto a ti como a otro personaje, gana #b1 #yragontaer:Vínculo.",
+      " NL NL #yMulticlase Domador de Dragones"
+    ]
+  },
+  "DTMod:BasicTextbook": {
+    "NAME": "Libro de Texto Básico",
+    "FLAVOR": "Las habilidades básicas son las cosas más importantes que aprender.",
+    "DESCRIPTIONS": [
+      "Incrementa el daño de Golpe y el #yBloqueo de Defender Objetivo en #b",
+      " [REMOVE_SPACE]."
+    ]
+  },
+  "DTMod:OddArmor": {
+    "NAME": "Armadura Extraña",
+    "FLAVOR": "Porque parece extraña, la gente no quiere llevarla por poderosa que sea.",
+    "DESCRIPTIONS": [
+      "En los turnos impares, [#60D0D0]Dragón[] recibe #b",
+      " de daño menos de los ataques. NL En los turnos pares, [#60D0D0]Tú[] recibes #b",
+      " de daño menos de los ataques."
+    ]
+  },
+  "DTMod:MagicStone": {
+    "NAME": "Piedra Mágica",
+    "FLAVOR": "La Piedra del Pacto absorbió magia extraña.",
+    "DESCRIPTIONS": [
+      "Reemplaza #yPiedra #ydel #yPacto. Al principio de cada combate, [#60D0D0]Tú[] y [#60D0D0]Dragón[] os curáis #b",
+      " PV. NL Durante el combate, la sanación sobrante se convierte en #yragontaer:PV_Temporales."
+    ]
+  },
+  "DTMod:DragonFood": {
+    "NAME": "Comida de Dragón",
+    "FLAVOR": "Es deliciosa para los humanos también.",
+    "DESCRIPTIONS": [
+      "Al final del combate, [#60D0D0]Dragón[] se cura #b",
+      " PV."
+    ]
+  },
+  "DTMod:AncientBone": {
+    "NAME": "Hueso Anciano",
+    "FLAVOR": "La esencia de la tecnología primitiva.",
+    "DESCRIPTIONS": [
+      "Al principio de cada combate, añade una #yPiel #yResistente a tu mano."
+    ]
+  },
+  "DTMod:TacticalNote": {
+    "NAME": "Nota Táctica",
+    "FLAVOR": "Llena de consejos prácticos.",
+    "DESCRIPTIONS": [
+      "TODAS las cartas que contengan \"Táctica\" potencian sus efectos.",
+      "Efectos Adicionales",
+      "#pCambio #pTáctico - Los enemigos pierden lose #b2 más de #yFuerza.",
+      "#pTáctica #pBizarra - Gana #b2 más de Bloqueo, haz #b2 más de daño.",
+      "#pTáctica #pde #pCorrer - Roba #b1 carta adicional.",
+      "#pTáctica #pEco - Ahora cuesta #b0 [REMOVE_SPACE].",
+      "#pTáctica #pde #pApertura - Ganas #b1 de #yDestreza adicional si el enemigo tiene todos sus PV."
+    ]
+  },
+  "DTMod:SwitchButton": {
+    "NAME": "Botón de Cambio",
+    "FLAVOR": "¡NO toques este botón!",
+    "DESCRIPTIONS": [
+      "[#2aecd7]Una [#2aecd7]vez [#2aecd7]por [#2aecd7]combate, [#2aecd7]haz [#2aecd7]click [#2aecd7]derecho [#2aecd7]para [#2aecd7]activar.[] [#60D0D0]Tú[] y [#60D0D0]Dragón[] cambiáis #yragontaer:Aggro."
+    ]
+  },
+  "DTMod:SolidMemories": {
+    "NAME": "Memorias Sólidas",
+    "FLAVOR": "La forma de origen de las Memorias Líquidas.",
+    "DESCRIPTIONS": [
+      "Al principio del turno #b",
+      " [REMOVE_SPACE], #yBusca una carta de tu pila de descartes. Cuesta #b0 este turno."
+    ]
+  },
+  "DTMod:BindingString": {
+    "NAME": "Cuerda Vinculante",
+    "FLAVOR": "La suma de dos combatientes es mejor cuando se mantienen cerca.",
+    "DESCRIPTIONS": [
+      "Al principio de tu turno, si [#60D0D0]Tú[] y [#60D0D0]Dragón[] tenéis el mismo #yragontaer:Aggro, gana #b",
+      " #yragontaer:Vínculo."
+    ]
+  },
+  "DTMod:TheChair": {
+    "NAME": "La Silla",
+    "FLAVOR": "Esta cómoda silla te da energía, pero salir del modo descanso se hace más difícil. A no ser que tengas mucho talento.",
+    "DESCRIPTIONS": [
+      "Gana [E] al principio de tu turno. En turno #b1, solo robas cartas #yInnatas y cartas en reliquias de Botella."
+    ]
+  },
+  "DTMod:MindBender": {
+    "NAME": "Tuerce Mentes",
+    "FLAVOR": "Prohibido fuera de la Aguja.",
+    "DESCRIPTIONS": [
+      "Cuando juegas una carta que te permite elegir el atacante, puedes escoger a cualquier enemigo como el atacante.",
+      "cartas de 'Elegir el Atacante'",
+      "- Ráfaga Temeraria NL - Golpe Provocador NL - Tri Ataque"
+    ]
+  }
+}
