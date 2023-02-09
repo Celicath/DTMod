@@ -20,6 +20,13 @@ public class DTDragonDamage extends DynamicVariable {
 	}
 
 	@Override
+	public void setIsModified(AbstractCard card, boolean v) {
+		if (card instanceof AbstractDTCard) {
+			((AbstractDTCard) card).isDTDragonDamageModified = v;
+		}
+	}
+
+	@Override
 	public int value(AbstractCard card) {
 		if (card instanceof AbstractDTCard) {
 			return ((AbstractDTCard) card).dtDragonDamage;

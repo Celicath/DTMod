@@ -254,7 +254,7 @@ public class Dragon extends CustomPlayer implements CustomSavable<ArrayList<Inte
 
 	@Override
 	public String getLocalizedCharacterName() {
-		return charStrings.TEXT[1];
+		return charStrings.NAMES[0];
 	}
 
 	@Override
